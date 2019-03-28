@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_EditProfile">
+		<description> fn_VerifyPageOpened_EditProfile - Function to verify user landed on the 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_EditProfile">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TEditProfile1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="User successfully landed on 'Edit Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Edit Profile' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickEditProfile_Cancel">
+		<description> fn_ClickEditProfile_Cancel - Function to click CANCEL link on 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Cancel" page="pge_EditProfile">
+			<token type="CONTENT" name="token_lnk_Cancel" value="TEditProfile16" />
+			
+			<step type="CLICK" name="lnk_Cancel" page="pge_EditProfile" wait="3">
+				<token type="CONTENT" name="token_lnk_Cancel" value="TEditProfile16" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="'Cancel' link is available and clicked on 'Edit Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Cancel' link is not available on 'Edit Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Validate_YourInformationHeader">
+		<description> fn_Validate_YourInformationHeader - Function to validate the Your Information section header at 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_UserInfo" page="pge_EditProfile">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TEditProfile2" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="'Your Information' section header displayed as expected on 'Edit Profile' page" />
+			</step>
+			
+			<!-- Hide Keyboard method called for Android -->
+			<step type="DEVICE" name="HIDE_KEYBOARD" site="FordPass" page="pge_CommonReusable" os="ANDROID" failureMode="IGNORE" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Your Information' section header is not displayed on 'Edit Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputAllFields_YourInformation_EditProfile">
+		<description> fn_InputAllFields_YourInformation_EditProfile - Function to call all the input function to input value to all Your Information section fields in Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_Validate_CPF_EditProfile" page="pge_EditProfile" tagNames="FP-SA"/>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Title" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile5" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile5" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.FirstName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile"  tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile6" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile6" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.MiddleName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile7" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile7" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.LastName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile" tagNames="FP-SA,FP-EU,FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile8" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile8" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Suffix" />
+		</step>
+	</function>
+	
+	<function name="fn_Validate_YourPhoneNumberHeader">
+		<description> fn_Validate_YourPhoneNumberHeader - Function to validate the Your Phone Number section header at 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_YourPhoneNumber" page="pge_EditProfile">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_YourPhoneNumber" value="TEditProfile9" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="'Your Phone Number' section header displayed as expected on 'Edit Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Your Phone Number' section header is not displayed on 'Edit Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	
+	<function name="fn_InputAllFields_YourPhoneNumber_EditProfile">
+		<description> fn_InputAllFields_YourPhoneNumber_EditProfiles - Function to call all the input function to input value to all Your Phone Number section fields in Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile10" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile10" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.PhoneNumber" />
+		</step>
+	</function>
+	
+	<function name="fn_Validate_YourAddressHeader">
+		<description> fn_Validate_YourAddressHeader - Function to validate the Your Address section header at 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_YourPhoneNumber" page="pge_EditProfile">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_YourPhoneNumber" value="TEditProfile10" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="'Your Address' section header displayed as expected on 'Edit Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Your Address' section header is not displayed on 'Edit Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputAllFields_YourAddress_EditProfile">
+		<description> fn_InputAllFields_YourAddress_EditProfile - Function to call all the input function to input value to all Your Address section fields in Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+				
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile" tagNames="FP-SA" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile12" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile12" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.CEP" />
+		</step>
+		
+	
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile13" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile13" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.StreetName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile" tagNames="FP-SA" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile15" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile15" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Complement" />
+		</step>
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile18" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile18" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.City" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile" tagNames="FP-SA" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile19" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile19" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.State" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_State" page="pge_EditProfile"  tagNames="FP-NA" os="ANDROID" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile19" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile19" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.State" />
+		</step>
+		
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_Fields" page="pge_EditProfile" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile14" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile14" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Number" />
+		</step>
+	</function>
+	
+	<function name="fn_Validate_CPF_EditProfile">
+		<description> fn_Validate_CPF_EditProfile - Function to validate whether CPF field is Non-Editable in Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="edt_CPF" page="pge_EditProfile">
+			<token type="CONTENT" name="token_edt_CPF" value="TEditProfile3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="'CPF' label displayed on Edit Profile page as expected" />
+			</step>
+			
+			<step type="GET" name="edt_CPF" page="pge_EditProfile" context="str_CPF_Value">
+				<token type="CONTENT" name="token_edt_CPF" value="TEditProfile3" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="CONTEXT" value="str_CPF_Value" />
+					<parameter type="STATIC" value="Above value is displayed for 'CPF' on Edit Profile page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="STATIC" value="No value displayed for 'CPF' on Edit Profile page" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ATTRIBUTE" name="edt_CPF" page="pge_EditProfile"  os="ANDROID" > 
+				<parameter type="STATIC" value="false" />
+				<parameter type="STATIC" value="enabled" />
+				<token type="CONTENT" name="token_edt_CPF" value="TEditProfile3" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'CPF' field is in Non-Editable state as expected" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="STATIC" value="'CPF' field is not in Non-Editable state" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ATTRIBUTE" name="edt_CPF" page="pge_EditProfile"  os="IOS" > 
+				<parameter type="STATIC" value="true" />
+				<parameter type="STATIC" value="enabled" />
+				<token type="CONTENT" name="token_edt_CPF" value="TEditProfile3" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'CPF' field is in Non-Editable state as expected" />
+				</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'CPF' label and its value are not displayed on Edit Profile page" />
+				</step>
+			</step>
+		</step>	
+		</step>	
+	</function>
+	
+	<function name="fn_ValidateInput_EP_Title">
+		<description> fn_ValidateInput_EP_Title - Function to validate and set the value to TITLE (optional) dropdown field on Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE">
+			<parameter type="CONTEXT" name="Value One" value="param_DataValue" />
+			<parameter type="STATIC" name="Value Two" value="" />
+			<parameter type="STATIC" name="Operator" value="EQUALS"/>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="No changed made to the 'Title' field on Edit Profile page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="EXISTS" name="edt_Title" page="pge_EditProfile">
+					<token type="CONTENT" name="token_edt_Title" value="TEditProfile4" />
+					
+					<step type="CLICK" name="edt_Title" page="pge_EditProfile" wait="5">
+						<token type="CONTENT" name="token_edt_Title" value="TEditProfile4" />
+					</step>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="STATIC" value="'Title' field is available and clicked on Edit Profile page" />
+					</step>
+					
+					<!-- To set the pickerwheel value by SET method in IOS -->
+					<step type="SET" name="lst_Title" page="pge_EditProfile" os="IOS" wait="2">
+						<parameter type="DATA" name="Value to Set" value="TestData.Title" />
+						<token type="DATA" name="token_lst_Title" value="TestData.Title" />
+						
+						<step type="ATTRIBUTE" name="lst_Title" page="pge_EditProfile">
+							<parameter type="DATA" value="TestData.Title" />
+							<parameter type="STATIC" value="value" />
+							<token type="DATA" name="token_lst_Title" value="TestData.Title" />
+							
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+								<parameter type="DATA" value="TestData.Title" />
+								<parameter type="STATIC" value="Above value is available and selected successfully in 'Title' dropdown/listbox field on Edit Profile page" />
+							</step>
+							
+							<!-- to click on Next link on top of Pickerwheel (iOS)-->
+							<step type="CLICK" name="lnk_Next_Pickerwheel" page="pge_EditProfile"  wait="5"/>
+						</step>
+						
+						<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+								<parameter type="DATA" value="TestData.Title" />
+								<parameter type="STATIC" value="Above value is not available on 'Title' dropdown/listbox field on Edit Profile page" />
+							</step>
+							
+							<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR" />
+						</step>
+					</step>
+					
+					<!-- To set the Listbox/Dropdown value by CLICK method in ANDROID -->
+					<step type="VISIBLE" name="lst_Title" page="pge_EditProfile" os="ANDROID">
+						<parameter type="STATIC" name="maxScroll" value="3" />
+						<parameter type="STATIC" name="direction" value="UP" />
+						<token type="DATA" name="token_lst_Title" value="TestData.Title" />
+						
+						<step type="CLICK" name="lst_Title" page="pge_EditProfile">
+							<token type="DATA" name="token_lst_Title" value="TestData.Title" />
+						</step>
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="DATA" value="TestData.Title" />
+							<parameter type="STATIC" value="Above value is available and selected in 'Title' dropdown/listbox field on Edit Profile page" />
+						</step>
+						
+						<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+								<parameter type="DATA" value="TestData.Title" />
+								<parameter type="STATIC" value="Above value is not available on 'Title' dropdown/listbox field on Edit Profile page" />
+							</step>
+							
+							<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR" />
+						</step>
+					</step>
+										
+					<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="STATIC" value="'Title' field is available and clicked on Edit Profile page" />
+						</step>
+						
+						<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateInput_EP_State">
+		<description> fn_ValidateInput_EP_State - Function to validate and set the value to State dropdown field on Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+<!-- 		<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!-- 			<parameter type="STATIC" name="Value Two" value="" /> -->
+<!-- 			<parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+		
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile"> -->
+<!-- 				<parameter type="STATIC" value="No changed made to the 'State' field on Edit Profile page" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_EditProfile"> -->
+				<step type="EXISTS" name="edt_State" page="pge_EditProfile">
+					<token type="CONTENT" name="token_edt_State" value="TEditProfile19" />
+					
+					<step type="CLICK" name="edt_State" page="pge_EditProfile" wait="5">
+						<token type="CONTENT" name="token_edt_State" value="TEditProfile19" />
+					</step>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="STATIC" value="'State' field is available and clicked on Edit Profile page" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="STATIC" value="'State' field is available and clicked on Edit Profile page" />
+						</step>
+						
+						<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR" />
+					</step>
+				</step>
+				
+				<!-- To set the pickerwheel value by SET method in IOS -->
+				<step type="SET" name="lst_State" page="pge_EditProfile" os="IOS" wait="2">
+					<parameter type="DATA" name="Value to Set" value="TestData.State" />
+					<token type="DATA" name="token_lst_State" value="TestData.State" />
+					
+					<step type="ATTRIBUTE" name="lst_State" page="pge_EditProfile">
+						<parameter type="DATA" value="TestData.State" />
+						<parameter type="STATIC" value="value" />
+						<token type="DATA" name="token_lst_State" value="TestData.State" />
+						
+						<step type="STATE" name="Dummy State - State validation" page="pge_EditProfile" failureMode="IGNORE" /> 
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="DATA" value="TestData.State" />
+							<parameter type="STATIC" value="Above value is available and selected successfully in 'State' dropdown/listbox field on Edit Profile page" />
+						</step>
+						
+						<!-- to click on Next link on top of Pickerwheel (iOS)-->
+						<step type="CLICK" name="lnk_Next_Pickerwheel" page="pge_EditProfile"  wait="5"/>
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="DATA" value="TestData.State" />
+							<parameter type="STATIC" value="Above value is not available on 'State' dropdown/listbox field on Edit Profile page" />
+						</step>
+						
+						<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR" />
+					</step>
+				</step>
+					
+				<!-- To set the Listbox/Dropdown value by CLICK method in ANDROID -->
+				<step type="VISIBLE" name="lst_State" page="pge_EditProfile" os="ANDROID" failureMode="IGNORE">
+<!-- 					<parameter type="STATIC" name="maxScroll" value="6" /> -->
+<!-- 					<parameter type="STATIC" name="direction" value="UP" /> -->
+					<token type="DATA" name="token_lst_State" value="TestData.State" />
+				</step>
+					
+				<step type="EXISTS" name="lst_State" page="pge_EditProfile" os="ANDROID" >
+					<token type="DATA" name="token_lst_State" value="TestData.State" />
+				
+					<step type="STATE" name="Dummy State - State validation" page="pge_EditProfile" failureMode="IGNORE" />
+					
+					<step type="CLICK" name="lst_State" page="pge_EditProfile">
+						<token type="DATA" name="token_lst_State" value="TestData.State" />
+					</step>
+					
+					<step type="STATE" name="Dummy State - State validation" page="pge_EditProfile" failureMode="IGNORE" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="DATA" value="TestData.State" />
+						<parameter type="STATIC" value="Above value is available and selected in 'State' dropdown/listbox field on Edit Profile page" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="DATA" value="TestData.State" />
+							<parameter type="STATIC" value="Above value is not available on 'State' dropdown/listbox field on Edit Profile page" />
+						</step>
+					</step>
+				</step>
+	</function>
+	
+	
+<!-- 	//Validate FirstName// -->
+	
+	
+	
+	
+	
+<!-- 	// Check for error message// -->
+
+<function name="fn_CheckforInlineError_EditProfile">
+		<description> fn_CheckforInlineError_EditProfile - Function to validate for Inline error message displayed next to field in Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+<!-- 			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" /> -->
+		
+		<step type="STATE" name="Dummy State - Check for Inline error" page="pge_EditProfile" failureMode="IGNORE" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+			</step>
+			
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_EditProfile">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+<!-- 	//Check for error message dispappear// -->
+	
+	<function name="fn_CheckNotExist_InlineError_EditProfile">
+		<description> fn_CheckNotExist_InlineError_EditProfile - Function to validate for Inline error message is not displayed next to field in EditProfile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+		<step type="STATE" name="Dummy State - Check for Inline error not exists" page="pge_EditProfile" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_EditProfile" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="ATTRIBUTE" name="lbl_InlineErrorMsg" page="pge_EditProfile" os="IOS" failureMode="IGNORE">
+				<parameter type="STATIC" value="true" />
+				<parameter type="STATIC" value="visible" />
+				<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile" os="ANDROID">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message is displayed bottom to the field but it should not" />
+				</step>
+				
+				<!-- stop the execution -->
+				<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR"/>
+				
+				<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+						<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile" os="ANDROID">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message is displayed bottom to the field but it should not" />
+				
+				<!-- stop the execution -->
+				<step type="FLOW" name="END_FAILURE" page="pge_EditProfile" failureMode="ERROR"/>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+
+		
+	<function name="fn_ValidateInput_EP_Fields">
+		<description> fn_ValidateInput_EP_Fields - Function to validate and input/set the fields with user given value on Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_EditProfile" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_EditProfile" />
+		</step>
+		
+		<step type="STRING2" name="upper" page="pge_EditProfile" context="str_UpperCaseConverted">
+			<parameter type="CONTEXT" name="Original Value" value="param_DataValue" />
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE">
+			<parameter type="CONTEXT" name="Value One" value="param_DataValue" />
+			<parameter type="STATIC" name="Value Two" value="" />
+			<parameter type="STATIC" name="Operator" value="EQUALS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="No changes made to the above Edit Profile page field" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE">
+					<parameter type="CONTEXT" name="Value One" value="str_UpperCaseConverted" />
+					<parameter type="STATIC" name="Value Two" value="CLEAR" />
+					<parameter type="STATIC" name="Operator" value="EQUALS"/>
+					
+					<!-- Click to open the keyboard -->
+					<step type="CLICK" name="edt_EditProfileField" page="pge_EditProfile">
+						<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+						<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+					</step>
+					
+					<!-- clear with 'f'(single space) -->
+					<step type="SET" name="edt_EditProfileField" page="pge_EditProfile" wait="3">
+						<parameter type="STATIC" name="value to set" value="f" />
+						<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+						<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+						<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+					</step>
+					
+					<!-- deleting the 'f'(single space) -->
+					<step type="VISUAL" name="BUTTON" page="pge_EditProfile" wait="2" os="ANDROID">
+						<parameter type="STATIC" value="label=DEL" />
+			 			<parameter type="STATIC" name="new parameter" value="screen.top=50%" />
+						<parameter type="STATIC" name="new parameter" value="screen.height=50%" />
+						<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+						<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+						<parameter type="STATIC" value="threshold=90" />
+					</step>
+					
+					<!-- deleting the 'f'(single space) -->
+					<step type="CLICK" name="img_Keyboard_Delete" page="pge_CommonReusable" os="IOS" wait="3" />
+					
+					<!--  Hide Keyboard -->
+					<step type="DEVICE" name="HIDE_KEYBOARD" site="FordPass" page="pge_CommonReusable" os="ANDROID" failureMode="IGNORE" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="CONTEXT" value="param_AndroidToken" />
+						<parameter type="STATIC" value="Existing values on the above Edit Profile page field is cleared" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+						<step type="SET" name="edt_EditProfileField" page="pge_EditProfile" wait="3">
+							<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+							<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+							<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+							<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+						</step>
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="CONTEXT" value="param_AndroidToken" />
+							<parameter type="STATIC" value="Above Edit Profile page field is inputted with the below value" />
+							<parameter type="CONTEXT" value="param_DataValue" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>		
+	</function>
+	
+	<function name="fn_InputWithNext_EP_Fields">
+		<description> fn_InputWithNext_EP_Fields - Function to validate and input/set the fields with user given value on Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_EditProfile" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_EditProfile" />
+		</step>
+		
+		<step type="STRING2" name="upper" page="pge_EditProfile" context="str_UpperCaseConverted">
+			<parameter type="CONTEXT" name="Original Value" value="param_DataValue" />
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE">
+			<parameter type="CONTEXT" name="Value One" value="param_DataValue" />
+			<parameter type="STATIC" name="Value Two" value="" />
+			<parameter type="STATIC" name="Operator" value="EQUALS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="No changes made to the above Edit Profile page field" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE">
+					<parameter type="CONTEXT" name="Value One" value="str_UpperCaseConverted" />
+					<parameter type="STATIC" name="Value Two" value="CLEAR" />
+					<parameter type="STATIC" name="Operator" value="EQUALS"/>
+					
+					<!-- Click to open the keyboard -->
+					<step type="CLICK" name="edt_EditProfileField" page="pge_EditProfile" wait="1">
+						<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+						<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+					</step>
+					
+					<!-- clear with 'f'(single space) -->
+					<step type="SET" name="edt_EditProfileField" page="pge_EditProfile" wait="3">
+						<parameter type="STATIC" name="value to set" value="f" />
+						<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+						<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+						<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+					</step>
+					
+					<!-- deleting the 'f'(single space) -->
+					<step type="VISUAL" name="BUTTON" page="pge_EditProfile" wait="2" os="ANDROID">
+						<parameter type="STATIC" value="label=DEL" />
+			 			<parameter type="STATIC" name="new parameter" value="screen.top=50%" />
+						<parameter type="STATIC" name="new parameter" value="screen.height=50%" />
+						<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+						<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+						<parameter type="STATIC" value="threshold=90" />
+					</step>
+					
+					<!-- deleting the 'f'(single space) -->
+					<step type="CLICK" name="img_Keyboard_Delete" page="pge_CommonReusable" os="IOS" wait="3" />
+					
+					<step type="CALL2" name="fn_ClickNext_OnFullDevice" page="pge_CommonReusable" os="ANDROID" />
+
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="CONTEXT" value="param_AndroidToken" />
+						<parameter type="STATIC" value="Existing values on the above Edit Profile page field is cleared" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+						<step type="CLICK" name="edt_EditProfileField" page="pge_EditProfile" wait="2">
+							<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+							<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+						</step>
+					
+						<step type="SET" name="edt_EditProfileField" page="pge_EditProfile" wait="3">
+							<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+							<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+							<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+							<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+						</step>
+						
+						<step type="CALL2" name="fn_ClickNext_OnFullDevice" page="pge_CommonReusable" os="ANDROID" />
+<!-- 							<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" /> -->
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+							<parameter type="CONTEXT" value="param_AndroidToken" />
+							<parameter type="STATIC" value="Above Edit Profile page field is inputted with the below value" />
+							<parameter type="CONTEXT" value="param_DataValue" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>		
+	</function>
+	
+	<function name="fn_MoveTo_SpecificField_EditProfile">
+		<description> fn_MoveTo_SpecificField_EditProfile - Function to move to specific field on Edit Profile page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="edt_EditProfileField" page="pge_EditProfile" failureMode="IGNORE" os="ANDROID">
+			<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="Above field is available on Edit Profile page along with its expected label and Textfield" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - Object appears" page="pge_EditProfile" failureMode="IGNORE" />
+			
+			<step type="BREAK" name="Object appears successfully" page="pge_EditProfile" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+					<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="edt_EditProfileField.VISIBLE" page="pge_EditProfile" failureMode="IGNORE" os="IOS">
+			<token type="CONTEXT" name="token_edt_EditProfileField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_EditProfileField_IOS" value="param_iOSToken"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="Above field is available on Edit Profile page along with its expected label and Textfield" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - Object appears" page="pge_EditProfile" failureMode="IGNORE" />
+			
+			<step type="BREAK" name="Object appears successfully" page="pge_EditProfile" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+					<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidateEditProfile_SaveButtonStatus">
+		<description> fn_ValidateEditProfile_SaveButtonStatus - Function to validate/check the status of Save button on 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+
+		<step type="VISIBLE" name="btn_Save" page="pge_EditProfile">
+			<parameter type="STATIC" name="maxScroll" value="4" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Save_AND" value="TEditProfile17_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TEditProfile17_IOS" />
+			
+			<step type="ATTRIBUTE" name="btn_Save" page="pge_EditProfile">
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				<parameter type="STATIC" value="enabled" />
+				<token type="CONTENT" name="token_btn_Save_AND" value="TEditProfile17_AND" />
+				<token type="CONTENT" name="token_btn_Save_IOS" value="TEditProfile17_IOS" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+					<parameter type="STATIC" value="'Save' button's enabled property value as expected on 'Edit Profile' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+						<parameter type="CONTEXT" value="param_ExpectedStatus" />
+						<parameter type="STATIC" value="'Save' button's enabled property value not as expected on 'Edit Profile' page" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Save' button is not available on 'Edit Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickEditProfile_Save">
+		<description> fn_ClickEditProfile_Save - Function to click Save button on 'Edit Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_EditProfile.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateEditProfile_SaveButtonStatus" page="pge_EditProfile">
+			<parameter type="STATIC" name="param_ExpectedStatus" value="true" />
+		</step>
+		
+		<step type="CLICK" name="btn_Save" page="pge_EditProfile" wait="3" failureMode="IGNORE" >
+			<token type="CONTENT" name="token_btn_Save_AND" value="TEditProfile17_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TEditProfile17_IOS" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+				<parameter type="STATIC" value="'Save' button is available and clicked on 'Edit Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EditProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile">
+					<parameter type="STATIC" value="'Save' button is not available on 'Edit Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+    
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify vehicle details for authorized TCU VIN 									   -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Verify_VehicleDetails_AuthorizedTCUVIN">
+              <description> fn_Verify_VehicleDetails_AuthorizedTCUVIN - Function to verify vehicle details for authorized TCU VIN </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+       
+       
+        <step type="WAIT_FOR" name="lbl_PresstoRefresh" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="60"/>
+			<token type="CONTENT" name="token_lbl_PresstoRefresh" value="TVehicleDetailsAuthTCUVIN15" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Press to Refresh' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Press to Refresh' is not displayed" />
+			</step>
+		</step>			
+		</step>
+       
+            
+       
+       <step type="EXISTS" name="lbl_Updated" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<token type="CONTENT" name="token_lbl_Updated" value="TVehicleDetailsAuthTCUVIN16" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Updated' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Updated' is not displayed" />
+			</step>
+		</step>			
+		</step>    
+       
+      </function>
+       
+      
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Fuel Level for authorized TCU VIN in YOUR VEHICLE						   -->
+<!-- ############################################################################################################# -->	      
+ 
+  <function name="fn_Verify_FuelLevel_Information_YourVehicle">
+              <description> fn_Verify_FuelLevel_Information_YourVehicle - Function to verify fuel level for authorized TCU VIN in Your Vehicle </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+ 
+        <step type="EXISTS" name="lbl_YourVehicle" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<token type="CONTENT" name="token_lbl_YourVehicle" value="TVehicleDetailsAuthTCUVIN1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'YOUR VEHICLE' screen is appeared" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'YOUR VEHICLE' screen is not appeared" />
+			</step>
+		</step>			
+		</step>    
+		
+		
+ 		<step type="EXISTS" name="lbl_FuelLevel" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<token type="CONTENT" name="token_lbl_FuelLevel" value="TVehicleDetailsAuthTCUVIN2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'FUEL LEVEL' is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'FUEL LEVEL'  is not available" />
+			</step>
+		</step>			
+		</step>    
+		
+		 <step type="EXISTS" name="lbl_FuelLevel_Miles_Kilometer" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lbl_Miles" value="TVehicleDetailsAuthTCUVIN3" />
+			<token type="CONTENT" name="token_lbl_Kilometer" value="TVehicleDetailsAuthTCUVIN4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is available" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is not available" />
+			</step>
+		</step>			
+		</step> 
+		
+		<step type="EXISTS" name="lbl_Full_DTE" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lbl_DTE" value="TVehicleDetailsAuthTCUVIN5" />
+			<token type="CONTENT" name="token_lbl_fullr" value="TVehicleDetailsAuthTCUVIN6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Distance to empty/full' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Distance to empty/full'  is not displayed" />
+			</step>
+		</step>			
+		</step> 
+		
+		<step type="EXISTS" name="lbl_Empty_E" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<token type="CONTENT" name="token_lbl_Empty_E" value="TVehicleDetailsAuthTCUVIN7" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Empty as 'E' on the fuel image' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Empty as 'E' on the fuel image' is not displayed" />
+			</step>
+		</step>			
+		</step> 
+		
+		
+		<step type="EXISTS" name="lbl_Full_F" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<token type="CONTENT" name="token_lbl_Full_F" value="TVehicleDetailsAuthTCUVIN8" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Full as 'F' on the fuel image' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Full as 'F' on the fuel image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+	
+	
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Oil Life for authorized TCU VIN -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Verify_OilLife_AuthorizedTCUVIN_YourVehicle">
+              <description> fn_Verify_OilLife_AuthorizedTCUVIN_YourVehicle - Function to verify Oil Life for authorized TCU VIN </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+ 	
+		
+		<step type="VISIBLE" name="lbl_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_OilLife" value="TVehicleDetailsAuthTCUVIN12" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL LIFE' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL LIFE' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_OilLife_Percentage" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_OilLife_Percentage" value="TVehicleDetailsAuthTCUVIN13" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL LIFE %' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL LIFE %' is not displayed" />
+			</step>
+		</step>			
+		</step>
+	        
+     </function>
+     
+     
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on Oil Life and to verify oil life information for authorized TCU VIN -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Click_Verify_OilLife_Information_YourVehicle">
+              <description> fn_Click_Verify_OilLife_Information_YourVehicle - Function to click and verify Oil Life information for authorized TCU VIN </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+ 	
+		
+		<step type="CLICK" name="lbl_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<token type="CONTENT" name="token_lbl_OilLife" value="TVehicleDetailsAuthTCUVIN12" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL LIFE' icon is clicked is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL LIFE' icon is not clicked" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="WAIT_FOR" name="lbl_OilLife_Information_Title" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<parameter type="STATIC" value="30"/> 
+		<token type="CONTENT" name="token_lbl_OilLife_Information_Title" value="TVehicleDetailsAuthTCUVIN17" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Oil life remaining' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Oil life remaining' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_OilLife_Information_Content1" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lbl_OilLife_Information_Content1" value="TVehicleDetailsAuthTCUVIN18" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Your vehicle is equipped with an intelligent' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Your vehicle is equipped with an intelligent' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_OilLife_Information_Content2" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lbl_OilLife_Information_Content2" value="TVehicleDetailsAuthTCUVIN19" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'CHANGE ENGINE OIL SOON' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'CHANGE ENGINE OIL SOON' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="lbl_OilLife_Information_Content3" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lbl_OilLife_Information_Content3" value="TVehicleDetailsAuthTCUVIN20" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'When the engine oil life remaining is 10% or less.' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'When the engine oil life remaining is 10% or less.' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_OilLife_Information_Content4" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lbl_OilLife_Information_Content4" value="TVehicleDetailsAuthTCUVIN21" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL CHANGE REQUIRED' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'OIL CHANGE REQUIRED' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="lbl_OilLife_Information_Content5" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lbl_OilLife_Information_Content5" value="TVehicleDetailsAuthTCUVIN22" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'When the oil life left reaches 0%.' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'When the oil life left reaches 0%.' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<!-- <step type="EXISTS" name="btn_ScheduleService_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_btn_ScheduleService_OilLife" value="TVehicleDetailsAuthTCUVIN23" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Schedule Service' button is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Schedule Service' button is not displayed on the screen" />
+			</step>
+		</step>			
+		</step> -->
+		
+	    <step type="EXISTS" name="btn_FindADealer_OillLife" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+     	<token type="CONTENT" name="token_btn_FindADealer_OillLife_s" value="TVehicleDetailsAuthTCUVIN26" />
+		<token type="CONTENT" name="token_btn_FindADealer_OillLife" value="TVehicleDetailsAuthTCUVIN26_A" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Find a Dealer' button is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Find a Dealer' button is not displayed on the screen" />
+			</step>
+		</step>			
+		</step>
+		
+				
+		<step type="EXISTS" name="btn_Back_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Back' button is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Back' button is not displayed on the screen" />
+			</step>
+		</step>			
+		</step>
+		
+	        
+     </function>
+  
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on Schedule Service of Oil life remaining screen							   -->
+<!-- ############################################################################################################# -->
+  
+<function name="fn_ClickOn_ScheduleService_OilLifeRemaining">
+    <description>fn_ClickOn_ScheduleService_OilLifeRemaining-Function to click on Schedule Service of Oil life remaining screen</description>
+     <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+        <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+           </step>
+		
+	 <step type="CLICK" name="btn_ScheduleService_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+	 		<token type="CONTENT" name="token_btn_ScheduleService_OilLife" value=""/>
+     		<step type="WAIT_FOR" name="" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     		<parameter type="STATIC"  value="30"/>
+     		<token type="CONTENT" name="" value=""/>
+     		</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Navigated to vehicle info screen - back button is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Not navigated to vehicle info screen - back button is not clicked" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+ </function>
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on back button of Oil Life screen -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Navigate_BackFromOilLife_To_VehicleInfo">
+              <description> fn_Navigate_BackFromOilLife_To_VehicleInfo - Function to click on back button of Oil Life screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="CLICK" name="btn_Back_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     		<step type="WAIT_FOR" name="lbl_OilLife" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     		<parameter type="STATIC"  value="60"/>
+     		<token type="CONTENT" name="token_lbl_OilLife" value="TVehicleDetailsAuthTCUVIN12"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Navigated to vehicle info screen - back button is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Not navigated to vehicle info screen - back button is not clicked" />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+  
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on service and support for authorized TCU VIN 							   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_On_ServiceAndSupport">
+              <description> fn_Click_On_ServiceAndSupport - Function to click on Service and Support</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="VISIBLE" name="lnk_ServiceandSupport" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="DOWN"/>
+	<token type="CONTENT" name="token_lnk_ServiceandSupport" value="TVehicleDetailsAuthTCUVIN25" />
+	</step>
+     
+     
+     <step type="CLICK" name="lnk_ServiceandSupport" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lnk_ServiceandSupport" value="TVehicleDetailsAuthTCUVIN25" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="SERVICE and SUPPORT is clicked" />
+		</step>
+     
+     </step>	
+     
+     <step type="WAIT_FOR" name="lbl_Odometer" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<parameter type="STATIC" value="60"/> 
+		<token type="CONTENT" name="token_lbl_Odometer" value="TVehicleDetailsAuthTCUVIN9" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'ODOMETER' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'ODOMETER' is not displayed on the screen" />
+			</step>
+		</step>
+		</step>
+							
+				
+		
+</function>	 
+  
+    
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify vehicle details for authorized TCU VIN FOR SERVICE AND SUPPORT -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_VehicleDetails_AuthorizedTCUVIN_ServiceAndSupport">
+              <description> fn_Verify_VehicleDetails_AuthorizedTCUVIN_ServiceAndSupport - Function to verify vehicle details for authorized TCU VIN for the tab Service and Support</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="EXISTS" name="lbl_Odometer" page="pge_AuthorizedTCUVIN_VehicleInfo">
+     	<token type="CONTENT" name="token_lbl_Odometer" value="TVehicleDetailsAuthTCUVIN9" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'ODOMETER' is displayed on the screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'ODOMETER' is not displayed on the screen" />
+			</step>
+		</step>			
+		</step>
+		
+		<!-- <step type="VISIBLE" name="lbl_Odometer_Miles_Kilometer_1" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Miles" value="TVehicleDetailsAuthTCUVIN3" />
+		<token type="CONTENT" name="token_lbl_Miles_s" value="TVehicleDetailsAuthTCUVIN3_A" />
+		<token type="CONTENT" name="token_lbl_Kilometer" value="TVehicleDetailsAuthTCUVIN4" />
+		<token type="CONTENT" name="token_lbl_Kilometer_s" value="TVehicleDetailsAuthTCUVIN4_A" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is available under odometer" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is not available under odometer" />
+			</step>
+		</step>			
+		</step>
+		
+ -->		
+		<!-- Need to remote failureMode Ignore if next service due is available -->
+		<step type="VISIBLE" name="lbl_NextServiceDueAt" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_NextServiceDueAt" value="TVehicleDetailsAuthTCUVIN10" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Next service due at' is available under odometer" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Next service due at' is not available under odometer" />
+			</step>
+		</step>			
+		</step>
+		
+	<!-- Need to remove failure Mode if the mi/km is displayed -->
+		
+	<!-- 	<step type="VISIBLE" name="lbl_Odometer_Miles_Kilometer_2" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Miles" value="TVehicleDetailsAuthTCUVIN3" />
+		<token type="CONTENT" name="token_lbl_Miles_s" value="TVehicleDetailsAuthTCUVIN3_A" />
+		<token type="CONTENT" name="token_lbl_Kilometer" value="TVehicleDetailsAuthTCUVIN4" />
+		<token type="CONTENT" name="token_lbl_Kilometer_s" value="TVehicleDetailsAuthTCUVIN4_A" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is available under odometer" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is not available under odometer" />
+			</step>
+		</step>			
+		</step>
+		
+			<step type="VISIBLE" name="lbl_Odometer_Miles_Kilometer_3" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Miles" value="TVehicleDetailsAuthTCUVIN3" />
+		<token type="CONTENT" name="token_lbl_Miles_s" value="TVehicleDetailsAuthTCUVIN3_A" />
+		<token type="CONTENT" name="token_lbl_Kilometer" value="TVehicleDetailsAuthTCUVIN4" />
+		<token type="CONTENT" name="token_lbl_Kilometer_s" value="TVehicleDetailsAuthTCUVIN4_A" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is available under odometer" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is not available under odometer" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Odometer_Miles_Kilometer_4" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Miles" value="TVehicleDetailsAuthTCUVIN3" />
+		<token type="CONTENT" name="token_lbl_Miles_s" value="TVehicleDetailsAuthTCUVIN3_A" />
+		<token type="CONTENT" name="token_lbl_Kilometer" value="TVehicleDetailsAuthTCUVIN4" />
+		<token type="CONTENT" name="token_lbl_Kilometer_s" value="TVehicleDetailsAuthTCUVIN4_A" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is available under odometer" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Miles as 'MI'/Kilometer as'KM' is not available under odometer" />
+			</step>
+		</step>			
+		</step>
+		
+	 -->
+	<!-- ******** Need to remove failurMode once the label is confirmed ************* -->
+			
+		<!-- <step type="VISIBLE" name="lbl_IndicatedByYourVehicle" page="pge_AuthorizedTCUVIN_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_IndicatedByYourVehicle" value="TVehicleDetailsAuthTCUVIN11" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'indicated by your vehicle's message center' is available under odometer" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'indicated by your vehicle's message center' is not available under odometer" />
+			</step>
+		</step>			
+		</step>  -->
+		
+</function>
+	
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Next service due at -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_On_NextServiceDueAt">
+              <description> fn_Click_On_NextServiceDueAt - Function to click on Next service due at</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="CLICK" name="lbl_NextServiceDueAt" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_NextServiceDueAt" value="TVehicleDetailsAuthTCUVIN10" />
+		<step type="WAIT_FOR" name="lbl_Maintenanceschedule" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<parameter type="STATIC" value="20"/>
+			<token type="CONTENT" name="token_lbl_Maintenanceschedule" value="TVehicleDetailsAuthTCUVIN24" />
+		
+		</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Next service due at' is available and clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Next service due at' is not clicked" />
+			</step>
+		</step>			
+	</step>
+	
+ 
+ 	</function>
+ 
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to navigate back to service and support screen -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Navigate_BackFromMaintenanceSchedule_To_VehicleInfo">
+              <description> fn_Navigate_BackFromMaintenanceSchedule_To_VehicleInfo - Function to click on back button</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="CLICK" name="btn_Back_MaintenanceSchedule" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		
+		<step type="WAIT_FOR" name="lbl_NextServiceDueAt" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<parameter type="STATIC" value="30"/>
+		<token type="CONTENT" name="token_lbl_NextServiceDueAt" value="TVehicleDetailsAuthTCUVIN10" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Navigated back to service and support screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Not navigated back to service and support screen" />
+			</step>
+		</step>			
+	</step>
+	
+ 
+ 	</function>
+ 	
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to press and hold unlock button and verify the banner							   -->
+<!-- ############################################################################################################# -->	    
+ 
+ 	
+ 	<function name="fn_UnlockVehicleSuccess">
+	
+		<description>Verify Unlock option in Vehicle Control Page</description>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_AuthorizedTCUVIN_VehicleInfo.xml ***" />
+		</step>
+		
+		<step name="mobile:touch:tap" page="pge_AuthorizedTCUVIN_VehicleInfo" type="COMMAND">
+		  <parameter name="location" value="20%,20%" type="STATIC" />
+		  <parameter name="duration" value="10" type="STATIC" />
+		</step>			 			
+
+		 <step type="WAIT_FOR" name="lbl_DoorsUnlockedBanner" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="120" />
+			<token type="CONTENT" name="token_lbl_DoorsUnlockedBanner" value="TVehicleControls1" />
+		</step>
+		
+		<step type="EXISTS" name="btn_CloseWidgetBanner" page="pge_AuthorizedTCUVIN_VehicleInfo"/>
+			
+					
+	</function>
+	
+ 	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Vehicle Location for authorized TCU VIN -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Verify_VehicleLocation">
+              <description> fn_Verify_VehicleLocation - Function to verify Vehicle Location for authorized TCU VIN </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+ 	
+		
+		<step type="VISIBLE" name="lnk_VehicleLocation_Title" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lnk_VehicleLocation_Title" value="TVehicleLocation1" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Locztion' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Location' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_LocationSet" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_LocationSet" value="TVehicleLocation1" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Set Location' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Set Location' is not displayed" />
+			</step>
+		</step>			
+		</step>
+				
+		
+		<step type="VISIBLE" name="lbl_UpdatedStatus" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_UpdatedStatus" value="TVehicleLocation1" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Updated Status' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Updated Status' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lnk_Map_Icon" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lnk_Map_Icon" value="TVehicleLocation1" />
+		<token type="CONTENT" name="token_lnk_Map_Icon_iOS" value="TVehicleLocation1" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Map Icon' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Map Icon' is not displayed" />
+			</step>
+		</step>			
+		</step>
+			        
+     </function>
+ 	
+ 	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Vehicle Location link												   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_On_VehicleLocation">
+              <description> fn_Click_On_VehicleLocation - Function to click on Vehicle Location link</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="CLICK" name="lnk_VehicleLocation_Title" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<token type="CONTENT" name="token_lnk_VehicleLocation_Title" value="TVehicleLocation1" />
+		<step type="WAIT_FOR" name="lbl_VehicleLocation_Title" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<parameter type="STATIC" value="30"/>
+			<token type="CONTENT" name="token_lbl_VehicleLocation_Title" value="TVehicleLocation2" />
+			<token type="CONTENT" name="token_lbl_VehicleLocation_Title_iOS" value="TVehicleLocation2_IOS" />
+		
+		</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Location' screen is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Location' screen is not displayed" />
+			</step>
+		</step>			
+	</step>	
+ 
+ 	</function>
+ 	
+ 	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Vehicle Location Screen -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Verify_VehicleLocation_Screen">
+              <description> fn_Verify_VehicleLocation_Screen - Function to verify Vehicle Location screen </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+ 	
+		
+		<step type="EXISTS" name="lbl_VehicleLocation_Title" page="pge_AuthorizedTCUVIN_VehicleInfo">
+					
+		<token type="CONTENT" name="token_lbl_VehicleLocation_Title" value="TVehicleLocation2" />
+		<token type="CONTENT" name="token_lbl_VehicleLocation_Title_iOS" value="TVehicleLocation2_IOS" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Location' title is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Location' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon">
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Back button' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Back button' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="WAIT" name="WAIT_TO_LOAD_MAPS" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="5" />
+		</step> 
+		
+		
+		    
+     </function>
+     
+     
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Vehicle Icon on the map											   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Verify_VehicleLocation_Icon">
+              <description> fn_Click_On_VehicleLocation_Icon - Function to click on Vehicle Location Icon on map</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     	 <step type="CLICK" name="lnk_VehicleLocation_Icon" page="pge_AuthorizedTCUVIN_VehicleInfo">
+					
+		<step type="WAIT_FOR" name="lbl_VehicleNickName" page="pge_AuthorizedTCUVIN_VehicleInfo" >
+		<parameter type="STATIC" value="30"/>
+			<token type="DATA" name="token_lbl_VehicleNickName_AND" value="TestData.VehicleNickName_AND" />
+			<token type="DATA" name="token_lbl_VehicleNickName_IOS" value="TestData.VehicleNickName_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is not found" />
+			</step>
+		</step>
+		</step>
+	</step>
+		
+		
+		<step type="EXISTS" name="lbl_LocationSet_Map" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Set Location' is displayed" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Set Location' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="lbl_UpdatedStatus_Map" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Updated Status' is displayed" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Updated Status' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		 
+		
+		<step type="EXISTS" name="lbl_Distance" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<token type="DATA" name='token_lbl_Distance' value="TestData.VehicleNickName_AND"/>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Distance' is displayed" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Distance' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="btn_Arrow" page="pge_AuthorizedTCUVIN_VehicleInfo">
+		<token type="DATA" name='token_btn_Arrow' value="TestData.VehicleNickName_AND"/>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Arrow button' is displayed" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="'Arrow button' is not displayed" />
+			</step>
+		</step>			
+		</step>
+				
+ 	</function>
+     
+ 	
+ 	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Close button on vehicle location									   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Close_VehicleLocation">
+              <description> fn_Click_Close_VehicleLocation - Function to click on close button on vehicle location</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+              </step>
+     
+     <step type="CLICK" name="lnk_Back" page="pge_FPCommon">
+					
+		<step type="WAIT_FOR" name="lnk_VehicleLocation_Title" page="pge_AuthorizedTCUVIN_VehicleInfo" >
+		<parameter type="STATIC" value="90"/>
+			<token type="CONTENT" name="token_lnk_VehicleLocation_Title" value="TVehicleLocation1" />
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Close button is clicked" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+				<parameter type="STATIC" value="Close button is not clicked" />
+			</step>
+		</step>
+		</step>
+	</step>
+	</function> 	
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to press and hold unlock button and verify the banner							   -->
+<!-- ############################################################################################################# -->	    
+ 
+ 	
+ 	<function name="fn_LockVehicleSuccess">
+	
+		<description>Verify Lock option in Vehicle Control Page</description>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_AuthorizedTCUVIN_VehicleInfo.xml ***" />
+		</step>
+		
+		<step name="mobile:touch:tap" page="pge_AuthorizedTCUVIN_VehicleInfo" type="COMMAND">
+		  <parameter name="location" value="90%,20%" type="STATIC" />
+		  <parameter name="duration" value="10" type="STATIC" />
+		</step>			 			
+
+		<step type="WAIT_FOR" name="lbl_DoorsLockedBanner" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="120" />
+			<token type="CONTENT" name="token_lbl_DoorsLockedBanner" value="TVehicleControls2" />
+		</step>
+		
+		<step type="EXISTS" name="btn_CloseWidgetBanner" page="pge_AuthorizedTCUVIN_VehicleInfo"/>
+			
+							
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to press and hold unlock button and verify the banner							   -->
+<!-- ############################################################################################################# -->	    
+ 
+ 	
+ 	<function name="fn_StartEngineSuccess">
+	
+		<description>Verify Start Engine Success option in Vehicle Control Page</description>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_AuthorizedTCUVIN_VehicleInfo.xml ***" />
+		</step>
+		
+		<step type="EXISTS" name="img_Start" page="pge_AuthorizedTCUVIN_VehicleInfo" os="ANDROID">
+			<token type="CONTENT" name="token_img_Start" value="TVehicleControls10" />
+		</step>
+		
+		<step type="EXISTS" name="img_Engine" page="pge_AuthorizedTCUVIN_VehicleInfo" os="ANDROID">
+			<token type="CONTENT" name="token_img_Engine" value="TVehicleControls7" />
+		</step>	
+		
+				
+		<step name="mobile:touch:tap" page="pge_AuthorizedTCUVIN_VehicleInfo" type="COMMAND">
+		  <parameter name="location" value="60%,20%" type="STATIC" />
+		  <parameter name="duration" value="10" type="STATIC" />
+		</step>			 			
+
+		<step type="WAIT_FOR" name="lbl_StartEngineBanner" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="120" />
+			<token type="CONTENT" name="token_lbl_StartEngineBanner" value="TVehicleControls3" />
+		</step> 
+		
+		<step type="EXISTS" name="btn_CloseWidgetBanner" page="pge_AuthorizedTCUVIN_VehicleInfo"/> 
+		
+					
+		<step type="WAIT_FOR" name="lbl_ShuttingOffBanner" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_ShuttingOffBanner" value="TVehicleControls4" />
+		</step>
+				
+		
+		<step type="EXISTS" name="btn_ExtendBanner" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<token type="CONTENT" name="token_btn_ExtendBanner" value="TVehicleControls5" />
+		</step>
+					
+		<step type="EXISTS" name="img_Stop" page="pge_AuthorizedTCUVIN_VehicleInfo" os="ANDROID">
+			<token type="CONTENT" name="token_img_Stop" value="TVehicleControls6" />
+		</step>
+		
+		<step type="EXISTS" name="img_Engine" page="pge_AuthorizedTCUVIN_VehicleInfo" os="ANDROID">
+			<token type="CONTENT" name="token_img_Engine" value="TVehicleControls7" />
+		</step>		
+		
+									
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to press and hold Stop Engine button and verify the banner							   -->
+<!-- ############################################################################################################# -->	    
+ 
+ 	
+ 	<function name="fn_StopEngineSuccess">
+	
+		<description>Verify Stop Engine Success option in Vehicle Control Page</description>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_AuthorizedTCUVIN_VehicleInfo.xml ***" />
+		</step>
+		
+		 <step name="mobile:touch:tap" page="pge_AuthorizedTCUVIN_VehicleInfo" type="COMMAND" os="ANDROID">
+		  <parameter name="location" value="60%,20%" type="STATIC" />
+		  <parameter name="duration" value="10" type="STATIC" />
+		</step>
+		
+		<step type="VISUAL" name="BUTTON" page="pge_AuthorizedTCUVIN_VehicleInfo" os="IOS">
+			<parameter type="STATIC" value="label=STOP ENGINE" />
+			<parameter type="STATIC" value="screen.top=5"></parameter>
+			<parameter type="STATIC" value="screen.height=41"></parameter>
+			<parameter type="STATIC" value="screen.left=31"></parameter>
+			<parameter type="STATIC" value="screen.width=44"></parameter>
+			<parameter type="STATIC" value="operation=long" />
+		</step>	 			
+
+		<step type="WAIT_FOR" name="lbl_StopEngineBanner" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="120" />
+			<token type="CONTENT" name="token_lbl_StopEngineBanner" value="TVehicleControls8" />
+		</step>
+		
+		<step type="EXISTS" name="btn_CloseWidgetBanner" page="pge_AuthorizedTCUVIN_VehicleInfo"/>
+											
+	</function>
+	
+</suite>

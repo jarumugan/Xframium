@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_HourlyVanHire">
+		<description> fn_VerifyPageOpened_Parking - Function to verify user landed on the 'Horuly Van Hire' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HourlyVanHire">
+			<parameter type="STATIC" value="Function's XML file name: fn_HourlyVanHire.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_HourlyVanHire">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="THourlyVanHire1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_HourlyVanHire">
+				<parameter type="STATIC" value="User successfully landed on 'Hourly Van Hire' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_HourlyVanHire">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_HourlyVanHire">
+					<parameter type="STATIC" value="'Parking' page is not displayed or page title is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_VerifySubHeader">
+		<description> fn_VerifySubHeader_ParkWhiz - Function to verify user able to view  Sub Header in the Hourly Van Hire page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Parking">
+			<parameter type="STATIC" value="Function's XML file name: fn_HourlyVanHire.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_SubPageHeader" page="pge_HourlyVanHire">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_SubPageHeader" value="THourlyVanHire2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_HourlyVanHire">
+				<parameter type="STATIC" value="'SubHeader'  displayed in the Hourly Van Hire page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_HourlyVanHire">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_HourlyVanHire">
+					<parameter type="STATIC" value="'SubHeader'  not displayed in the Hourly Van Hire page" />
+				</step>
+			</step>
+		</step>
+	</function>
+		        
+</suite>

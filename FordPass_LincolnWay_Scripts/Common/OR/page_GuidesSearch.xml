@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_GuidesSearch" class="org.xframium.page.keyWord.KeyWordPage">
+		
+			<element name="lbl_PageDescription1" value="//&quot;[@content-desc='{token_lbl_PageDescription1}&quot;]|//&quot;[@label='{token_lbl_PageDescription1}&quot;]" descriptor="XPATH" />
+			<element name="lbl_PageDescription2" value="//*[@content-desc=&quot;{token_lbl_PageDescription2}&quot;]|//*[@label=&quot;{token_lbl_PageDescription2}&quot;]" descriptor="XPATH" />
+			<element name="lbl_PageDescription3" value="//*[@label=&quot;{token_lbl_PageDescription3}&quot;]" descriptor="XPATH" />
+			<element name="lbl_PageDescription4" value="//*[@label=&quot;{token_lbl_PageDescription4}&quot;]" descriptor="XPATH" />		
+			<element name="lbl_PageDescription5" value="//*[@label=&quot;{token_lbl_PageDescription5}&quot;]" descriptor="XPATH" />						
+			<element name="lbl_AskYourQuestionHere" value="//*[@text='{token_lbl_AskYourQuestionHere}']|//*[@label='{token_lbl_AskYourQuestionHere}']|//*[@text='Ask your Question here']|//*[@content-desc='Ask your question here']|//*[@content-desc='Ask your Question here']" descriptor="XPATH" />
+			<element name="edt_AskQuestion" value="//android.widget.EditText|//*[@resource-id='{token_edt_AskQuestion}']|//UIATextField" descriptor="XPATH" />
+			<element name="btn_Ask" value="//android.widget.EditText/following::android.widget.Button|//*[@resource-id='{token_btn_Ask}']|//*[@label='{token_btn_Ask}']" descriptor="XPATH" />
+
+			<element name="lbl_YouSearched" value="//*[@text=&quot;{token_lbl_YouSearched}&quot;]|//*[@label=&quot;{token_lbl_YouSearched}&quot;]" descriptor="XPATH" />
+
+<!-- 			<element name="lbl_YouSearched" value="//*[@text=&quot;{token_lbl_YouSearched_AND}&quot;]|//*[@label=&quot;{token_lbl_YouSearched}&quot;]|//*[@content-desc='My Vehicles']" descriptor="XPATH" /> -->
+
+			<element name="lbl_ResultsHeader" value="//*[contains(@content-desc,'{token_lbl_ResultsHeader}')]|//*[@label='{token_lbl_ResultsHeader}']" descriptor="XPATH" />
+			<element name="lbl_RelatedTopics" value="//*[@content-desc=&quot;{token_lbl_RelatedTopics}&quot;)]|//*[@label=&quot;{token_lbl_ResultsDescription}&quot;]" descriptor="XPATH" />
+			<element name="lbl_SearchedContent" value="//*[@text='{token_lbl_SearchedContent}']|//*[@label='{token_lbl_SearchedContent}']|//*[@content-desc='{token_lbl_SearchedContent}']" descriptor="XPATH" />
+
+			<element name="btn_back" value="//*[@class='android.widget.ImageButton']|//*[@label='{token_btn_back}']|//*[@name='MobilityCommon.APRSAView']//UIAButton|//*[@name='MobilityCommon.RSAView']//UIAButton" descriptor="XPATH" />
+			
+			
+		</page>
+	</site>
+</elementDefinition>

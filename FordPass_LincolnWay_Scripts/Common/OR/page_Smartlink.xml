@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Smartlink" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_Smartlink" value="//*[@text='{token_lbl_Smartlink}']|//*[@label='{token_lbl_Smartlink}']" descriptor="XPATH" />
+			<element name="rad_Smartlink" value="//*[@text='{token_rad_Smartlink}']/following-sibling::android.widget.Switch|//*[@value='{token_rad_Smartlink}']/following-sibling::UIASwitch" descriptor="XPATH" />
+			<element name="lbl_PageInfo1" value="//*[@text='{token_lbl_PageInfo1}']|//*[label='{token_lbl_PageInfo1}']|//*[@value='{token_lbl_PageInfo1}']" descriptor="XPATH" />
+			<element name="lbl_PageInfo2" value="//*[@text=&quot;{token_lbl_PageInfo2}&quot;]|//*[@label=&quot;{token_lbl_PageInfo2}&quot;]|//*[@value=&quot;{token_lbl_PageInfo2}&quot;]" descriptor="XPATH" />
+			<element name="btn_ContactGuide" value="//*[@text='{token_btn_ContactGuide_AND}']|//*[@label='{token_btn_ContactGuide_IOS}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

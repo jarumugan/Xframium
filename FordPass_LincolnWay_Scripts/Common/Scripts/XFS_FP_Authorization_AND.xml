@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : EMUZZAMM -->
+<!-- Created Date : 20-Aug-2018 -->
+<!-- Updated Date : 21-Aug-2018 -->
+<!-- Pre-Requisite : VIN Should be a TCU VIN-->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Authorization_AND" dataProvider="TestData.XFS_FP_Authorization_AND,TestData1.XFS_FP_Authorization_AND" contentKeys="NA_USA_EN,SA_BR_EN" timed="false" threshold="0" active="true" os="ANDROID" >
+		<description> Validating add and delete vehicle for existing user </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+	
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+	
+		<step name="OPEN" page="pge_CommonReusable" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	
+	 
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+	 	<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+				
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" /> 
+ 
+		 <step type="WAIT" name="Wait_For_15_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="30"/>
+		</step> 
+		
+		<step type="ADD_DEVICE" name="OPEN_DEVICE" page="pge_Login">
+			<parameter type="STATIC" value="Device2" />
+		</step>
+		
+		<step name="OPEN" page="pge_CommonReusable" type="APPLICATION" failureMode="IGNORE" device="Device2">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	
+		
+		<step type="CALL2" name="fn_Login_Parameterized_D2" page="pge_Login" device="Device2">
+			<parameter type="DATA" name="param_Username" value="TestData1.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData1.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN_D2" page="pge_CreatePIN" device="Device2"/> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN_D2" page="pge_CreatePIN" device="Device2"/>
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN_D2" page="pge_CreatePIN" device="Device2"/>
+				
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN_D2" page="pge_ConfirmPIN" device="Device2"/>
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN_D2" page="pge_ConfirmPIN" device="Device2"/>
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN_D2" page="pge_ConfirmPIN" device="Device2"/>  
+				
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_ClickAddVehicle" page="pge_AddVIN" /> 
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_AddVIN" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_AddVIN" page="pge_AddVIN" />	
+			
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >		
+				<parameter type="DATA" name="str_VIN_No" value="TestData.VIN" />
+		</step>
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+				<parameter type="DATA" name="param_Nickname" value="TestData.VehicleNickName_AND" />
+		</step> 	
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleNickName_AND" />	
+		</step>		
+		
+		<step type="CALL2" name="fn_Click_VehicleDetails" page="pge_VehicleInfo" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_Click_ViewVehicleDetails" page="pge_Move" failureMode="IGNORE"/>	  
+		
+		<step type="CALL2" name="fn_Verify_ActivateVehicle_Link" page="pge_VehicleInfo"/>
+		
+		<step type="CALL2" name="fn_Click_ActivateVehicle_Link" page="pge_VehicleInfo"/>
+		
+		<step type="CALL2" name="fn_Verify_VehicleActivated_Popup_Message" page="pge_VehicleInfo"/> 
+		
+		
+		
+		
+		
+		
+		
+		
+				
+		
+	<!-- 	<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleNickName_AND" />
+		</step>
+								
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />			
+ --> </test>
+</suite>

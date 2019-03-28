@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ECM">
+		<description> fn_VerifyPageOpened_ECM - Function to verify user landed on the ECM page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ECM">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TECM1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="User successfully landed to ECM page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="ECM page is not opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_validate_ECM">
+		<description> fn_validate_ECM - Function to verify user validation on the ECM page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ECM">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TECM2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="User successfully validated to ECM page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="ECM page is not validated" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_WithdrawConsent" page="pge_ECM">
+			<token type="CONTENT" name="token_btn_WithdrawConsent_AND" value="TECM3_AND" />
+				<token type="CONTENT" name="token_btn_WithdrawConsent_IOS" value="TECM3_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="Withdraw Consent button exists on the page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="Withdraw Consent button does not exist on the page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_WithdrawConsent">
+		<description> fn_Click_WithdrawConsent - Function to click 'WithdrawConsent' link on ECM page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+	
+			
+			<step type="CLICK" name="btn_WithdrawConsent" page="pge_ECM" wait="3">
+				<token type="CONTENT" name="token_btn_WithdrawConsent_AND" value="TECM3_AND" />
+				<token type="CONTENT" name="token_btn_WithdrawConsent_IOS" value="TECM3_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="'WithdrawConsent' link is avialable and clicked on ECM page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="'WithdrawConsent' link is not avialable on Account Landing page" />
+				</step>
+			</step>
+	
+	</function>
+	
+	<function name="fn_VerifyWarningWindow_OpenedECM">
+		<description> fn_VerifyWarningWindow_OpenedECM - Function to verify warning window opened up in ECM page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_Warning" page="pge_ECM">
+			<token type="CONTENT" name="token_lbl_Warning" value="TECM5"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="'Warning window' field is available on the ECM Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="'Warning window ' field is not available on the ECM page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_WarningMsg" page="pge_ECM">
+			<token type="CONTENT" name="token_lbl_WarningMsg" value="TECM6"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="'Warning window message' field is available on the ECM Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="'Warning window message ' field is not available on the ECM page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningConfirm" page="pge_ECM">
+			<token type="CONTENT" name="token_lnk_WarningConfirm_AND" value="TECM7_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningConfirm_IOS" value="TECM7_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="'Yes Withdraw' field is available on the ECM Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="'Yes Withdraw ' field is not available on the ECM page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningCancel" page="pge_ECM">
+			<token type="CONTENT" name="token_lnk_WarningCancel_AND" value="TECM8_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningCancel_IOS" value="TECM8_IOS"/>
+		
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="'Cancel ' field is available on the ECM Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="'Cancel ' field is not available on the ECM page" />
+				</step>
+			</step>
+		</step>	
+		
+	</function>
+	
+	
+	<function name="fn_Click_WarningWindow_Cancel">
+		<description> fn_VerifyECM page gets closed  - Function to verify user selected cancel link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningCancel" page="pge_ECM" wait="3" >
+				<token type="CONTENT" name="token_lnk_WarningCancel_AND" value="TECM8_AND" />
+				<token type="CONTENT" name="token_lnk_WarningCancel_IOS" value="TECM8_IOS" />
+			</step>
+		
+		<step type="CLICK" name="lnk_WarningCancel" page="pge_ECM" wait="3">
+				<token type="CONTENT" name="token_lnk_WarningCancel_AND" value="TECM8_AND" />
+				<token type="CONTENT" name="token_lnk_WarningCancel_IOS" value="TECM8_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="User successfully Cancelled warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Cancel WarningWindow page" page="pge_ECM" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+	
+	<function name="fn_Click_WarningWindow_ConfirmECM">
+		<description> fn_ClickWarningWindowECM page gets opened  - Function to verify user selected confirm link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningConfirm" page="pge_ECM" wait="3">
+				<token type="CONTENT" name="token_lnk_WarningConfirm_AND" value="TECM7_AND" />
+				<token type="CONTENT" name="token_lnk_WarningConfirm_IOS" value="TECM7_IOS" />
+			</step>
+		
+		<step type="CLICK" name="lnk_WarningConfirm" page="pge_ECM">
+				<token type="CONTENT" name="token_lnk_WarningConfirm_AND" value="TECM7_AND" />
+				<token type="CONTENT" name="token_lnk_WarningConfirm_IOS" value="TECM7_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="User successfully cliked confirm in warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Confirm WarningWindow page" page="pge_ECM" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+		
+	<function name="fn_Click_ECM_IAccept">
+		<description> fn_ClickECM_IAccept page gets opened  - Function to verify user selected confirm link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+			<parameter type="STATIC" value="Function's XML file name: fn_ECM.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_IAccept" page="pge_ECM" wait="3">
+				<token type="CONTENT" name="token_btn_IAccept_AND" value="TECM9_AND" />
+				<token type="CONTENT" name="token_btn_IAccept_IOS" value="TECM9_IOS" />
+			</step>
+		
+		<step type="CLICK" name="btn_IAccept" page="pge_ECM">
+				<token type="CONTENT" name="token_btn_IAccept_AND" value="TECM9_AND" />
+				<token type="CONTENT" name="token_btn_IAccept_IOS" value="TECM9_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+				<parameter type="STATIC" value="User successfully cliked confirm in IAccept " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - IAccept page" page="pge_ECM" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ECM">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ECM">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>	
+		
+</suite>

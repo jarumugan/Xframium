@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindFilters" class="org.xframium.page.keyWord.KeyWordPage">
+			<!-- FILTERS: OPEN|CLEAR|APPLY FILTER|CLOSE -->
+			<element name="btn_OpenFilter" value="//*[@text='{token_btn_OpenFilter_AND}']/parent::android.widget.LinearLayout|//*[@label='{token_btn_OpenFilter_IOS}']" descriptor="XPATH" />	
+			<element name="lnk_ClearFilter" value="//*[@text='{token_lnk_ClearFilter}']" descriptor="XPATH" />
+			<element name="btn_ApplyFilter" value="//*[contains(@text,'{token_btn_ApplyFilter_AND}')]|//*[contains(@label,'{token_btn_ApplyFilter_IOS}')]" descriptor="XPATH"/>				
+			<element name="img_CloseFilter" value="//*[@text='{token_img_CloseFilter_AND}']/preceding-sibling::android.widget.ImageView|//*[@label='{token_img_CloseFilter_IOS}']/preceding-sibling::UIAButton" descriptor="XPATH" />
+			<!-- FILTERS: OPEN|CLEAR|APPLY FILTER|CLOSE -->
+			<!-- FILTERS: Page Elements Handler -->
+			<element name="lbl_SectionTitle" value="//*[@text='{token_lbl_SectionTitle}'][1]|//*[@label='{token_lbl_SectionTitle}'][1]" descriptor="XPATH" />
+			<element name="rdb_name" value="//*[@text='{token_rdb_name}']/following-sibling::android.widget.RadioButton|//*[@label='{token_rdb_name}']/following-sibling::UIAButton[{token_rdb_index}]" descriptor="XPATH"/>
+			<element name="cbx_name" value="//*[@text='{token_cbx_name}']/following-sibling::android.widget.CheckBox|//*[@label='{token_cbx_name}']/following-sibling::UIAButton[{token_cbx_index}]" descriptor="XPATH"/>
+			<element name="lbl_rdb_name" value="//*[@text='{token_lbl_SectionTitle}']/following::android.widget.TextView[{token_rdb_index}]|//*[@label='{token_lbl_SectionTitle}']/following-sibling::UIAStaticText[{token_rdb_index}]" descriptor="XPATH"/>
+			<element name="lbl_cbx_name" value="//*[@text='{token_lbl_SectionTitle}']/following::android.widget.TextView[{token_cbx_index}]|//*[@label='{token_lbl_SectionTitle}']/following-sibling::UIAStaticText[{token_cbx_index}]" descriptor="XPATH"/>
+			<element name="sbr_Name" value="//*[@text='{token_sbr_name}']/following::android.widget.SeekBar[1]|//*[@label='{token_sbr_name}']/following-sibling::UIAElement[1]" descriptor="XPATH" />
+			<element name="rating_Str_Name" value="//*[@text='{token_rating_Str_Name}']/following::android.widget.RatingBar[1]|//*[@label='{token_rating_Str_Name}']/following-sibling::UIAButton[5]" descriptor="XPATH" />
+			<element name="btn_FilterApplied" value="//*[contains(@resource-id,'filters_bar')]/android.view.ViewGroup[{token_AppliedFiltersIndex}]/android.widget.TextView[1]|//UIAApplication/UIAWindow[1]/UIACollectionView[2]/UIACollectionCell[{token_AppliedFiltersIndex}]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="btn_FilterAppliedLabel" value="//*[@text='{token_AppliedFilter_Label}']|//*[@label='{token_AppliedFilter_Label}']" descriptor="XPATH" />
+			<element name="btn_FilterCountApplied" value="//*[@text='{token_btn_FilterCountApplied}']/following-sibling::android.widget.TextView|//*[@label='{token_btn_FilterCountApplied}']/following-sibling::UIAStaticText" descriptor="XPATH" />
+			<element name="panel_FilterApplied" value="//*[contains(@resource-id,'filters_bar')]|//UIAApplication/UIAWindow[1]/UIACollectionView[2]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

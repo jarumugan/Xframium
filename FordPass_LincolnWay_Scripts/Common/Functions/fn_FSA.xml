@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function check FSA notification in vehicle details (Single or Multiple FSA notices) -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ValidateFSANotifi_Alert">
+		<description> fn_ValidateFSANotifi_Alert - This function check recall notification in vehicle details (Single or Multiple recall notices) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="lbl_FSANotifiInVehicleDetail" page="pge_FSA">
+				<parameter type="STATIC" name="maxScroll" value="2"/>
+  				<parameter type="STATIC" name="direction" value="DOWN"/>
+				<token type="CONTEXT" name="token_lbl_FSANotifiInVehicleDetail" value="str_FSAAlert" />
+		</step>
+		
+		<step type="VISIBLE" name="img_FSANotifiInVehicleDetail" page="pge_FSA">
+			<token type="CONTEXT" name="token_lbl_FSANotifiInVehicleDetail" value="str_FSAAlert" />
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function clicks FSA notification in vehicle details (Single or Multiple FSA notices) -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ClickFSANotifi_Alert">
+		<description> fn_ClickFSANotifi_Alert - This function clicks recall notification in vehicle details </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_FSANotifiInVehicleDetail" page="pge_FSA">
+				<token type="CONTEXT" name="token_lbl_FSANotifiInVehicleDetail" value="str_FSAAlert" />
+				<step type="WAIT_FOR" name="lbl_Notices" page="pge_Recall">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTEXT" name="token_lbl_Notices" value="str_TNotice" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="User successfully landed on FSA Notices page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_FSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="FSA Notices page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+	</function>
+	
+	
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validates FSA notice page in vehicle -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ValidateFSANotice_Page">
+		<description> fn_ValidateFSANotice_Page - Function to check FSA notice page - 3FADP4YJXFM109000 </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>
+			
+		<step type="VISIBLE" name="btn_RecallBack" page="pge_Recall">
+		<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>		
+						
+		<step type="VISIBLE" name="lbl_VehicleNickname" page="pge_AddVIN">
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_IOS" value="str_VehicleNickName_IOS" />
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_AND" value="str_VehicleNickName_AND" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VehicleMakeModel" page="pge_AddVIN" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_VehicleMakeModel" value="param_VinModel" />				
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FSA" page="pge_FSA">
+				<token type="CONTENT" name="token_lbl_FSA_L" value="TFSA_AND" />
+				<token type="CONTENT" name="token_lbl_FSA_U" value="TFSA" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_FSAName" page="pge_FSA" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lnk_FSAName" value="str_FSAType" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FordFsaNo" page="pge_FSA">
+				<token type="CONTEXT" name="token_lbl_FordFsaNo" value="str_FsaNo" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_FSAName" page="pge_FSA" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lnk_FSAName" value="str_FSAType2" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FordFsaNo" page="pge_FSA">
+				<token type="CONTEXT" name="token_lbl_FordFsaNo" value="str_FsaNo2" />
+		</step>
+		
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function click FSA type in notices page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ClickFSAType">
+		<description> fn_ClickFSAType - Function to click FSA type in notices page - 3FADP4YJXFM109000 </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>
+			
+		<step type="CLICK" name="lbl_FordFsaNo" page="pge_FSA">
+				<parameter type="STATIC" name="LENGTH" value="5" />
+				<token type="CONTEXT" name="token_lbl_FordFsaNo" value="str_FSAType" />
+				<step type="WAIT_FOR" name="lbl_FsaInfoTitle" page="pge_FSA">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTENT" name="token_lbl_FsaInfoTitle" value="TFsaInfoTitle" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="User successfully landed on Recall Detail Information page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_FSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="Recall Detail Information page is not displayed or opened" />
+				</step>
+			</step>	
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function click FSA type in notices page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateFSADetails">
+		<description> fn_ValidateFSADetails - Function to validate FSA details in vehicle details - 3FADP4YJXFM109000 </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>	
+		
+		<step type="VISIBLE" name="btn_RecallBack" page="pge_Recall">
+		<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VehicleNickname" page="pge_AddVIN">
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_IOS" value="str_VehicleNickName_IOS" />
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_AND" value="str_VehicleNickName_AND" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VehicleMakeModel" page="pge_AddVIN" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_VehicleMakeModel" value="param_VinModel" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VIN" page="pge_FSA">
+				<token type="CONTENT" name="token_lbl_VIN_L" value="TVIN_L" />
+				<token type="CONTENT" name="token_lbl_VIN_U" value="TVIN_U" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VinID" page="pge_Recall">
+				<token type="CONTEXT" name="token_lbl_VinID" value="param_VinNumber" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FsaInfo" page="pge_FSA">
+				<token type="CONTENT" name="token_lbl_FsaInfo_U" value="TFsaInfo" />
+				<token type="CONTENT" name="token_lbl_FsaInfo_L" value="TFsaInfo_L" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FsaNameInfo" page="pge_FSA" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_FsaInfo_U" value="TFsaInfo" />
+				<token type="CONTENT" name="token_lbl_FsaInfo_L" value="TFsaInfo_L" />
+				<token type="CONTEXT" name="token_lnk_FSAName" value="str_FSAType" />
+		</step>		
+		
+		<step type="VISIBLE" name="lbl_FordFsaNoLbl" page="pge_FSA">
+				<parameter type="STATIC" name="maxScroll" value="3"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTENT" name="token_lbl_FordFsaNoLbl" value="TFsaNoLbl" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FordFsaNo" page="pge_FSA">
+				<parameter type="STATIC" name="maxScroll" value="3"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTEXT" name="token_lbl_FordFsaNo" value="str_FsaNo" />
+		</step>
+			
+		<step type="VISIBLE" name="lbl_FSADetailDesc" page="pge_FSA" >
+				<parameter type="STATIC" name="maxScroll" value="5"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTENT" name="token_lbl_FSADetailDesc_AND" value="TFSADetailDesc" />
+				<token type="CONTENT" name="token_lbl_FSADetailDesc" value="TFSADetailDesc" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_ScheduleService" page="pge_Recall" os="ANDROID" tagNames="FP-SA">
+				<parameter type="STATIC" name="maxScroll" value="2"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTENT" name="token_btn_ScheduleService" value="TScheduleService" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_FindADealer" page="pge_FSA" os="IOS" tagNames="FP-SA">
+				<parameter type="STATIC" name="maxScroll" value="2"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTENT" name="token_btn_FindADealer" value="TFindADealer" />
+		</step>	
+		
+		<step type="VISIBLE" name="btn_FindADealer" page="pge_FSA" tagNames="FP-EU,FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="2"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTENT" name="token_btn_FindADealer" value="TFindADealer" />
+		</step>		
+		
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function navigate from Recall detail page to Recall notices page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_NavigateFromFSADetailToNotices">
+		<description> fn_NavigateFromFSADetailToNotices - Function to navigate from FSA detail page to notices page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>
+	
+		<step type="CLICK" name="btn_RecallBack" page="pge_Recall">
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+			<step type="WAIT_FOR" name="lbl_Notices" page="pge_Recall">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTENT" name="token_lbl_Notices" value="TNotices" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="User successfully landed on Notices page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_FSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="Notices page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function click FSA type in notices page -->
+<!-- ############################################################################################################# -->	
+	
+	<function name="fn_NavigateFromFsaNoticesToVehicleDetail">
+		<description> fn_NavigateFromFsaNoticesToVehicleDetail - Function to navigate from Recall Notices page to vehicle details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_FSA.xml" />
+		</step>
+			
+		<step type="CLICK" name="btn_RecallBack" page="pge_Recall">
+				<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		
+				<step type="WAIT_FOR" name="lbl_FSANotifiInVehicleDetail" page="pge_FSA">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTEXT" name="token_lbl_FSANotifiInVehicleDetail" value="str_FSAAlert" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="User successfully landed on Vehicle Details page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_FSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FSA">
+					<parameter type="STATIC" value="Vehicle Details page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+	</function>
+	
+</suite>

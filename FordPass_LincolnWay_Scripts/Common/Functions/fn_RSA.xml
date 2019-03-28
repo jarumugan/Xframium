@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_RSA">
+		<description> fn_VerifyPageOpened_RSA - Function to verify RSA Home Page is Opened </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_RSA.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_RSA">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TRSA1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="User successfully landed on RSA Home Page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Change Username page" page="pge_RSA" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="RSA Home Page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_RSA">
+		<description> fn_ValidatePage_RSA - Function to validate the RSA Home Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+			<parameter type="STATIC" value="Function's XML file name: fn_RSA.xml" />
+		</step>		
+		
+		<step type="STATE" name="Screenshot - RSA Home Page taken for validation" page="pge_RSA" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="lbl_PageHeader" page="pge_RSA">
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TRSA1"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Need RoadSide Assistance' label is available on the RSA Home Page" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="Need RoadSide Assistance' label is available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageMessage" page="pge_RSA">
+			<token type="CONTENT" name="token_lbl_PageMessage" value="TRSA3"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'24 hours a day, 7 days a week, we’re here when you need help:' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'24 hours a day, 7 days a week, we’re here when you need help:' label is not available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_KeepMoving" page="pge_RSA">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />			
+			<token type="CONTENT" name="token_lbl_KeepMoving" value="TRSA5" />		
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Call now so you can keep moving' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Call now so you can keep moving' field is not available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Assitance1" page="pge_RSA" os="IOS" tagNames="FP-SA-BR,FP-CN">
+			<token type="CONTENT" name="token_lbl_Assitance1" value="TRSA4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Towing Battery jump change Flat tire change Fuel delivery Lock out assistance Winch out' labels are available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Towing Battery jump change Flat tire change Fuel delivery Lock out assistance Winch out' labels are NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Assitance1" page="pge_RSA" os="ANDROID" tagNames="FP-SA-BR">
+			<token type="CONTENT" name="token_lbl_Assitance1" value="TRSA6"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Towing' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Towing' label is NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Assitance2" page="pge_RSA" os="ANDROID" tagNames="FP-SA-BR" >
+			<token type="CONTENT" name="token_lbl_Assitance2" value="TRSA7"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Battery jump change' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Battery jump change' label is NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Assitance3" page="pge_RSA" os="ANDROID" tagNames="FP-SA-BR">
+			<token type="CONTENT" name="token_lbl_Assitance3" value="TRSA8"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Flat tire change' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Flat tire change' label is NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Assitance4" page="pge_RSA" os="ANDROID" tagNames="FP-SA-BR">
+			<token type="CONTENT" name="token_lbl_Assitance4" value="TRSA9"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Fuel delivery' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Fuel delivery' label is NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Assitance5" page="pge_RSA" os="ANDROID" tagNames="FP-SA-BR">
+			<token type="CONTENT" name="token_lbl_Assitance5" value="TRSA10"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Lock out assistance' label is available on the RSA Home Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Lock out assistance' label is NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		<step type="EXISTS" name="btn_CallRSA" page="pge_RSA" tagNames="FP-SA-BR"  >
+			<token type="CONTENT" name="token_btn_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_btn_CallRSA_AND" value="TRSA2_AND"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROADSIDE ASSISTANCE' button is available on the RSA Home Page" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'CALL ROADSIDE ASSISTANCE' button is NOT available on the RSA Home Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="img_CallRSA" page="pge_RSA" tagNames="FP-EU-UK" >
+			<token type="CONTENT" name="token_img_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_img_CallRSA_AND" value="TRSA2_AND"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROADSIDE ASSISTANCE' button is available on the RSA Home Page for FP-EU" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'CALL ROADSIDE ASSISTANCE' button is NOT available on the RSA Home Page for FP-EU" />
+				</step>
+			</step>
+		</step>			
+		
+				
+	</function>
+
+	<function name="fn_ValidateCallRSA">
+		<description> fn_ValidateCallRSA to Click Call Road Side Assistance Button on RSA Home Page
+		
+		CLICK CALL RSA -> VALIDATE POP-UP CONTENT -> CLICK CANCEL POP-UP -> CLICK CALL RSA -> VALIDATE POP-UP CONTENT -> CLICK CALL FROM THE POP-UP -> VALIDATE DIALER
+		
+		 </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_RSA.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="btn_CallRSA" page="pge_RSA" tagNames="FP-SA-BR,FP-NA" >
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_btn_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_btn_CallRSA_AND" value="TRSA2_AND"/>
+			
+		<step type="CLICK" name="btn_CallRSA" page="pge_RSA" >
+			<token type="CONTENT" name="token_btn_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_btn_CallRSA_AND" value="TRSA2_AND"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROAD SIDE ASSISTANCE' Link is available and clicked on the RSA Home Page for FP-EU" />
+			</step>			
+		</step>
+		</step>	
+		
+		<step type="WAIT_FOR" name="lbl_CallConfirmationHeader" page="pge_RSA">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_CallConfirmationHeader" value="TRSA2_IOS"/>			
+		</step>
+		
+		<step type="EXISTS" name="lbl_CallConfirmationMessage" page="pge_RSA">
+			<token type="CONTENT" name="token_lbl_CallConfirmationMessage" value="TRSA13"/>
+		</step>
+		
+		<step type="EXISTS" name="btn_ConfirmCallRoadAssistance" page="pge_RSA" >
+			<token type="CONTENT" name="token_btn_ConfirmCallRoadAssistance_AND" value="TRSA2_AND"/>
+			<token type="CONTENT" name="token_btn_ConfirmCallRoadAssistance_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_lbl_CallConfirmationMessage" value="TRSA13"/>
+			
+		</step>	
+		
+		
+		<step type="EXISTS" name="btn_CancelCallRoadAssistance" page="pge_RSA">
+			<token type="CONTENT" name="token_btn_CancelCallRoadAssistance_AND" value="TRSA12_AND"/>
+			<token type="CONTENT" name="token_btn_CancelCallRoadAssistance_IOS" value="TRSA12_IOS"/>
+		</step>
+		
+			
+		<step type="CLICK" name="btn_CancelCallRoadAssistance" page="pge_RSA" tagNames="FP-NA">
+			<token type="CONTENT" name="token_btn_CancelCallRoadAssistance_AND" value="TRSA12_AND"/>
+			<token type="CONTENT" name="token_btn_CancelCallRoadAssistance_IOS" value="TRSA12_IOS"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CANCEL' Button is available and clicked on the Confirmation Pop-up in RSA CALL" />
+			</step>			
+		</step>		
+		
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_RSA">
+		<parameter type="STATIC" value="10"/>
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TRSA1"/>
+		</step>
+		
+		
+		<step type="CLICK" name="btn_CallRSA" page="pge_RSA" >
+			<token type="CONTENT" name="token_btn_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_btn_CallRSA_AND" value="TRSA2_AND"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROAD SIDE ASSISTANCE' Link is available and clicked on the RSA Home Page for FP-EU" />
+			</step>			
+		</step>
+		
+		
+		<step type="WAIT_FOR" name="lbl_CallConfirmationHeader" page="pge_RSA">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_CallConfirmationHeader" value="TRSA2_IOS"/>			
+		</step>
+		
+				
+		<step type="CLICK" name="btn_ConfirmCallRoadAssistance" page="pge_RSA" >
+			<token type="CONTENT" name="token_btn_ConfirmCallRoadAssistance_AND" value="TRSA2_AND"/>
+			<token type="CONTENT" name="token_btn_ConfirmCallRoadAssistance_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_lbl_CallConfirmationMessage" value="TRSA13"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL' Button is available and clicked on the Confirmation Pop-up in RSA CALL" />
+			</step>			
+		</step>	
+		
+		<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonResusable"  os="ANDROID"/>		
+		<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonResusable"  failureMode="IGNORE" os="IOS">
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" wait="5">
+				<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>		
+			</step>
+		</step>				
+		
+			
+		<step type="CALL2" name="fn_NavigateBack" page="pge_GuidesSearch" failureMode="IGNORE"/>
+		
+			
+					
+		<!-- <step type="WAIT_FOR" name="img_CallRSA" page="pge_RSA" tagNames="FP-EU,FP-NA">
+			<parameter type="STATIC" value="20"/>
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="DOWN" />			
+			<token type="CONTENT" name="token_img_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_img_CallRSA_AND" value="TRSA2_AND"/>
+		</step>	
+		
+		
+		<step type="CLICK" name="img_CallRSA" page="pge_RSA" >
+			<token type="CONTENT" name="token_img_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_img_CallRSA_AND" value="TRSA2_AND"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROAD SIDE ASSISTANCE' Link is available and clicked on the RSA Home Page for FP-EU" />
+			</step>			
+		</step>
+		
+		<step type="CLICK" name="btn_CancelCallRoadAssistance" page="pge_RSA" tagNames="FP-CN">
+			<token type="CONTENT" name="token_btn_CancelCallRoadAssistance_AND" value="TRSA12_AND"/>
+			<token type="CONTENT" name="token_btn_CancelCallRoadAssistance_IOS" value="TRSA12_IOS"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CANCEL' Button is available and clicked on the Confirmation Pop-up in RSA CALL" />
+			</step>			
+		</step>			
+		
+		<step type="WAIT_FOR" name="lbl_CallConfirmationHeader" page="pge_RSA" tagNames="FP-EU">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_CallConfirmationHeader" value="TRSA2_IOS"/>			
+		</step>
+		<step type="EXISTS" name="lbl_CallConfirmationMessage" page="pge_RSA" tagNames="FP-EU,FP-NA">
+			<token type="CONTENT" name="token_lbl_CallConfirmationMessage" value="TRSA13"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Please confirm that you'd like to call Roadside Assistance. If this is an emergency, exit and dial 9-1-1.' label is available om the RSA Call Dialer Pop-up" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Please confirm that you'd like to call Roadside Assistance. If this is an emergency, exit and dial 9-1-1' label is NOT available on the RSA Call Dialer Pop-up" />
+				</step>
+			</step>
+		</step>			
+		<step type="WAIT_FOR" name="btn_CallRSA" page="pge_RSA" tagNames="FP-SA-BR">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_btn_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_btn_CallRSA_AND" value="TRSA2_AND"/>
+			
+		<step type="CLICK" name="btn_CallRSA" page="pge_RSA" >
+			<token type="CONTENT" name="token_btn_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_btn_CallRSA_AND" value="TRSA2_AND"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROAD SIDE ASSISTANCE' Link is available and clicked on the RSA Home Page" />
+			</step>			
+		</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="img_CallRSA" page="pge_RSA" tagNames="FP-EU" >
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_img_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_img_CallRSA_AND" value="TRSA2_IOS"/>
+			
+		<step type="CLICK" name="img_CallRSA" page="pge_RSA" >
+			<token type="CONTENT" name="token_img_CallRSA_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_img_CallRSA_AND" value="TRSA2_IOS"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL ROAD SIDE ASSISTANCE' Link is available and clicked on the RSA Home Page for FP-EU" />
+			</step>			
+		</step>
+		</step>	
+		<step type="WAIT_FOR" name="lbl_CallConfirmationHeader" page="pge_RSA">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_CallConfirmationHeader" value="TRSA2_IOS"/>			
+		</step>
+		<step type="EXISTS" name="lbl_CallConfirmationMessage" page="pge_RSA" >
+			<token type="CONTENT" name="token_lbl_CallConfirmationMessage" value="TRSA13"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'Please confirm that you'd like to call Roadside Assistance. If this is an emergency, exit and dial 9-1-1.' label is available om the RSA Call Dialer Pop-up" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+					<parameter type="STATIC" value="'Please confirm that you'd like to call Roadside Assistance. If this is an emergency, exit and dial 9-1-1' label is NOT available on the RSA Call Dialer Pop-up" />
+				</step>
+			</step>
+		</step>			
+			
+		<step type="CLICK" name="btn_ConfirmCallRoadAssistance" page="pge_RSA" >
+			<token type="CONTENT" name="token_btn_ConfirmCallRoadAssistance_AND" value="TRSA2_AND"/>
+			<token type="CONTENT" name="token_btn_ConfirmCallRoadAssistance_IOS" value="TRSA2_IOS"/>
+			<token type="CONTENT" name="token_lbl_CallConfirmationMessage" value="TRSA13"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RSA">
+				<parameter type="STATIC" value="'CALL' Button is available and clicked on the Confirmation Pop-up in RSA CALL" />
+			</step>			
+		</step>	
+		
+		<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonResusable"  os="ANDROID"/>		
+		<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonResusable"  failureMode="IGNORE" os="IOS">
+			<step type="ELSE" name="elseCondition" page="pge_RSA">
+				<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" wait="5">
+				<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>		
+			</step>
+		</step>				
+		
+		<step type="CALL2" name="fn_NavigateBack" page="pge_GuidesSearch" failureMode="IGNORE"/>
+ -->		
+	</function>
+</suite>

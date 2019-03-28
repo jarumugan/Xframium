@@ -1,0 +1,2219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver dash board page details  -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_PersonalDriver_LandingPage">
+		<description>fn_Verify_PersonalDriver_LandingPage - Function to verify user landed on the Personal Driver page  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_PDDescription" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDDescription" value="TPD_Description_02" />
+
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver page is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver page and details are exists" />
+				</step>
+			</step>
+			
+		<step type="EXISTS" name="btn_PDViewReservation" page="pge_PersonalDriver" >
+			<token type="CONTENT" name="token_btn_PDViewReservation" value="TPD_ViewReservation_03" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDViewReservation" value="TPD_ViewReservation_03_AND" />
+		</step>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver page is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver page and details are exists" />
+				</step>
+			</step>
+		
+		<step type="EXISTS" name="btn_PDReservationNow" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04_AND" />
+		</step>	
+	
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver page is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver page and details are exists" />
+				</step>
+			</step>
+		
+	
+	</function>			
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation One way trip  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_ReservationNow">
+		<description>fn_Verify_PersonalDriver_Reservation_Onewaytrip - Function to verify user user is able to reserve a oneway trip  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_PDReservationNow" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDViewReservation" value="TPD_ReserveNow_04_AND" />
+		</step>	
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver page is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver Reservation now button is present" />
+				</step>
+			</step>
+	
+	
+		<step type="CLICK" name="btn_PDReservationNow" page="pge_PersonalDriver" wait="10">
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDViewReservation" value="TPD_ReserveNow_04_AND" />
+		</step>	
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation now page is opened" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver Reservation page and details are exists" />
+				</step>
+			</step>
+
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation One way trip page validations  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_PDReserveNowpge">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_PDSchePDtitle" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_PDSchePDtitle" value="TPD_SchedulePD_06" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation now page title is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver Reservation page title is not exist" />
+				</step>
+			</step>
+		</step>
+		
+		<!-- <step type="EXISTS" name="lbl_PDSdescription" page="pge_PersonalDriver" wait="10">
+			<token type="CONTENT" name="token_lbl_PDSdescription" value="TPD_PDSdescription_07" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_PDSdescription" value="TPD_PDSdescription_07_AND" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation now page Description is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver Reservation page Description is not exist" />
+				</step>
+			</step>
+		</step> -->
+	
+		<step type="EXISTS" name="btn_PDSroundtrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSroundtrip" value="TPD_Roundtrip_08" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDSroundtrip" value="TPD_Roundtrip_08_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation Round trip button is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver Reservation now Round trip is not exist" />
+				</step>
+			</step>
+		</step>
+	
+		<step type="EXISTS" name="btn_PDSOnetrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSOnetrip" value="TPD_Onetrip_09" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDSOnetrip" value="TPD_Onetrip_09_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation One trip button is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="The Personal Driver Reservation now one trip is not exist" />
+				</step>
+			</step>
+		</step>
+	
+		<step type="EXISTS" name="lbl_PDdisclimer" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDdisclimer" value="TPD_Disclaimer_10" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation trip disclaimer information is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Reservation trip disclaimer information is not present" />
+				</step>
+			</step>
+		</step>
+	
+		<step type="VISIBLE" name="lbl_Reservationtitle" page="pge_PersonalDriver" os="ANDROID">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_Reservationtitle" value="TPD_Reservationtitle_11" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_Reservationtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Reservationtitle" value="TPD_Reservationtitle_11" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation page title is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Reservation title is not present" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="lbl_Reservationdetails" page="pge_PersonalDriver">
+		 	<token type="CONTENT" name="token_lbl_Reservationdetails" value="TPD_Reservationdetails_12" />
+		 	<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation details is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Reservation details is not present" />
+				</step>
+			</step>
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="btn_PDViewRervations" page="pge_PersonalDriver">
+		 	<token type="CONTENT" name="token_btn_PDViewRervations" value="TPD_PDViewReservation_05" />
+		
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation details is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation details is not present" />
+				</step>
+			</step>
+		</step>
+		
+		
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation One way trip page validations  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_OnewaytripReservation">
+		<description>fn_Verify_PersonalDriver_Reservation_Onewaytrip - Function to verify user user is able to reserve a oneway trip page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+			
+		<step type="CLICK" name="btn_PDSOnetrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSOnetrip" value="TPD_Onetrip_09" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_PDSOnetrip" value="TPD_Onetrip_09_AND" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One trip button present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One trip is not present" />
+				</step>
+			</step>
+		</step>		
+	</function>	
+
+<!-- ########################################################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver One way trip page Pick Location, Select Schedule Pick and other details validations  -->
+<!-- ########################################################################################################################################### -->	
+
+	<function name="fn_Verify_Onewaytrippage">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_OnewaySchedule" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_OnewaySchedule" value="TPD_SchBooking_14" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way schedule is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule is not present" />
+				</step>
+			</step>
+		</step>	
+		
+	
+		<!-- <step type="EXISTS" name="btn_PDViewRervations" page="pge_PersonalDriver">
+		 	<token type="CONTENT" name="token_btn_PDViewRervations" value="TPD_PDViewReservation_05" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way view reservation is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way view reservation is not present" />
+				</step>
+			</step>
+		</step>	 -->
+	
+		<step type="EXISTS" name="lbl_OnewayScheduledesc" page="pge_PersonalDriver" >
+			<token type="CONTENT" name="token_lbl_OnewayScheduledesc" value="TPD_Schpkpdesc_15" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_OnewayScheduledesc" value="TPD_Schpkpdesc_15_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule description is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule description is not present" />
+				</step>
+			</step>
+		</step>	
+	
+	
+		<step type="EXISTS" name="lbl_SchedulePkdatetimetitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkdatetimetitle" value="TPD_SchPktDate_16" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+	
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up time is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up time is not present" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="EXISTS" name="lbl_SchedulePkSelect" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkSelect" value="TPD_SchSelectDate_17" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select is present " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not present" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="CLICK" name="lbl_SchedulePkSelect" page="pge_PersonalDriver" wait="20" os="IOS">
+			<token type="CONTENT" name="token_lbl_SchedulePkSelect" value="TPD_SchSelectDate_17" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not Clicked" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="lbl_SchedulePkSelect_AND" page="pge_PersonalDriver" wait="20" os="ANDROID">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not Clicked" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="lbl_ScheduleDatePkr_AND" page="pge_PersonalDriver" wait="20" os="ANDROID">
+		<token type="CONTENT" name="token_lbl_ScheduleDatePkr_AND" value="TPD_PDResDate_AND" />
+		<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not Clicked" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="lbl_ScheduleTimePkr_AND" page="pge_PersonalDriver" wait="20" os="ANDROID">
+		<token type="CONTENT" name="token_lbl_ScheduleTimePkr_AND" value="TPD_PDResDateTime_AND" />
+		<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not Clicked" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="btn_SchedulePickedCancle" page="pge_PersonalDriver" wait="10" os="IOS">
+			<token type="CONTENT" name="token_btn_SchedulePickedCancle" value="TPD_DateSelectCancel_40" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select is canceled" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not canceled" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="lbl_SchedulePkSelect" page="pge_PersonalDriver" wait="20" os="IOS">
+			<token type="CONTENT" name="token_lbl_SchedulePkSelect" value="TPD_SchSelectDate_17" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up select is selected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up Select is not selected" />
+				</step>
+			</step>
+		</step>	
+			
+		<step type="EXISTS" name="lbl_SchedulePickuptime" page="pge_PersonalDriver" os="IOS">
+			<token type="CONTENT" name="token_lbl_SchedulePickuptime" value="TPD_DateSelectPktime_42" />
+	
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up tile is selected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up time is not selected" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="btn_SchedulePickedSave" page="pge_PersonalDriver" wait="20" os="IOS">
+			<token type="CONTENT" name="token_btn_SchedulePickedSave" value="TPD_DateSelectSave_41" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Picked and able to saved" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule picked but unable to saved" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_Pickuptimeunavaconmsg" page="pge_PersonalDriver" >
+			<token type="CONTENT" name="token_lbl_Pickuptimeunavaconmsg" value="TPD_Schdateinfo_20" />
+			<token type="CONTENT" name="token_lbl_Pickuptimeunavaconmsg" value="TPD_Schdateinfo_20_AND" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Schedule Pick up time unavailble message is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up time unavailable message is not displayed" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_Pickuplocationtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Pickuplocationtitle" value="TPD_PickuLoctitle_21" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Pick up location title is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way schedule pick up location title is not displayed" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="EXISTS" name="btn_OnewaytripAddLocationbtn" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_OnewaytripAddLocationbtn" value="TPD_AddLocation_22" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_OnewaytripAddLocationbtn" value="TPD_AddLocation_22_AND" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way Pick up Add location button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way Add location button is not present" />
+				</step>
+			</step>
+		</step>	
+		</function>	
+		
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation Page Contact information validations  -->
+<!-- ############################################################################################################# -->	
+	
+	<function name="fn_Verify_Contactinfo">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Onewaytripctinfotitle" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_Onewaytripctinfotitle" value="TPD_ContactInfo_23" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_Onewaytripctinfotitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytripctinfotitle" value="TPD_ContactInfo_23" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip information title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip information title is not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_Onewaytripctinfo1" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytripctinfo1" value="TPD_Pd lmp_25" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip information details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip information details are not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_Onewaytripctemailinfo2" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytripctemailinfo2" value="TPD_Pickupgmail_26" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip email information details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip email information details are not present" />
+				</step>
+			</step>
+		
+		<step type="EXISTS" name="lbl_Onewaytripctnoinfo3" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytripctnoinfo3" value="TPD_Pickupcontact_27" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip contact number details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip contact number details not present" />
+				</step>
+			</step>
+		</step>	
+	
+		</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver One way trip page validations  -->
+<!-- ############################################################################################################# -->	
+	
+	<function name="fn_Verify_TripOtherdetails">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+	
+		<step type="EXISTS" name="lbl_Onewaytrippdinst" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytrippdinst" value="TPD_Personaldrinst_28" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip instructions are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip instruction are not present" />
+				</step>
+			</step>
+		</step>	
+
+		<step type="VISIBLE" name="lbl_OnewaytripPeropt" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_OnewaytripPeropt" value="TPD_Optional_29" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_OnewaytripPeropt" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_OnewaytripPeropt" value="TPD_Optional_29" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="EXISTS" name="lbl_Onewaytrippergatecode" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytrippergatecode" value="TPD_Gatecode_30" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip personal contact details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip personal contact details are not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_OnewaytripEstcost" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_OnewaytripEstcost" value="TPD_EstimateCost_31" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Estimation Cost details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Estimation Cost details are not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_OnewaytripEstcostdet" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_OnewaytripEstcostdet" value="TPD_Pickupandreturnloc_32" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Estimation Cost details description are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Estimation Cost details description are not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_OnewaytripPmtmet" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_OnewaytripPmtmet" value="TPD_PaymentMethod_34" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Payment method details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Payment method are not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_OnewaytripaddPmtmetdet" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_OnewaytripaddPmtmetdet" value="TPD_Visaendingcode_35" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Add Payment method details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Add payment  details are not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_Onewaytripridescandet" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Onewaytripridescandet" value="TPD_Ridescancel_36" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Personal description details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Personal description  details are not present" />
+				</step>
+			</step>
+		</step>	
+		</step>	
+		<step type="VISIBLE" name="btn_Onewaytripritabsubmit" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_btn_Onewaytripritabsubmit" value="TPD_By tapping_37" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>	
+		
+		<step type="EXISTS" name="btn_Onewaytripritabsubmit" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_Onewaytripritabsubmit" value="TPD_By tapping_37" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>	
+		
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Oneway trip page validations  -->
+<!-- ############################################################################################################# -->	
+
+	<function name="fn_Click_Onewaytripbooking_AddPickUpLoc">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_AddLocationbtn" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_AddLocationbtn" value="TPD_AddLocation_22" />
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Add Loction button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Add Loction button is not present" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="CLICK" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+			
+			
+			<step type="SET" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<parameter type="DATA" name="value to set" value="TestData.Enterpickupaddress" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="CONTEXT" value="TestData.Enterpickupaddress" />
+				<parameter type="STATIC" value="'Address' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Pick up Location" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Pick Up Loction button is not present" />
+				</step>
+			</step>
+		</step>	
+		
+			<step type="CLICK" name="btn_PDPickupSelectlocation" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDPickupSelectlocation" value="TPD_EnterPickupaddress_45" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Pick up and Select a Location is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Pick Up and Select a Loction is not present" />
+				</step>
+			</step>
+		</step>		
+				
+	</function>	
+
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Drop off location page validations  -->
+<!-- ############################################################################################################# -->	
+
+	<function name="fn_Click_Onewaytripbooking_AddDropofflocation">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="VISIBLE" name="lbl_PDDropofflocationtitle" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_PDDropofflocationtitle" value="TPD_Dropofflocation_46" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDDropofflocationtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDDropofflocationtitle" value="TPD_Dropofflocation_46" />
+				
+		
+		<!-- <step type="VISUAL" name="BUTTON" page="pge_PersonalDriver" wait="2" os="IOS">
+						<parameter type="STATIC" value="label=Add a Location" />
+			 			<parameter type="STATIC" name="new parameter" value="screen.top=50%" />
+						<parameter type="STATIC" name="new parameter" value="screen.height=50%" />
+						<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+						<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+						<parameter type="STATIC" value="threshold=90" />
+		</step> -->
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Drop off Location is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Drop Up Loction is not present" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="VISIBLE" name="btn_AddDropoffLocationbtn" page="pge_PersonalDriver" wait="20">
+				<token type="CONTENT" name="token_btn_AddDropoffLocationbtn" value="TPD_Dropofflocation_46" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Drop off Location button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Drop Up Loction button is not present" />
+				</step>
+			</step>
+		</step>	
+		
+		
+		<step type="CLICK" name="btn_AddDropoffLocationbtn" page="pge_PersonalDriver" wait="40">
+			<token type="CONTENT" name="token_btn_AddDropoffLocationbtn" value="TPD_AddLocation_22" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Drop off Location button is Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Drop Up Loction button is not Clicked" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="CLICK" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+		</step>
+			
+		<step type="SET" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<parameter type="DATA" name="value to set" value="TestData.Enterdropoffaddress" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+		</step>
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="CONTEXT" value="TestData.Enterpickupaddress" />
+				<parameter type="STATIC" value="'Address' field is available and inputted with the above value" />
+		</step>
+			
+			
+		<step type="CLICK" name="btn_PDDropoffSelectlocation" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDDropoffSelectlocation" value="TPD_Dropofflocationaddress_47" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Selected  Location is Set it as Pick Up location" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Selected location is not set it" />
+				</step>
+			</step>
+		</step>	
+	</function>	
+
+<!-- ######################################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver Submit a Request for both One way and Round Trip validations  -->
+<!-- ######################################################################################################################### -->	
+
+	<function name="fn_Click_PersonalDriverBooking_RequestSubmit">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="VISIBLE" name="btn_PDRequestSubmit" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="5" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_btn_PDRequestSubmit" value="TPD_SubmitRequest_38" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+
+		<step type="CLICK" name="btn_PDRequestSubmit" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDRequestSubmit" value="TPD_SubmitRequest_38" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+		
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver One way trip Selected  Location is Set it as Pick Up location" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver One way trip Selected location is not set it" />
+				</step>
+			</step>
+			</step>	
+		 </step>	
+	</function>	
+
+<!-- ######################################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver Submit a Reservation, Success message is displayed  -->
+<!-- ######################################################################################################################### -->	
+
+	<function name="fn_Verify_ReservationSuccessMessage">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="VISIBLE" name="lbl_PDRervationSuccessmsg" page="pge_PersonalDriver">
+				<token type="CONTENT" name="token_lbl_PDRervationSuccessmsg" value="TPD_PDRerSuccessmsg_80" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Reservation success message is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Reservation Success message is not displayed" />
+				</step>
+			</step>
+			</step>	
+	 </function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver for Round trip Pickup date and time validations  -->
+<!-- ########################################################################################################### -->	
+
+	<function name="fn_Click_PD_Roundtrip_Pickupdatetime">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_PDSroundtrip" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_btn_PDSroundtrip" value="TPD_Roundtrip_08" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Values is selected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip value is not selected" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_SchedulePkdatetimetitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkdatetimetitle" value="TPD_SchPktDate_16" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Schedule a Pickup datea and time" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Schedule Pick up date and time is not selected" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="CLICK" name="lbl_SchedulePkdatetimetitle" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_SchedulePkdatetimetitle" value="TPD_SchPktDate_16" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+			
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Schedule a Pickup datea and time title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Schedule Pick up date and time title is not presented" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="btn_SchedulePickedSave" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_SchedulePickedSave" value="TPD_DateSelectSave_41" />
+	
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Schedule a Pickup datea and time is selected and Saved" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Schedule Pick up date and time is not Picked" />
+				</step>
+			</step>
+		</step>
+				
+	</function>	
+	
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver for Round trip Drop off  date and time validations  -->
+<!-- ########################################################################################################### -->	
+
+	<function name="fn_Click_PD_Roundtrip_Dropoffdatetime">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_ReturnDatetimetitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_ReturnDatetimetitle" value="TPD_SchReturnDate_18" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Date and Time Select title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Date and Time title is not Present" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_ReturnDateSelect" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_ReturnDateSelect" value="TPD_SchSelectdatetime_19" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Return Date and Time Select is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Return Date and Time Select is not Present" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CLICK" name="lbl_ReturnDateSelect" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_ReturnDateSelect" value="TPD_SchSelectdatetime_19" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Return Date and Time Selected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Return Date and Time is not Selected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CLICK" name="btn_SchedulePickedSave" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_btn_SchedulePickedSave" value="TPD_DateSelectSave_41" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Return Date and Time Selected and Saved" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Return Date and Time is not Selected and Could not saved" />
+				</step>
+			</step>
+		</step>
+				
+	</function>	
+	
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver for Round trip Submit Request validations  -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PD_Roundtrip_AddLocation">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_Rounttripaddlocationtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Rounttripaddlocationtitle" value="TPD_PickUpandReturnLoc_48" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip Add Location is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip Return Add Location is not present" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_Click_Onewaytripbooking_AddPickUpLoc" page="pge_PersonalDriver" /> 
+		
+		<step type="CALL2" name="fn_Click_PersonalDriverBooking_RequestSubmit" page="pge_PersonalDriver" /> 
+		
+	</function>	
+	
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver View Bookings validations  -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Verify_General_ViewReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<!-- <step type="EXISTS" name="lbl_PDViewRestitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDViewRestitle" value="TPD_Onewaytripviwbooking_49" />
+		</step>	 -->
+		
+		<step type="EXISTS" name="lbl_PDConfirmationSMSViewRes" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDConfirmationSMSViewRes" value="TPD_OnewaytripviwbookingSMS_50" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Booking confirmation SMS view message" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Booking confirmation SMS view is not present" />
+				</step>
+			</step>
+		</step>
+
+	</function>	
+	
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver View Bookings of Pick up locations   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Verify_ViewReservations_Pickuploc">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PDPickupviewloc" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDPickupviewloc" value="TPD_OnewaytripPickuploc_51" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Pick up location button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Pick up location button is not present" />
+				</step>
+			</step>
+		</step>
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver View Bookings of Drop off locations   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Verify_ViewReservations_Dropoffloc">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_PDDropoffviewloc" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_PDDropoffviewloc" value="TPD_Onewaytripdropoffloc_52" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDDropoffviewloc" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDDropoffviewloc" value="TPD_Onewaytripdropoffloc_52" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Drop off View Location is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Drop off View location button is not present" />
+				</step>
+			</step>
+		</step>
+
+	</function>	
+	
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver View Contact informations   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Verify_ViewReservations_Contactinfo">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PDViewreservationContactinfo" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDViewreservationContactinfo" value="TPD_ViewContactinfo_57" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation Contact information is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation contact information is not present" />
+				</step>
+			</step>
+		</step>
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver View Bookings of Estimation Cost   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Verify_ViewReservations_EstimatedCostamt">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_PDEstimatedCost" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_PDEstimatedCost" value="TPD_EstimateCostvary_53" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDEstimatedCost" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDEstimatedCost" value="TPD_EstimateCostvary_53" />
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation Estimation Cost amount information is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation Estimation Cost amount information is not present" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PDViewreservationContactinfo" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDViewreservationContactinfo" value="TPD_ViewContactinfo_57" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation Contact information is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation Contact information is not present" />
+				</step>
+			</step>
+		</step>
+		<!-- <step type="EXISTS" name="lbl_PDEstimatedCostamt" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDEstimatedCostamt" value="TPD_EstimateCostvaryamt_54" />
+		</step>	 -->
+
+		<step type="EXISTS" name="lbl_PDPaymentmethod" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDPaymentmethod" value="TPD_Paymentmethod_55" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation Payment method information is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation Payment method information is not present" />
+				</step>
+			</step>
+		</step>	
+
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates the Personal Driver View Reservation   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PDViewReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+			<step type="VISIBLE" name="lbl_PDViewreservation" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_PDViewreservation" value="TPD_ViewReservation_56" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDViewreservation" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDViewreservation" value="TPD_ViewReservation_56" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation information is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation information is not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="lbl_PDViewreservation" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDViewreservation" value="TPD_ViewReservation_56" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver View Reservation button is Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver View Reservation button is not present" />
+				</step>
+			</step>
+		</step>		
+
+	</function>	
+		
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates an Upcoming View View Reservations   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PDUpcomingViewReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PDUpcomingtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingtitle" value="TPD_ViewUpcomingtitle_58" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Upcoming View Reservation button is Present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Upcoming View Reservation button is not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDUpcomingTab" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingTab" value="TPD_ViewUpcomingtab_59" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Upcoming View Reservation tab view is Present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Upcoming View Reservation tab view is not present" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="VISIBLE" name="lbl_PDUpcomingViewreservation" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="6" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_PDUpcomingViewreservation" value="TPD_ViewUpcoming_59" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDUpcomingViewreservation" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingViewreservation" value="TPD_ViewUpcoming_59" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Upcoming View Reservation List is Present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Upcoming View Reservation list view is not present" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CLICK" name="lbl_PDUpcomingViewreservation" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingViewreservation" value="TPD_ViewUpcoming_59" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Upcoming View Reservations are Present under Upcoming tab view" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Upcoming View Reservations are not Present under Upcoming tab view" />
+				</step>
+			</step>
+		</step>			
+
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates Upcoming Reservation details of View Reservations   -->
+<!-- ########################################################################################################### -->	
+	
+	<!-- <function name="fn_Click_PDUpcomingViewReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PDUpcomingtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingtitle" value="TPD_ViewUpcomingtitle_58" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDUpcomingTab" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingTab" value="TPD_ViewUpcomingtab_59" />
+		</step>	
+		
+		<step type="EXISTS" name="lbl_PDUpcomingViewreservation" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingViewreservation" value="TPD_ViewUpcoming_59" />
+		</step>
+		
+		<step type="CLICK" name="lbl_PDUpcomingViewreservation" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDUpcomingViewreservation" value="TPD_ViewUpcoming_59" />
+		</step>	
+
+	</function>	 -->
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates to Select a trip and edit the details   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PDEditReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<!-- 	<step type="VISIBLE" name="lbl_PDSelectResforEdit" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="4" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_PDSelectResforEdit" value="TPD_SelectResforEdit_65" />
+		</step>	
+		
+		<step type="CLICK" name="lbl_PDSelectResforEdit" page="pge_PersonalDriver" >
+			<token type="CONTENT" name="token_lbl_PDSelectResforEdit" value="TPD_SelectResforEdit_65" />
+		</step>	
+		 -->
+		<step type="VISIBLE" name="btn_PDEditOneWaytripRes" page="pge_PersonalDriver" wait="30">
+				<parameter type="STATIC" name="maxScroll" value="4" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_btn_PDEditOneWaytripRes" value="TPD_PDEditButton_66" />
+		</step>	
+		
+		
+		<step type="CLICK" name="btn_PDEditOneWaytripRes" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDEditOneWaytripRes" value="TPD_PDEditButton_66" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Edit Reservations button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Edit Reservation button is not present" />
+				</step>
+			</step>
+		</step>		
+
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates Edit a Trip details and reporting error message   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_ErrorDiscardCont">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+	
+		<!-- <step type="CLICK" name="btn_EditErrormsg" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_EditErrormsg" value="TPD_EditUnErrorCont_70" />
+		</step>	
+		 -->
+		<step type="CLICK" name="lbl_EditErrorCont" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_lbl_EditErrorCont" value="TPD_EditUnErrorCont_70" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Edit Error Continue button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Edit Error Continue button is not present" />
+				</step>
+			</step>
+		</step>			
+		
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates Back page in the Edit Reservations details  -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PDBackButton">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+	
+		<step type="CLICK" name="btn_PDBackButton" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDBackButton" value="" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver button is present in the Edit Reservations" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver button is not present in the Edit Reservations" />
+				</step>
+			</step>
+		</step>				
+		
+	</function>	
+
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates Trip Edit and Discard without Saved  -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PDEditandDiscard">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PDEditUnSavedtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDEditUnSavedtitle" value="TPD_EditUnsaved_67" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Edit the Reservation details title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Edit the Reservation details title is not present" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_PDEditUnSavedmsg" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDEditUnSavedmsg" value="TPD_EditUnSavedmsg_68" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Edit Reservation informations are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Edit Reservation informations are not present" />
+				</step>
+			</step>
+		</step>			
+
+		<step type="EXISTS" name="btn_PDEditUnSavedDiscard" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDEditUnSavedDiscard" value="TPD_EditUnSavedDiscard_69" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Edit and Discard an informations are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Edit and Discard an informations are not present" />
+				</step>
+			</step>
+		</step>			
+
+		<step type="CLICK" name="btn_PDEditUnSavedDiscard" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDEditUnSavedDiscard" value="TPD_EditUnSavedDiscard_69" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Edit and Discard reservation details" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Edit and Discard a Personal information details is not present" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="CLICK" name="lbl_PDPickupviewloc" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDPickupviewloc" value="TPD_OnewaytripPickuploc_51" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Pick up view location details are present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver  Pick up view location details are not present" />
+				</step>
+			</step>
+		</step>			
+			
+		
+		<step type="CALL2" name="fn_Click_EditTripDetails_Saved" page="pge_PersonalDriver" />
+		
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates Edit trip details and Saved  -->
+<!-- ############################################################################################################# -->	
+
+	<function name="fn_Click_EditTripDetails_Saved">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="lbl_Pickuplocationtitle" page="pge_PersonalDriver" wait="30">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="DOWN" />
+				<token type="CONTENT" name="token_lbl_Pickuplocationtitle" value="TPD_PickuLoctitle_21" />
+			</step>
+
+		<step type="EXISTS" name="lbl_Pickuplocationtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Pickuplocationtitle" value="TPD_PickuLoctitle_21" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Pick up location title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver  Pick up location title is not present" />
+				</step>
+			</step>
+		</step>	
+
+		<step type="CLICK" name="lbl_Pickuplocationtitle" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_lbl_Pickuplocationtitle" value="TPD_PickuLoctitle_21" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Pick up location title is Clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver  Pick up location title is not Clicked" />
+				</step>
+			</step>
+		</step>		
+	
+		<step type="CLICK" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+				</step>
+			<step type="SET" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<parameter type="DATA" name="value to set" value="TestData.Enterpickupaddress" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="CONTEXT" value="TestData.Enterpickupaddress" />
+				<parameter type="STATIC" value="'Address' field is available and inputted with the above value" />
+			</step>
+		
+			<step type="VISIBLE" name="btn_PDPickupSelectlocation" page="pge_PersonalDriver" wait="30">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="DOWN" />
+				<token type="CONTENT" name="token_btn_PDPickupSelectlocation" value="TPD_EditPickUpLoc_71" />
+			</step>
+		
+			<step type="CLICK" name="btn_PDPickupSelectlocation" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDPickupSelectlocation" value="TPD_EditPickUpLoc_71" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Pick up location is picked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver  Pick up location is not picked" />
+				</step>
+			</step>
+		</step>
+
+		<step type="VISIBLE" name="btn_PDRequestSubmit" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="DOWN" />
+				<token type="CONTENT" name="token_btn_PDRequestSubmit" value="TPD_SubmitRequest_38" />
+		</step>	
+
+		<step type="CLICK" name="btn_PDRequestSubmit" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDRequestSubmit" value="TPD_SubmitRequest_38" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Request Submit is done and Reservation is completed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Request is not done and Reservation is incomplete" />
+				</step>
+			</step>
+		</step>	
+				
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates Edit and Save and also Discard the edit Reservations details   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_PDCancleReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify Cancel an existing Reservations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_PDSelectRideToCancel" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_PDSelectRideToCancel" value="TPD_ViewUpcoming_60" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Select a Ride to Cancel from View Reservation list" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver user is not able to select a ride to cancel from list view" />
+				</step>
+			</step>
+		</step>		
+
+		<step type="VISIBLE" name="btn_PDCancelRide" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="4" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_btn_PDCancelRide" value="TPD_CancleRide_72" />
+		</step>	
+
+		<step type="CLICK" name="btn_PDCancelRide" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDCancelRide" value="TPD_CancleRide_72" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Cancle Ride is going to performed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Cancel ride is not able to performed" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="lbl_PDCancelRideAlertIcon" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDCancelRideAlertIcon" value="" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Cancle Ride Alert icon is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Cancel ride Alert Icon is not present" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="lbl_PDCancelRideAlertTitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDCancelRideAlertTitle" value="TPD_CancleRideAlert_73" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Cancle Ride Alert title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Cancel ride Alert title is not present" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="lbl_PDCancelRideAlertMsg" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDCancelRideAlertMsg" value="TPD_CanclRideconfimmsg_74" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Cancle Ride Alert message is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Cancel ride Alert message is not present" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="btn_PDCancelRideAlertCancled" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDCancelRideAlertCancled" value="TPD_CancleYesConfim_75" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Cancle Ride Alert Canceled button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Cancel ride Alert Canceled button is not present" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="btn_PDCancelRideConfirmToCancelled" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDCancelRideConfirmToCancelled" value="TPD_CancelNoKeepRes_76" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Ride Confirmation to Canclled" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Ride Confirmation is not available" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="CLICK" name="btn_PDCancelRideAlertCancled" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDCancelRideAlertCancled" value="TPD_CancleYesConfim_75" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver User clicks 'Cancle' in alert window, Ride can be Canclled" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver User clicks 'Cancle' in alert window, Ride can't be Canclled" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="CLICK" name="btn_PDCancelRide" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDCancelRide" value="TPD_CancleRide_72" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver User clicks 'Cancle' in the View Reservation details View" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver User is not able to click 'Cancle' in the View Reservation details View" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="CLICK" name="btn_PDCancelRideConfirmToCancelled" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDCancelRideConfirmToCancelled" value="TPD_CancelNoKeepRes_76" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver User Ride confirmation to be cancelled" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver User Ride confirmation can not cancelled" />
+				</step>
+			</step>
+		</step>		
+		
+	</function>	
+
+<!-- ######################################################################################################### -->
+<!-- KSIVANAN - This function validates Round Trip Reservations   -->
+<!-- ########################################################################################################### -->	
+	
+	<function name="fn_Click_RoundTripReservations">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify Cancel an existing Reservations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_PDSroundtrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSroundtrip" value="TPD_Roundtrip_08" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip option is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip option is not present" />
+				</step>
+			</step>
+		</step>			
+	
+		<step type="CLICK" name="btn_PDSroundtrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSroundtrip" value="TPD_Roundtrip_08" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round trip button is present and clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round trip button is not present and clicked" />
+				</step>
+			</step>
+		</step>			
+	
+		<step type="EXISTS" name="lbl_SchedulePkdatetimetitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkdatetimetitle" value="TPD_SchPktDate_16" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip schedule a Pick up date and time title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip schedule a Pick up date and time title is not present" />
+				</step>
+			</step>
+		</step>	
+	
+		<step type="CLICK" name="lbl_SchedulePkdatetimetitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkdatetimetitle" value="TPD_SchPktDate_16" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip schedule a Pick up date and time is clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip schedule a Pick up date and time is not clicked" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CLICK" name="btn_SchedulePickedSave" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_SchedulePickedSave" value="TPD_DateSelectSave_41" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip schedule a Pick up date and time is Selected and Saved" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip schedule a Pick up date and time is not Selected and Saved" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="CLICK" name="btn_SchedulePickedSave" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_btn_SchedulePickedSave" value="TPD_DateSelectSave_41" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip schedule a Drop off date and time is Selected and Saved" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip schedule a Drop off date and time is not Selected and Saved" />
+				</step>
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="lbl_PDPickUpandReturnLocTitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDPickUpandReturnLocTitle" value="TPD_PDPickupandReturnLoc_78" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip Pick up and Drop off Location title is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip Pick up and Drop off Location title is not present" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CLICK" name="btn_OnewaytripAddLocationbtn" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_OnewaytripAddLocationbtn" value="TPD_AddLocation_22" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip Add Location button is present" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip Add Location button is not present" />
+				</step>
+			</step>
+		</step>	
+		
+		<step type="CLICK" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip Add Location button is clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip Add Location button is not clicked" />
+				</step>
+			</step>
+		</step>	
+			
+		<step type="SET" name="edt_PDPickuplocation" page="pge_PersonalDriver" wait="10">
+				<parameter type="DATA" name="value to set" value="TestData.Enterdropoffaddress" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_PDPickuplocation" value="TPD_EnterPickupaddress_44" />
+		</step>
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="CONTEXT" value="TestData.Enterpickupaddress" />
+				<parameter type="STATIC" value="'Address' field is available and inputted with the above value" />
+		</step>
+		
+		
+		<step type="VISIBLE" name="btn_PDSubmitRoundTrip" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="4" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_btn_PDSubmitRoundTrip" value="TPD_PDSubmitRoundtrip_79" />
+		</step>	
+
+		<step type="CLICK" name="btn_PDSubmitRoundTrip" page="pge_PersonalDriver" wait="30">
+			<token type="CONTENT" name="token_btn_PDSubmitRoundTrip" value="TPD_PDSubmitRoundtrip_79" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+				<parameter type="STATIC" value="Personal Driver Round Trip Submit button is clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_PersonalDriver">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver">
+					<parameter type="STATIC" value="Personal Driver Round Trip Submit button is not clicked" />
+				</step>
+			</step>
+		</step>	
+				
+	
+
+		
+		<step type="EXISTS" name="btn_PDViewReservation" page="pge_PersonalDriver" >
+			<token type="CONTENT" name="token_btn_PDViewReservation" value="TPD_ViewReservation_03" />
+		</step>
+		
+		<step type="EXISTS" name="btn_PDReservationNow" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04" />
+		</step>	
+	
+	</function>			
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation One way trip  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_ReservationNow">
+		<description>fn_Verify_PersonalDriver_Reservation_Onewaytrip - Function to verify user user is able to reserve a oneway trip  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_PDReservationNow" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04" />
+		</step>	
+	
+		<step type="CLICK" name="btn_PDReservationNow" page="pge_PersonalDriver" wait="10">
+			<token type="CONTENT" name="token_btn_PDReservationNow" value="TPD_ReserveNow_04" />
+		</step>	
+
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation One way trip page validations  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_PDReserveNowpge">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_PDSchePDtitle" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_PDSchePDtitle" value="TPD_SchedulePD_06" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_PDSdescription" page="pge_PersonalDriver" wait="10">
+			<token type="CONTENT" name="token_lbl_PDSdescription" value="TPD_PDSdescription_07" />
+		</step>	
+	
+		<step type="EXISTS" name="btn_PDSroundtrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSroundtrip" value="TPD_Roundtrip_08" />
+		</step>	
+	
+		<step type="EXISTS" name="btn_PDSOnetrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSOnetrip" value="TPD_Onetrip_09" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_PDdisclimer" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_PDdisclimer" value="TPD_Disclaimer_10" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_Reservationtitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_Reservationtitle" value="TPD_Reservationtitle_11" />
+		</step>	
+
+		<step type="EXISTS" name="lbl_Reservationdetails" page="pge_PersonalDriver">
+		 	<token type="CONTENT" name="token_lbl_Reservationdetails" value="TPD_Reservationdetails_12" />
+		</step>	
+		
+		<step type="VISIBLE" name="btn_PDViewRervations" page="pge_PersonalDriver">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_btn_PDViewRervations" value="TPD_PDViewReservation_05" />
+		</step>	
+		
+		<step type="EXISTS" name="btn_PDViewRervations" page="pge_PersonalDriver">
+		 	<token type="CONTENT" name="token_btn_PDViewRervations" value="TPD_PDViewReservation_05" />
+		</step>	
+		
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Reservation One way trip page validations  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_OnewaytripReservation">
+		<description>fn_Verify_PersonalDriver_Reservation_Onewaytrip - Function to verify user user is able to reserve a oneway trip page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+			
+		<step type="CLICK" name="btn_PDSOnetrip" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_btn_PDSOnetrip" value="TPD_Onetrip_09" />
+		</step>	
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the Personal Driver Oneway trip page validations  -->
+<!-- ############################################################################################################# -->	
+
+	<function name="fn_Verify_Onewaytrippage">
+		<description>fn_Verify_PersonalDriver_Reservation page - Function to verify user user is able to reservation page validations </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_PersonalDriver.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_PersonalDriver.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_OnewaySchedule" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_OnewaySchedule" value="TPD_SchBooking_14" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_OnewayScheduledesc" page="pge_PersonalDriver" >
+			<token type="CONTENT" name="token_lbl_OnewayScheduledesc" value="TPD_Schpkpdesc_15" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_SchedulePkdatetimetitle" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkdatetimetitle" value="TPD_SchPktDate_16" />
+		</step>	
+	
+		<step type="EXISTS" name="lbl_SchedulePkSelect" page="pge_PersonalDriver">
+			<token type="CONTENT" name="token_lbl_SchedulePkSelect" value="TPD_SchSelectDate_17" />
+		</step>	
+	
+		<step type="CLICK" name="lbl_SchedulePkSelect" page="pge_PersonalDriver" wait="20">
+			<token type="CONTENT" name="token_lbl_SchedulePkSelect" value="TPD_SchSelectDate_17" />
+		</step>	
+				
+	</function>	
+
+		
+
+</suite>

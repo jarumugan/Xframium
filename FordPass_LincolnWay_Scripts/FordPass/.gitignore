@@ -1,0 +1,8 @@
+/Drivers/
+<<<<<<< HEAD
+/Drivers-ReleaseBuild/
+/Registry/
+=======
+/Registry/
+/Drivers-ReleaseBuild/
+>>>>>>> branch 'master' of https://github.ford.com/mobileapp-automation/mobileapp-automation-script.git

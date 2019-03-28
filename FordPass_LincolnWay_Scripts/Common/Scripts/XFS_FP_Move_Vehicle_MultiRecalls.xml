@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : APARTHI3 -->
+<!-- Created Date : 12-Mar-2018 -->
+<!-- Updated Date : 12-Mar-2018 -->
+<!-- Pre-Requisite : User should have added VIN: 9BFZD55P4GB532001-->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Move_Vehicle_MultiRecalls" dataProvider="TestData.XFS_FP_Move_Vehicle_MultiRecalls,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN,SA_BR_EN" timed="false" threshold="0" active="true" >
+		<description> Validating multi recalls in vehicle details </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+					
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />		
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />   
+
+		<step type="WAIT" name="Wait_For_30_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="30"/>
+		</step> 
+						
+		<step type="CALL2" name="fn_ValidateRecallPill_GreetingSection" page="pge_Recall" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleName_AND" />	
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.VehicleName_IOS" />
+		</step>	
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" >
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleName_AND" />	
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.VehicleName_IOS" />
+		</step>
+		  
+		<step type="CALL2" name="fn_Click_ViewVehicleDetails" page="pge_Move"/>  
+		
+		<step type="CALL2" name="fn_ValidateRecallNotifi_Alert" page="pge_Recall" >
+		<parameter type="CONTENT" name="str_RecallAlert" value="TRecallAlertInVehicleDetail" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickRecallNotifi_Alert" page="pge_Recall" >
+		<parameter type="CONTENT" name="str_RecallAlert" value="TRecallAlertInVehicleDetail" />
+		<parameter type="CONTENT" name="str_TNotice" value="TNotices" />
+		</step> 	
+		
+		<step type="CALL2" name="fn_ValidateRecallNotices_Page" page="pge_Recall">  
+				<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleName_AND"/>
+				<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.VehicleName_IOS"/>
+				<parameter type="DATA" name="param_VinModel" value="TestData.MultiRecallVINModel"/>
+				<parameter type="CONTENT" name="str_RecallType" value="TRecallName"/>
+				<parameter type="CONTENT" name="str_RecallCode" value="TRecallCode"/>
+				<parameter type="CONTENT" name="str_RecallType2" value="TRecallName2"/>
+				<parameter type="CONTENT" name="str_RecallCode2" value="TRecallCode2"/>	
+		</step>	
+				
+		<step type="CALL2" name="fn_ClickRecallType" page="pge_Recall">	
+			<parameter type="CONTENT" name="str_RecallCode" value="TRecallCode"/>
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateRecallDetails" page="pge_Recall" >
+				<parameter type="DATA" name="param_VinNumber" value="TestData.MultipleRecallVIN"/>
+				<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleName_AND"/>
+				<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.VehicleName_IOS"/>
+				<parameter type="DATA" name="param_VinModel" value="TestData.MultiRecallVINModel"/>
+				<parameter type="CONTENT" name="str_RecallType" value="TRecallName"/>
+				<parameter type="CONTENT" name="str_RecallCode" value="TRecallCode"/>
+				<parameter type="CONTENT" name="str_RecallNumber" value="TRecallNo_a"/>
+				<parameter type="CONTENT" name="str_RecallRiskSafeValue" value="TRecallNo_b"/>
+				<parameter type="CONTENT" name="str_RecallRemedyProValue" value="TRecallNo_c"/>
+				<parameter type="CONTENT" name="str_RecallStatusValue" value="TRecallNo_d"/>		
+				<parameter type="CONTENT" name="str_RecallManuNoteValue" value="TRecallNo_1e"/>		
+		</step>	
+		
+		<step type="CALL2" name="fn_NavigateFromRecallDetailToRecallNotices" page="pge_Recall" /> 
+		
+		<step type="CALL2" name="fn_NavigateFromRecallNoticesToVehicleDetail" page="pge_Recall" >
+		<parameter type="CONTENT" name="str_RecallAlert" value="TRecallAlertInVehicleDetail" />
+		</step>
+		
+		<step type="CALL2" name="fn_NavigateFromVehicleDetailToDashboard" page="pge_Recall" />				
+						
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />				
+	</test>
+</suite>

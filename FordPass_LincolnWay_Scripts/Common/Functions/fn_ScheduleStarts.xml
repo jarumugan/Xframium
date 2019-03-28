@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Next Schedule Start													   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_NextScheduleStart_Weekdays">
+              <description> fn_Verify_NextScheduleStart_Weekdays - Function to verify next schedule start for weekdays</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+     
+    <!--  <step type="EXISTS" name="lbl_Today" page="pge_ScheduleStarts" failureMode="IGNORE">
+		
+	 <token type="CONTENT" name="token_lbl_Today" value="TScheduleStart2" />
+	 </step>
+	
+	<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+	<parameter type="STATIC" value="'Today' is displayed" />
+	</step>
+		
+	<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+		<step type="VISIBLE" name="lbl_Tomorrow" page="pge_ScheduleStarts" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll"  value="6"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+			<token type="CONTENT" name="token_lbl_Tomorrow" value="TScheduleStart23" />
+			
+	</step>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+		<parameter type="STATIC" value="'Tomorrow' is displayed" />
+		</step>	
+		
+	<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+		<step type="EXISTS" name="lbl_Weekdays" page="pge_ScheduleStarts">
+			
+			<token type="CONTENT" name="token_lbl_Weekdays" value="TScheduleStart7" />
+				
+		</step>
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Weekdays' is displayed" />
+			
+		</step>
+		
+		</step>
+      
+    
+    </step>
+ -->     
+    <step type="EXISTS" name="lnk_NextScheduleStart_Title" page="pge_ScheduleStarts">
+		<token type="CONTENT" name="token_lnk_NextScheduleStart_Title" value="TScheduleStart1" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NEXT SCHEDULE START' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NEXT SCHEDULE START' is not displayed" />
+			</step>
+		</step>		
+	</step> 
+	
+		
+	  <step type="EXISTS" name="btn_NextScheduleStart_Switch" page="pge_ScheduleStarts">
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Schedule Start' switch is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Schedule Start' switch is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	
+ 	</function>
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on Next Schedule Start -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_NextScheduleStart">
+              <description> fn_Click_NextScheduleStart - Function to click on next schedule start</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+              
+      
+     <step type="VISIBLE" name="lnk_NextScheduleStart_Title" page="pge_ScheduleStarts">
+     	   	<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+     	<token type="CONTENT" name="token_lnk_NextScheduleStart_Title" value="TScheduleStart1"/>
+     </step>        
+      
+     
+     <step type="CLICK" name="lnk_NextScheduleStart_Title" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lnk_NextScheduleStart_Title" value="TScheduleStart1"/>
+     
+     		<step type="WAIT_FOR" name="btn_AddStart" page="pge_ScheduleStarts">
+     		<parameter type="STATIC"  value="30"/>
+     		<token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart3"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Clicked on Next Schedule Start" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Not clicked on Next Schedule Start"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+ 	
+ 	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Schedule Starts screen												   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_ScheduleStarts_Weekdays">
+              <description> fn_Verify_ScheduleStarts_Weekdays - Function to verify schedule start screen for weekdays</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+      
+     <step type="EXISTS" name="btn_Back" page="pge_ScheduleStarts">
+     
+     
+     <step type="EXISTS" name="lbl_VehicleNickName" page="pge_ScheduleStarts" >
+			<token type="DATA" name="token_lbl_VehicleNickName" value="TestData.VehicleNickName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is not found" />
+			</step>
+		</step>
+		</step>
+     
+     </step>	
+     
+     
+     
+     <step type="EXISTS" name="lbl_Weekdays" page="pge_ScheduleStarts">
+			
+		<token type="CONTENT" name="token_lbl_Weekdays" value="TScheduleStart7" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Weekdays' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Weekdays' is not displayed" />
+			</step>
+		</step>	     
+    
+    
+    </step>
+     
+    <step type="EXISTS" name="btn_NextScheduleStart_Switch" page="pge_ScheduleStarts">
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Schedule Start' switch is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Schedule Start' switch is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+</function>	
+ 	
+
+
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on Add Start -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_AddStart">
+              <description> fn_Click_AddStart - Function to click on add start</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+      <step type="WAIT_FOR" name="btn_AddStart" page="pge_ScheduleStarts">
+      <parameter type="STATIC"  value="30"/>
+     <token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart3"/>
+     </step>
+     
+     <step type="STATE" name="To take screenshot" page="pge_ScheduleStarts"/>
+     
+     <step type="CLICK" name="btn_AddStart" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart3"/>
+          				
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Clicked on Add Start" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Not clicked on Add Start"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Schedule Start Select Time -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_SelectTime">
+              <description> fn_Verify_SelectTime - Function to verify selecting time screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+              
+      <step type="WAIT_FOR" name="btn_Back" page="pge_ScheduleStarts">
+      	<parameter type="STATIC"  value="30"/>
+     	   
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button is displayed on selecting time screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button is not displayed on selecting time screen"  />
+			</step>
+		</step>			
+		
+	</step>
+	     
+               
+     
+     <step type="EXISTS" name="lbl_Time" page="pge_ScheduleStarts" os="ANDROID">
+     	<token type="CONTENT" name="token_lbl_Time" value="TScheduleStart18"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Time is displayed on selecting time screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Time is not displayed on selectint time screen"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+	 <step type="EXISTS" name="lbl_Time_Value" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lbl_Time_Value" value="TScheduleStart19"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Clock is displayed on selecting time screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Clock is not displayed on selectint time screen"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+	 <step type="EXISTS" name="lnk_Repeat" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lnk_Repeat" value="TScheduleStart5"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Repeat is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Repeat is not displayed"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+	
+	 <step type="EXISTS" name="lnk_Never" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lnk_Never" value="TScheduleStart6"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Never is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Never is not displayed"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+	
+	<step type="EXISTS" name="btn_Save" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_Save" value="TScheduleStart4"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Save button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Save button is not displayed"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+</function>
+
+ 
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on Never to select the weeks -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Never">
+              <description> fn_Click_Never - Function to click on Never to select the weeks</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+     <step type="CLICK" name="lnk_Never" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lnk_Never" value="TScheduleStart6"/>
+     
+     		<step type="WAIT_FOR" name="btn_Save_Disabled" page="pge_ScheduleStarts">
+     		<parameter type="STATIC"  value="30"/>
+     		<token type="CONTENT" name="token_btn_Save_Disabled" value="TScheduleStart4"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Clicked on Repeat link" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Not clicked on Repeat link"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+ 
+ 
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify weeks -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_Weeks">
+              <description> fn_Verify_Weeks - Function to verify weeks</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+              
+      <step type="EXISTS" name="btn_Back" page="pge_ScheduleStarts">
+     	   
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button is not displayed"  />
+			</step>
+		</step>			
+		
+	</step>
+	     
+              
+         
+     
+     <step type="EXISTS" name="lbl_Weekdays" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lbl_Weekdays" value="TScheduleStart7"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays is not displayed"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+	 <step type="EXISTS" name="lbl_Sunday" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lbl_Sunday" value="TScheduleStart8"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Sunday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Sunday is not displayed"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+
+	 <step type="EXISTS" name="lbl_Monday" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lbl_Monday" value="TScheduleStart9"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Monday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Monday is not displayed"  />
+			</step>
+		</step>		
+		
+	</step>	
+
+	<step type="VISIBLE" name="lbl_Tuesday" page="pge_ScheduleStarts">
+     	   	<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+     	<token type="CONTENT" name="token_lbl_Tuesday" value="TScheduleStart10"/>
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Tuesday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Tuesday is not displayed"  />
+			</step>
+		</step>		
+		
+	</step>
+	
+	
+	<step type="VISIBLE" name="lbl_Wednesday" page="pge_ScheduleStarts">
+		<parameter type="STATIC" name="maxScroll"  value="5"/>
+		<parameter type="STATIC" name="direction" value="UP"/>
+     	<token type="CONTENT" name="token_lbl_Wednesday" value="TScheduleStart11"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Wednesday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Wednesday is not displayed"  />
+			</step>
+		</step>		
+		
+	</step>
+	
+	
+	
+	<step type="VISIBLE" name="lbl_Thursday" page="pge_ScheduleStarts">
+		<parameter type="STATIC" name="maxScroll"  value="5"/>
+		<parameter type="STATIC" name="direction" value="UP"/>
+     	<token type="CONTENT" name="token_lbl_Thursday" value="TScheduleStart12"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Thursday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Thursday is not displayed"  />
+			</step>
+		</step>		
+		
+	</step>
+	
+	
+	<step type="VISIBLE" name="lbl_Friday" page="pge_ScheduleStarts">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+     	<token type="CONTENT" name="token_lbl_Friday" value="TScheduleStart13"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Friday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Friday is not displayed"  />
+			</step>
+		</step>		
+		
+	</step>
+	
+	
+	
+	<step type="VISIBLE" name="lbl_Saturday" page="pge_ScheduleStarts">
+		<parameter type="STATIC" name="maxScroll"  value="5"/>
+		<parameter type="STATIC" name="direction" value="UP"/>
+     	<token type="CONTENT" name="token_lbl_Saturday" value="TScheduleStart14"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Saturday is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Saturday is not displayed"  />
+			</step>
+		</step>		
+		
+	</step> 
+	
+	
+	 <step type="EXISTS" name="btn_Save_Disabled" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_Save_Disabled" value="TScheduleStart4"/>
+     
+     			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Save button is disabled" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Save button is not disabled"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on back button to navigate back from list of weeks screen to select time screen -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Back_Weeks">
+              <description> fn_Click_Back_Weeks - Function to click on back button to navigate back from list of weeks screen to select time screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+                   
+     <step type="CLICK" name="btn_Back" page="pge_ScheduleStarts">
+     	  	<step type="WAIT_FOR" name="lnk_Never" page="pge_ScheduleStarts">
+			<paramerter type="STATIC" value="60"/>
+			<token type="CONTENT" name="token_lnk_Never" value="TScheduleStart6" />
+     		</step>
+     		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button of list of weeks screen is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button of list list of weeks screen is not clicked"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	 
+	 
+ 	</function>
+
+
+
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to select weekdays checkbox -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Select_ScheduleStart_Weekdays">
+              <description> fn_Select_ScheduleStart_Weekdays - Function to select weekdays checkbox</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+     <step type="CLICK" name="lbl_Weekdays_Checkbox" page="pge_ScheduleStarts">
+     	     		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays is checked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays is not checked"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	
+		<step type="WAIT" name="HardWait" page="pge_ScheduleStarts">
+					<parameter type="STATIC" value="5" />
+		</step>
+	
+	 
+ 	</function>
+ 
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on save button after selecting weekdays -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Save_Weekdays">
+              <description> fn_Click_Save_Weekdays - Function to click on save button after selecting weekdays</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+                   
+     <step type="CLICK" name="btn_Save" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_Save" value="TScheduleStart4"/>
+     	<step type="WAIT_FOR" name="lbl_Weekdays" page="pge_ScheduleStarts">
+			<paramerter type="STATIC" value="60"/>
+			<token type="CONTENT" name="token_lbl_Weekdays" value="TScheduleStart7" />
+     	</step>
+     		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays is selected and saved" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays is not selected and saved"  />
+			</step>
+		</step>			
+		
+	</step>
+	
+	<step type="WAIT" name="HardWait" page="pge_ScheduleStarts">
+		<parameter type="STATIC" value="10" />
+	</step> 
+	 
+ 	</function>
+ 
+ 
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on save button to schedule start -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Save_ScheduleStart">
+              <description> fn_Click_Save_ScheduleStart - Function to click on save button to schedule start</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+                   
+     <step type="CLICK" name="btn_Save" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_Save" value="TScheduleStart4"/>
+     	<step type="WAIT_FOR" name="btn_AddStart" page="pge_ScheduleStarts">
+			<paramerter type="STATIC" value="60"/>
+			<token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart7" />
+     	</step>
+     		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Schedule Start is saved" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Schedule Start is not saved"  />
+			</step>
+		</step>			
+		
+	</step>
+	</function>
+	
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on back button to navigate back to vehicle info screen -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Back_ScheduleStart">
+              <description> fn_Click_Back_ScheduleStart - Function to click on back button to navigate back to vehicle info screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+                   
+    	<step type="WAIT_FOR" name="btn_Back" page="pge_ScheduleStarts" trace="true">
+    	 <parameter type="STATIC" value="20" />
+    	 
+    	 
+    	 <step type="STATE" name="To take screenshot" page="pge_ScheduleStarts"/>
+    	    	 
+    	<step type="CLICK" name="btn_Back" page="pge_ScheduleStarts" trace="true">
+    	
+   		</step>   		
+   		
+   		<step type="WAIT" name="HardWait" page="pge_ScheduleStarts">
+		<parameter type="STATIC" value="20" />
+		</step> 
+   		
+   		 
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button of Schedule Start is clicked and navigated back to vehicle info screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Back button of Schedule Start is not clicked"  />
+			</step>
+		</step>	 
+	  
+	  </step>
+	
+		 
+ 	</function>
+ 
+ 
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify No Schedule Start													   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_NoScheduleStart">
+              <description> fn_Verify_NoScheduleStart - Function to verify no schedule start</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+      <step type="VISIBLE" name="lnk_NoScheduleStart_Content1" page="pge_ScheduleStarts">
+	  	<parameter type="STATIC" name="maxScroll"  value="6"/>
+		<parameter type="STATIC" name="direction" value="UP"/>
+		<token type="CONTENT" name="token_lnk_NoScheduleStart_Content1" value="TScheduleStart21" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Schedule starts so your vehicle will be ready right when you are.' content is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Schedule starts so your vehicle will be ready right when you are.' content is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lnk_NoScheduleStart_Title" page="pge_ScheduleStarts">
+		<token type="CONTENT" name="token_lnk_NoScheduleStart_Title" value="TScheduleStart20" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NO SCHEDULE START' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NO SCHEDULE START' is not displayed" />
+			</step>
+		</step>		
+	</step> 
+	
+	
+</function>
+ 
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on No Schedule Start -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_NoScheduleStart">
+              <description> fn_Click_NoScheduleStart - Function to click on no schedule start</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+                   
+    <step type="CLICK" name="lnk_NoScheduleStart_Title" page="pge_ScheduleStarts">
+    	<token type="CONTENT" name="token_lnk_NoScheduleStart_Title" value="TScheduleStart20" />
+    	<step type="WAIT_FOR" name="btn_AddStart" page="pge_ScheduleStarts">
+     		<parameter type="STATIC"  value="30"/>
+     		<token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart3"/>
+     		</step>
+    	
+    	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NO SCHEDULE START' is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NO SCHEDULE START' is clicked" />
+			</step>
+		</step>		
+	</step>
+ </function>
+ 
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify No Schedule Start Screen Information									   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_NoScheduleStart_Screen">
+              <description> fn_Verify_NoScheduleStart_Content - Function to verify no schedule start screen information</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+    <step type="EXISTS" name="lnk_NoScheduleStart_Title" page="pge_ScheduleStarts">
+		<token type="CONTENT" name="token_lnk_NoScheduleStart_Title" value="TScheduleStart20" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NO SCHEDULE START' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'NO SCHEDULE START' is not displayed" />
+			</step>
+		</step>		
+	</step> 
+	
+	
+	  <step type="EXISTS" name="lnk_NoScheduleStart_Content2" page="pge_ScheduleStarts">
+	  	<token type="CONTENT" name="token_lnk_NoScheduleStart_Content2" value="TScheduleStart22" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'All authorized users will see all scheduled starts for this vehicle' content is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'All authorized users will see all scheduled starts for this vehicle' content is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="btn_AddStart" page="pge_ScheduleStarts">
+	  	<token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart3" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Add Start button' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Add Start button' is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="btn_Back" page="pge_ScheduleStarts">
+	  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Back button' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'Back button' is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+</function>
+ 
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to select the created scheduled starts -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Select_Created_ScheduleStarts">
+              <description> fn_Select_Created_ScheduleStarts - Function to select the created scheduled starts</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+     <step type="STATE" name="To take screenshot" page="pge_CreateAccount"/>
+     
+     <step type="CLICK" name="lbl_Weekdays" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_lbl_Weekdays" value="TScheduleStart7"/>
+     
+     		<step type="WAIT_FOR" name="btn_Save" page="pge_ScheduleStarts">
+     		<parameter type="STATIC"  value="30"/>
+     		<token type="CONTENT" name="token_btn_Save" value="TScheduleStart4"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays link is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Weekdays link is not clicked"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to delete the scheduled starts													   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Delete_ScheduledStarts">
+              <description> fn_Delete_ScheduledStarts - Function to delete the scheduled starts</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+     <step type="CLICK" name="btn_Delete_This_Start" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_Delete_This_Start" value="TScheduleStart24"/>
+     
+     		<step type="WAIT_FOR" name="lnk_NoScheduleStart_Title" page="pge_ScheduleStarts">
+     		<parameter type="STATIC"  value="60"/>
+     		<token type="CONTENT" name="token_lnk_NoScheduleStart_Title" value="TScheduleStart20"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Scheduled Start is deleted" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Scheduled Start is not deleted"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+ 	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify schedule start has reached limit of 10								   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_ScheduleStart_ReachedLimit_Message">
+              <description> fn_Verify_ScheduleStart_ReachedLimit_Message - Function to verify schedule start has reached limit of 10</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+      <step type="WAIT_FOR" name="lbl_Limit_Reached_Title" page="pge_ScheduleStarts">
+      <parameter type="STATIC"  value="30"/>
+	  	<token type="CONTENT" name="token_lbl_Limit_Reached_Title" value="TScheduleStart15" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Limit Reached is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Limit Reached is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_Limit_Reached_Popup_Msg" page="pge_ScheduleStarts">
+		<token type="CONTENT" name="token_lbl_Limit_Reached_Popup_Msg" value="TScheduleStart16" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'You've reached your limit of 10 scheduled starts.' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="'You've reached your limit of 10 scheduled starts.' is not displayed" />
+			</step>
+		</step>		
+	</step> 
+	
+	
+	<step type="EXISTS" name="btn_Ok" page="pge_ScheduleStarts">
+		<token type="CONTENT" name="token_btn_Ok" value="TScheduleStart17" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="OK button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="OK button is not displayed" />
+			</step>
+		</step>		
+	</step> 
+	
+	<step type="EXISTS" name="img_Limit_Reached" page="pge_ScheduleStarts">
+				
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Limit Reached image is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Limit Reached is not displayed" />
+			</step>
+		</step>		
+	</step>
+		
+</function>
+
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Ok button of schedule start reached limit of 10 					   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Ok_ReachedLimit_Message">
+              <description> fn_Click_Ok_ReachedLimit_Message - Function to click on Ok button of schedule start reached limit of 10</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                     <parameter type="STATIC" value="Function's XML file name: fn_ScheduleStarts.xml" />
+              </step>
+     
+     <step type="CLICK" name="btn_Ok" page="pge_ScheduleStarts">
+     	<token type="CONTENT" name="token_btn_Ok" value="TScheduleStart17"/>
+     
+     		<step type="WAIT_FOR" name="btn_AddStart" page="pge_ScheduleStarts">
+     		<parameter type="STATIC"  value="30"/>
+     		<token type="CONTENT" name="token_btn_AddStart" value="TScheduleStart3" />
+       		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Clicked on Ok button on the message" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+				<parameter type="STATIC" value="Not clicked on Ok button"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+ 	
+    
+	
+</suite>

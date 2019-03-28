@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindCategoryApplet" class="org.xframium.page.keyWord.KeyWordPage">
+			<!-- FIND PAGES: Category Tray Handler -->
+			<element name="btn_CategoryTrayBar" value="//*[contains(@resource-id,'categories_tray_bar')]/self::android.widget.ImageButton|//*[@name='categoryTrayHandleBar' and @visible='true']/self::UIAElement" descriptor="XPATH" />
+			<!-- KSARAV53 - Updated XPATH to resolve Upper/Lower case text issue -->
+			<element name="lbl_Categories" value="//android.support.v4.view.ViewPager//*[@text='{token_lbl_Categories_AND}']/preceding-sibling::android.widget.ImageButton|//android.support.v4.view.ViewPager//*[@text='{token_lbl_Categories_IOS}']/preceding-sibling::android.widget.ImageButton|//*[@label='{token_lbl_Categories_IOS}'and @visible='true']" descriptor="XPATH" />
+			<element name="btn_Categories_Paginator" value="//android.widget.RadioButton[3]/parent::android.widget.RadioGroup|//UIAPageIndicator" descriptor="XPATH" />
+			<element name="tray_Categories" value="//android.widget.RadioGroup/preceding-sibling::android.support.v4.view.ViewPager|//UIAPageIndicator/preceding::UIACollectionView" descriptor="XPATH" />
+			<!-- FIND PAGES: Category Tray Handler -->			
+		</page>
+	</site>
+</elementDefinition>

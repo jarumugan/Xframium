@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : SPICHAND -->
+<!-- Created Date : 28-June-2018 -->
+<!-- Updated Date : 28-June-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_030" dataProvider="TestData.XFS_FP_Accounts_030,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Reservation function check </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+<!-- 		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" /> -->
+
+
+			<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" failureMode="IGNORE">
+                  <parameter type="CONTENT" name="Application Name" value="TAppName"/>
+            </step>
+
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login" >
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+
+<!-- 		*************The Below swipe is applicable onlyl for USA country ************* -->
+
+			<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+				<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+		
+			</step>
+		
+		<step type="CALL2" name="fn_Click_Reservations" page="pge_Account" />
+				
+		<step type="CALL2" name="fn_VerifyPageOpened_Reservations" page="pge_Reservations"  tagNames="FP-NA-US">
+		
+			<step type="CALL2" name="fn_ValidateAllLinks_Reservations" page="pge_Reservations" />
+		
+			<step type="CALL2" name="fn_Click_Link_Parking" page="pge_Reservations" />
+		
+			<step type="CALL2" name="fn_ValidateAllField_Warningpopup" page="pge_Reservations" />
+		
+			<step type="CALL2" name="fn_Click_Cancel_Button" page="pge_Reservations" />
+		
+			<step type="CALL2" name="fn_Click_Link_Parking" page="pge_Reservations" />
+		
+			<step type="CALL2" name="fn_Click_Confirm_Button" page="pge_Reservations" />
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_Parking" page="pge_Parking" />
+		
+			<step type="CALL2" name="fn_VerifySubHeader_ParkWhiz" page="pge_Parking" />
+		
+			<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" wait="5"/>	
+		
+			<step type="CALL2" name="fn_Click_GuidesMenu" page="page_FPCommon"/>
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="page_GuidesLanding"/>
+		
+				<step type="CALL2" name="fn_ValidatePopularTopicHeader" page="page_GuidesLanding" >
+				<parameter type="CONTENT" name="param_PopularTopicHeader" value="TGuidesChangeTopic7" />
+				</step>
+	</step>
+
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="page_FPCommon"/>
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" wait="5"/>	
+		
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+		
+	</test>
+</suite>

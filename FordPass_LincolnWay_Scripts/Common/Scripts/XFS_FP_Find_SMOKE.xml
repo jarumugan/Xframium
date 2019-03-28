@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : TBALASU6 -->
+<!-- Created Date : 15-AUG-2018 -->
+<!-- Updated Date : 21-AUG-2018 -->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_SMOKE" dataProvider="TestData.XFS_FP_Find_001"
+		contentKeys="FP-EU-UK" timed="false" threshold="0" active="true">
+		
+		<description> FIND Search script </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step name="OPEN" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	
+		
+<!-- 		<step type="COMMAND" name="mobile:location:set" page="pge_Login"> -->
+<!--     		<parameter type="STATIC" name="address" value="Longford TW6, UK" /> -->
+<!-- 		</step> -->
+				
+<!-- 		<step type="COMMAND" name="mobile:location:set" page="pge_Login"> -->
+<!--     		<parameter type="STATIC" name="address" value="Via Appia Nuova, 1651, 00040 Roma RM, Italy" /> -->
+<!-- 		</step> -->
+		
+		<!-- Clicking the 'MENU- FIND'  -->		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+		
+<!-- ############################################################################################################# -->
+<!-- FIND >> VERIFY LANDING PAGE -->
+<!-- ############################################################################################################# -->
+
+<!-- Verifying the 'FIND' title on FIND Page -->
+		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_PageTitle_IOS" value="TFindMenu" />
+			<parameter type="CONTENT" name="param_PageTitle_AND" value="TFindMenu" />
+		</step>
+		
+<!-- Verifying the 'SEARCH FIELD & ICON' edit field on Parking Page -->
+		<step type="CALL2" name="fn_Verify_SearchBar" page="pge_FindCommon" />
+		
+<!-- Clicking on  'CategoryTrayBar' button in Find Page -->
+		<step type="CALL2" name="fn_Click_CategoryTrayBar" page="pge_FindCategoryApplet" failureMode="IGNORE" />
+		
+		
+<!-- Verifying the 'MENU BAR - FORD PASS' tabs on FIND Page -->
+		<step type="CALL2" name="fn_ValidateMenuBar_FordPass" page="pge_FPCommon" />
+		
+<!-- Clicking the 'CATEGEORY-FUEL' --> 
+
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory1_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory1_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon"/>		
+			
+		
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Clicking the 'CATEGEORY-PARKING'  -->
+
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory2_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory2_AND" />
+		</step>
+		
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+		
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Clicking the 'CATEGEORY-Hertz' For UK/DE -->
+
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory14_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory14_AND" />			
+		</step>
+		
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+		
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon" failureMode="IGNORE" >		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+	
+<!-- 		Select the 'CATEGEORY-DEALERS'  -->
+
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory3_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory3_AND" />
+		</step>
+		
+<!-- Clicking the 'CATEGEORY-DEALERS'  -->
+
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory3_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory3_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+		
+		<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+	
+<!-- Clicking the 'CATEGEORY-FOOD'  -->
+
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory4_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory4_AND" />
+		</step>
+
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>		
+		
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+
+<!-- Clicking the 'CATEGEORY-COFFEE'  -->
+
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory5_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory5_AND" />
+		</step>
+		
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+		
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Select the 'CATEGEORY-VEHICLE'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory6_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory6_AND" />
+		</step>
+
+<!-- Clicking the 'CATEGEORY-VEHICLE'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory6_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory6_AND" />
+		</step>
+		
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+	
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+	<!-- Select the 'CATEGEORY-ENTERTAINMENT'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory7_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory7_AND" />
+		</step>
+
+<!-- Clicking the 'CATEGEORY-ENTERTAINMENT'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory7_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory7_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+				
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+		<!-- Select the 'CATEGEORY-VEHICLE'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory8_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory8_AND" />
+		</step>
+			
+<!-- Clicking the 'CATEGEORY-TRAVEL'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory8_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory8_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+				
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Clicking the 'CATEGEORY-MONEY'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory9_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory9_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>		
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Clicking the 'CATEGEORY-SHOPPING'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory10_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory10_AND" />
+		</step>
+		
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+				
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Clicking the 'CATEGEORY-HEALTH'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory11_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory11_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+				
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+<!-- Select the 'CATEGEORY-COMMUNITY'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory12_AND" />
+		</step>
+		
+<!-- Clicking the 'CATEGEORY-COMMUNITY'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory12_AND" />
+		</step>
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>	
+
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+		<!-- Select the 'CATEGEORY-RECREATION'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory13_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory13_AND" />
+		</step>
+		
+<!-- Clicking the 'CATEGEORY-RECREATION'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory13_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory13_AND" />
+		</step>
+		
+<!-- Clicking the 'LIST View FAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon">		
+		</step>
+				
+<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+	
+<!-- ############################################################################################################# -->
+<!-- FIND >> MAP SEARCH FEATURES USING VALID/INVALID KEYWORDS -->
+<!-- ############################################################################################################# -->	
+		
+		<step type="CALL2" name="fn_Search_NoResults" page="pge_FindCommon"/>	
+			
+<!-- Validating the 'SEARCH' by Passing Keyword -->
+		<step type="CALL2" name="fn_SearchBar_Parameterized" page="pge_FindCommon" >
+			<parameter type="DATA" name="param_SearchKeyword" value="TestData.FindSearchKey" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_SearchResultList" page="pge_FindCommon" >
+			<parameter type="DATA" name="param_lbl_SearchResultList" value="TestData.FindSelectSearchListItem" />
+		</step>
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+	</test>
+</suite>

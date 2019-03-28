@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates the smart card details after it is clicked -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_VerifySmartCard_DetailedDescription">
+		<description>fn_VerifySmartCard_DetailedDescription - function to verify the description of smart card </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_SmartTip.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_PageTitle" page="pge_SmartTip">
+			<token type="CONTEXT" name="token_lbl_PageTitle" value="str_SmartCardTitle" />
+		</step>
+
+		<step type="EXISTS" name="lbl_TileContent" page="pge_SmartTip" >
+			<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_SmartTipDescription" page="pge_SmartTip">
+			<token type="CONTEXT" name="token_lbl_SmartTipDescription" value="str_smartTipDescription" />
+		</step>	
+	
+	</function>			
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the 'OK' button from smart card description page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_SmartCard_Description_OK">
+		<description>fn_Click_SmartCard_Description_OK - function to click on the ok button from smart card description page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_SmartTip.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_SmartTip_OK" page="pge_SmartTip">
+			<token type="CONTENT" name="token_btn_SmartTip_OK" value="TSmartTip5" />
+			<step type="CLICK" name="btn_SmartTip_OK" page="pge_SmartTip">
+				<token type="CONTENT" name="token_btn_SmartTip_OK" value="TSmartTip5" />
+		<step type="ELSE" name="IF_OK_BUTTON_NOT_AVAILBLE" page="pge_SmartTip">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip">
+				<parameter type="STATIC" value="Expected 'OK' button is not available" />
+			</step>		
+		</step>
+		</step>			
+		</step>
+
+		<step type="WAIT" name="Wait_For_10_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_OK_Button"/>
+			
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the 'OK' button from smart card description page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Navigate_Back_From_SmartCard_Description_Page">
+		
+		<description>fn_Navigate_Back_From_SmartCard_Description_Page - function to navigate back from smart card description page 
+		(### Android - Device "BACK" button ### IOS - Application "BACK" button ###)</description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_SmartTip.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_SmartTip_Back" page="pge_SmartTip" os="IOS"/>
+
+		<step type="DEVICE" name="BACK" page="pge_SmartTip" os="ANDROID" />
+
+		<step type="WAIT" name="Wait_For_10_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Navigating_Back"/>
+			
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the 'Show Me FordCredit' button from smart card description page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_Show_Me_FordCredit_Button">
+		<description>fn_Click_Show_Me_FordCredit_Button - function to click on the 'Show me Ford Credit' button from smart card description page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_SmartTip.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_Show_Me_FordCredit" page="pge_SmartTip">
+			<token type="CONTENT" name="token_btn_Show_Me_FordCredit_IOS" value="TSmartTip8_IOS" />
+			<token type="CONTENT" name="token_btn_Show_Me_FordCredit_AND" value="TSmartTip8_AND" />
+		</step>
+			
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the Explore Find' button from smart card description page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_Explore_Find_Button">
+		<description>fn_Click_Explore_Find_Button - function to click on the 'Explore Find' button from smart card description page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_SmartTip.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_Explore_Find" page="pge_SmartTip">
+			<token type="CONTENT" name="token_btn_Explore_Find_IOS" value="TSmartTip10_IOS" />
+			<token type="CONTENT" name="token_btn_Explore_Find_AND" value="TSmartTip10_AND" />
+		</step>
+			
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates and clicks the "I'm Not Driving" button while navigating from smart card tiles -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_Im_Not_Driving_Button">
+		<description>fn_Click_Im_Not_Driving_Button - function to click on the "I'm Not Driving" button while navigating from smart card tiles </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip.xml">
+			<parameter type="STATIC" value="Function's XML file name: fn_SmartTip.xml" />
+		</step>
+		
+		<!-- <step type="VISUAL" name="BUTTON" site="FordPass" page="pge_Move" os="IOS" failureMode="IGNORE">
+			<parameter type="STATIC" value="label=I'm not driving" />
+			<parameter type="STATIC" value="timeout=30" />
+			<parameter type="STATIC" value="threshold=90" />
+		</step> -->
+
+		<step type="EXISTS" name="lbl_SafetyCheck" page="pge_SmartTip" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lbl_SafetyCheck" value="TSafetyCheck1" />
+			<step type="EXISTS" name="btn_ImNotDriving" page="pge_SmartTip">
+				<token type="CONTENT" name="token_btn_ImNotDriving_L" value="TSafetyCheck3_LowerCase" />
+				<token type="CONTENT" name="token_btn_ImNotDriving_U" value="TSafetyCheck3_UpperCase" />
+			</step>
+			<step type="CLICK" name="btn_ImNotDriving" page="pge_SmartTip">
+				<token type="CONTENT" name="token_btn_ImNotDriving_L" value="TSafetyCheck3_LowerCase" />
+				<token type="CONTENT" name="token_btn_ImNotDriving_U" value="TSafetyCheck3_UpperCase" />
+			</step>
+		<step type="ELSE" name="If_Safety_Check_Not_Displayed" page="pge_SmartTip">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SmartTip">
+				<parameter type="STATIC" value="Safety Check screen is not displayed" />
+			</step>
+		</step>
+		</step>
+			
+	</function>				
+</suite>
+

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 14-Mar-2018 -->
+<!-- Updated Date : 14-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_012_AND" dataProvider="TestData.XFS_FP_Accounts_012_AND,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" os="ANDROID" tagNames="FP-SA" timed="false" threshold="0" active="true">
+		<description> Enter Address (Field Level Validation) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="APPLICATION" name="OPEN" page="pge_Login" wait="3">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Click_CreateAccount" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreateAccount" page="pge_CreateAccount" />
+
+		<step type="CALL2" name="fn_InputAllFields_CreateAccount" page="pge_CreateAccount" />
+		
+		<step type="CALL2" name="fn_Checked_PCCheckbox" page="pge_CreateAccount" tagNames="FP-EU" />
+
+		<step type="CALL2" name="fn_Checked_TCCheckbox" page="pge_CreateAccount"/>
+		
+		<step type="CALL2" name="fn_Click_CA_NextButton" page="pge_CreateAccount" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN_WithoutAllow" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_MarketingOptions" page="pge_MarketingOptions" tagNames="FP-EU">
+			
+			<step type="CALL2" name="fn_ValidatePage_MarketingOptions" page="pge_MarketingOptions" />
+			
+			<step type="CALL2" name="fn_VerifyMOSaveButtonStatus" page="pge_MarketingOptions">
+				<parameter type="STATIC" name="param_ExpStatus" value="false" />
+			</step>
+			
+			<step type="CALL2" name="fn_SetAll_MarketingOptions_CA" page="pge_MarketingOptions" />
+			
+			<step type="CALL2" name="fn_ClickMarkingOptions_Save" page="pge_MarketingOptions" />
+				
+			<step type="CALL2" name="fn_VerifyPageOpened_EnterAddress" page="pge_EnterAddress" />
+			
+<!-- 			Validate Address1 field with Null -->
+			<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU,FP-EU-FR">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress14" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress14" />
+				<parameter type="STATIC" name="param_DataValue" value="" />
+			
+				<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_CheckforInlineError_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress18" />
+				</step>
+				
+				<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU">
+					<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress14" />
+					<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress14" />
+					<parameter type="DATA" name="param_DataValue" value="TestData.Address1" />
+				</step>
+				
+				<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_CheckNotExist_InlineError_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress18" />
+				</step>
+			</step>
+			
+<!-- 			Address Line 2 -->
+<!-- 			Optional for France -->
+			<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-ES,FP-EU-UK">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress15" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress15" />
+				<parameter type="DATA" name="param_DataValue" value="TestData.Address2" />
+			</step>
+			
+<!-- 			Validate Postal code -->
+			<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU,FP-EU-FR">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress4" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress4" />
+				<parameter type="STATIC" name="param_DataValue" value="" />
+			
+				<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_CheckforInlineError_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress19" />
+				</step>
+				
+				<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU">
+					<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress4" />
+					<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress4" />
+					<parameter type="DATA" name="param_DataValue" value="TestData.ZipcodeCEP" />
+				</step>
+				
+				<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_CheckNotExist_InlineError_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress19" />
+				</step>
+			</step>
+			
+<!-- 			Validate City with Null -->
+			<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU,FP-EU-FR">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress8" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress8" />
+				<parameter type="STATIC" name="param_DataValue" value="" />
+			
+				<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_CheckforInlineError_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress20" />
+				</step>
+			
+				<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress8" />
+					<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress8" />
+					<parameter type="DATA" name="param_DataValue" value="TestData.City" />
+				</step>
+				
+				<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_EnterAddress" />
+			
+				<step type="CALL2" name="fn_CheckNotExist_InlineError_EnterAddress" page="pge_EnterAddress">
+					<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress20" />
+				</step>
+			</step>
+			
+<!-- 			Country -->
+<!-- 			Optional for France -->
+			<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress9" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress9" />
+				<parameter type="DATA" name="param_DataValue" value="TestData.State" />
+			</step>
+			
+<!-- 			Phone Number -->
+<!-- 			Optional for France -->
+			<step type="CALL2" name="fn_FieldLevelValidate_EnterAddress" page="pge_EnterAddress" tagNames="FP-EU">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress17" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress17" />
+				<parameter type="DATA" name="param_DataValue" value="TestData.PhoneNumber" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickEnterAddress_Next" page="pge_EnterAddress" />
+		</step>
+		
+		<step type="CALL2" name="fn_AcceptShareLocation" page="pge_ShareLocation" tagNames="FP-EU"/>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Congratulations" page="pge_Congratulations" />
+		
+		<step type="CALL2" name="fn_ValidatePage_Congratulations" page="pge_Congratulations" />
+		
+		<step type="CALL2" name="fn_Click_TakeTheTour" page="pge_Congratulations" />
+				
+		<step type="CALL2" name="fn_ValidatePage_FirstImpression1" page="pge_FirstImpression" />
+
+		<step type="CALL2" name="fn_ClickFirstImpression_Skip" page="pge_FirstImpression" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ProgramBenefits" page="pge_ProgramBenefits" />
+		
+			
+		<step type="CALL2" name="fn_ClickProgramBenefits_Add" page="pge_ProgramBenefits" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterAddress" page="pge_EnterAddress" tagNames="FP-SA">
+		
+			<step type="CALL2" name="fn_ValidatePage_EnterAddress" page="pge_EnterAddress" />
+			
+			<step type="CALL2" name="fn_SwipeToTop_Parameterized" page="pge_CommonReusable">
+				<parameter type="STATIC" name="param_NoOfSwipe" value="3" />
+			</step>
+			
+<!-- 			Input the invalid CEP -->
+			<step type="CALL2" name="fn_Input_EnterAddress_CEP" page="pge_EnterAddress">
+				<parameter type="STATIC" name="param_DataValue" value="147258" />
+			</step>
+			
+			<step type="LOOP" name="WaitTillLoadingCompletes" page="pge_EnterAddress" failureMode="IGNORE">
+				<parameter type="STATIC" value="5" />
+				<parameter type="STATIC" value="fn_WaitTillLoadingCompletes" />
+			</step>
+			
+			<step type="CALL2" name="fn_CheckforInlineError_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress13" />
+			</step>
+			
+<!-- 			Input the valid CEP -->
+			<step type="CALL2" name="fn_Input_EnterAddress_CEP" page="pge_EnterAddress">
+				<parameter type="DATA" name="param_DataValue" value="TestData.ZipcodeCEP" />
+			</step>
+			
+			<step type="LOOP" name="WaitTillLoadingCompletes" page="pge_EnterAddress" failureMode="IGNORE">
+				<parameter type="STATIC" value="5" />
+				<parameter type="STATIC" value="fn_WaitTillLoadingCompletes" />
+			</step>
+			
+			<step type="CALL2" name="fn_CheckNotExist_InlineError_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEnterAddress13" />
+			</step>
+			
+<!-- 			Validate Street field -->
+			<step type="CALL2" name="fn_ValidateFieldsWithExpectedValue_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress5" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress5" />
+				<parameter type="DATA" name="param_ExpectedValue" value="TestData.Street" />
+			</step>
+			
+<!-- 			Validate Phone Number field -->
+			<step type="CALL2" name="fn_ValidateFieldsWithExpectedValue_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress6" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress6" />
+				<parameter type="DATA" name="param_ExpectedValue" value="TestData.PhoneNumber" />
+			</step>
+			
+			<!-- Validate Complement field -->
+			<step type="CALL2" name="fn_ValidateFieldsWithExpectedValue_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress7" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress7" />
+				<parameter type="DATA" name="param_ExpectedValue" value="TestData.Complement" />
+			</step>
+			
+<!-- 			Validate City field -->
+			<step type="CALL2" name="fn_ValidateFieldsWithExpectedValue_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress8" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress8" />
+				<parameter type="DATA" name="param_ExpectedValue" value="TestData.City" />
+			</step>
+			
+			<!-- Validate State field -->
+			<step type="CALL2" name="fn_ValidateFieldsWithExpectedValue_EnterAddress" page="pge_EnterAddress">
+				<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress9" />
+				<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress9" />
+				<parameter type="DATA" name="param_ExpectedValue" value="TestData.State" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickEnterAddress_Next" page="pge_EnterAddress" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterAddress" page="pge_EnterAddress" tagNames="FP-NA-EN">
+			
+			<step type="CALL2" name="fn_ValidatePage_EnterAddress" page="pge_EnterAddress" />
+			
+			<step type="CALL2" name="fn_SwipeToTop_Parameterized" page="pge_CommonReusable">
+				<parameter type="STATIC" name="param_NoOfSwipe" value="3" />
+			</step>
+															
+			<step type="CALL2" name="fn_InputAllFields_EnterAddress" page="pge_EnterAddress" />
+			
+			<step type="CALL2" name="fn_EnterAddr_State" page="pge_EnterAddress" os="ANDROID" /> 
+			
+			<step type="CALL2" name="fn_ClickEnterAddress_Next" page="pge_EnterAddress" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ScanorEnterVIN" page="pge_ScanorEnterVIN" />
+		
+		<step type="CALL2" name="fn_Click_ScanorEnterVIN_SkipForNow" page="pge_ScanorEnterVIN" />
+		
+		<step type="CALL2" name="fn_Click_All_Allow" page="pge_CommonReusable" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="btn_ImNotDriving" page="pge_FPCommon" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_ImNotDriving_AND" value="TSafetyCheck3_AND" />
+			<token type="CONTENT" name="token_btn_ImNotDriving_IOS" value="TSafetyCheck3_IOS" />
+			
+			<step type="CLICK" name="btn_ImNotDriving" page="pge_FPCommon">
+				<token type="CONTENT" name="token_btn_ImNotDriving_AND" value="TSafetyCheck3_AND" />
+				<token type="CONTENT" name="token_btn_ImNotDriving_IOS" value="TSafetyCheck3_IOS" />
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+		
+	</test>
+</suite>

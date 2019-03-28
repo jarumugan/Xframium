@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">	
+	
+	<!-- ############################################################################################################# -->
+	<!-- 	ESURESH8: LIST OF FUNCTIONS in fn_FindCategoryApplet.xml-->
+	<!-- 	fn_Verify_CategoryTrayBar -->
+	<!-- 	fn_Click_CategoryTrayBar -->
+	<!-- 	fn_Validate_Categories -->
+	<!-- 	fn_Verify_Categories -->
+	<!-- 	fn_Click_Categories -->
+	<!-- 	fn_Verify_Categories_Paginator -->
+	<!-- 	fn_SwipeR_Categories -->
+	<!-- 	fn_SwipeL_Categories -->
+	<!-- ############################################################################################################# -->
+		
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This functions to verify and validate the 'CATEGORY TRAY BAR' existence by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+		
+	<function name="fn_Verify_CategoryTrayBar">
+	<description> fn_Verify_CategoryTrayBar: To verify the 'Category Tray Bar' Presence  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>		
+		<step type="EXISTS" name="btn_CategoryTrayBar" page="pge_FindCategoryApplet">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY BAR' is EXISTS on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY BAR' is NOT EXISTS on the Page" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_CategoryTrayBar">
+	<description> fn_Verify_CategoryTrayBar: To verify the 'Category Tray Bar' Presence  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>		
+		<step type="CLICK" name="btn_CategoryTrayBar" page="pge_FindCategoryApplet">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY BAR' is CLICKED and displayed on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY BAR' NOT CLICKED on the Page" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Validate_Categories">
+	<description> fn_Verify_CategoryTrayBar: To verify the 'Categories' on Tray  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>	
+		<!-- Verify Categories Tray 1 Categories Presence-->
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory1_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory1_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory2_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory2_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory3_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory3_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory4_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory4_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory5_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory5_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory6_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory6_AND" />
+		</step>		
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory7_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory7_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory8_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory8_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory9_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory9_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory10_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory10_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory11_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory11_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory12_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory13_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory13_AND" />
+		</step>	
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" tagNames="FP-EU,FP_CH">
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory14_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory14_AND" />
+		</step>
+
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" tagNames="FP_CH">
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory15_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory15_AND" />
+		</step>
+		
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" tagNames="FP_CH">
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory16_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory16_AND" />
+		</step>
+						
+		<!-- Verify Pagination Element -->
+		<step type="CALL2" name="fn_Verify_Categories_Paginator" page="pge_FindCategoryApplet" />
+	</function>
+	
+	<function name="fn_Verify_Categories">
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>
+		<step type="CALL2" name="fn_Verify_CategoriesExistence" page="pge_FindCategoryApplet" failureMode="IGNORE">
+			<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+				<step type="CALL2" name="fn_SwipeR_Categories" page="pge_FindCategoryApplet"/>
+				<step type="CALL2" name="fn_Verify_CategoriesExistence" page="pge_FindCategoryApplet" failureMode="IGNORE">
+					<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+						<step type="CALL2" name="fn_SwipeR_Categories" page="pge_FindCategoryApplet"/>
+						<step type="CALL2" name="fn_Verify_CategoriesExistence" page="pge_FindCategoryApplet" failureMode="IGNORE">
+							<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+								<step type="CALL2" name="fn_SwipeL_Categories" page="pge_FindCategoryApplet"/>
+								<step type="CALL2" name="fn_Verify_CategoriesExistence" page="pge_FindCategoryApplet" failureMode="IGNORE">
+									<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+										<step type="CALL2" name="fn_SwipeL_Categories" page="pge_FindCategoryApplet"/>
+										<step type="CALL2" name="fn_Verify_CategoriesExistence" page="pge_FindCategoryApplet">
+										</step>
+									</step>
+								</step>
+							</step>
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>		
+	</function>
+	
+	<function name="fn_Verify_CategoriesExistence">
+	<description> fn_Verify_Categories: To verify the 'Categories' on Tray  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>		
+		<step type="EXISTS" name="lbl_Categories" page="pge_FindCategoryApplet">
+		<token type="CONTEXT" name="token_lbl_Categories_IOS" value="param_Categories_IOS" />
+		<token type="CONTEXT" name="token_lbl_Categories_AND" value="param_Categories_AND" />
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+			<parameter type="STATIC" value="'CATEGORY' is EXISTS with the following Name" />
+			<parameter type="CONTEXT" name="Category_IOS" value="param_Categories_IOS" />
+			<parameter type="CONTEXT" name="Category_AND" value="param_Categories_AND" />
+		</step>
+		<step type="STATE" name="FIND - CATEGORIES" page="pge_FindCommon" failureMode="IGNORE" />
+			<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+					<parameter type="STATIC" value="Following 'CATEGORY' is NOT EXISTS on the Category Tray" />
+					<parameter type="CONTEXT" name="Category_IOS" value="param_Categories_IOS"/>
+					<parameter type="CONTEXT" name="Category_AND" value="param_Categories_AND" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Categories">
+	<description> fn_Click_Categories: To Click the 'Categories' on Tray  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>
+		<step type="CLICK" name="lbl_Categories" page="pge_FindCategoryApplet" wait="2">		
+			<token type="CONTEXT" name="token_lbl_Categories_IOS" value="param_Categories_IOS" />
+			<token type="CONTEXT" name="token_lbl_Categories_AND" value="param_Categories_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="Following 'CATEGORY' is CLICKED on the Category Tray" />
+				<parameter type="CONTEXT" name="token_lbl_Categories_IOS" value="param_Categories_IOS" />
+				<parameter type="CONTEXT" name="token_lbl_Categories_AND" value="param_Categories_AND" />
+			</step>
+			<step type="STATE" name="FIND - CATEGORIES" page="pge_FindCommon" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="Following 'CATEGORY' is NOT CLICKED on the Category Tray"  />
+				<parameter type="CONTEXT" name="token_lbl_Categories_IOS" value="param_Categories_IOS" />	
+				<parameter type="CONTEXT" name="token_lbl_Categories_AND" value="param_Categories_AND" />
+			</step>
+			<step type="STATE" name="FIND - CATEGORIES" page="pge_FindCommon" failureMode="IGNORE" />
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Categories_Paginator">
+	<description> fn_Verify_CategoryTrayBar: To verify the 'Categories' on Tray  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>		
+		<step type="EXISTS" name="btn_Categories_Paginator" page="pge_FindCategoryApplet">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY PAGINATOR' is EXISTS on the Page" />				
+			</step>				
+			<step type="STATE" name="FIND - CATEGORY PAGINATOR" page="pge_FindCommon" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY PAGINATOR' is NOT EXISTS on the Page" />
+			</step>
+		</step>
+		</step>
+	</function>
+	<function name="fn_SwipeR_Categories">
+	<description> fn_Verify_CategoryTrayBar: To verify the 'Categories' on Tray  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>					
+		<step name="SWIPE.tray_Categories" page="pge_FindCategoryApplet" type="GESTURE">
+			<parameter type="STATIC" name="From Position" value="90,50"/>
+			<parameter type="STATIC" name="To Position" value="10,50"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY' is SWIPED towards Right direction" />
+			</step>
+		  <step type="STATE" name="Filters - Category Swipe" page="pge_FindCategoryApplet" failureMode="IGNORE" />
+		  <step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY' is NOT SWIPED towards Right direction" />
+			</step>
+		</step>
+		</step>
+	</function>
+	<function name="fn_SwipeL_Categories">
+	<description> fn_Verify_CategoryTrayBar: To verify the 'Categories' on Tray  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCategoryApplet.xml" />
+		</step>					
+		<step name="SWIPE.tray_Categories" page="pge_FindCategoryApplet" type="GESTURE">
+			<parameter type="STATIC" name="From Position" value="10,50"/>
+			<parameter type="STATIC" name="To Position" value="90,50"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY TRAY' is SWIPED towards Left direction" />
+			</step>
+		  <step type="STATE" name="Filters - Category Swipe" page="pge_FindCategoryApplet" failureMode="IGNORE" />
+		  <step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCategoryApplet">
+				<parameter type="STATIC" value="'CATEGORY SWIPE' is NOT SWIPED towards Left direction" />
+			</step>
+		</step>
+		</step>
+	</function>
+	</suite>

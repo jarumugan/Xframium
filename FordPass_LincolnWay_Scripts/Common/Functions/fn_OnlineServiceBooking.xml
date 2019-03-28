@@ -1,0 +1,1780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ######################################################################################################################### -->
+<!-- KSIVANAN - This function is perform Online Service Booking, Which includes MOT, Vehicle Service & VehicleService with MOT -->
+<!-- ######################################################################################################################### -->
+
+	<function name="fn_Click_ViewVehicleDetails1">
+		<description>fn_Click_ScheduleService - function to click 'Schedule Service' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_ViewVehicleDetails1" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_ViewVehicleDetails1" value="TMove2_IOS" />
+			<step type="CLICK" name="btn_ViewVehicleDetails1" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_ViewVehicleDetails1" value="TMove2_IOS" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Schedule Service' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Schedule Service' button is not available" />
+			</step>
+		</step>			
+		</step>                                                                   
+	</function>
+
+
+	<function name="fn_Click_ScheduleService">
+		<description>fn_Click_ScheduleService - function to click 'Schedule Service' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Scheduleservice" page="pge_OnlineServiceBooking">
+		    <token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_Scheduleservice" value="TOSBScheduleServicebutton" />
+			
+			<step type="CLICK" name="btn_Scheduleservice" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_Scheduleservice" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_Scheduleservice" value="TOSBScheduleServicebutton" />	
+					
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Schedule Service' is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Schedule Service' is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function validates the contents of SCHEDULE SERVICE Info page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_ScheduleServiceInfo">
+		<description>fn_Verify_VehicleInfo - function to the vehicle info page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+
+<!-- BACK ICON IS CURRENTLY NOT AVAILABLE IN ANDROID; Hence OS="IOS" -->
+
+		<!-- <step type="EXISTS" name="btn_Back" page="pge_OnlineServiceBooking" os="IOS">
+			<token type="CONTENT" name="token_btn_Back" value="TVehicleInfo4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+
+		<step type="CALL2" name="fn_Click_ScheduleService"/> -->
+
+<!-- BACK ICON IS CURRENTLY NOT AVAILABLE IN ANDROID; Hence OS="IOS" -->
+	
+	
+		<step type="EXISTS" name="lbl_ScheduleServicetitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_ScheduleServicetitle" value="TOSBSStitle" />
+				<token type="CONTENT" name="token_lbl_ScheduleServicetitle" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Schedule Service title is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Schedule Service title is not available" />
+			</step>
+		</step>			
+		
+		<step type="EXISTS" name="lbl_VehicleName" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehicleName" value="TOSBVehcileName" />
+			<token type="CONTENT" name="token_lbl_VehicleName" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Vehicle title is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle title is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_VehicleType" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehicleType" value="TOSBVehcileName" />
+			<token type="CONTENT" name="token_lbl_VehicleType" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Vehicle title is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle title is not available" />
+			</step>
+		</step>		
+	
+		
+		<step type="EXISTS" name="lbl_VehiclePreferredDealertitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealertitle" value="TOSBPreferredDealertitle" />
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealertitle" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer title is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_VehiclePreferredDealerinfo" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealerinfo" value="TOSBPreferredDealerinfo" />
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealerinfo" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer information is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer information is not available" />
+			</step>
+		</step>		
+		
+		<!-- <step type="EXISTS" name="lbl_VehiclePreferredDealerinfo1" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealerinfo1" value="TOSBPreferredDealerinfo1" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer information is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer information is not available" />
+			</step>
+		</step>		 -->
+		
+		<step type="EXISTS" name="lbl_VehiclePreferredDealerinfo2" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealerinfo2" value="TOSBPreferredDealerinfo2" />
+			<token type="CONTENT" name="token_lbl_VehiclePreferredDealerinfo2" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer information is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Vehicle Preferred Dealer information is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_VehicleServicetype" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehicleServicetype" value="TOSBServiceType" />
+			<token type="CONTENT" name="token_lbl_VehicleServicetype" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service Type is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service type is not available" />
+			</step>
+		</step>		
+		
+		<step type="VISIBLE" name="lbl_VehicleServicetype1" page="pge_OnlineServiceBooking" >			
+			<token type="CONTENT" name="token_lbl_VehicleServicetype1" value="TOSBServiceType1" />
+<!-- 				<token type="CONTENT" name="token_lbl_VehicleServicetype1" value="TResourceId" /> -->
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="lbl_Scheduleservice label is found" />
+			</step>	
+		<step type="ELSE" name="If_Schedule service_label_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value=" Schedule service label is not found" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_VehicleServicetype2" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehicleServicetype2" value="TOSBServiceType2" />
+<!-- 			<token type="CONTENT" name="token_lbl_VehicleServicetype2" value="TResourceId" /> -->
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service Type MOT is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service type MOT is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_VehicleServicetype3" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_VehicleServicetype3" value="TOSBServiceType3" />
+<!-- 				<token type="CONTENT" name="token_lbl_VehicleServicetype3" value="TResourceId" /> -->
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service Type MOT is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service type MOT is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_VehicleServicetype4" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_VehicleServicetype4" value="TOSBServiceType4" />
+<!-- 			<token type="CONTENT" name="token_lbl_VehicleServicetype4" value="TResourceId" /> -->
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service Type MOT is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Dealer Service type MOT is not available" />
+			</step>
+		</step>		
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function clicks the NEXT button from Select Service page -->
+<!-- ############################################################################################################# -->
+	
+
+	<function name="fn_Click_NextbtnScheduleSrvpge">
+		<description>fn_Click_Next - Select a mileage is selected and proceed with next page' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="btn_Next" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+			
+		<step type="EXISTS" name="btn_Next" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="CLICK" name="btn_Next" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="TOSBNextbutton">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>		
+
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function clicks the NEXT button from Select Millage page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_NextSelectMileage">
+		<description>fn_Click_Next - Select a mileage is selected and proceed with next page' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_Selectmileagetitle" page="pge_OnlineServiceBooking">
+               <parameter type="STATIC" value="50"></parameter>
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+               <token type="CONTENT" name="token_lbl_Selectmileagetitle" value="TOSBMileagetitle"/>                 
+        </step>
+		
+		
+		<step type="EXISTS" name="lbl_Selectmileagetitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Selectmileagetitle" value="TOSBMileagetitle" />
+			<token type="CONTENT" name="token_lbl_Selectmileagetitle" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Select Mileage title is found" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Select Mileage title is not available" />
+			</step>
+		</step>		
+		
+				
+		<step type="VISIBLE" name="btn_MileageNext" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+			
+		<step type="EXISTS" name="btn_MileageNext" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />
+			
+			<step type="CLICK" name="btn_MileageNext" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />		
+			</step>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>		
+			
+		
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This Page shows all the available services -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_AvailableServicespage">
+		<description>fn_Verify_Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_Servicepage" page="pge_OnlineServiceBooking">
+               <parameter type="STATIC" value="50"></parameter>
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+               <token type="CONTENT" name="token_lbl_Servicepage" value="TOSBPagedetails"/>                 
+        </step>	
+			
+		<step type="EXISTS" name="lbl_Servicepage" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_Servicepage" value="TOSBPagedetails" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page is not available" />
+			</step>
+		</step>		
+		
+		
+		<step type="EXISTS" name="lbl_Servicepage1" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage1" value="TOSBPagedetails1" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Ford Service Page" />
+			</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Ford Service Page is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_Servicepage2" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage2" value="TOSBPagedetails2" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Ford Engine Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Ford Engine Service Page is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_Servicepage3" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage3" value="TOSBPagedetails3" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Ford Equipement Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Ford Equipment Service Page is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_Servicepage4" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage4" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_Servicepage4" value="TOSBPagedetails4" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Miles Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Miles Service Page is not available" />
+		</step>
+		</step>		
+		
+		
+		<step type="EXISTS" name="btn_AvaSerDialog" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_AvaSerDialog" value="TOSBPagedetails4" />
+		</step>
+		
+		<step type="CLICK" name="btn_AvaSerDialog" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_AvaSerDialog" value="TOSBPagedetails4" />		
+			</step>
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog Page is not available" />
+		</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_AvaSerDialogtitle" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AvaSerDialogtitle" value="TOSBPagedetails10" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog title" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog Page title is not available" />
+		</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_AvaSerDialogContent" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+		<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AvaSerDialogContent" value="TOSBPagedetails11" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog title" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog Page title is not available" />
+		</step>
+		</step>		
+		
+		<step type="EXISTS" name="btn_AvaSerDialogOK" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+			<token type="CONTENT" name="token_btn_AvaSerDialogOK" value="TOSBPagedetails12" />
+		</step>
+		
+		<step type="CLICK" name="btn_AvaSerDialogOK" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_btn_AvaSerDialogOK" value="TOSBPagedetails12" />		
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog page OK button" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Dialog Page page OK button is not available" />
+		</step>
+		</step>	
+		
+		<!-- <step type="EXISTS" name="lbl_Servicepage5" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_Servicepage5" value="TOSBPagedetails5" />
+		</step>	
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Service Option title is found" />
+		</step>	
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Service Option title is not available" />
+		</step>
+		</step>		
+		
+		<step type="VISIBLE" name="lbl_Servicepage6" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_Servicepage6" value="TOSBPagedetails6" />
+		</step>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Servicepage6" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage6" value="TOSBPagedetails6" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Microsoft Service Page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Microsoft Service Page is not available" />
+		</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_Servicepage7" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage7" value="TOSBPagedetails7" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Quote total Service Page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Quote total Service Page is not available" />
+		</step>
+		</step>		
+		 -->
+		<step type="EXISTS" name="lbl_Servicepage8" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage8" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_Servicepage8" value="TOSBPagedetails8" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Price details Service Page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Price details Service Page is not available" />
+		</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_Servicepage9" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Servicepage9" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_Servicepage9" value="TOSBPagedetails9" />
+			</step>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page is not available" />
+		</step>
+		</step>		
+		
+		
+		<step type="EXISTS" name="btn_NextAvailablepge" page="pge_OnlineServiceBooking">
+			
+			<token type="CONTENT" name="token_btn_NextAvailablepge" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_NextAvailablepge" value="TOSBAvailableNext" />
+		</step>	
+			
+		<step type="CLICK" name="btn_NextAvailablepge" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_btn_NextAvailablepge" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_NextAvailablepge" value="TOSBAvailableNext" />		
+		</step>
+				
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+		</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+		</step>
+		</step>		
+	</function>
+	
+	<!-- ############################################################################################################# -->
+		<!-- KSIVANAN - This Page shows Additional Services informations -->
+	<!-- ############################################################################################################# -->
+
+	
+	<function name="fn_Verify_AdditionalServicespage">
+		<description>fn_Verify_Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_AddSertitle" page="pge_OnlineServiceBooking">
+<!--                <parameter type="STATIC" value="50"></parameter> -->
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+               <token type="CONTENT" name="token_lbl_AddSertitle" value="TOSBAddSertitle"/>                 
+        </step>	
+			
+		<step type="EXISTS" name="lbl_AddSertitle" page="pge_OnlineServiceBooking">
+			 <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AddSertitle" value="TOSBAddSertitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Service Page is not available" />
+			</step>
+		</step>		
+	
+		<!-- <step type="EXISTS" name="lbl_AddSer1" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer1" value="TOSBAddSer1" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Seasonal Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Seasonal Service Page is not available" />
+			</step>
+		</step>		 -->
+	
+		<step type="EXISTS" name="lbl_AddSer2" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer2" value="TOSBAddSer2" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Seasonal Full Air pressure details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Seasonal Full Air pressure details is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_MOTAddSerpge" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+				<token type="CONTENT" name="token_lbl_MOTAddSerpge" value="TOSBAddSer9" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="MOT option is present in the service page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="MOT selection option is not present in the Service Page" />
+			</step>
+		</step>		
+		<!-- <step type="EXISTS" name="lbl_AddSer3" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer3" value="TOSBAddSer3" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Seasonal Car wash details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Additional Seasonal Car wash details is not available" />
+			</step>
+		</step>		 -->
+	
+		<step type="EXISTS" name="lbl_AddSer4" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_AddSer4" value="TOSBAddSer4" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. details is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_AddSer5" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer5" value="TOSBAddSer5" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. details additional info. is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. details additional info. is available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_AddSer6" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer6" value="TOSBAddSer6" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. Quota total full details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. Quota total full details is available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_AddSer8" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer8" value="TOSBAddSer8" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. Quota total full details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. Quota total full details is available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_AddSer7" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_AddSer7" value="TOSBQuoteTotaldes" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. Quota full price details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Other Req. Quota full price details is available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="btn_VehicelandMOTAddSer" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+			<token type="CONTENT" name="token_btn_NextAddSerpge" value="TOBBMOTServiceopt" />
+			</step>	
+			
+			<step type="CLICK" name="btn_VehicelandMOTAddSer" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+				<token type="CONTENT" name="token_btn_VehicelandMOTAddSer" value="TOBBMOTServiceopt" />		
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>	
+		
+		<step type="EXISTS" name="btn_VehicelandMOTSertotalamt" page="pge_OnlineServiceBooking"  failureMode="IGNORE" >
+			<token type="CONTENT" name="token_btn_VehicelandMOTSertotalamt" value="TOBBMOTServicetotalAmt" />
+			  <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		</step>			
+		
+		<step type="CLICK" name="btn_VehicelandMOTSertotalamt" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+				<token type="CONTENT" name="token_btn_VehicelandMOTSertotalamt" value="TOBBMOTServicetotalAmt" />
+				  <token type="CONTENT" name="token_ResourceId" value="TResourceId" />		
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>	
+		
+			
+		
+		<step type="EXISTS" name="btn_NextAddSerpge" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_NextAddSerpge" value="TOSBAddSerNext" />
+			<step type="CLICK" name="btn_NextAddSerpge" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_btn_NextAddSerpge" value="TOSBAddSerNext" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>		
+	
+	</function>	
+	
+	<!-- ############################################################################################################# -->
+		<!-- KSIVANAN - fn_Verify_Courtesy Car page : This page shows the Courtesy Car details screen shows the details -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_CourtesyCarPage">
+		<description>fn_Verify_Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_CourtesyCartitle" page="pge_OnlineServiceBooking">
+<!--                <parameter type="STATIC" value="50"></parameter> -->
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+               <token type="CONTENT" name="token_lbl_CourtesyCartitle" value="TOSBCourtesyCartitle"/>                 
+        </step>	
+			
+		<step type="EXISTS" name="lbl_CourtesyCartitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCartitle" value="TOSBCourtesyCartitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car title is present" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car title is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_CourtesyCardet1" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCardet1" value="TOSBCourtesyCarDet1" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car mobile detail is present" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car mobile detail is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_CourtesyCardet2" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCardet2" value="TOSBCourtesyCarDet2" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car own mobile detail is present" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car own mobile detail is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="lbl_CourtesyCardet3" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCardet3" value="TOSBCourtesyCarDet3" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car I require mobile detail is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car I require mobile detail is available is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="btn_CourtesyCardadded" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_CourtesyCardadded" value="TOBBMOTCourtesyCardAdd" />
+				<step type="CLICK" name="btn_CourtesyCardadded" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_btn_CourtesyCardadded" value="TOBBMOTCourtesyCardAdd" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>		
+	
+		<step type="EXISTS" name="lbl_CourtesyAddnotetitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyAddnotetitle" value="TOBBMOTCourtesyAddNote" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>		
+		
+		<step type="VISIBLE" name="edt_CourtesyAddnoteedit" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_edt_CourtesyAddnoteedit" value="TOBBMOTCourtesyAddNote" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			
+			</step>
+			
+			<step type="CLICK" name="edt_CourtesyAddnoteedit" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_edt_CourtesyAddnoteedit" value="TOBBMOTCourtesyAddNote" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			</step>
+			
+			<step type="SET" name="edt_CourtesyAddnoteedit" page="pge_OnlineServiceBooking">
+				<parameter type="CONTEXT" name="value to set" value="TestData.AddANote" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+<!-- 				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" /> -->
+				<token type="CONTENT" name="token_edt_CourtesyAddnoteedit" value="TOBBMOTCourtesyAddNote" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'User Add note' field is available and inputted with the above value" />
+			</step>
+			
+			
+		<step type="VISIBLE" name="btn_NextCourtesypge" page="pge_OnlineServiceBooking" failureMode="IGNORE" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_NextCourtesypge" value="TOSBMileageNextbtn" />
+			<token type="CONTENT" name="token_btn_NextCourtesypge" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_NextCourtesypge" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_NextCourtesypge" value="TOSBCourtesyCarNext" />
+			<step type="CLICK" name="btn_NextCourtesypge" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_btn_NextCourtesypge" value="TOSBCourtesyCarNext" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>		
+	
+	</function>	
+	
+	<!-- ############################################################################################################# -->
+		<!-- KSIVANAN - fn_Verify_Book a Dealer Visit Page : This page shows the Courtesy Car details screen shows the details -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_BookDealerVisitPage">
+		<description>fn_Verify_Book Dealer Visit Page- The page shows available Book Dealer Page details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+			
+		<step type="EXISTS" name="lbl_BookDealerVisitTitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_BookDealerVisitTitle" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealerVisitTitle" value="TOSBBookDealerVisittitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book a Dealer Visit title is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book a Dealer Visit title is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_BookDealerAddSertitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_BookDealerAddSertitle" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealerAddSertitle" value="TOSBAdditioanlService" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book Dealer Visit details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book Dealer Visit details is not available" />
+			</step>
+		</step>		
+		
+		
+		<!-- Click Keyboard Done for Android -->
+		<!-- <step type="EXISTS" name="btn_OSBKeyboard_Done" page="pge_OnlineServiceBooking" os="ANDROID" failureMode="IGNORE">
+			
+			<token type="CONTENT" name="token_btn_OSBKeyboard_Done" value="TOSB_KeyboardDone" />
+			
+			<step type="CLICK" name="btn_OSBKeyboard_Done" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_OSBKeyboard_Done" value="TOSB_KeyboardDone" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		
+		</step> -->
+		
+		<!-- <step type="VISIBLE" name="lbl_BookDealerotherreqtitle" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_BookDealerotherreqtitle" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealerotherreqtitle" value="TOSBOtherRequirement" />
+		</step>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+		</step>
+		</step>
+	 -->
+		<!-- <step type="EXISTS" name="lbl_BookDealerotherreqtitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_BookDealerotherreqtitle" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealerotherreqtitle" value="TOSBOtherRequirement" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page is not available" />
+			</step>
+		</step>		 -->
+	<!-- 	
+		<step type="EXISTS" name="lbl_BookDealerOtherReq" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_BookDealerOtherReq" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealerOtherReq" value="TOSBOtherRequirementDet" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page is not available" />
+			</step>
+		</step>		 -->
+	
+		<!-- <step type="EXISTS" name="lbl_Bookotherreqmaxchara" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_Bookotherreqmaxchara" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_Bookotherreqmaxchara" value="TOSBOtherDetailedReq" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Available Service Page is not available" />
+			</step>
+		</step>		 -->
+	
+		<step type="EXISTS" name="lbl_BookDealertotaltitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_BookDealertotaltitle" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealertotaltitle" value="TOSBQuoteTotal" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book a details total is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book a details total is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_BookDealertotaltitledes" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_BookDealertotaltitledes" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_BookDealertotaltitledes" value="TOSBQuoteTotaldes" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book a total details is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Book a total details is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="btn_BookDealerVisitNext" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_BookDealerVisitNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_BookDealerVisitNext" value="TOSBOtherRequirementNext" />
+			</step>	
+						
+			<step type="CLICK" name="btn_BookDealerVisitNext" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_btn_BookDealerVisitNext" value="TResourceId" />
+				<token type="CONTENT" name="token_btn_BookDealerVisitNext" value="TOSBOtherRequirementNext" />	
+					
+			</step>
+	
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>		
+	</function>	
+	
+	<!-- ###################################################################################################################### -->
+		<!-- KSIVANAN - fn_Verify_Android Courtesy Car page : This page shows the Courtesy Car details screen shows the details -->
+	<!-- ###################################################################################################################### -->
+	
+	<function name="fn_Verify_AndroidCourtesyCarPage">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_CourtesyCartitle" page="pge_OnlineServiceBooking">
+               <parameter type="STATIC" value="50"></parameter>
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+               <token type="CONTENT" name="token_lbl_CourtesyCartitle" value="TOSBCourtesyCartitle"/>                 
+        </step>	
+			
+		<step type="EXISTS" name="lbl_CourtesyCarSubtitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCarSubtitle" value="TOSBCourtesyCarSubtitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car title is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car title is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_CourtesyCardes" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCardes" value="TOSBCourtesyCardes" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car details are available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car details are not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="lbl_CourtesyCarReq" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_CourtesyCarReq" value="TOSBCourtesyCarReq" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car details are available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Courtesy Car details is not available" />
+			</step>
+		</step>		
+		
+		<step type="EXISTS" name="btn_CourtesyCarNext" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_CourtesyCarNext" value="TOSBCourtesyCarNext" />
+			<step type="CLICK" name="btn_CourtesyCarNext" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_btn_CourtesyCarNext" value="TOSBCourtesyCarNext" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>		
+	
+	</function>	
+	
+	<!-- #############################################################################-->
+		<!-- KSIVANAN - fn_Select MOT option_Android shows the MOT Option page details-->
+	<!-- #############################################################################-->
+	
+	<function name="fn_Click_MOTServicetype">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_MOTOption" page="pge_OnlineServiceBooking">
+		    <token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_MOTOption" value="TOSBServiceType2" />
+			
+			<step type="CLICK" name="btn_MOTOption" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_MOTOption" value="TOSBServiceType2" />	
+					
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'MOT Schedule' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'MOT Schedule' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+			<step type="VISIBLE" name="btn_Next" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+			
+		<step type="EXISTS" name="btn_Next" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="CLICK" name="btn_Next" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="TOSBNextbutton">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>			
+		
+		
+		<step type="EXISTS" name="btn_MOTSelectMillage" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MOTSelectMillage" value="TOBBMOTSelectMillage" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		</step>			
+			
+		<step type="CLICK" name="btn_MOTSelectMillage" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MOTSelectMillage" value="TOBBMOTSelectMillage" />		
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+		    <parameter type="STATIC" value="'NEXT' button is found and clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="TOSBNextbutton">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		
+		<step type="VISIBLE" name="btn_MileageNext" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+			
+		<step type="EXISTS" name="btn_MileageNext" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />
+			
+			<step type="CLICK" name="btn_MileageNext" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />		
+			</step>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>	
+				
+	</function>	
+	
+	
+	<!-- ###########################################################################################################################-->
+		<!-- KSIVANAN - fn_Select Vehicle Service and MOT option_User is able to choose the option and provide a Service details-->
+	<!-- ############################################################################################################################-->
+	
+	<function name="fn_Click_VehicleandMOTServicetype">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_VehicelandMOTService" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_btn_VehicelandMOTService" value="TOSBServiceType3" />
+			<token type="CONTENT" name="token_btn_VehicelandMOTService" value="TResourceId" />
+		</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Vehicle Service and MOT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Vehicle Service and MOT' button is not available" />
+			</step>
+		</step>
+		
+		
+		<step type="EXISTS" name="btn_VehicelandMOTService" page="pge_OnlineServiceBooking">
+		    <token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_VehicelandMOTService" value="TOSBServiceType3" />
+			
+			<step type="CLICK" name="btn_VehicelandMOTService" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_VehicelandMOTService" value="TOSBServiceType3" />	
+					
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Vehicle Service and MOT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Vehicle Service and MOT' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="VISIBLE" name="btn_Next" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="CLICK" name="btn_Next" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="TOSBNextbutton">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>			
+		
+		
+		<step type="EXISTS" name="btn_MOTSelectMillage" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MOTSelectMillage" value="TOBBMOTSelectMillage" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+		
+		</step>			
+			
+		<step type="CLICK" name="btn_MOTSelectMillage" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MOTSelectMillage" value="TOBBMOTSelectMillage" />		
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+		    <parameter type="STATIC" value="'NEXT' button is found and clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="TOSBNextbutton">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		
+		<step type="VISIBLE" name="btn_MileageNext" page="pge_OnlineServiceBooking" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+		<step type="ELSE" name="If_Next_button_Not_Available" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is not found" />
+			</step>
+		</step>
+		</step>
+			
+		<step type="EXISTS" name="btn_MileageNext" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />
+			
+			<step type="CLICK" name="btn_MileageNext" page="pge_OnlineServiceBooking" >
+			<token type="CONTENT" name="token_btn_MileageNext" value="TResourceId" />
+			<token type="CONTENT" name="token_btn_MileageNext" value="TOSBMileageNextbtn" />		
+			</step>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>	
+	</function>	
+
+	<!-- ####################################################################################################-->
+		<!-- KSIVANAN - fn_Select Vehicle Service and Repair option_Android shows the Vehicle Service and Repair Option page details-->
+	<!-- ####################################################################################################-->
+	
+	<function name="fn_Click_VehicleServiceandRepairtype">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_VehicleServiceandRepair" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+		    <token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_VehicleServiceandRepair" value="TOSBServiceType4" />
+			
+			<step type="CLICK" name="btn_VehicleServiceandRepair" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_VehicleServiceandRepair" value="TOSBServiceType4" />	
+					
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'MOT Schedule' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'MOT Schedule' button is not available" />
+			</step>
+		</step>			
+		</step>
+			
+		<step type="EXISTS" name="btn_Next" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />
+			<token type="CONTENT" name="token_btn_Next" value="TResourceId" />
+			<step type="CLICK" name="btn_Next" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_Next" value="TOSBNextbutton" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="TOSBNextbutton">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+			</step>
+		</step>			
+		</step>			
+	</function>	
+
+
+	<!-- ############################################################################################################# -->
+		<!-- KSIVANAN - This function clicks the EDIT button Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_ServiceDateandTime">
+		<description>fn_Click_Select Service date and time - function to Select 'Service date and Time' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_OSB_Datetimetitle" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_lbl_OSB_Datetimetitle" value="TOSBDatetimetitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Schedule Service data and time selection is availble" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Schedule Service data and time selection is not available" />
+			</step>
+		</step>		
+	
+		<step type="EXISTS" name="btn_OSB_Datetpkr" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_OSB_Datetpkr" value="TOSBDatetpkr" />
+		</step>	
+		
+		<step type="CLICK" name="btn_OSB_Datetpkr" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+				<token type="CONTENT" name="token_btn_OSB_Datetpkr" value="TOSBDatetpkr" />		
+			</step>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+		</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is not available" />
+		</step>
+				
+		</step>	
+		<step type="WAIT" name="Hard_Wait" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="5" />
+		</step>
+		
+	   <step type="EXISTS" name="btn_OSB_DatePicked" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_OSB_DatePicked" value="TOSBDatePicked" />
+		</step>	
+		
+		<step type="CLICK" name="btn_OSB_DatePicked" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+				<token type="CONTENT" name="token_btn_OSB_DatePicked" value="TOSBDatePicked" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Datepicker' button is not available" />
+			</step>
+		</step>	
+	
+	   <step type="EXISTS" name="btn_OSB_DatePicked" page="pge_OnlineServiceBooking">
+	   		<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_OSB_DatePicked" value="TOSBDatePicked" />
+		</step>	
+		
+			<step type="CLICK" name="btn_OSB_DatePicked" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+				<token type="CONTENT" name="token_btn_OSB_DatePicked" value="TOSBDatePicked" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Date picked' is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Date'is not picked" />
+			</step>
+		</step>	
+	
+		 <!-- <step type="EXISTS" name="btn_OSB_TimePicked" page="pge_OnlineServiceBooking">
+	   		<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<token type="CONTENT" name="token_btn_OSB_TimePicked" value="TOSBTimePicked" />
+		</step>	 -->
+		
+			<step type="CLICK" name="btn_OSB_TimePicked" page="pge_OnlineServiceBooking" >
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+				<token type="CONTENT" name="token_btn_OSB_TimePicked" value="TOSBTimePicked" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'NEXT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'Time'is not available" />
+			</step>
+		</step>	
+	
+	
+	<!-- <function name="fn_Park_Enter_SearchData">
+
+	<description> Entering the Search Data To find Parking Location </description>
+
+    <step type="REPORT" name="ADD_TO_REPORT" page="pge_Park">
+			<parameter type="STATIC"
+				value="Entering the Search Data To find Parking Location" />
+	</step>
+ <step type="CLICK" name="lbl_Park_Landing_SearchView" page="pge_Park">
+	<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+
+	<token type="CONTENT" name="token_lbl_Park_Landing_SearchView"
+		value="TParkSearch" />
+</step>
+
+	<step name="edt_Park_Landing_EnterSearch" type="SET" page="pge_Park">
+
+		<parameter type="DATA" value="TestData.SearchLoc" />
+
+		<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+
+		<token type="CONTENT" name="token_edt_Park_Landing_EnterSearch"
+			value="TParkSearch" />
+
+	</step>
+	
+	
+
+<step type="WAIT" name="Hard_Wait" page="pge_Park">
+
+			<parameter type="STATIC" value="20" />
+			
+			</step>
+
+
+</function>
+
+
+<function name="fn_Park_Enter_SearchData_IOS">
+
+	<description> Entering the Search Data To find Parking Location </description>
+
+    <step type="REPORT" name="ADD_TO_REPORT" page="pge_Park">
+			<parameter type="STATIC"
+				value="Entering the Search Data To find Parking Location" />
+	</step>
+
+ <step type="CLICK" name="lbl_Park_Landing_SearchView" page="pge_Park" os="IOS">
+
+	<token type="CONTENT" name="token_lbl_Park_Landing_SearchView" value="TParkSearch" />
+</step>
+
+	<step name="edt_Park_Landing_EnterSearch" type="SET" page="pge_Park" os="IOS">
+
+		<parameter type="DATA" value="TestData.SearchLoc_IOS" />
+
+		<token type="CONTENT" name="token_edt_Park_Landing_EnterSearch" value="TParkSearch" />
+
+	</step>
+	
+<step type="WAIT" name="Hard_Wait" page="pge_Park">
+
+			<parameter type="STATIC" value="20" />
+			
+			</step>
+
+</function>
+		
+	<function name="fn_Park_SelectFromSearch">
+
+		<description> Selecting the Location From Search Bar </description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Park">
+			<parameter type="STATIC"
+				value=" Selecting the Location From Search Bar" />
+		</step>
+        
+        <step type="VISIBLE" name="lbl_Park_Landing_SelectFromSearch" page="pge_Park">
+			<parameter type="STATIC" name="maxScroll" value="30" />
+			<parameter type="STATIC" name="direction" value="UP" />	
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_Park_Landing_SelectFromSearch"
+				value="TSelectSearch" />
+        </step>
+        
+        <step type="CLICK" name="lbl_Park_Landing_SelectFromSearch" page="pge_Park" os="ANDROID" >
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+				<token type="CONTENT" name="token_lbl_Park_Landing_SelectFromSearch" value="TSelectSearch" />
+			</step>
+			
+	 <step type="CLICK" name="lbl_Park_Landing_SelectFromSearch" page="pge_Park" os="IOS" >
+				<token type="CONTENT" name="token_lbl_Park_Landing_SelectFromSearch" value="TSelectSearch" />
+			</step>		
+		
+	</function>
+	
+	<function name="fn_Park_SelectFromSearch_IOS">
+
+		<description> Selecting the Location From Search Bar </description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Park">
+			<parameter type="STATIC"
+				value=" Selecting the Location From Search Bar" />
+		</step>
+		
+		 <step type="CLICK" name="lbl_Park_Landing_SelectFromSearch" page="pge_Park" os="IOS" >
+				<token type="CONTENT" name="token_lbl_Park_Landing_SelectFromSearch" value="TSelectSearch_IOS" />
+			</step>	
+		 -->
+
+	</function>
+	
+	<!-- ############################################################################################################# -->
+		<!-- KSIVANAN - Verify the MOT Service details on Selecting MOT option in Online Service Booking	 -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_MOT_OSBServicedetails">
+		<description>fn_Verify and Validate_MOT_Online Service Details - MOT Functions </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_MOT" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_MOT" value="TOSBMOTService" />
+			<step type="CLICK" name="btn_Edit" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_MOT" value="TOSBMOTService" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'MOT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'MOT' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="btn_VehicleSerandMOT" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_VehicleSerandMOT" value="TOSBVehicleSerandMOT" />
+			<step type="CLICK" name="btn_VehicleSerandMOT" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_VehicleSerandMOT" value="TOSBVehicleSerandMOT" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'VehicleService and MOT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'VehicleService and MOT' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="btn_VehicleSerandMOT" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_VehicleSerandMOT" value="TOSBVehicleSerandMOT" />
+			<step type="CLICK" name="btn_VehicleSerandMOT" page="pge_OnlineServiceBooking">
+				<token type="CONTENT" name="token_btn_VehicleSerandMOT" value="TOSBVehicleSerandMOT" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'VehicleService and MOT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_OnlineServiceBooking">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="'VehicleService and MOT' button is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>
+	
+	   <!-- ############################################################################################################# -->
+		<!-- KSIVANAN - This function is perform Online Service Booking, Which includes MOT, Vehicle Service -->
+		<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_OnlineServiceBooking">
+		<description>fn_Click_VehicleDetails - function to click 'Vehicle Details' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Onlineservice" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_btn_Onlineservice" value="TVehicleInfo1" />
+			<step type="CLICK" name="btn_Onlineservice" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_Onlineservice" value="TVehicleInfo1" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE DETAILS' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE DETAILS' button is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>
+	   	
+	
+</suite>

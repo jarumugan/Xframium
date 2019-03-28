@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID : -->
+<!-- Author Name : ESURESH8 -->
+<!-- Created Date : 11-Apr-2018 -->
+<!-- Updated Date : 12-Apr-2018 -->
+<!-- Pre-Requisite : Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc. -->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_10_Money" dataProvider="TestData.XFS_FP_Find_001"
+		contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		
+		<description> FIND >> MONEY Page Verification and Validations</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+	
+		 <step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+
+ 		<step type="WAIT" name="Wait_For_30_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="30"/>
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+	<!-- Location Set - Enable this to set particular location -->
+<!-- 		<step type="COMMAND" name="mobile:location:set" page="pge_Login"> -->
+<!--     		<parameter type="STATIC" name="address" value="1 World Way, Los Angeles, CA 90045, USA" /> -->
+<!-- 		</step> -->
+<!-- 		<step type="STATE" name="Location Set" page="pge_FindCommon" failureMode="IGNORE" /> -->
+		
+		<step type="CALL2" name="fn_Launch_FindCategories" page="pge_FindCommon"/>
+		
+		<!-- Select the 'CATEGEORY-Money'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory9_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory9_AND" />
+		</step>
+				
+		<!-- Clicking the 'CATEGEORY-Money'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory9_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory9_AND" />
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> MONEY >> VERIFY LANDING PAGE -->
+<!-- ############################################################################################################# -->
+
+		<!-- Verifying the 'MONEY' title on FIND>> MONEY Page -->
+		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_PageTitle_IOS" value="TFindPageTitle9_IOS" />
+			<parameter type="CONTENT" name="param_PageTitle_AND" value="TFindPageTitle9_AND" />
+		</step>
+		
+		<!-- Verifying the 'SEARCH FIELD & ICON' edit field on MONEY Page -->
+		<step type="CALL2" name="fn_Verify_SearchBar" page="pge_FindCommon" />
+		
+		<!-- Verifying the 'CATEGORY TRAY ICON' on MONEY Page -->
+		<step type="CALL2" name="fn_Verify_CategoryTrayBar" page="pge_FindCategoryApplet" />
+		
+				
+		<!-- Verifying the 'MENU BAR - FORD PASS' tabs on MONEY Page -->
+		<step type="CALL2" name="fn_ValidateMenuBar_FordPass" page="pge_FPCommon" />
+		
+				
+<!-- ##################################################################################################### -->
+<!-- ESURESH8 - FIND >> MONEY >> LIST VIEW -->
+<!-- ##################################################################################################### -->	
+
+		<!-- Verifying the 'MAP IS LOADED WITH DATA' on Page -->
+		<step type="CALL2" name="fn_Verify_NoRecordsOnMap" page="pge_FindCommon" failureMode="IGNORE" os="ANDROID"/>
+		
+		<!-- Verifying the 'LIST VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Clicking the 'LIST VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		<!-- Verifying and Fetching the 'VIEW LIST GET DIRECTION LINK' Text Elements on Page -->	
+		<step type="CALL2" name="fn_Verify_ViewListGetDirection" page="pge_FindCommon" >
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+		</step>	
+		
+		<!-- Clicking the 'VIEW LIST GET DIRECTION LINK' Elements on Page -->	
+		<step type="CALL2" name="fn_Click_ViewListGetDirection" page="pge_FindCommon">
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+		</step>
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> MONEY >> LIST VIEW >> MONEY LOCATION NAVIGATION -->
+<!-- ############################################################################################################# -->
+
+		<step type="CALL2" name="fn_Validate_Maps" page="pge_FindCommon" />
+
+<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon">
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+					<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+						<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon"/>
+			</step>
+		</step>
+		<!-- Verifying the 'MAP VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Clicking the 'MAP VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />	
+	</test>
+</suite>

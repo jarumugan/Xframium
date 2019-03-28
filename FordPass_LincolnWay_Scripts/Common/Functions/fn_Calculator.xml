@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_OpenCalculator">
+		<description> fn_OpenCalculator - Function to open calculator app </description>
+		<step name="OPEN" site="FordPass" page="pge_Calculator" type="APPLICATION" >
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_Results" page="pge_Calculator">
+			<parameter type="STATIC" value="15" />
+		</step>
+	</function>
+	
+	<function name="fn_Addition">
+		<description> fn_Addition - Function to perform Addition </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Calculator">
+			<parameter type="STATIC" value="Function's XML file name: fn_Calculator.xml" />
+		</step>
+		
+		<step type="CLICK" name="btn_five" page="pge_Calculator">
+		
+		<step type="CLICK" name="btn_plus" page="pge_Calculator">
+		
+		<step type="CLICK" name="btn_four" page="pge_Calculator">
+		
+		<step type="CLICK" name="btn_Equals" page="pge_Calculator">
+		</step>
+		</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateResult">
+		<description> fn_ValidateResult - Function to validate the result </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Calculator">
+			<parameter type="STATIC" value="Function's XML file name: fn_Calculator.xml" />
+		</step>
+	
+		<step type="GET" name="lbl_Results" page="pge_Calculator"  >
+			<parameter type="STATIC" name="lbl_Results" value="9" />
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Calculator">
+				<parameter type="STATIC" value="Result displayed as 9" />
+				</step>
+	</function>
+	
+</suite>

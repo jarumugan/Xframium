@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 22-Jan-2018 -->
+<!-- Updated Date : 01-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_005" dataProvider="TestData.XFS_FP_Accounts_005,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Edit Photo page validation script </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_ViewEditProfile" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_Validate_ProfilePhotoSection" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_Click_EditPhoto" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_ValidateDialog_EditPhoto" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_Click_EditPhotoDialog_ChoosePhoto" page="pge_ViewProfile" wait="5"/>
+		
+		<step type="CALL2" name="fn_Click_EditPhoto" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_ValidateDialog_EditPhoto" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_Click_EditPhotoDialog_TakePhoto" page="pge_ViewProfile" wait="5"/>
+		
+		<step type="CALL2" name="fn_Click_EditPhoto" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_Click_EditPhotoDialog_Cancel" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+				
+	</test>
+</suite>

@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+		
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8: LIST OF FUNCTIONS in fn_FindFilters.xml-->
+	<!-- fn_Verify_Button_Filters -->
+	<!-- fn_Click_Button_FiltersOpen -->
+	<!-- fn_Verify_FiltersPage -->
+	<!-- fn_ClickLink_Filters_Clear -->
+	<!-- fn_Click_Button_FiltersApply -->
+	<!-- fn_Click_Image_FiltersClose -->
+	<!-- fn_Verify_AppliedFilters -->
+	<!-- fn_Verify_AppliedFilters_Count -->
+	<!-- fn_Click_AppliedFilters -->
+	<!-- fn_Verify_SectionTitle -->
+	<!-- fn_Verify_RadioBtnWithLabel -->
+	<!-- fn_Validate_RadioBtn -->
+	<!-- fn_Verify_CbxBtnWithLabel -->
+	<!-- fn_Validate_CheckBox -->
+	<!-- fn_Validate_SeekBar -->
+	<!-- fn_Validate_RatingBar -->
+	<!-- ############################################################################################################# -->
+
+	<!-- ############################################################################################################# -->
+	<!-- 'VERIFY FILTERS BUTTON' This function to Open the Filters Page on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_Button_Filters">
+		<description> fn_ClickButton_Filters_Open - function to click Filter button on page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="EXISTS" name="btn_OpenFilter" page="pge_FindFilters" failureMode="IGNORE">
+				<token type="CONTENT" name="token_btn_OpenFilter_IOS" value="TFiltersOpen_IOS1" />
+				<token type="CONTENT" name="token_btn_OpenFilter_AND" value="TFiltersOpen_AND1" />
+			
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS' Button is EXISTS " />
+				</step>	
+			<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="EXISTS" name="btn_OpenFilter" page="pge_FindFilters">
+				<token type="CONTENT" name="token_btn_OpenFilter_IOS" value="TFiltersOpen_IOS2" />
+				<token type="CONTENT" name="token_btn_OpenFilter_AND" value="TFiltersOpen_AND2" />
+				</step>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS' Button is EXISTS " />
+				</step>	
+				</step>
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS' Button is NOT EXISTS" />
+			</step>
+		</step>
+		
+		
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- 'OPEN FILTERS' This function to Open the Filters Page on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_Button_FiltersOpen">
+		<description> fn_ClickButton_Filters_Open - function to click Filter button on page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="EXISTS" name="btn_OpenFilter" page="pge_FindFilters" failureMode="IGNORE">
+				<token type="CONTENT" name="token_btn_OpenFilter_IOS" value="TFiltersOpen_IOS1" />
+				<token type="CONTENT" name="token_btn_OpenFilter_AND" value="TFiltersOpen_AND1" />
+			<step type="CLICK" name="btn_OpenFilter" page="pge_FindFilters"> 
+				<token type="CONTENT" name="token_btn_OpenFilter_IOS" value="TFiltersOpen_IOS1" />
+				<token type="CONTENT" name="token_btn_OpenFilter_AND" value="TFiltersOpen_AND1" />			
+			</step>
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS' Button is EXISTS " />
+				</step>	
+			<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="EXISTS" name="btn_OpenFilter" page="pge_FindFilters">
+				<token type="CONTENT" name="token_btn_OpenFilter_IOS" value="TFiltersOpen_IOS2" />
+				<token type="CONTENT" name="token_btn_OpenFilter_AND" value="TFiltersOpen_AND2" />
+				<step type="CLICK" name="btn_OpenFilter" page="pge_FindFilters"> 
+				<token type="CONTENT" name="token_btn_OpenFilter_IOS" value="TFiltersOpen_IOS2" />
+				<token type="CONTENT" name="token_btn_OpenFilter_AND" value="TFiltersOpen_AND2" />			
+				</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS' Button is EXISTS " />
+			</step>
+				</step>	
+				</step>
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS' Button is NOT EXISTS" />
+			</step>
+		</step>
+		
+		
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'VERIFY FILTER PAGE' This function to Close the Filters Page on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_FiltersPage">
+		<description> fn_Verify_FiltersPage - function to Verify the Filter page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="EXISTS" name="img_CloseFilter" page="pge_FindFilters">
+			<token type="CONTENT" name="token_img_CloseFilter_AND" value="TFiltersClose_AND" />
+			<token type="CONTENT" name="token_img_CloseFilter_IOS" value="TFiltersClose_IOS" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="FILTERS >> User Successfully Landed on Filter Page" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS' Failed to Open Filter Page" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'CLEAR FILTERS' This function to Clear the Filters Page on Android -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_ClickLink_Filters_Clear">
+		<description> fn_ClickLink_Filters_Clear - function to click clear link on Filters page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_ClearFilter" page="pge_FindFilters" os='ANDROID'>
+			<token type="CONTENT" name="token_lnk_ClearFilter" value="TFiltersClear" />
+			<step type="CLICK" name="lnk_ClearFilter" page="pge_FindFilters" wait="2">
+				<token type="CONTENT" name="token_lnk_ClearFilter" value="TFiltersClear" />
+
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Clear' element is EXISTS and CLICKED" />
+				</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS >> Clear' element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'APPLY FILTERS' This function to Apply the Selected Filters on both Android and IOS -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_Button_FiltersApply">
+		<description> fn_ClickLink_Filters_Clear - function to click clear link on Filters page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_ApplyFilter" page="pge_FindFilters">
+			<token type="CONTEXT" name="token_btn_ApplyFilter_IOS" value="param_ApplyFilter_IOS" />
+			<token type="CONTEXT" name="token_btn_ApplyFilter_AND" value="param_ApplyFilter_AND" />
+			<step type="CLICK" name="btn_ApplyFilter" page="pge_FindFilters" wait="2">
+				<token type="CONTEXT" name="token_btn_ApplyFilter_IOS" value="param_ApplyFilter_IOS" />
+				<token type="CONTEXT" name="token_btn_ApplyFilter_AND" value="param_ApplyFilter_AND" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Apply Filter' element is EXISTS and CLICKED" />
+				</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS >> Apply Filter' element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'CLOSE FILTERS' This function to Close the Filters Page on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_Image_FiltersClose">
+		<description> fn_ClickButton_Filters_Close - function to click close button on Filters page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+
+		<step type="EXISTS" name="img_CloseFilter" page="pge_FindFilters">
+			<token type="CONTENT" name="token_img_CloseFilter_AND" value="TFiltersClose_AND" />
+			<token type="CONTENT" name="token_img_CloseFilter_IOS" value="TFiltersClose_IOS" />
+			<step type="CLICK" name="img_CloseFilter" page="pge_FindFilters" wait="2">
+				<token type="CONTENT" name="token_img_CloseFilter_AND" value="TFiltersClose_AND" />
+				<token type="CONTENT" name="token_img_CloseFilter_IOS" value="TFiltersClose_IOS" />
+
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Close' element is EXISTS and CLICKED" />
+				</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS >> Close' element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+		
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'APPLIED FILTERS' This function to Verify the Applied Filters on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_AppliedFilters">
+		<description> fn_Validate_AppliedFilters_Title - This function to Validate the Applied Filters on both Android and IOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+<!-- 		<step type="EXISTS" name="btn_FilterApplied" page="pge_FindFilters" failureMode="IGNORE"> -->
+<!-- 			<token type="CONTEXT" name="token_AppliedFiltersIndex" value="param_AppliedFiltersIndex" /> -->
+<!-- 			<step type="GET" name="btn_FilterApplied" page="pge_FindFilters" context="str_FilterApplied"> -->
+<!-- 				<token type="CONTEXT" name="token_AppliedFiltersIndex" value="param_AppliedFiltersIndex" /> -->
+<!-- 			</step> -->
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 				<parameter type="STATIC" value="'FILTERS >> Applied Filter' is EXISTS" /> -->
+<!-- 				<parameter type="CONTEXT" name="Applied Filter Title" value="str_FilterApplied" /> -->
+<!-- 				<step type="STATE" name="Filters - Applied Filters" page="pge_FindFilters" failureMode="IGNORE" /> -->
+<!-- 			</step> -->
+		<step type="EXISTS" name="btn_FilterAppliedLabel" page="pge_FindFilters" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_AppliedFilter_Label" value="param_RdbValue" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> 
+				<parameter type="STATIC" value="'FILTERS >> Applied Filter' is EXISTS" />
+				<parameter type="CONTEXT" name="Applied Filter Title" value="str_RdbValue" />
+				<step type="STATE" name="Filters - Applied Filters" page="pge_FindFilters" failureMode="IGNORE" />
+			</step>
+<!-- 		<step type="ELSE" name="elseCondition" page="pge_FindFilters"> -->
+<!-- 			<step type="GESTURE" name="SWIPE.panel_FilterApplied" page="pge_FindFilters"> -->
+<!-- 				<parameter type="STATIC" value="95,50" /> -->
+<!-- 				<parameter type="STATIC" value="0,50" /> -->
+<!-- 			</step>	 -->
+<!-- 				<step type="EXISTS" name="btn_FilterApplied" page="pge_FindFilters"> -->
+<!-- 					<token type="CONTEXT" name="token_AppliedFiltersIndex" value="param_AppliedFiltersIndex" /> -->
+<!-- 				<step type="GET" name="btn_FilterApplied" page="pge_FindFilters" context="str_FilterApplied"> -->
+<!-- 					<token type="CONTEXT" name="token_AppliedFiltersIndex" value="param_AppliedFiltersIndex" /> -->
+<!-- 				</step> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 					<parameter type="STATIC" value="'FILTERS >> Applied Filter' is EXISTS" /> -->
+<!-- 					<parameter type="CONTEXT" name="Applied Filters Title" value="str_FilterApplied" /> -->
+<!-- 				</step> -->
+<!-- 				<step type="STATE" name="Filters - Applied Filters Count" page="pge_FindFilters" failureMode="IGNORE" /> -->
+<!-- 				</step> -->
+<!-- 				<step type="ELSE" name="elseCondition" page="pge_FindFilters"> -->
+<!-- 					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 						<parameter type="STATIC" value="'FILTERS >> Applied Filter' element is NOT EXISTS" /> -->
+<!-- 					</step> -->
+<!-- 				</step>	 -->
+<!-- 		</step> -->
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="GESTURE" name="SWIPE.panel_FilterApplied" page="pge_FindFilters"> 
+					<parameter type="STATIC" value="95,50" /> 
+					<parameter type="STATIC" value="0,50" /> 
+			</step>
+			<step type="EXISTS" name="btn_FilterAppliedLabel" page="pge_FindFilters">
+			<token type="CONTEXT" name="token_AppliedFilter_Label" value="param_RdbValue" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> 
+				<parameter type="STATIC" value="'FILTERS >> Applied Filter' is EXISTS" />
+				<parameter type="CONTEXT" name="Applied Filter Title" value="str_RdbValue" />
+				<step type="STATE" name="Filters - Applied Filters" page="pge_FindFilters" failureMode="IGNORE" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Applied Filter' element is NOT EXISTS" /> 
+				</step>
+			</step>
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'APPLIED FILTERS COUNT' This function to Validate the Applied Filters on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_AppliedFilters_Count">
+		<description> fn_Validate_AppliedFilters_Title - This function to Validate the Applied Filters on both Android and IOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="EXISTS" name="btn_FilterCountApplied" page="pge_FindFilters" failureMode="IGNORE">
+		<token type="CONTEXT" name="token_btn_FilterCountApplied" value="param_FilterCountApplied" />
+			<step type="GET" name="btn_FilterCountApplied" page="pge_FindFilters" context="str_AppliedFilterCount">
+				<token type="CONTEXT" name="token_btn_FilterCountApplied" value="param_FilterCountApplied" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Applied Filter Count'" />
+					<parameter type="CONTEXT" name="Applied Filters Count" value="param_FilterCountApplied" />
+					<parameter type="CONTEXT" name="Applied Filters Count" value="str_AppliedFilterCount" />
+				</step>
+				<step type="STATE" name="Filters - Applied Filters Count" page="pge_FindFilters" failureMode="IGNORE" />
+			</step>
+	
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="GESTURE" name="SWIPE.panel_FilterApplied" page="pge_FindFilters">
+				<parameter type="STATIC" value="95,50" />
+				<parameter type="STATIC" value="0,50" />
+				<step type="GET" name="btn_FilterCountApplied" page="pge_FindFilters" context="str_AppliedFilterCount">
+					<token type="CONTEXT" name="token_btn_FilterCountApplied" value="param_FilterCountApplied" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+						<parameter type="STATIC" value="'FILTERS >> Applied Filter Count'" />
+						<parameter type="CONTEXT" name="Applied Filters Count" value="param_FilterCountApplied" />
+						<parameter type="CONTEXT" name="Applied Filters Count" value="str_AppliedFilterCount" />
+					</step>
+					<step type="STATE" name="Filters - Applied Filters Count" page="pge_FindFilters" failureMode="IGNORE" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Applied Filter Count'" />
+					<parameter type="CONTEXT" name="Applied Filters Count" value="param_FilterCountApplied" />
+					<parameter type="CONTEXT" name="Applied Filters Count" value="str_AppliedFilterCount" />
+				</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'FILTERS >> Applied Filter Count' element is NOT EXISTS" />
+				</step>
+			</step>	
+			</step>		
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - 'CLICK APPLIED FILTERS' This function to Click on the Applied Filters on both Android and IOS -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_AppliedFilters">
+		<description> fn_Validate_AppliedFilters_Title - This function to Validate the Applied Filters on both Android and IOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="WAIT_FOR" name="btn_FilterApplied" page="pge_FindFilters">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTEXT" name="token_AppliedFiltersIndex" value="param_AppliedFiltersIndex" />
+			<step type="CLICK" name="btn_FilterApplied" page="pge_FindFilters" wait="2">
+				<token type="CONTEXT" name="token_AppliedFiltersIndex" value="param_AppliedFiltersIndex" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS >> Applied Filter' is EXISTS and CLICKED" />
+			</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'FILTERS >> Applied Filter' element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'Section Title' by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+		
+	<function name="fn_Verify_SectionTitle">
+	<description> fn_Verify_SectionTitle: To verify the 'Section Title' by passing it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>		
+		<step type="VISIBLE" name="lbl_SectionTitle" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="13" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_lbl_SectionTitle" value="param_SectionTitle" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+					<parameter type="STATIC" value="'SECTION TITLE' is EXISTS" />
+					<parameter type="CONTEXT" name="Section Title" value="param_SectionTitle" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'SECTION TITLE' is NOT EXISTS" />
+				<parameter type="CONTEXT" name="Section Title" value="param_SectionTitle" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function validate the 'RADIO BUTTON' by receiving it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_RadioBtnWithLabel">
+	<description> fn_Validate_RadioBtn: To validate the 'RADIO BUTTON' by receiving it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="VISIBLE" name="lbl_rdb_name" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="8" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_lbl_SectionTitle" value="param_SectionTitle" />
+			<token type="CONTEXT" name="token_rdb_index" value="param_rdbIndex" />	
+		<step type="GET" name="lbl_rdb_name" page="pge_FindFilters" context="str_RdbValue">
+			<token type="CONTEXT" name="token_lbl_SectionTitle" value="param_SectionTitle" />
+			<token type="CONTEXT" name="token_rdb_index" value="param_rdbIndex" />	
+		</step>
+		</step>		
+		<step type="VISIBLE" name="rdb_name" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="8" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_rdb_name" value="str_RdbValue" />
+			<token type="CONTEXT" name="token_rdb_index" value="param_rdbIndex" />
+				<step type="CLICK" name="rdb_name" page="pge_FindFilters">
+					<token type="CONTEXT" name="token_rdb_name" value="str_RdbValue" />
+					<token type="CONTEXT" name="token_rdb_index" value="param_rdbIndex" />	
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+							<parameter type="STATIC" value="'RADIO BUTTON' is EXISTS and SELECTED" />
+							<parameter type="CONTEXT" name="Radio Option Name" value="str_RdbValue" />
+						</step>
+						<step type="STATE" name="Filters - Sleek Bar" page="pge_FindFilters" failureMode="IGNORE" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'RADIO BUTTON' is NOT EXISTS for following Element" />
+				<parameter type="CONTEXT" name="Radio Option Name" value="str_RdbValue" />
+			</step>
+		</step>
+		</step>	
+	</function>
+		
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function validate the 'RADIO BUTTON' by receiving it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+<!-- 	<function name="fn_Validate_RadioBtn"> -->
+<!-- 	<description> fn_Validate_RadioBtn: To validate the 'RADIO BUTTON' by receiving it as a Parameter  </description> -->
+<!-- 		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" > -->
+<!-- 			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" /> -->
+<!-- 		</step>		 -->
+<!-- 		<step type="VISIBLE" name="rdb_name" page="pge_FindFilters" os="ANDROID"> -->
+<!-- 			<parameter type="STATIC" name="maxScroll" value="8" /> -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" /> -->
+<!-- 			<token type="CONTEXT" name="token_rdb_name" value="param_RdbName" /> -->
+<!-- 				<step type="CLICK" name="rdb_name" page="pge_FindFilters"> -->
+<!-- 					<token type="CONTEXT" name="token_rdb_name" value="param_RdbName" /> -->
+<!-- 						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 							<parameter type="STATIC" value="'RADIO BUTTON' is EXISTS and SELECTED" /> -->
+<!-- 							<parameter type="CONTEXT" name="Radio Option Name" value="param_RdbName" /> -->
+<!-- 						</step> -->
+<!-- 				</step> -->
+<!-- 		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						 -->
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 				<parameter type="STATIC" value="'RADIO BUTTON' is NOT EXISTS for following Element" /> -->
+<!-- 				<parameter type="CONTEXT" name="Radio Option Name" value="param_RdbName" /> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+<!-- 		</step>	 -->
+<!-- 	</function> -->
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function validate the 'CHECK BOX' by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_CbxBtnWithLabel">
+	<description> fn_Verify_CbxBtnWithLabel: To validate the 'CHECK BOX BUTTON' by receiving it as a Parameter</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>
+		<step type="VISIBLE" name="lbl_cbx_name" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="8" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_lbl_SectionTitle" value="param_SectionTitle" />
+			<token type="CONTEXT" name="token_cbx_index" value="param_cbxIndex" />	
+		<step type="GET" name="lbl_cbx_name" page="pge_FindFilters" context="str_CbxValue">
+				<token type="CONTEXT" name="token_lbl_SectionTitle" value="param_SectionTitle" />
+				<token type="CONTEXT" name="token_cbx_index" value="param_cbxIndex" />	
+		</step>	
+		</step>		
+		<step type="VISIBLE" name="cbx_name" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="8" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_cbx_name" value="str_CbxValue" />
+				<token type="CONTEXT" name="token_cbx_index" value="param_cbxIndex" />	
+				<step type="CLICK" name="cbx_name" page="pge_FindFilters">
+					<token type="CONTEXT" name="token_cbx_name" value="str_CbxValue" />
+						<token type="CONTEXT" name="token_cbx_index" value="param_cbxIndex" />	
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+							<parameter type="STATIC" value="'CHECK BOX BUTTON' is EXISTS and SELECTED" />
+							<parameter type="CONTEXT" name="Check Box Option Name" value="str_CbxValue" />
+						</step>
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'CHECK BOX BUTTON' is NOT EXISTS for following Element" />
+				<parameter type="CONTEXT" name="Check Box Option Name" value="str_CbxValue" />
+			</step>
+		</step>
+		</step>	
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function validate the 'CHECK BOX' by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+<!-- 	<function name="fn_Validate_CheckBox"> -->
+<!-- 	<description> fn_Validate_CheckBox: To validate the 'CHECK BOX BUTTON' by receiving it as a Parameter </description> -->
+<!-- 		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" > -->
+<!-- 			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" /> -->
+<!-- 		</step>		 -->
+<!-- 		<step type="VISIBLE" name="cbx_name" page="pge_FindFilters" os="ANDROID"> -->
+<!-- 			<parameter type="STATIC" name="maxScroll" value="8" /> -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" /> -->
+<!-- 			<token type="CONTEXT" name="token_cbx_name" value="param_CbxName" /> -->
+<!-- 				<step type="CLICK" name="cbx_name" page="pge_FindFilters"> -->
+<!-- 					<token type="CONTEXT" name="token_cbx_name" value="param_CbxName" /> -->
+<!-- 						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 							<parameter type="STATIC" value="'CHECK BOX BUTTON' is EXISTS and SELECTED" /> -->
+<!-- 							<parameter type="CONTEXT" name="Check Box Option Name" value="param_CbxName" /> -->
+<!-- 						</step> -->
+<!-- 				</step> -->
+<!-- 		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						 -->
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters"> -->
+<!-- 				<parameter type="STATIC" value="'CHECK BOX BUTTON' is NOT EXISTS for following Element" /> -->
+<!-- 				<parameter type="CONTEXT" name="Check Box Option Name" value="param_CbxName" /> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+<!-- 		</step>	 -->
+<!-- 	</function> -->
+
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'SEEK BAR' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Validate_SeekBar">
+	<description>fn_Validate_SeekBar: To validate the 'SEEK BAR' Feature  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" >
+				<parameter type="STATIC" value="Function's XML file name: fn_FindFuelFilters.xml" />
+		</step>	
+		<!-- Verifying the 'FUEL TYPE' title on Fuel Filter Page -->
+		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindFilters" os="IOS">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TFuelFilterSection3_IOS" />
+		</step>
+		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindFilters" os="ANDROID">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TFuelFilterSection3_AND" />
+		</step>
+		<step type="VISIBLE" name="sbr_Name" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_sbr_name" value="param_SbrName" />
+				<step name="PRESS.sbr_Name" page="pge_FindFilters" type="GESTURE" os='ANDROID'>
+					<parameter type="STATIC" name="sbr_Name" value="80,50"/>
+					<token type="CONTEXT" name="token_sbr_name" value="param_SbrName" />
+		        	<step type="STATE" name="Filters - Sleek Bar" page="pge_FindFilters" failureMode="IGNORE" />
+<!-- 		        		<step name="WAIT" page="LOGIN" type="WAIT" > -->
+<!-- 							<parameter type="STATIC" name="Wait Time" value="2" />    -->
+<!-- 						</step> -->
+<!-- 						<step name="SWIPE.sbr_Name" page="pge_FindFilters" type="GESTURE"> -->
+<!-- 						    <token type="CONTEXT" name="token_sbr_name" value="param_SbrName" /> -->
+<!-- 						    <parameter type="STATIC" name="From Position" value="20,50"/> -->
+<!-- 						    <parameter type="STATIC" name="To Position" value="100,50"/> -->
+						    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+									<parameter type="STATIC" value="'SEEK BAR' is EXISTS and DRAGED BETWEEN 100>>80" />
+								</step>
+						    <step type="STATE" name="Filters - Sleek Bar" page="pge_FindFilters" failureMode="IGNORE" />
+<!-- 						</step> -->
+				</step>
+				<step name="PRESS.sbr_Name" page="pge_FindFilters" type="GESTURE" os='IOS'>
+					<parameter type="STATIC" name="sbr_Name" value="95,50"/>
+					<token type="CONTEXT" name="token_sbr_name" value="param_SbrName" />
+ 		        		<step name="SWIPE.sbr_Name" page="pge_FindFilters" type="GESTURE" os='IOS'>
+ 		        			<parameter type="STATIC" name="From Position" value="95,50"/>
+						    <parameter type="STATIC" name="To Position" value="80,50"/>
+						    <token type="CONTEXT" name="token_sbr_name" value="param_SbrName" />
+						    <step type="STATE" name="Filters - Sleek Bar" page="pge_FindFilters" failureMode="IGNORE" />
+						</step>
+<!-- 						<step name="WAIT" page="LOGIN" type="WAIT" > -->
+<!-- 							<parameter type="STATIC" name="Wait Time" value="2" />    -->
+<!-- 						</step> -->
+<!-- 						<step name="SWIPE.sbr_Name" page="pge_FindFilters" type="GESTURE" os='IOS'> -->
+<!-- 						  <parameter type="STATIC" name="From Position" value="20,50"/> -->
+<!-- 						  <parameter type="STATIC" name="To Position" value="100,50"/> -->
+<!-- 						  <token type="CONTEXT" name="token_sbr_name" value="param_SbrName" /> -->
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+								<parameter type="STATIC" value="'SEEK BAR' is EXISTS and DRAGED BETWEEN 100>>80" />
+							</step>
+						  <step type="STATE" name="Filters - Sleek Bar" page="pge_FindFilters" failureMode="IGNORE" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+			<parameter type="STATIC" value="'SEEK BAR' is NOT EXISTS" />
+		</step>
+		</step>	
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'RATING BAR' by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Validate_RatingBar">
+	<description> fn_Validate_CheckBox: To validate the 'RATING BAR' by receiving it as a Parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFilters.xml" />
+		</step>		
+		<step type="VISIBLE" name="rating_Str_Name" page="pge_FindFilters">
+			<parameter type="STATIC" name="maxScroll" value="8" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_rating_Str_Name" value="param_RatingStrBar" />
+				
+		<step type="ELSE" name="elseCondition" page="pge_FindFilters">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFilters">
+				<parameter type="STATIC" value="'RATING BAR' is NOT EXISTS" />
+			</step>
+		</step>
+		</step>	
+<!-- 		test -->
+	</function>
+</suite>
+	

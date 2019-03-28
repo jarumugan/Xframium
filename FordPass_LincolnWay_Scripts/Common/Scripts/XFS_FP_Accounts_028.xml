@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_028" dataProvider="TestData.XFS_FP_Accounts_028,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Wallet_Add Payment_New Address </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+			<step type="CALL2" name="fn_Click_Wallet" page="pge_Account" /> 
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_Wallet" page="pge_Wallet" /> 
+				
+			<step type="CALL2" name="fn_Click_AddPaymentMethod" page="pge_Wallet" /> 
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_AddCard" page="pge_AddCard" />
+			
+			<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID"/> 
+			
+			<step type="CALL2" name="fn_ValidatePage_AddCard" page="pge_AddCard" /> 
+			
+		<step type="CALL2" name="fn_ValidateAddCard_SaveButtonStatus" page="pge_AddCard">
+				<parameter type="STATIC" name="param_ExpectedStatus" value="false" />
+			</step>
+		
+			<step type="CALL2" name="fn_SwipeToTop_Parameterized" page="pge_CommonReusable">
+				<parameter type="STATIC" name="param_NoOfSwipe" value="3" />
+			</step> 
+			
+			<step type="CALL2" name="fn_InputAllFields_AddCard" page="pge_AddCard" />
+			
+			<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" /> 
+			
+			<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable"> 
+				<parameter type="STATIC" name="param_NoOfSwipe" value="3" />
+			</step>
+			
+			
+			<step type="CALL2" name="fn_InputAllFields_YourAddress_EditProfile" page="pge_EditProfile" /> 
+		
+			<step type="CALL2" name="fn_ValidateInput_EP_State" page="pge_EditProfile" />
+				 
+			
+			<step type="CALL2" name="fn_ValidateAddCard_SaveButtonStatus" page="pge_AddCard">
+				<parameter type="STATIC" name="param_ExpectedStatus" value="true" />
+			</step>
+		
+			<step type="CALL2" name="fn_ClickAddCard_Save" page="pge_AddCard" />
+			
+			 <step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />  
+			 
+		      
+              <step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+		
+		
+	</test>
+</suite>

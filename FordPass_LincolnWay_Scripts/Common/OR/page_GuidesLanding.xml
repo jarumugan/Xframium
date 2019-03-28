@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_GuidesLanding" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="(//*[@text='{token_lbl_PageHeader}'])[1]|(//*[@label='{token_lbl_PageHeader}'])[1]" descriptor="XPATH" />
+			<element name="lnk_ChatWithAGuide" value="//*[@text='{token_lnk_ChatWithAGuide}']/preceding::android.widget.ImageView[3]|//*[@label='{token_lnk_ChatWithAGuide}']/preceding::UIAButton[1]" descriptor="XPATH" />			
+			<element name="lnk_CallAGuide" value="//*[@text='{token_lnk_CallAGuide}']/preceding::android.widget.ImageView[2]|//*[@label='{token_lnk_CallAGuide}']/preceding::UIAButton[1]" descriptor="XPATH" />			
+			<element name="lnk_EmailAGuide" value="//*[@text='{token_lnk_EmailAGuide}']/preceding::android.widget.ImageView[1]|//*[@label='{token_lnk_EmailAGuide}']/preceding::UIAButton[1]" descriptor="XPATH" />
+			<element name="lbl_CallAGuide" value="//*[@text='{token_lbl_CallAGuide}']|//*[@label='{token_lbl_CallAGuide}']" descriptor="XPATH" />
+			<element name="lbl_ChatWithAGuide" value="//*[@text='{token_lbl_ChatWithAGuide}']|//*[@label='{token_lbl_ChatWithAGuide}']" descriptor="XPATH" />
+			<element name="lbl_EmailAGuide" value="//*[@text='{token_lbl_EmailAGuide}']|//*[@label='{token_lbl_EmailAGuide}']" descriptor="XPATH" />
+		<!--<element name="lbl_PopularTopicHeader" value="//*[@text='{token_lbl_PopularTopicHeader}']|//*[@label='{token_lbl_PopularTopicHeader}']" descriptor="XPATH" /> -->
+			<!-- KSARAV53 - Updated XPATH for iOS, since Account label appears twice after changing popular topic to 'Account'  -->
+			<!-- VAGASTHI - Updated XPATH for Android, since Account label appears twice after changing popular topic to 'Account'  -->
+			<element name="lbl_PopularTopicHeader" value="//android.widget.TextView[@text='{token_lbl_PopularTopicHeader}']|//UIAStaticText[@label='{token_lbl_PopularTopicHeader}']" descriptor="XPATH" />
+			<element name="lnk_ChangeTopics" value="//*[@text='{token_lnk_ChangeTopics}']|//*[@label='{token_lnk_ChangeTopics}']" descriptor="XPATH" />
+			<element name="edt_GuidesSearch" value="//*[contains(@text,'{token_edt_GuidesSearch}')]|//*[contains(@value,'{token_edt_GuidesSearch}')]|//UIATextField" descriptor="XPATH" />
+			<element name="lnk_RSA" value="(//android.widget.ImageView)[1]|//UIANavigationBar//UIAButton" descriptor="XPATH" />
+			<element name="lbl_CallUnavailableMessage" value="//*[@text=&quot;{token_lbl_CallUnavailableMessage}&quot;]|//*[@label=&quot;{token_lbl_CallUnavailableMessage}&quot;]" descriptor="XPATH" />
+			<element name="lbl_CallUnavailableHeader" value="//*[@text='{token_lbl_CallUnavailableHeader}']|//*[@label='{token_lbl_CallUnavailableHeader}']" descriptor="XPATH" />
+			<element name="btn_Close_CallUnavailable" value="//*[@text='{token_btn_Close_CallUnavailable_AND}']|//*[@label='{token_btn_Close_CallUnavailable_IOS}']|//*[@text='Close']" descriptor="XPATH" />
+			<element name="lbl_WelcometoMail" value="//*[@label='{token_lbl_WelcometoMail}']" descriptor="XPATH" />
+			<element name="lbl_ChatUnavailableMessage" value="//*[@text=&quot;{token_lbl_ChatUnavailableMessage}&quot;]|//*[@label=&quot;{token_lbl_ChatUnavailableMessage}&quot;]" descriptor="XPATH" />
+
+			
+			
+			
+			<element name="lbl_ChatUnavailableMessage" value="//*[contains(@text,&quot;{token_lbl_ChatUnavailableMessage}&quot;)]|//*[contains(@label,&quot;{token_lbl_ChatUnavailableMessage}&quot;)]" descriptor="XPATH" />
+			
+			
+			<element name="lbl_ChatUnavailableHeader" value="//*[@text='{token_lbl_ChatUnavailableHeader}']|//*[@label='{token_lbl_ChatUnavailableHeader}']" descriptor="XPATH" />
+			<element name="btn_Close_ChatUnavailable" value="//*[@text='{token_btn_Close_ChatUnavailable_AND}']|//*[@label='{token_btn_Close_ChatUnavailable_IOS}']|//*[@text='Close']" descriptor="XPATH" />			
+			<element name="lnk_CallFordCredit" value="//*[@text='{token_lnk_CallFordCredit}']/preceding::android.widget.ImageView[1]|//*[@label='{token_lnk_CallFordCredit}']/preceding::UIAButton[1]|//*[@label='{token_lnk_CallFordCredit}']/preceding::XCUIElementTypeButton[1]" descriptor="XPATH" />
+			<element name="lbl_CallFordCredit" value="//*[@text='{token_lbl_CallFordCredit}']|//*[@label='{token_lbl_CallFordCredit}']" descriptor="XPATH" />
+			<element name="lbl_CallConfirmationHeader" value="//*[@text='{token_lbl_CallConfirmationHeader}']|//*[@label='{token_lbl_CallConfirmationHeader}']" descriptor="XPATH" />
+			<element name="lbl_CallConfirmationMessage" value="//*[@text=&quot;{token_lbl_CallConfirmationMessage}&quot;]|//*[@label=&quot;{token_lbl_CallConfirmationMessage}&quot;]" descriptor="XPATH" />
+			<element name="btn_ConfirmCallFordCredit" value="//*[@label=&quot;{token_btn_ConfirmCallFordCredit}&quot;]|//*[@text='{token_btn_ConfirmCallFordCredit}']" descriptor="XPATH" />
+
+<!-- Rework Done after Code Change -->
+			
+<!-- 			<element name="lnk_CallAGuide_disabled" value="//*[@text='{token_lnk_CallAGuide_disabled}']/preceding::android.widget.ImageView[3][@clickable='false']|//*[@label='{token_lnk_CallAGuide_disabled}']/preceding::UIAButton[1][@enabled='false']" descriptor="XPATH" /> -->
+<!-- 			<element name="lnk_CallAGuide_enabled" value="//*[@text='{token_lnk_CallAGuide_enabled}']/preceding::android.widget.ImageView[3][@clickable='true']|//*[@label='{token_lnk_CallAGuide_enabled}']/preceding::UIAButton[1][@enabled='true']" descriptor="XPATH" /> -->
+<!-- 			<element name="lnk_ChatWithAGuide_disabled" value="//*[@text='{token_lnk_ChatWithAGuide_disabled}']/preceding::android.widget.ImageView[3][@clickable='false']|//*[@label='{token_lnk_ChatWithAGuide_disabled}']/preceding::UIAButton[1][@enabled='false']" descriptor="XPATH" /> -->
+<!-- 			<element name="lnk_ChatWithAGuide_enabled" value="//*[@text='{token_lnk_ChatWithAGuide_enabled}']/preceding::android.widget.ImageView[3][@clickable='true']|//*[@label='{token_lnk_ChatWithAGuide_enabled}']/preceding::UIAButton[1][@enabled='true']" descriptor="XPATH" /> -->
+<!-- 			<element name="lnk_EmailAGuide_disabled" value="//*[@text='{token_lnk_EmailAGuide_disabled}']/preceding::android.widget.ImageView[3][@clickable='false']|//*[@label='{token_lnk_EmailAGuide_disabled}']/preceding::UIAButton[1][@enabled='false']" descriptor="XPATH" /> -->
+<!-- 			<element name="lnk_EmailAGuide_enabled" value="//*[@text='{token_lnk_EmailAGuide_enabled}']/preceding::android.widget.ImageView[3][@clickable='true']|//*[@label='{token_lnk_EmailAGuide_enabled}']/preceding::UIAButton[1][@enabled='true']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic1" value="//*[@text='{token_lbl_PopularTopic1}']|//*[@label='{token_lbl_PopularTopic1}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic2" value="//*[@text='{token_lbl_PopularTopic2}']|//*[@label='{token_lbl_PopularTopic2}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic3" value="//*[@text='{token_lbl_PopularTopic3}']|//*[@label='{token_lbl_PopularTopic3}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic4" value="//*[@text='{token_lbl_PopularTopic4}']|//*[@label='{token_lbl_PopularTopic4}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic5" value="//*[@text='{token_lbl_PopularTopic5}']|//*[@label='{token_lbl_PopularTopic5}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic6" value="//*[@text='{token_lbl_PopularTopic6}']|//*[@label='{token_lbl_PopularTopic6}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic7" value="//*[@text='{token_lbl_PopularTopic7}']|//*[@label='{token_lbl_PopularTopic7}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic8" value="//*[@text='{token_lbl_PopularTopic8}']|//*[@label='{token_lbl_PopularTopic8}']" descriptor="XPATH" /> -->
+<!-- 				<element name="lbl_PopularTopic9" value="//*[@text='{token_lbl_PopularTopic9}']|//*[@label='{token_lbl_PopularTopic9}']" descriptor="XPATH" />	 -->
+		</page>
+	</site>
+</elementDefinition>

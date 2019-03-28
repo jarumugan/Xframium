@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> SEARCH BAR FUNCTIONS -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SearchBar_Parameterized">
+		<description> fn_SearchBar_Parameterized - Enter the Search Keyword</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindLocationSearch.xml ***" />
+		</step>
+		
+		<step type="EXISTS" name="edt_SearchBar" page="pge_FindLocationSearch">
+		<step type="SET" name="edt_SearchBar" page="pge_FindLocationSearch">
+			<parameter type="CONTEXT" name="DEFAULT" value="param_SearchKeyword" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search' field inputted with the user given value" />
+			</step>
+			<step type="STATE" name="FIND - Search Keyword" page="pge_FindLocationSearch" failureMode="IGNORE" />
+		<step type="CLICK" name="edt_SearchBar" page="pge_FindLocationSearch"/>
+		<step type="ELSE" name="elseCondition" page="pge_FindLocationSearch">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search ' doesn't Exists to input the user given data" />
+			</step>
+		</step>			
+		</step>	
+		</step>	
+	</function>
+	
+	<function name="fn_Click_SearchResultList">
+		<description> fn_Click_SearchResultList - click on the expected search item from the resulted list</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindLocationSearch.xml ***" />
+		</step>
+		
+		<!-- Added by KSARAV53 -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/> 
+			
+		<step type="EXISTS" name="lbl_SearchResultList" page="pge_FindLocationSearch">
+			<token type="CONTEXT" name="token_lbl_SearchResultList" value="param_lbl_SearchResultList" />
+				<step type="CLICK" name="lbl_SearchResultList" page="pge_FindLocationSearch" wait="3">
+					<token type="CONTEXT" name="token_lbl_SearchResultList" value="param_lbl_SearchResultList" />
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+							<parameter type="STATIC" value="'Search Result' contains the user expected value" />
+						</step>
+						<step type="STATE" name="FIND - Search Result List" page="pge_FindLocationSearch" failureMode="IGNORE" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindLocationSearch">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search Result' doesn't contains the user expected value" />
+			</step>
+		</step>		
+		</step>	
+	</function>
+	
+	<function name="fn_Click_SearchClearTextIcon">
+		<description> fn_Click_SearchClearTextIcon - Click on the clear text icon on the search bar text field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindLocationSearch.xml ***" />
+		</step>	
+		<step type="EXISTS" name="lnk_SearchClearTextIcon" page="pge_FindLocationSearch">
+			<token type="CONTENT" name="token_lnk_SearchClearTextIcon" value="TFindSearchClearTextIcon" />
+				<step type="CLICK" name="lnk_SearchClearTextIcon" page="pge_FindLocationSearch">
+					<token type="CONTENT" name="token_lnk_SearchClearTextIcon" value="TFindSearchClearTextIcon" />
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+							<parameter type="STATIC" value="'Search Keyword' is cleared" />
+						</step>
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindLocationSearch">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search Keyword' doesn't cleared" />
+			</step>
+		</step>		
+		</step>	
+	</function>
+	<function name="fn_Search_NoResults">
+		<description> fn_Search_NoResults - Enter the Invalid sSearch Keyword</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindLocationSearch.xml ***" />
+		</step>
+		
+		<step type="EXISTS" name="edt_SearchBar" page="pge_FindLocationSearch">
+		<step type="SET" name="edt_SearchBar" page="pge_FindLocationSearch">
+			<parameter type="DATA" name="DEFAULT" value="TestData.FindInvalidSearchKey" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search' field inputted with the user given 'invalid' value" />
+			</step>
+			<step type="STATE" name="FIND - Search Keyword" page="pge_FindLocationSearch" failureMode="IGNORE" />
+		<step type="CLICK" name="edt_SearchBar" page="pge_FindLocationSearch"/>
+		<step type="ELSE" name="elseCondition" page="pge_FindLocationSearch">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search ' doesn't Exists to input the user given data" />
+			</step>
+		</step>		
+		</step>	
+		</step>
+		
+		<!-- Added by KSARAV53 -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/> 
+		
+		<step type="EXISTS" name="lbl_SearchResultList" page="pge_FindLocationSearch">
+			<token type="DATA" name="token_lbl_SearchResultList" value="TestData.FindInvalidSearchKeyResult" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search Result' contains the user expected 'No Result' Page" />
+			</step>
+			<step type="STATE" name="FIND - Search Result List" page="pge_FindLocationSearch" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindLocationSearch">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search Result' doesn't contains the user expected 'No Result' Page" />
+			</step>
+		</step>		
+		</step>
+		<step type="CALL2" name="fn_Click_SearchClearTextIcon" page="pge_FindLocationSearch" failureMode="IGNORE"/>
+	</function>
+
+	<function name="fn_Click_ZeroSearch">
+		<description> fn_Click_ZeroSearchs - Click on the Search bar</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindLocationSearch.xml ***" />
+		</step>
+		
+		<step type="EXISTS" name="edt_SearchBar" page="pge_FindLocationSearch">
+			<step type="CLICK" name="edt_SearchBar" page="pge_FindLocationSearch"/>
+		<step type="ELSE" name="elseCondition" page="pge_FindLocationSearch">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindLocationSearch">
+				<parameter type="STATIC" value="'Search ' doesn't Exists to Click" />
+			</step>
+		</step>		
+		</step>	
+	</function>
+</suite>

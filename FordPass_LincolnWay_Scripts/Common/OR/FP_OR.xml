@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	
+	<import fileName="page_AcceptCookies.xml" />
+	<import fileName="page_Account.xml" />	
+	<import fileName="page_ChangePassword.xml" />
+	<import fileName="page_ChangeUsername.xml" />
+	<import fileName="page_ChangePassword.xml" />
+	<import fileName="page_CommonReusable.xml" />
+	<import fileName="page_ConfirmPIN.xml" />
+	<import fileName="page_Congratulations.xml" />
+	<import fileName="page_CreateAccount.xml" />
+	<import fileName="page_CreatePIN.xml" />
+	<import fileName="page_EditProfile.xml" />
+	<import fileName="page_EnterAddress.xml" />
+	<import fileName="page_EnterPIN.xml" />
+	<import fileName="page_FirstImpression.xml" />
+	<import fileName="page_ForgotPassword.xml" />
+	<import fileName="page_ForgotPIN.xml" />
+	<import fileName="page_FPCommon.xml" />
+	<import fileName="page_GuidesChangeTopic.xml" />
+	<import fileName="page_GuidesLanding.xml" />
+	<import fileName="page_GuidesSearch.xml" />
+	<import fileName="page_Login.xml" />
+	<import fileName="page_Logout.xml" />
+	<import fileName="page_MarketingOptions.xml" />
+	<import fileName="page_Move.xml" />
+	<import fileName="page_PrivacyPolicy.xml" />
+	<import fileName="page_ProgramBenefits.xml" />
+	<import fileName="page_Recall.xml" />
+	<import fileName="page_ResetPassword.xml" />
+	<import fileName="page_RSA.xml" />
+	<import fileName="page_ScanorEnterVIN.xml" />
+	<import fileName="page_Security.xml" />
+	<import fileName="page_SelectCountry.xml" />
+	<import fileName="page_Settings.xml" />
+	<import fileName="page_ShareLocation.xml" />
+	<import fileName="page_Success.xml" />
+	<import fileName="page_TermsAndConditions.xml" />
+	<import fileName="page_TermsAndPrivacy.xml" />
+	<import fileName="page_TooManyAttempts.xml" />
+	<import fileName="page_UnitsofMeasure.xml" />
+	<import fileName="page_UpdatePIN.xml" />
+	<import fileName="page_VehicleInfo.xml" />
+	<import fileName="page_ViewProfile.xml" />
+	<import fileName="page_AddVehicle.xml" />
+	<import fileName="page_DeleteVehicle.xml" />
+	<import fileName="page_RSA.xml" />
+	<import fileName="page_FSA.xml" />
+	<import fileName="page_OnlineServiceBooking.xml" />
+	<import fileName="page_MaintenanceSchedule.xml" />
+	<import fileName="page_FindCategoryApplet.xml" />
+	<import fileName="page_FindFuelBankDetails.xml" />
+	<import fileName="page_FindFilters.xml" />
+	<import fileName="page_FindCommon.xml" />	
+	<import fileName="page_FindParkingDetails.xml" />
+	<import fileName="page_FindDealersDetails.xml" />
+	<import fileName="page_FindLocationSearch.xml" />
+	<import fileName="page_FindSendToVehicle.xml" />
+	<import fileName="page_FordCredit.xml" />
+	<import fileName="page_SafetyCheck.xml" />
+	<import fileName="page_ManageMyData.xml" />
+	<import fileName="page_SmartTip.xml" />
+	<import fileName="page_Smartlink.xml" />
+	<import fileName="page_Wallet.xml" />
+	<import fileName="page_Transactions.xml" />
+	<import fileName="page_AddCard.xml" />
+	<import fileName="page_ECM.xml" />
+	<import fileName="page_AuthorizedTCUVIN_VehicleInfo.xml" />
+	<import fileName="page_ScheduleStarts.xml" />
+	<import fileName="page_TPMS.xml" />
+	<import fileName="page_EnableSyncAppLink.xml" />
+	<import fileName="page_MessageCenter.xml" />
+	<import fileName="page_ScheduleServices.xml" />
+	<import fileName="page_ServiceHistory.xml" />
+	<import fileName="page_AALogin.xml" />
+
+	
+	
+	
+	
+	
+
+</elementDefinition>

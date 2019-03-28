@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_TermsAndConditions">
+	<description> fn_VerifyPageOpened_TermsAndConditions - Verify 'Terms and Conditions' page is loaded  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndConditions" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_TermsAndPrivacy.xml ***" />
+		</step>
+
+		<step type="WAIT_FOR" name="lbl_PageHeader" site="FordPass" page="pge_TermsAndConditions">
+			<parameter type="STATIC" name="Wait Time" value="30"/>
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TTermsAndConditions1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndConditions">
+				<parameter type="STATIC" value="'Terms and Conditions' page is opened and page title is as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TermsAndConditions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndConditions">
+					<parameter type="STATIC" value="'Terms and Conditions' page is not opened or page title is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+			<function name="fn_Click_Accept_TermsAndConditions">
+		<description> fn_Click_Accept_TermsAndConditions - Function to click 'Accept' button on the 'Terms And Conditions' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndConditions">
+			<parameter type="STATIC" value="Function's XML file name: fn_AcceptCookies.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Accept" page="pge_TermsAndConditions">
+			<token type="CONTENT" name="token_btn_Accept" value="TPrivacyPolicy2" />
+			
+			<step type="CLICK" name="btn_Accept" page="pge_TermsAndConditions" wait="3">
+				<token type="CONTENT" name="token_btn_Accept" value="TPrivacyPolicy2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndConditions">
+				<parameter type="STATIC" value="'I Accept' button is available and clicked on 'Terms and Conditions' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TermsAndConditions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndConditions">
+					<parameter type="STATIC" value="'I Accept' button is not available on 'Terms and Conditions' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+</suite>

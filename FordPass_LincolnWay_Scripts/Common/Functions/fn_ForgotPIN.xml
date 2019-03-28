@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyDialogOpened_ForgotPIN">
+		<description> fn_VerifyDialogOpened_ForgotPIN - Function to verify 'Forgot PIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ForgotPIN.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_DialogHeader" page="pge_ForgotPIN">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_DialogHeader_AND" value="TForgotPIN1_AND" />
+			<token type="CONTENT" name="token_lbl_DialogHeader_IOS" value="TForgotPIN1_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="STATIC" value="User successfully landed on 'Forgot PIN' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ForgotPIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+					<parameter type="STATIC" value="'Forgot PIN' dialog box is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateDialog_ForgotPIN">
+		<description> fn_ValidateDialog_ForgotPIN - Function to validate the 'Forgot PIN' dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ForgotPIN.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_DialogInfo" page="pge_ForgotPIN">
+			<token type="CONTENT" name="token_lbl_DialogInfo_AND" value="TForgotPIN2_AND" />
+			<token type="CONTENT" name="token_lbl_DialogInfo_IOS" value="TForgotPIN2_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="CONTENT" value="TForgotPIN2_AND" />
+				<parameter type="STATIC" value="Above text is displayed as page info on 'Forgot PIN' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ForgotPIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+					<parameter type="CONTENT" value="TForgotPIN2_AND" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Forgot PIN' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_DialogBulletPoints1" page="pge_ForgotPIN" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_DialogBulletPoints1" value="TForgotPIN5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="CONTENT" value="TForgotPIN5" />
+				<parameter type="STATIC" value="Above text is displayed as bullet points on 'Forgot PIN' dialog box" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_DialogBulletPoints2" page="pge_ForgotPIN" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_DialogBulletPoints2" value="TForgotPIN6" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="CONTENT" value="TForgotPIN6" />
+				<parameter type="STATIC" value="Above text is displayed as bullet points on 'Forgot PIN' dialog box" />
+			</step>
+		</step>
+		
+		<!-- Bulletin point 3 only for SA-Brazil -->
+		<step type="EXISTS" name="lbl_DialogBulletPoints3" page="pge_ForgotPIN" os="ANDROID" tagNames="FP-SA">
+			<token type="CONTENT" name="token_lbl_DialogBulletPoints3" value="TForgotPIN7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="CONTENT" value="TForgotPIN7" />
+				<parameter type="STATIC" value="Above text is displayed as bullet points on 'Forgot PIN' dialog box" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Logout" page="pge_ForgotPIN">
+			<token type="CONTENT" name="token_btn_Logout_AND" value="TForgotPIN3_AND" />
+			<token type="CONTENT" name="token_btn_Logout_IOS" value="TForgotPIN3_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="STATIC" value="'Logout' button is available on the 'Forgot PIN' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ForgotPIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+					<parameter type="STATIC" value="'Logout' button is not available on the 'Forgot PIN' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Cancel" page="pge_ForgotPIN">
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TForgotPIN4_AND" />
+			<token type="CONTENT" name="token_btn_Cancel_IOS" value="TForgotPIN4_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="STATIC" value="'Cancel' button is available on the 'Forgot PIN' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ForgotPIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+					<parameter type="STATIC" value="'Cancel' button is not available on the 'Forgot PIN' dialog box" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickForgotPIN_Cancel">
+		<description> fn_ClickForgotPIN_Cancel - Function to click Cancel button on 'Forgot PIN' dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ForgotPIN.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_Cancel" page="pge_ForgotPIN">
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TForgotPIN4_AND" />
+			<token type="CONTENT" name="token_btn_Cancel_IOS" value="TForgotPIN4_IOS" />
+		
+			<step type="CLICK" name="btn_Cancel" page="pge_ForgotPIN">
+				<token type="CONTENT" name="token_btn_Cancel_AND" value="TForgotPIN4_AND" />
+				<token type="CONTENT" name="token_btn_Cancel_IOS" value="TForgotPIN4_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="STATIC" value="'Cancel' button is available and clicked on the 'Forgot PIN' dialog box" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickForgotPIN_Logout">
+		<description> fn_ClickForgotPIN_Logout - Function to click Logout button on 'Forgot PIN' dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ForgotPIN.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_Logout" page="pge_ForgotPIN">
+			<token type="CONTENT" name="token_btn_Logout_AND" value="TForgotPIN3_AND" />
+			<token type="CONTENT" name="token_btn_Logout_IOS" value="TForgotPIN3_IOS" />
+		
+			<step type="CLICK" name="btn_Logout" page="pge_ForgotPIN">
+				<token type="CONTENT" name="token_btn_Logout_AND" value="TForgotPIN3_AND" />
+				<token type="CONTENT" name="token_btn_Logout_IOS" value="TForgotPIN3_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ForgotPIN">
+				<parameter type="STATIC" value="'Cancel' button is available and clicked on the 'Forgot PIN' dialog box" />
+			</step>
+		</step>
+	</function>	
+</suite>

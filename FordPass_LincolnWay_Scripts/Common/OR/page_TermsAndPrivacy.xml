@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_TermsAndPrivacy" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageTitle" value="//*[@text='{token_lbl_TermsAndPrivacy}']|//*[@label='{token_lbl_TermsAndPrivacy}']|//*[@content-desc='{token_lbl_TermsAndPrivacy}']" descriptor="XPATH" /> <!--Terms and Privacy Policy -->
+			<element name="btn_Accept" value="//*[@text='{token_btn_Accept}']|//UIAButton[@label='{token_btn_Accept}']" descriptor="XPATH"></element>
+			<element name="img_Back" value="//*[@content-desc='Navigate up']|//UIAButton[@label='close icon']|//UIAButton[@label='back icon']" descriptor="XPATH" />
+			<element name="lbl_TermsPrivacyUpdate" value="//*[@label='{token_lbl_TermsPrivacyUpdate}']|//*[@text='{token_lbl_TermsPrivacyUpdate}']" descriptor="XPATH" />
+			<element name="lbl_TermsPrivacyMessage" value="//*[@label='{token_lbl_TermsPrivacyMessage}']|//*[@text='{token_lbl_TermsPrivacyMessage}']" descriptor="XPATH" />
+			<element name="btn_ViewTermsandConditions" value="//*[matches(@text,'{token_btn_ViewTermsandConditions}','i')]|//UIAButton[contains(@label,'{token_btn_ViewTermsandConditions}')]" descriptor="XPATH" />			
+			<element name="lnk_TandCLinks" value="//UIAScrollView//UIALink" descriptor="XPATH" />
+			
+			<element name="lnk_GeneralInfo" value="//UIALink[@label='{token_lnk_GeneralInfo}']|(//*[@content-desc='{token_lnk_GeneralInfo}'])[1]" descriptor="XPATH" />
+			<element name="lbl_GeneralInfo" value="//UIAStaticText[@label='{token_lbl_GeneralInfo}'][1]|(//*[@content-desc='{token_lbl_GeneralInfo}'])" descriptor="XPATH" />
+			
+			<element name="lnk_PrivacyPolicy" value="//UIALink[@label='{token_lnk_PrivacyPolicy}']|(//*[@content-desc='{token_lnk_PrivacyPolicy}'])[1]" descriptor="XPATH" />
+			<element name="lbl_PrivacyPolicy" value="//UIAStaticText[@label='{token_lbl_PrivacyPolicy}'][1]|(//*[@content-desc='{token_lbl_PrivacyPolicy}'])" descriptor="XPATH" />
+			
+			<element name="lnk_MobPayMyWal" value="//UIALink[@label='{token_lnk_MobPayMyWal}']|(//*[@content-desc='{token_lnk_MobPayMyWal}'])[1]" descriptor="XPATH" />
+			<element name="lbl_MobPayMyWal" value="//UIAStaticText[@label='{token_lbl_MobPayMyWal}'][1]|(//*[@content-desc='{token_lbl_MobPayMyWal}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Operate" value="//UIALink[@label='{token_lnk_Operate}']|(//*[@content-desc='{token_lnk_Operate}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Operate" value="//UIAStaticText[@label='{token_lbl_Operate}'][1]|(//*[@content-desc='{token_lbl_Operate}'])" descriptor="XPATH" />
+			
+			<element name="lnk_MyDealer" value="//UIALink[@label='{token_lnk_MyDealer}']|(//*[@content-desc='{token_lnk_MyDealer}'])[1]" descriptor="XPATH" />
+			<element name="lbl_MyDealer" value="//UIAStaticText[@label='{token_lbl_MyDealer}'][1]|(//*[@content-desc='{token_lbl_MyDealer}'])" descriptor="XPATH" />
+			
+			<element name="lnk_MyVehicle" value="//UIALink[@label='{token_lnk_MyVehicle}']|(//*[@content-desc='{token_lnk_MyVehicle}'])[1]" descriptor="XPATH" />
+			<element name="lbl_MyVehicle" value="//UIAStaticText[@label='{token_lbl_MyVehicle}'][1]|(//*[@content-desc='{token_lbl_MyVehicle}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Parking" value="//UIALink[@label='{token_lnk_Parking}']|(//*[@content-desc='{token_lnk_Parking}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Parking" value="//UIAStaticText[@label='{token_lbl_Parking}'][1]|(//*[@content-desc='{token_lbl_Parking}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Perks" value="//UIALink[@label='{token_lnk_Perks}']|(//*[@content-desc='{token_lnk_Perks}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Perks" value="//UIAStaticText[@label='{token_lbl_Perks}'][1]|(//*[@content-desc='{token_lbl_Perks}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Guides" value="//UIALink[@label='{token_lnk_Guides}']|(//*[@content-desc='{token_lnk_Guides}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Guides" value="//UIAStaticText[@label='{token_lbl_Guides}'][1]|(//*[@content-desc='{token_lbl_Guides}'])" descriptor="XPATH" />
+			
+			<element name="lnk_VehicleSafety" value="//UIALink[@label='{token_lnk_VehicleSafety}']|(//*[@content-desc='{token_lnk_VehicleSafety}'])[1]" descriptor="XPATH" />
+			<element name="lbl_VehicleSafety" value="//UIAStaticText[@label='{token_lbl_VehicleSafety}'][1]|(//*[@content-desc='{token_lbl_VehicleSafety}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Communications" value="//UIALink[@label='{token_lnk_Communications}']|(//*[@content-desc='{token_lnk_Communications}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Communications" value="//UIAStaticText[@label='{token_lbl_Communications}'][1]|(//*[@content-desc='{token_lbl_Communications}'])" descriptor="XPATH" />
+			
+			<element name="lnk_ThirdPartyInfo" value="//UIALink[@label='{token_lnk_ThirdPartyInfo}']|(//*[@content-desc='{token_lnk_ThirdPartyInfo}'])[1]" descriptor="XPATH" />
+			<element name="lbl_ThirdPartyInfo" value="//UIAStaticText[@label='{token_lbl_ThirdPartyInfo}'][1]|(//*[@content-desc='{token_lbl_ThirdPartyInfo}'])" descriptor="XPATH" />
+			
+			<element name="lnk_FordGoBikeInfo" value="//UIAStaticText[@label='{token_lnk_FordGoBikeInfo}']|(//*[@content-desc='{token_lnk_FordGoBikeInfo}'])[1]" descriptor="XPATH" />
+			<element name="lbl_FordGoBikeInfo" value="//*[contains(@label,'{token_lbl_FordGoBikeInfo}')][1]|//*[contains(@content-desc,'{token_lbl_FordGoBikeInfo}')]" descriptor="XPATH" /> 
+			
+			
+			
+			<element name="lnk_LimitedLicenses" value="//UIALink[@label='{token_lnk_LimitedLicenses}']|(//*[@content-desc='{token_lnk_LimitedLicenses}'])[1]" descriptor="XPATH" />
+			<element name="lbl_LimitedLicenses" value="//UIAStaticText[@label='{token_lbl_LimitedLicenses}'][1]|(//*[@content-desc='{token_lbl_LimitedLicenses}'])" descriptor="XPATH" />
+			
+			<element name="lnk_interference" value="//UIALink[@label='{token_lnk_interference}']|(//*[@content-desc='{token_lnk_interference}'])[1]" descriptor="XPATH" />
+			<element name="lbl_interference" value="//UIAStaticText[@label='{token_lbl_interference}'][1]|(//*[@content-desc='{token_lbl_interference}'])" descriptor="XPATH" />
+			
+			<element name="lnk_TrademarkNotice" value="//UIALink[@label='{token_lnk_TrademarkNotice}']|(//*[@content-desc='{token_lnk_TrademarkNotice}'])[1]" descriptor="XPATH" />
+			<element name="lbl_TrademarkNotice" value="//UIAStaticText[@label='{token_lbl_TrademarkNotice}'][1]|(//*[@content-desc='{token_lbl_TrademarkNotice}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Designatedagent" value="//UIALink[@label='{token_lnk_Designatedagent}']|(//*[@content-desc='{token_lnk_Designatedagent}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Designatedagent" value="//UIAStaticText[@label='{token_lbl_Designatedagent}'][1]|(//*[@content-desc='{token_lbl_Designatedagent}'])" descriptor="XPATH" />
+			
+			<element name="lnk_UserGeneCont" value="//UIALink[@label='{token_lnk_UserGeneCont}']|(//*[@content-desc='{token_lnk_UserGeneCont}'])[1]" descriptor="XPATH" />
+			<element name="lbl_UserGeneCont" value="//UIAStaticText[@label='{token_lbl_UserGeneCont}'][1]|(//*[@content-desc='{token_lbl_UserGeneCont}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Indemnity" value="//UIALink[@label='{token_lnk_Indemnity}']|(//*[@content-desc='{token_lnk_Indemnity}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Indemnity" value="//UIAStaticText[@label='{token_lbl_Indemnity}'][1]|(//*[@content-desc='{token_lbl_Indemnity}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Disclaimer" value="//UIALink[@label='{token_lnk_Disclaimer}']|(//*[@content-desc='{token_lnk_Disclaimer}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Disclaimer" value="//UIAStaticText[@label='{token_lbl_Disclaimer}'][1]|(//*[@content-desc='{token_lbl_Disclaimer}'])" descriptor="XPATH" />
+			
+			<element name="lnk_Misc" value="//UIALink[@label='{token_lnk_Misc}']|(//*[@content-desc='{token_lnk_Misc}'])[1]" descriptor="XPATH" />
+			<element name="lbl_Misc" value="//UIAStaticText[@label='{token_lbl_Misc}'][1]|(//*[@content-desc='{token_lbl_Misc}'])" descriptor="XPATH" />
+			
+			<element name="lnk_ContactUs" value="//UIALink[@label='{token_lnk_ContactUs}']|(//*[@content-desc='{token_lnk_ContactUs}'])[1]" descriptor="XPATH" />
+			<element name="lbl_ContactUs" value="//UIAStaticText[@label='{token_lbl_ContactUs}'][1]|(//*[@content-desc='{token_lbl_ContactUs}'])" descriptor="XPATH" />
+			
+			<element name="lbl_ContactAddress_AND" value="//*[@content-desc='{token_lbl_ContactAddress_AND}']" descriptor="XPATH" />
+			<element name="lbl_ContactAddress1_IOS" value="(//*[@label='{token_lbl_ContactAddress1_IOS}'])" descriptor="XPATH" />
+			<element name="lbl_ContactAddress2_IOS" value="(//*[@label='{token_lbl_ContactAddress2_IOS}'])" descriptor="XPATH" />
+			<element name="lbl_ContactAddress3_IOS" value="(//*[@label='{token_lbl_ContactAddress3_IOS}'])" descriptor="XPATH" />
+			<element name="lbl_ContactAddress4_IOS" value="(//*[@label='{token_lbl_ContactAddress4_IOS}'])" descriptor="XPATH" />
+			<element name="lbl_ContactAddress5_IOS" value="(//*[@label='{token_lbl_ContactAddress5_IOS}'])" descriptor="XPATH" />
+			
+			<element name="lnk_TermsConditionVald1" value="//UIALink[@label='{token_lnk_TermsConditionVald1}']|//*[@content-desc={token_lnk_TermsConditionVald1}]" descriptor="XPATH" />
+			<element name="lnk_TermsConditionVald2" value="//UIALink[@label='{token_lnk_TermsConditionVald2}']|//*[@content-desc='{token_lnk_TermsConditionVald2}']" descriptor="XPATH" />
+			<element name="lnk_TermsConditionVald3" value="//UIALink[@label='{token_lnk_TermsConditionVald3}']|//*[@content-desc='{token_lnk_TermsConditionVald3}']" descriptor="XPATH" />
+			<element name="lnk_TermsConditionVald4" value="//UIALink[@label='{token_lnk_TermsConditionVald4}']|//*[@content-desc='{token_lnk_TermsConditionVald4}']" descriptor="XPATH" />
+			
+		</page>
+	</site>
+</elementDefinition>
+

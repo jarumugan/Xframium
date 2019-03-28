@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_TooManyAttempts">
+		<description> fn_VerifyPageOpened_TooManyAttempts - Function to verify user landed on the 'Too Many failed Attempts' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+			<parameter type="STATIC" value="Function's XML file name: fn_TooManyAttempts.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_TooManyAttempts">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TTooManyAttempts1" />
+			
+			<step type="STATE" name="Dummy State - Too Many Attempts page screenshot" page="pge_TooManyAttempts" failureMode="IGNORE" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+				<parameter type="STATIC" value="User successfully landed on 'Too Many failed Attempts' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TooManyAttempts">
+				
+				<step type="STATE" name="Dummy State - Too Many Attempts page doesnt load/displayed" page="pge_TooManyAttempts" failureMode="IGNORE" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+					<parameter type="STATIC" value="'Too Many failed Attempts' page is not displayed or page title is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_TooManyAttempts">
+		<description> fn_ValidatePage_TooManyAttempts - Function to validate 'Too Many failed Attempts' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+			<parameter type="STATIC" value="Function's XML file name: fn_TooManyAttempts.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_TooManyAttempts">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TTooManyAttempts2" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+				<parameter type="CONTENT" value="TTooManyAttempts2" />
+				<parameter type="STATIC" value="Above text is displayed as page information on 'Too Many failed Attempts' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TooManyAttempts">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+					<parameter type="CONTENT" value="TTooManyAttempts2" />
+					<parameter type="STATIC" value="Above text is not displayed as page information on 'Too Many failed Attempts' page" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="btn_ReturnToLogin" page="pge_TooManyAttempts">
+			<token type="CONTENT" name="token_btn_ReturnToLogin_AND" value="TTooManyAttempts3_AND" />
+			<token type="CONTENT" name="token_btn_ReturnToLogin_IOS" value="TTooManyAttempts3_IOS" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+				<parameter type="STATIC" value="'Return To Login' button available on the 'Too Many failed Attempts' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TooManyAttempts">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+					<parameter type="STATIC" value="'Return To Login' button is not available on the 'Too Many failed Attempts' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_ReturnToLogin_TooManyAttempt">
+		<description> fn_Click_ReturnToLogin_TooManyAttempt - Function click 'Return to Login' button on 'Too Many failed Attempts' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+			<parameter type="STATIC" value="Function's XML file name: fn_TooManyAttempts.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_ReturnToLogin" page="pge_TooManyAttempts">
+			<token type="CONTENT" name="token_btn_ReturnToLogin_AND" value="TTooManyAttempts3_AND" />
+			<token type="CONTENT" name="token_btn_ReturnToLogin_IOS" value="TTooManyAttempts3_IOS" />
+			
+			<step type="CLICK" name="btn_ReturnToLogin" page="pge_TooManyAttempts" wait="3">
+				<token type="CONTENT" name="token_btn_ReturnToLogin_AND" value="TTooManyAttempts3_AND" />
+				<token type="CONTENT" name="token_btn_ReturnToLogin_IOS" value="TTooManyAttempts3_IOS" />
+			</step>
+				
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+				<parameter type="STATIC" value="'Return To Login' button available and clicked on the 'Too Many failed Attempts' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TooManyAttempts">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TooManyAttempts">
+					<parameter type="STATIC" value="'Return To Login' button is not available on the 'Too Many failed Attempts' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

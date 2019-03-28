@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyMessageCenter">
+		
+		<step type="EXISTS" name="lbl_MessageCenter" page="pge_MessageCenter">
+			<token type="CONTENT" name="token_lbl_MessageCenter" value="TAccount7" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Message Center' page is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Message Center' page is Not displayed" />
+					<step type="STATE" name="Screenshot" page="pge_MessageCenter" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickFirstMessage">
+
+		<step type="EXISTS" name="lbl_EmptyMessages" page="pge_MessageCenter" failureMode="IGNORE" >
+			<token type="CONTENT" name="token_lbl_EmptyMessages" value="TMessageCenter01" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="No Message are available in the MEssage center page" />		
+		</step>
+ 		<step name="END_SUCCESS" page="pge_MessageCenter" type="FLOW"/>
+		<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+			<step type="EXISTS" name="lnk_FirstMessage" page="pge_MessageCenter" failureMode="IGNORE">
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="CLICK" name="lnk_FirstMessage" page="pge_MessageCenter" failureMode="IGNORE">
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="EXISTS" name="lnk_DeleteMessage" page="pge_MessageCenter">
+				<token type="CONTENT" name="token_lnk_DeleteMessage" value="TMessageCenter02" />
+
+<!-- 			<step type="DEVICE" name="BACK" page="pge_MessageCenter" /> -->
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Message page is displayed" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+
+	</step>
+
+</function>
+
+	<function name="fn_ValidateMessageCenter">
+
+		<step type="CALL2" name="fn_VerifyMessageCenter" page="pge_MessageCenter" />
+
+		<step type="CALL2" name="fn_ClickFirstMessage" page="pge_MessageCenter" />
+		
+<!-- 		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" /> -->
+
+<!-- 		<step type="DEVICE" name="BACK" page="pge_MessageCenter" /> -->
+
+	</function>
+	
+	<function name="fn_ClickDeleteMessage">
+		
+		<step type="CLICK" name="lnk_DeleteMessage" page="pge_MessageCenter">
+			<token type="CONTENT" name="token_lnk_DeleteMessage" value="TMessageCenter02" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Confirm Delete' page is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Message Center' page is Not displayed" />
+					<step type="STATE" name="Screenshot" page="pge_MessageCenter" />
+				</step>
+			</step>
+		</step>
+			
+	</function>
+	
+	<function name="fn_VerifyWarningWindowMessageCenter_Opened">
+		<description> fn_VerifyWarningWindow_Opened - Function to verify warning window opened up upon clicking Delete  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+			<parameter type="STATIC" value="Function's XML file name: fn_MessageCenter.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_WarningMessageCenter" page="pge_MessageCenter">
+			<token type="CONTENT" name="token_lbl_WarningMessageCenter" value="TMessageCenter03"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Warning window' field is available on the MessageCenter Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+					<parameter type="STATIC" value="'Warning window ' field is not available on the MessageCenter page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_WarningMsgMessageCenter" page="pge_MessageCenter">
+			<token type="CONTENT" name="token_lbl_WarningMsgMessageCenter" value="TMessageCenter04"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Warning window message' field is available on the MessageCenter Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+					<parameter type="STATIC" value="'Warning window message ' field is not available on the MessageCenter page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningConfirmMessageCenter" page="pge_MessageCenter">
+			<token type="CONTENT" name="token_lnk_WarningConfirmMessageCenter_AND" value="TMessageCenter05_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningConfirmMessageCenter_IOS" value="TMessageCenter05_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Confirm ' field is available on the MessageCenter Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+					<parameter type="STATIC" value="'Confirm ' field is not available on the MessageCenter page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningCancelMessageCenter" page="pge_MessageCenter">
+			<token type="CONTENT" name="token_lnk_WarningCancelMessageCenter_AND" value="TMessageCenter06_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningCancelMessageCenter_IOS" value="TMessageCenter06_IOS"/>
+		
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="'Cancel ' field is available on the MessageCenter Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+					<parameter type="STATIC" value="'Cancel ' field is not available on the MessageCenter page" />
+				</step>
+			</step>
+		</step>	
+		
+	</function>
+	
+	
+	<function name="fn_Click_WarningWindowMessageCenter_Cancel">
+		<description> fn_VerifyMessageCenter page gets closed  - Function to verify user selected cancel link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+			<parameter type="STATIC" value="Function's XML file name: fn_MessageCenter.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningCancelMessageCenter" page="pge_MessageCenter" wait="3" >
+				<token type="CONTENT" name="token_lnk_WarningCancelMessageCenter_AND" value="TMessageCenter06_AND" />
+				<token type="CONTENT" name="token_lnk_WarningCancelMessageCenter_IOS" value="TMessageCenter06_IOS" />
+			</step>
+		
+		<step type="CLICK" name="lnk_WarningCancelMessageCenter" page="pge_MessageCenter" wait="3">
+				<token type="CONTENT" name="token_lnk_WarningCancelMessageCenter_AND" value="TMessageCenter06_AND" />
+				<token type="CONTENT" name="token_lnk_WarningCancelMessageCenter_IOS" value="TMessageCenter06_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="User successfully Cancelled warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Cancel WarningWindow page" page="pge_MessageCenter" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+	
+	<function name="fn_Click_WarningWindowMessageCenter_Confirm">
+		<description> fn_ClickWarningWindow page gets opened  - Function to verify user selected confirm link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+			<parameter type="STATIC" value="Function's XML file name: fn_MessageCenter.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningConfirmMessageCenter" page="pge_MessageCenter" wait="3">
+				<token type="CONTENT" name="token_lnk_WarningConfirmMessageCenter_AND" value="TMessageCenter05_AND" />
+				<token type="CONTENT" name="token_lnk_WarningConfirmMessageCenter_IOS" value="TMessageCenter05_IOS" />
+			</step>
+		
+		<step type="CLICK" name="lnk_WarningConfirmMessageCenter" page="pge_MessageCenter">
+				<token type="CONTENT" name="token_lnk_WarningConfirmMessageCenter_AND" value="TMessageCenter05_AND" />
+				<token type="CONTENT" name="token_lnk_WarningConfirmMessageCenter_IOS" value="TMessageCenter05_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+				<parameter type="STATIC" value="User successfully cliked confirm in warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Confirm WarningWindow page" page="pge_MessageCenter" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MessageCenter">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MessageCenter">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+	
+	<function name="fn_ValidateWarningMessage">
+
+		<step type="CALL2" name="fn_VerifyWarningWindowMessageCenter_Opened" page="pge_MessageCenter" />
+
+		<step type="CALL2" name="fn_Click_WarningWindowMessageCenter_Cancel" page="pge_MessageCenter" />
+		
+		<step type="CALL2" name="fn_ClickDeleteMessage" page="pge_MessageCenter" />
+			
+		<step type="CALL2" name="fn_Click_WarningWindowMessageCenter_Confirm" page="pge_MessageCenter" />
+				
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+
+	</function>
+	
+	
+	
+	
+	
+</suite>

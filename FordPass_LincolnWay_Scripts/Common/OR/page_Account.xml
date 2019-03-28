@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Account" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lnk_Settings" value="//*[@text='{token_lnk_Settings}']|//*[@label='{token_lnk_Settings}']" descriptor="XPATH" />
+			<element name="lnk_FordCredit" value="//*[@text='{token_lnk_FordCredit}']|//*[@label='{token_lnk_FordCredit}']" descriptor="XPATH" />
+			<element name="lnk_Perks" value="//*[@text='{token_lnk_Perks}']|//*[@label='{token_lnk_Perks}']" descriptor="XPATH" />
+			
+			<element name="lnk_MessageCenter" value="//*[@text='{token_lnk_MessageCenter}']|//*[@label='{token_lnk_MessageCenter}']" descriptor="XPATH" />
+
+			<element name="lnk_Reservations" value="//*[@text=&quot;{token_lnk_Reservations}&quot;]|//*[@label=&quot;{token_lnk_Reservations}&quot;]" descriptor="XPATH" />
+			<element name="lnk_Wallet" value="//*[@text='{token_lnk_Wallet}']|//*[@label='{token_lnk_Wallet}']" descriptor="XPATH" />
+
+
+			<!-- <element name="lnk_Logout" value="//*[contains(@resource-id,'account_logout')]|//*[@text='{token_lnk_Logout_AND}']|//*[@label='{token_lnk_Logout_IOS}']" descriptor="XPATH" /> -->
+
+			<element name="lnk_Reservations" value="//*[@text='{token_lnk_Reservations}']|//*[@label='{token_lnk_Reservations}']" descriptor="XPATH" />
+
+			<element name="lnk_Logout" value="//*[@text='{token_lnk_Logout_AND}']|(//*[@label='{token_lnk_Logout_IOS}'][last()])[1]" descriptor="XPATH" />
+
+<!-- 			<element name="lbl_TabInfoMessage" value="//*[@text='{token_lbl_TabInfoMessage}']|//*[@label='{token_lbl_TabInfoMessage}']" descriptor="XPATH" /> -->
+			<element name="lbl_TabInfo" value="//*[contains(@text,'{token_lbl_TabInfo}')]|//*[contains(@label,'{token_lbl_TabInfo}')]|//*[@label='{token_lbl_TabInfo}']" descriptor="XPATH" />
+			<element name="lnk_ViewEditProfile" value="//*[contains(@text,'{token_lnk_ViewEditProfile}')]|(//*[contains(@label,'{token_lnk_ViewEditProfile}')])[1]" descriptor="XPATH" />
+			<element name="lbl_UserName" value="//*[@text='{token_lbl_UserName}']|//*[@label='{token_lbl_UserName}']" descriptor="XPATH" />
+
+			<element name="lbl_MyAccount" value="//*[@text='{token_lbl_MyAccount}']|//*[@label='{token_lbl_MyAccount}']" descriptor="XPATH" />	
+
+									
+
+		</page>
+	</site>
+</elementDefinition>

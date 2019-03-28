@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_PrivacyPolicy" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="btn_Accept" value="//*[@text='{token_btn_Accept}']|//UIAButton[@label='{token_btn_Accept}']" descriptor="XPATH" /> <!--Terms and Privacy Policy -->
+			<element name="lbl_PageTitle" value="//*[@text='{token_lbl_PageTitle}']|//*[@label='{token_lbl_PageTitle}']" descriptor="XPATH" /> <!--Terms and Privacy Policy -->
+		</page>
+	</site>
+</elementDefinition>
+

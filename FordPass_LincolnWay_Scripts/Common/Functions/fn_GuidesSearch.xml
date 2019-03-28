@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_GuidesSearch">
+		<description> fn_VerifyPageOpened_GuidesSearch - Function to verify Guides Search Page is Opened </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesSearch.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_AskYourQuestionHere" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_AskYourQuestionHere" value="TGuidesSearch6"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="User successfully landed on Guides Search Page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Guides Search page" page="pge_GuidesSearch" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="Guides Search Page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_GuidesSearch">
+		<description> fn_ValidatePage_GuidesSearch - Function to validate the Guides Search Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesSearch.xml" />
+		</step>		
+		
+		<step type="STATE" name="Screenshot - Guides Search Page taken for validation" page="pge_GuidesSearch" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="lbl_AskYourQuestionHere" page="pge_GuidesSearch">
+			<token type="CONTENT" name="token_lbl_AskYourQuestionHere" value="TGuidesSearch6"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="'Ask your question here:' label is available on the Guides Search Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="Ask your question here:' label is NOT available on the Guides Search Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageDescription1" page="pge_GuidesSearch" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_PageDescription1" value="TGuidesSearch1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="'FordPass™ questions?  You've come to the right place.  The answers you're looking for are easily searchable and available 24/7.  ' label is available on the Guides Search Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="FordPass™ questions?  You've come to the right place.  The answers you're looking for are easily searchable and available 24/7.  ' label is NOT available on the Guides Search Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageDescription2" page="pge_GuidesSearch" >
+			<token type="CONTENT" name="token_lbl_PageDescription2" value="TGuidesSearch2"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="'Should you need additional assistance, simply reach out to one of our helpful FordGuides using the FordPass™ app.' label is available on the Guides Search Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="'Should you need additional assistance, simply reach out to one of our helpful FordGuides using the FordPass™ app.' label is NOT available on the Guides Search Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageDescription3" page="pge_GuidesSearch" os="IOS">
+			<token type="CONTENT" name="token_lbl_PageDescription3" value="TGuidesSearch3"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="'FordPass™ questions?' label is available on the Guides Search Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="FordPass™ questions?' label is NOT available on the Guides Search Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageDescription4" page="pge_GuidesSearch" os="IOS">
+			<token type="CONTENT" name="token_lbl_PageDescription4" value="TGuidesSearch4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="'You've come to the right place.' label is available on the Guides Search Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="You've come to the right place.' label is NOT available on the Guides Search Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageDescription5" page="pge_GuidesSearch" os="IOS">
+			<token type="CONTENT" name="token_lbl_PageDescription5" value="TGuidesSearch5"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+				<parameter type="STATIC" value="'The answers you're looking for are easily searchable and available 24/7.' label is available on the Guides Search Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="The answers you're looking for are easily searchable and available 24/7.' label is NOT available on the Guides Search Page" />
+				</step>
+			</step>
+		</step>	
+						
+	</function>
+
+	<function name="fn_GuidesSearch">
+	
+		<description> fn_GuidesSearch Enter Search Text -> Click Ask Button -> Validate You Searched and Results Header and  Related Topics Labels in Guides Search Page 
+		</description>
+		 
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesSearch.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="edt_AskQuestion" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_edt_AskQuestion" value="TGuidesSearch8"/>
+			
+			
+		<step type="SET" name="edt_AskQuestion" page="pge_GuidesSearch">
+			<parameter type="DATA" name="value to set" value="TestData.SearchText" />
+			<token type="CONTENT" name="token_edt_AskQuestion" value="TGuidesSearch8"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Search Text' is entered in the Text Field" />
+				</step>
+		</step>
+			
+		<step type="CLICK" name="btn_Ask" page="pge_GuidesSearch" >
+			<token type="CONTENT" name="token_btn_Ask" value="TGuidesSearch7"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Ask' button is available and clicked on the Guides Search page" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_YouSearched" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_YouSearched" value="TGuidesSearch10"/>
+<!-- 			<token type="CONTENT" name="token_lbl_YouSearched_AND" value="TGuidesSearch10_AND"/> -->
+			
+			<step type="EXISTS" name="lbl_SearchedContent" page="pge_GuidesSearch" >
+				<token type="DATA" name="token_lbl_SearchedContent" value="TestData.SearchText" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="Searched Text is available on the Guides Search Page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_GuidesSearch">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+						<parameter type="STATIC" value="Searched Text is NOT available on the Guides Search Page" />
+					</step>
+				</step>
+			</step>
+			
+			
+			
+<!-- 			COMMENTED AS VALIDATION NOT NEEDED, PAGE IS DEVELOPED BY ASTUTE -->
+
+<!-- 			<step type="EXISTS" name="lbl_RelatedTopics" page="pge_GuidesSearch" > -->
+<!-- 				<token type="CONTENT" name="token_lbl_RelatedTopics" value="TGuidesSearch12"/> -->
+				
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch"> -->
+<!-- 					<parameter type="STATIC" value="'Here are some related topics that can assist you with your question.' label is available on the Guides Search Page" /> -->
+<!-- 				</step> -->
+				
+<!-- 				<step type="ELSE" name="elseCondition" page="pge_GuidesSearch"> -->
+<!-- 					<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch"> -->
+<!-- 						<parameter type="STATIC" value="Here are some related topics that can assist you with your question.' label is NOT available on the Guides Search Page" /> -->
+<!-- 					</step> -->
+<!-- 				</step> -->
+<!-- 			</step>			 -->
+
+<!-- 			<step type="EXISTS" name="lbl_ResultsHeader" page="pge_GuidesSearch" > -->
+<!-- 				<token type="CONTENT" name="token_lbl_ResultsHeader" value="TGuidesSearch11"/> -->
+				
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch"> -->
+<!-- 					<parameter type="STATIC" value="'Results:' label is available on the Guides Search Page" /> -->
+<!-- 				</step> -->
+				
+<!-- 				<step type="ELSE" name="elseCondition" page="pge_GuidesSearch"> -->
+<!-- 					<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch"> -->
+<!-- 						<parameter type="STATIC" value="Results:' label is NOT available on the Guides Search Page" /> -->
+<!-- 					</step> -->
+<!-- 				</step> -->
+<!-- 			</step>	 -->
+
+		</step>
+		
+		<step type="CALL2" name="fn_NavigateBack" page="pge_GuidesSearch"/>
+				
+	</function>
+	
+	<function name="fn_NavigateBack">
+		<description> fn_NavigateBack - Function to navigate back from Guides Search Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesSearch.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_back" page="pge_GuidesSearch">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="DOWN" />			
+			<token type="CONTENT" name="token_btn_back" value="TGuidesSearch9" />		
+		
+			<step type="CLICK" name="btn_back" page="pge_GuidesSearch" >
+				<token type="CONTENT" name="token_btn_back" value="TGuidesSearch9"/>
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesSearch">
+					<parameter type="STATIC" value="'Back' button is available and clicked on the Guides Search page" />
+				</step>
+			</step>				
+			
+			<step type="STATE" name="Screenshot - FordPass Guides Landing page" page="pge_GuidesSearch" failureMode="IGNORE"/>
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="pge_GuidesLanding"/>		
+			
+			
+		</step>
+	</function>
+	
+</suite>

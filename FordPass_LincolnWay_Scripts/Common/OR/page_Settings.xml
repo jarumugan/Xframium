@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Settings" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lnk_ChangeUsername" value="//*[@text='{token_lnk_ChangeUsername}']|//*[@label='{token_lnk_ChangeUsername}']" descriptor="XPATH" />
+			<element name="lnk_ChangePassword" value="//*[@text='{token_lnk_ChangePassword}']|//*[@label='{token_lnk_ChangePassword}']" descriptor="XPATH" />
+			<element name="lnk_UnitsofMeasure" value="//*[@text='{token_lnk_UnitsofMeasure}']|//*[@label='{token_lnk_UnitsofMeasure}']" descriptor="XPATH" />
+			<element name="lnk_Security" value="//*[@text='{token_lnk_Security}']|//*[@label='{token_lnk_Security}']" descriptor="XPATH" />
+			<element name="lnk_TermsandPrivacy" value="//*[@text='{token_lnk_TermsandPrivacy}']|//*[@label='{token_lnk_TermsandPrivacy}']" descriptor="XPATH" />
+			<element name="lnk_ECM" value="//*[@text='{token_lnk_ECM}']|//*[@label='{token_lnk_ECM}']" descriptor="XPATH" />
+			<element name="lnk_TermsandConditions" value="//*[@text='{token_lnk_TermsandConditions}']|//*[@label='{token_lnk_TermsandConditions}']" descriptor="XPATH" />
+<!-- 			<element name="lnk_PrivacyPolicy" value="//*[@text='{token_lnk_PrivacyPolicy_AND}']|//*[@label='{token_lnk_PrivacyPolicy_IOS}']" descriptor="XPATH" /> -->
+			<element name="lnk_PrivacyPolicy" value="//*[@text='{token_lnk_PrivacyPolicy}']|//*[@label='{token_lnk_PrivacyPolicy}']" descriptor="XPATH" />
+			<element name="lnk_MarketingOptions" value="//*[@text='{token_lnk_MarketingOptions}']|//*[@label='{token_lnk_MarketingOptions}']" descriptor="XPATH" />
+			<element name="lnk_ManagemyData" value="//*[@text='{token_lnk_ManagemyData}']|//*[@label='{token_lnk_ManagemyData}']" descriptor="XPATH" />
+			<element name="lnk_DataControllersList" value="//*[@text='{token_lnk_DataControllersList}']|//*[@label='{token_lnk_DataControllersList}']" descriptor="XPATH" />
+			<element name="lnk_Hertz24/7Settings" value="//*[@text='{token_lnk_Hertz24/7Settings}']|//*[@label='{token_lnk_Hertz24/7Settings}']" descriptor="XPATH" />
+			<element name="lnk_FordCredit" value="//*[@text='{token_lnk_FordCredit}']|//*[@label='{token_lnk_FordCredit}']" descriptor="XPATH" />
+			<element name="lnk_Smartlink" value="//*[@text='{token_lnk_Smartlink}']|//*[@label='{token_lnk_Smartlink}']" descriptor="XPATH" />
+
+			<element name="lnk_FordCarsharing" value="//*[@text='{token_lnk_FordCarsharing}']|//*[@label='{token_lnk_FordCarsharing}']" descriptor="XPATH" />
+			<element name="lnk_FordBank" value="//*[@text='{token_lnk_FordBank}']|//*[@label='{token_lnk_FordBank}']" descriptor="XPATH" />
+			<element name="lnk_ImpressumFordWerke" value="//*[@text='{token_lnk_ImpressumFordWerke}']|//*[@label='{token_lnk_ImpressumFordWerke}']" descriptor="XPATH" />
+			<element name="lnk_ImpressumFordBank" value="//*[@text='{token_lnk__ImpressumFordBank}']|//*[@label='{token_lnk_ImpressumFordBank}']" descriptor="XPATH" />
+
+		
+			<element name="lnk_Smartlink" value="//*[@text='{token_lnk_Smartlink}']|//*[@label='{token_lnk_Smartlink}']" descriptor="XPATH" />
+			<element name="lbl_SmartLink_Title_Settings" value="//*[@text='{token_lbl_SmartLink_Title_Settings}']|//*[@label='{token_lbl_SmartLink_Title_Settings}']" descriptor="XPATH" />
+			<element name="btn_Contact_Guide" value="(//*[contains(translate(@text,'{token_btn_Contact_Guide_s}','{token_btn_Contact_Guide_c}'),'{token_btn_Contact_Guide_c}')])[1]|//*[@label='{token_btn_Contact_Guide_s}']" descriptor="XPATH" />
+			<element name="btn_AccessFordPass_SmartLink_Enabled" value="//*[@text='ON']|//*[@label='{token_btn_AccessFordPass_SmartLink_Enabled}'][@value='1']" descriptor="XPATH" />
+			<element name="btn_AccessFordPass_SmartLink_Disabled" value="//*[@text='OFF']|//*[@label='{token_btn_AccessFordPass_SmartLink_Disabled}'][@value='0']" descriptor="XPATH" />
+			<element name="btn_Back" value="//*[@content-desc='Navigate up']|//*[@label='back']|//*[@class='android.widget.ImageButton']" descriptor="XPATH" />
+			
+			
+			
+		
+		</page>
+	</site>
+</elementDefinition>

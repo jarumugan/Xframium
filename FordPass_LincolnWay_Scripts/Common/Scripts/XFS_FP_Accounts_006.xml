@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 23-Jan-2018 -->
+<!-- Updated Date : 23-Jan-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_006" dataProvider="TestData.XFS_FP_Accounts_006,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Units of Measure page validation script </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+<!-- 		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login" > -->
+<!-- 			<parameter type="DATA" name="param_Username" value="TestData.UserName" /> -->
+<!-- 			<parameter type="DATA" name="param_Password" value="TestData.Password" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> -->
+	
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_ValidatePage_Account" page="pge_Account" /> -->
+
+<!-- 		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" /> -->
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_ValidateAllLinks_Settings" page="pge_Settings" />
+		
+<!-- 		Verifiying Security Link -->
+					
+		<step type="CALL2" name="fn_Click_Security" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Security" page="pge_Security" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+	<!-- 		Verifiying Terms and Conditions Link -->
+	
+	<step type="CALL2" name="fn_Click_TermsandConditions" page="pge_Settings"  />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_TermsAndConditions" page="pge_TermsAndPrivacy" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+	
+		
+		<!-- 		Verifiying Privacy and Cookie Link -->
+					
+		<step type="CALL2" name="fn_Click_TermsandPrivacy" page="pge_Settings"  />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_TermsandPrivacy" page="pge_TermsAndPrivacy" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+<!-- 		Verifying Units of Measure -->
+		
+		<step type="CALL2" name="fn_Click_UnitsofMeasure" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UnitsofMeasure" page="pge_UnitsofMeasure" />
+		
+		<step type="CALL2" name="fn_ValidateSection_Distance" page="pge_UnitsofMeasure" />
+		
+		<!-- Validate the Units of Measure - Distance -->
+		<step type="CALL2" name="fn_Select_Distance" page="pge_UnitsofMeasure">
+			<parameter type="DATA" name="param_RadioButtonToSelect" value="TestData.Distance" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_Click_UnitsofMeasure" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UnitsofMeasure" page="pge_UnitsofMeasure" />
+		
+		<!-- To check whether user given radio button is selected or not -->
+		<step type="CALL2" name="fn_Validate_RadioButtonStatus" page="pge_UnitsofMeasure" os="ANDROID">
+			<parameter type="DATA" name="param_RadioButtonToCheck" value="TestData.Distance" />
+			<parameter type="STATIC" name="param_ExpectedStatus" value="true" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateSection_TirePressure" page="pge_UnitsofMeasure" />
+		
+		<!-- Validate the Units of Measure - Tire Pressure -->
+		<step type="CALL2" name="fn_Select_TirePressure" page="pge_UnitsofMeasure">
+			<parameter type="DATA" name="param_RadioButtonToSelect" value="TestData.TirePressure" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+	
+		
+		
+		<step type="CALL2" name="fn_Click_UnitsofMeasure" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UnitsofMeasure" page="pge_UnitsofMeasure" />
+
+		<!-- To check whether user given radio button is selected or not -->
+		<step type="CALL2" name="fn_Validate_RadioButtonStatus" page="pge_UnitsofMeasure" os="ANDROID">
+			<parameter type="DATA" name="param_RadioButtonToCheck" value="TestData.TirePressure" />
+			<parameter type="STATIC" name="param_ExpectedStatus" value="true" />
+		</step>
+
+		 <step type="CALL2" name="fn_ValidateSection_Temperature" page="pge_UnitsofMeasure" />		
+
+		<step type="CALL2" name="fn_Select_Temperature" page="pge_UnitsofMeasure">
+			<parameter type="DATA" name="param_RadioButtonToSelect" value="TestData.Temperature" />
+		</step> 
+
+<!-- 		Validate the Units of Measure - Temperature -->
+		<step type="CALL2" name="fn_Select_Temperature" page="pge_UnitsofMeasure">
+			<parameter type="DATA" name="param_RadioButtonToSelect" value="TestData.Temperature" />
+		</step>
+
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+			
+	
+	</test>
+</suite>

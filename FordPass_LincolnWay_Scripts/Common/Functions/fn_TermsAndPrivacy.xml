@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_TermsandPrivacy">
+	<description> fn_VerifyPageOpened_TermsandPrivacy - Verify 'Privacy Policy' page is loaded  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_TermsAndPrivacy.xml ***" />
+		</step>
+
+		<step type="WAIT_FOR" name="lbl_PageTitle" site="FordPass" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="Wait Time" value="60"/>
+			<token type="CONTENT" name="token_lbl_TermsAndPrivacy" value="TTermsAndPrivacy1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="'Privacy Policy' page is opened and page title is as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_TermsAndPrivacy">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+					<parameter type="STATIC" value="'Privacy Policy' page is not opened or page title is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickAcceptBtn">
+		<description> Click the 'Jump To Login' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_TermsAndPrivacy.xml ***" />
+		</step>	
+		<step name="btn_Accept.VISIBLE" site="FordPass" page="pge_TermsAndPrivacy" type="WAIT_FOR" failureMode="IGNORE">
+			<parameter type="STATIC" name="Wait Time" value="15"/>
+			<token type="CONTENT" name="token_btn_Accept" value="TTermsAndPrivacy2" />
+		</step>		
+		<step name="btn_Accept" site="FordPass" page="pge_TermsAndPrivacy" type="CLICK">
+				<token type="CONTENT" name="token_btn_Accept" value="TTermsAndPrivacy2" />
+		</step>
+	</function>
+	
+	<function name="fn_ClickBackIcon">
+		<description> Click on the Back Icon</description>
+		<step type="CLICK" name="img_Back" page="pge_TermsAndPrivacy" />
+	</function>
+	
+	
+	<function name="Fn_VerifyTermsPrivacyUpdate">
+	
+		<description> Verify Terms and Condition update is getting displayed</description>
+		<step type="EXISTS" name="lbl_TermsPrivacyUpdate" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lbl_TermsPrivacyUpdate" value="TTermsandPrivacyUpdate1" />
+			<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy" >
+					<parameter type="STATIC" value="Terms and Privacy Update message is not getting displayed." />
+				</step>	
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_TermsPrivacyMessage" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lbl_TermsPrivacyMessage" value="TTermsandPrivacyUpdate2" />
+			<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy" >
+					<parameter type="STATIC" value="Terms and Privacy Update message is not getting displayed." />
+				</step>	
+			</step>
+		</step>
+		
+	</function>
+	
+	<function name="fn_ClickViewTermsPrivacy">
+		
+		<step type="CLICK" name="btn_ViewTermsandConditions" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_btn_ViewTermsandConditions" value="TTermsandPrivacyUpdate3" />
+		</step>
+	</function>
+	
+	<function name="fn_SwipeUp">
+	
+		<step type="GESTURE" name="SWIPE" page="pge_OnBoardScreen1" wait="10">
+		  <parameter type="STATIC" value="UP" />
+		  <step type="REPORT" name="ADD_TO_REPORT">
+		  	<parameter type="STATIC" value="The action Swipe Right was performed"/>
+		  </step>
+		</step>
+		
+	</function>
+	
+	<function name="fn_ClickCreateAccAndSwipe">
+	
+		<step type="CALL2" name="fn_clickCreateAccount" page="pge_Login" />
+		
+		 <step type="WAIT" name="Hard_Wait" page="pge_Park">
+			<parameter type="STATIC" value="10" />
+		</step>	
+			
+		<step type="CALL2" name="fn_SwipeUp" page="pge_Login" />
+	</function>
+
+
+	<function name="fn_ClickCreateAccountNoSwipe">
+	
+		<step type="CALL2" name="fn_clickCreateAccount" page="pge_Login" />
+		
+		 <step type="WAIT" name="Hard_Wait" page="pge_Park">
+			<parameter type="STATIC" value="10" />
+		</step>	
+			
+	</function>	
+
+	<function name="fn_ClickandValidate_Gen_Info">
+		<description> Click on the General Information link and Validate</description>
+		<step type="CLICK" name="lnk_GeneralInfo" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_GeneralInfo" value="TtermsLink1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Selected General Information link" />
+				<step type="EXISTS" name="lbl_GeneralInfo" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_GeneralInfo" value="TtermsLink1" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="General Information section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="General information section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_PrivPolicy">
+		<description> Click on the Privacy Policy link and Validate</description>
+		<step type="CLICK" name="lnk_PrivacyPolicy" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TtermsLink2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Selected Privacy Policy link" />
+				<step type="EXISTS" name="lbl_PrivacyPolicy" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_PrivacyPolicy" value="TtermsLink2" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Privacy Policy section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Privacy Policy section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_MobPay">
+		<description> Click on the Mobile Payment and Wallets and Validate</description>
+		<step type="CLICK" name="lnk_MobPayMyWal" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_MobPayMyWal" value="TtermsLink3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Selected Mobile Payment and Wallets link" />
+				<step type="EXISTS" name="lbl_MobPayMyWal" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_MobPayMyWal" value="TtermsLink3" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Mobile Payment and Wallets is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Mobile Payment and Wallets is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Operate">
+		<description> Click on the Operate Link and Validate</description>
+		<step type="CLICK" name="lnk_Operate" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Operate" value="TtermsLink4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Selected Operate link" />
+				<step type="EXISTS" name="lbl_Operate" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Operate" value="TtermsLink4" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Operate section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Operate section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_MyDealer">
+		<description> Click on the My Dealer Link and Validate</description>
+		<step type="CLICK" name="lnk_MyDealer" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_MyDealer" value="TtermsLink5" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="My dealer link is selected" />
+				<step type="EXISTS" name="lbl_MyDealer" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_MyDealer" value="TtermsLink5" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="My dealer link section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="My dealer link section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_MyVehicle">
+		<description> Click on the My Vehicle Link and Validate</description>
+		<step type="CLICK" name="lnk_MyVehicle" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_MyVehicle" value="TtermsLink6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="My Vehicle link is selected" />
+				<step type="EXISTS" name="lbl_MyVehicle" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_MyVehicle" value="TtermsLink6" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="My Vehicle section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="My Vehicle section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Parking">
+		<description> Click on the Parking Link and Validate</description>
+		<step type="CLICK" name="lnk_Parking" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Parking" value="TtermsLink7" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Parking link is selected" />
+				<step type="EXISTS" name="lbl_Parking" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Parking" value="TtermsLink7" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Parking section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Parking section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Perks">
+		<description> Click on the Perks Link and Validate</description>
+		<step type="CLICK" name="lnk_Perks" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Perks" value="TtermsLink8" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Perks link is selected" />
+				<step type="EXISTS" name="lbl_Perks" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Perks" value="TtermsLink8" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Perks section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Perks section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Guides">
+		<description> Click on the Guides Link and Validate</description>
+		<step type="CLICK" name="lnk_Guides" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Guides" value="TtermsLink9" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Guides link is selected" />
+				<step type="EXISTS" name="lbl_Guides" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Guides" value="TtermsLink9" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Guides section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Guides section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_VehlSfty">
+		<description> Click on the Vehicle Safety Link and Validate</description>
+		<step type="CLICK" name="lnk_VehicleSafety" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_VehicleSafety" value="TtermsLink10" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Vehicle Safety link is selected" />
+				<step type="EXISTS" name="lbl_VehicleSafety" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_VehicleSafety" value="TtermsLink10" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Vehicle Safety section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Vehicle Safety section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Comms">
+		<description> Click on the Communications Link and Validate</description>
+		<step type="CLICK" name="lnk_Communications" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Communications" value="TtermsLink11" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Communications link is selected" />
+				<step type="EXISTS" name="lbl_Communications" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Communications" value="TtermsLink11" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Communications section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Communications section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_ThirdParty">
+		<description> Click on the Third Party Link and Validate</description>
+		<step type="CLICK" name="lnk_ThirdPartyInfo" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_ThirdPartyInfo" value="TtermsLink12" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Third Party Information link is selected" />
+				<step type="EXISTS" name="lbl_ThirdPartyInfo" page="pge_TermsAndPrivacy" failureMode="IGNORE">
+					<token type="CONTENT" name="token_lbl_ThirdPartyInfo" value="TtermsLink12" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Third Party Information section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Third Party Information section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+		<function name="fn_ClickandValidate_FordGoBike">
+		<description> Click on the Ford GoBike Link and Validate</description>
+		<step type="CLICK" name="lnk_FordGoBikeInfo" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_FordGoBikeInfo" value="TtermsLink13" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Ford GoBike Information link is selected" />
+				<step type="EXISTS" name="lbl_FordGoBikeInfo" page="pge_TermsAndPrivacy" failureMode="IGNORE">
+					<token type="CONTENT" name="token_lbl_FordGoBikeInfo" value="TtermsLink13" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Ford GoBike Information section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Ford GoBike Information section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+		
+	<function name="fn_ClickandValidate_LtdLic">
+		<description> Click on the Limited License Link and Validate</description>
+		<step type="CLICK" name="lnk_LimitedLicenses" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_LimitedLicenses" value="TtermsLink13" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Limited Licenses link is selected" />
+				<step type="EXISTS" name="lbl_LimitedLicenses" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_LimitedLicenses" value="TtermsLink13" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Limited Licenses section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Limited Licenses section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Intefer">
+		<description> Click on the  Interference Link and Validate</description>
+		<step type="CLICK" name="lnk_interference" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_interference" value="TtermsLink14" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Interference link is selected" />
+				<step type="EXISTS" name="lbl_interference" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_interference" value="TtermsLink14" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Interference section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Interference section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_TMNotice">
+		<description> Click on the  Trademark Notice Link and Validate</description>
+		<step type="CLICK" name="lnk_TrademarkNotice" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_TrademarkNotice" value="TtermsLink15" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Trademark Notice link is selected" />
+				<step type="EXISTS" name="lbl_TrademarkNotice" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_TrademarkNotice" value="TtermsLink15" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Trademark Notice section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Trademark Notice section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_DsgAgent">
+		<description> Click on the  Designated Agent for Copyright Notification Link and Validate</description>
+		<step type="CLICK" name="lnk_Designatedagent" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Designatedagent" value="TtermsLink16" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Designated Agent for Copyright Notification link is selected" />
+				<step type="EXISTS" name="lbl_Designatedagent" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Designatedagent" value="TtermsLink16" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Designated Agent for Copyright Notification section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Designated Agent for Copyright Notification section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_UserGenCont">
+		<description> Click on the User Generated Content Link and Validate</description>
+		<step type="CLICK" name="lnk_UserGeneCont" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_UserGeneCont" value="TtermsLink17" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" User Generated Content link is selected" />
+				<step type="EXISTS" name="lbl_UserGeneCont" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_UserGeneCont" value="TtermsLink17" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" User Generated Content section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" User Generated Content section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Indemnity">
+		<description> Click on the  Indemnity and Hold Harmless Link and Validate</description>
+		<step type="CLICK" name="lnk_Indemnity" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Indemnity" value="TtermsLink18" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Indemnity and Hold Harmless link is selected" />
+				<step type="EXISTS" name="lbl_Indemnity" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Indemnity" value="TtermsLink18" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Indemnity and Hold Harmless section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Indemnity and Hold Harmless section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Disclaimer">
+		<description> Click on the Disclaimer Link and Validate</description>
+		<step type="CLICK" name="lnk_Disclaimer" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Disclaimer" value="TtermsLink19" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Disclaimer link is selected" />
+				<step type="EXISTS" name="lbl_Disclaimer" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Disclaimer" value="TtermsLink19" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Disclaimer section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Disclaimer section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_Misc">
+		<description> Click on the Miscellaneous Link and Validate</description>
+		<step type="CLICK" name="lnk_Misc" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Misc" value="TtermsLink20" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Miscellaneous link is selected" />
+				<step type="EXISTS" name="lbl_Misc" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_Misc" value="TtermsLink20" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Miscellaneous section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Miscellaneous section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickandValidate_ContactUs">
+		<description> Click on the Contact Us Link and Validate</description>
+		<step type="CLICK" name="lnk_ContactUs" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_ContactUs" value="TtermsLink22" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Contact Us link is selected" />
+				<step type="EXISTS" name="lbl_ContactUs" page="pge_TermsAndPrivacy">
+					<token type="CONTENT" name="token_lbl_ContactUs" value="TtermsLink22" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value="Contact Us section is displayed" />
+					</step>
+					<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+						<parameter type="STATIC" value=" Contact Us section is not displayed" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step name="BUTTON" page="pge_TermsAndPrivacy" type="VISUAL" os="ANDROID">
+		  <parameter type="STATIC" value="label=22. Contact Us" />
+		  <parameter type="STATIC" value="timeout=50" />
+		  </step>
+		  
+		  <step type="VISIBLE" name="lbl_ContactUs" page="pge_TermsAndPrivacy" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_ContactUs" value="TtermsLink22" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Contact Us section is displayed" />
+			</step>
+			<step type="ELSE" name="Else Condition" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Contact Us section is not displayed" />
+			</step>
+		</step>
+				
+	</function>
+	
+	<function name="fn_Verify_Gen_Info">
+		<description> Verify General Information link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_GeneralInfo" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_GeneralInfo" value="TtermsLink1" />
+		</step>
+
+		<step type="EXISTS" name="lnk_GeneralInfo" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_GeneralInfo" value="TtermsLink1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="General Information link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_PrivPolicy">
+		<description> Verify Privacy Policy link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_PrivacyPolicy" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TtermsLink2" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_PrivacyPolicy" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TtermsLink2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Privacy Policy link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_MobPay">
+		<description> Verify Mobile Payment and Wallets and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_MobPayMyWal" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_MobPayMyWal" value="TtermsLink3" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_MobPayMyWal" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_MobPayMyWal" value="TtermsLink3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Mobile Payment and Wallets link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Operate">
+		<description> Verify Operate Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Operate" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Operate" value="TtermsLink4" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Operate" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Operate" value="TtermsLink4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Operate link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_MyDealer">
+		<description> Verify My Dealer Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_MyDealer" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_MyDealer" value="TtermsLink5" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_MyDealer" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_MyDealer" value="TtermsLink5" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="My dealer link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_MyVehicle">
+		<description> Verify My Vehicle Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_MyVehicle" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_MyVehicle" value="TtermsLink6" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_MyVehicle" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_MyVehicle" value="TtermsLink6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="My Vehicle link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Parking">
+		<description> Verify Parking Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Parking" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Parking" value="TtermsLink7" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Parking" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Parking" value="TtermsLink7" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Parking link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Perks">
+		<description> Verify Perks Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Perks" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Perks" value="TtermsLink8" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Perks" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Perks" value="TtermsLink8" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Perks link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Guides">
+		<description> Verify Guides Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Guides" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Guides" value="TtermsLink9" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Guides" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Guides" value="TtermsLink9" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Guides link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_VehlSfty">
+		<description> Verify Vehicle Safety Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_VehicleSafety" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_VehicleSafety" value="TtermsLink10" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_VehicleSafety" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_VehicleSafety" value="TtermsLink10" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Vehicle Safety link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Comms">
+		<description> Verify Communications Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Communications" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Communications" value="TtermsLink11" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Communications" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Communications" value="TtermsLink11" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Communications link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_ThirdParty">
+		<description> Verify Third Party Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_ThirdPartyInfo" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_ThirdPartyInfo" value="TtermsLink12" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ThirdPartyInfo" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_ThirdPartyInfo" value="TtermsLink12" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Third Party Information link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	<function name="fn_Verify_FordGoBike">
+		<description> Verify Ford GoBike Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_FordGoBikeInfo" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_FordGoBikeInfo" value="TtermsLink13" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordGoBikeInfo" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_FordGoBikeInfo" value="TtermsLink13" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Ford GoBike Information link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	
+	<function name="fn_Verify_LtdLic">
+		<description> Verify Limited License Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_LimitedLicenses" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_LimitedLicenses" value="TtermsLink14" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_LimitedLicenses" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_LimitedLicenses" value="TtermsLink14" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Limited Licenses link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Intefer">
+		<description> Verify  Interference Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_interference" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_interference" value="TtermsLink15" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_interference" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_interference" value="TtermsLink15" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Interference link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_TMNotice">
+		<description> Verify  Trademark Notice Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_TrademarkNotice" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TrademarkNotice" value="TtermsLink16" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TrademarkNotice" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_TrademarkNotice" value="TtermsLink16" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Trademark Notice link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_DsgAgent">
+		<description> Verify  Designated Agent for Copyright Notification Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Designatedagent" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Designatedagent" value="TtermsLink17" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Designatedagent" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Designatedagent" value="TtermsLink17" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" Designated Agent for Copyright Notification link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_UserGenCont">
+		<description> Verify User Generated Content Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_UserGeneCont" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_UserGeneCont" value="TtermsLink18" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_UserGeneCont" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_UserGeneCont" value="TtermsLink18" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value=" User Generated Content link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Indemnity">
+		<description> Verify  Indemnity and Hold Harmless Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Indemnity" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Indemnity" value="TtermsLink19" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Indemnity" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Indemnity" value="TtermsLink19" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Indemnity and Hold Harmless link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Disclaimer">
+		<description> Verify Disclaimer Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Disclaimer" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Disclaimer" value="TtermsLink20" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Disclaimer" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Disclaimer" value="TtermsLink20" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Disclaimer link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Misc">
+		<description> Verify Miscellaneous Link and Validate</description>
+		
+		<step type="VISIBLE" name="lnk_Misc" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Misc" value="TtermsLink21" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Misc" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_Misc" value="TtermsLink21" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Miscellaneous link is displayed" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_VerifyContactUs">
+		<description> Verify contact us link</description>
+		
+		<step type="VISIBLE" name="lnk_ContactUs" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_ContactUs" value="TtermsLink22" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ContactUs" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_ContactUs" value="TtermsLink22" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="Contact Us link is displayed" />
+			</step>
+		</step>	
+		
+	</function>
+	
+	<function name="fn_VerifyAddress_TermsConds">
+				
+		<step type="EXISTS" name="lbl_ContactAddress_AND" page="pge_TermsAndPrivacy" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_ContactAddress_AND" value="TtermsAddress_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TermsAndPrivacy">
+				<parameter type="STATIC" value="The Contact address is getting displayed as per the country of choice" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_ContactAddress1_IOS" page="pge_TermsAndPrivacy" os="IOS">
+			<token type="CONTENT" name="token_lbl_ContactAddress1_IOS" value="TtermsAddress1_IOS" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ContactAddress2_IOS" page="pge_TermsAndPrivacy" os="IOS">
+			<token type="CONTENT" name="token_lbl_ContactAddress2_IOS" value="TtermsAddress2_IOS" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ContactAddress3_IOS" page="pge_TermsAndPrivacy" os="IOS">
+			<token type="CONTENT" name="token_lbl_ContactAddress3_IOS" value="TtermsAddress3_IOS" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ContactAddress4_IOS" page="pge_TermsAndPrivacy" os="IOS">
+			<token type="CONTENT" name="token_lbl_ContactAddress4_IOS" value="TtermsAddress4_IOS" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ContactAddress5_IOS" page="pge_TermsAndPrivacy" os="IOS">
+			<token type="CONTENT" name="token_lbl_ContactAddress5_IOS" value="TtermsAddress5_IOS" />
+		</step>
+	</function>
+	
+	<function name="fn_ValidateTermsContentLink">
+			
+		<step type="VISIBLE" name="lnk_TermsConditionVald2" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="10" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TermsConditionVald2" value="TtermsLink23" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsConditionVald2" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_TermsConditionVald2" value="TtermsLink23" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_TermsConditionVald3" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="20" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TermsConditionVald3" value="TtermsLink24" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsConditionVald3" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_TermsConditionVald3" value="TtermsLink24" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_TermsConditionVald4" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="20" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TermsConditionVald4" value="TtermsLink25" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsConditionVald4" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_TermsConditionVald4" value="TtermsLink25" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBackIcon" page="pge_TermsAndPrivacy" />
+		
+		<step type="CALL2" name="fn_ClickCreateAccAndSwipe" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Verify_UserGenCont" page="pge_TermsAndPrivacy" />
+		
+		<step type="CALL2" name="fn_ClickandValidate_UserGenCont" page="pge_TermsAndPrivacy" />
+		
+		<step type="VISIBLE" name="lnk_TermsConditionVald1" page="pge_TermsAndPrivacy">
+			<parameter type="STATIC" name="maxScroll" value="20" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TermsConditionVald1" value="TtermsLink22_1" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsConditionVald1" page="pge_TermsAndPrivacy">
+			<token type="CONTENT" name="token_lnk_TermsConditionVald1" value="TtermsLink22_1" />
+		</step>
+	</function>
+
+
+</suite>

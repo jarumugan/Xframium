@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applicationRegistry xmlns="http://www.xframium.org/applicationRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/applicationRegistry http://www.xframium.org/xsd/deviceManagement/applicationRegistry.xsd">
+<application name="default"/>
+	<application name="Settings" appPackage="com.android.settings" bundleId="com.apple.Preferences"/>
+	<application name="Lincoln Way" appPackage="com.lincoln.clutchna" bundleId="com.lincoln.clutchna" iosInstall="PUBLIC:/Matt/Ford/LincolnWay-NA/CLUTCH-NA-1.0.1.1-STAGING.ipa" androidInstall="PUBLIC:/Matt/Ford/LincolnWay-NA/CLUTCH-1.0.1-STAGING.apk"/>
+	<application name="NativeContacts" appPackage="com.samsung.android.contacts" bundleId="" iosInstall="" androidInstall="" />
+	<application name="NativeMap" appPackage="com.google.android.apps.maps;com.autonavi.minimap" bundleId="com.apple.Maps" iosInstall="" androidInstall="" />
+	<application name="NativeBrowser" appPackage="com.android.chrome" bundleId="com.apple.mobilesafari" iosInstall="" androidInstall="" />
+	<application name="NativeCamera" appPackage="com.sec.android.app.camera" bundleId="com.apple.camera" iosInstall="" androidInstall="" />
+	<application name="NOOP" appPackage="" bundleId="" url="" iosInstall="" androidInstall="" />
+
+	<application name="FP_SA_v2_0" appPackage="com.ford.torquesa" bundleId="com.ford.torquesa" url="" iosInstall="PUBLIC:xFramium/SA_Brazil/Staging/HOT_FIX_13_APRIL_18_fordpass-sa.ipa" androidInstall="PUBLIC:xFramium/SA_Brazil/Staging/FORDPASS-SA-PREPROD-2.0.0-RELEASE-20180319-1459.apk" />
+
+	<application name="FP_EU_v2_0" appPackage="com.ford.torqueeu" bundleId="com.ford.torqueeu" url="" iosInstall="PUBLIC:FP 2.0/EU/fordpass-eu_9May.ipa" androidInstall="" />
+	
+
+	<application name="FP_NA_v2_0" appPackage="com.lincoln.clutchna" bundleId="com.lincoln.clutchna" url="" iosInstall="" androidInstall="" />
+	<application name="FP_NA_v2_0" appPackage="com.ford.oa" bundleId="com.ford.fordownerapp" url="" iosInstall="" androidInstall="" />
+	
+	<application name="FP_LW_v2_0" appPackage="com.lincoln.clutchna" bundleId="com.lincoln.clutchna" url="" iosInstall="" androidInstall="" />
+	
+</applicationRegistry>

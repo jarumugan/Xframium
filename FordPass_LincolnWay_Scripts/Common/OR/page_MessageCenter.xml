@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_MessageCenter" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_MessageCenter" value="//*[@text='{token_lbl_MessageCenter}']|//*[@label='{token_lbl_MessageCenter}']" descriptor="XPATH" />
+			<element name="lnk_FirstMessage" value="//*[@resource-id='{token_ResourceId}/message_landing_recycler_view']/android.view.ViewGroup[1]" descriptor="XPATH" />
+			<element name="lbl_EmptyMessages" value="//*[@text='{token_lbl_EmptyMessages}']|//*[@label='{token_lbl_EmptyMessages}']" descriptor="XPATH" />
+			<element name="lnk_DeleteMessage" value="//*[@text='{token_lnk_DeleteMessage}']|//*[@label='{token_lnk_DeleteMessage}']" descriptor="XPATH" />
+			
+			<element name="lbl_WarningMessageCenter" value="//*[@text='{token_lbl_WarningMessageCenter}']|//*[@label='{token_lbl_WarningMessageCenter}']" descriptor="XPATH" />
+			<element name="lbl_WarningMsgMessageCenter" value="//*[@text='{token_lbl_WarningMsgMessageCenter}']|//*[@label='{token_lbl_WarningMsgMessageCenter}']" descriptor="XPATH" />
+			<element name="lnk_WarningConfirmMessageCenter" value="//*[@text='{token_lnk_WarningConfirmMessageCenter_AND}']|//*[@label='{token_lnk_WarningConfirmMessageCenter_IOS}']" descriptor="XPATH" />
+			<element name="lnk_WarningCancelMessageCenter" value="//*[@text='{token_lnk_WarningCancelMessageCenter_AND}']|//*[@label='{token_lnk_WarningCancelMessageCenter_IOS}']" descriptor="XPATH" />
+			
+		</page>
+	</site>
+</elementDefinition>

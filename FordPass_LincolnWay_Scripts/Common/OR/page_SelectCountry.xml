@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_SelectCountry" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_SelectCountry" value="//*[@text='{token_lbl_SelectCountry}']|//*[@label='{token_lbl_SelectCountry}']" descriptor="XPATH" />
+			<element name="rdb_Country" value="//*[@text='{token_rdb_Country_AND}']/following-sibling::android.widget.RadioButton|//UIATableCell[@name='{token_rdb_Country_IOS}']" descriptor="XPATH" />
+			<element name="btn_Next" value="//*[@text='{token_btn_Next_AND}' and @enabled='true']|//*[@label='{token_btn_Next_IOS}' and @enabled='true']" descriptor="XPATH" />
+			<element name="btn_Next_Disabled" value="//*[@text='{token_btn_Next_AND}' and @enabled='false']|//*[@label='{token_btn_Next_IOS}' and @enabled='false']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>
+
+
+

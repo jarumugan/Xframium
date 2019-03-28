@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Success" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lbl_ConfirmMessage1" value="//*[@text='{token_lbl_ConfirmMessage1_AND}']|//*[@label='{token_lbl_ConfirmMessage1_IOS}']" descriptor="XPATH" />
+			<element name="lbl_ConfirmMessage2" value="//*[@text='{token_lbl_ConfirmMessage2_AND}']" descriptor="XPATH" />
+			<element name="lbl_ConfirmMessage3" value="//*[@text='{token_lbl_ConfirmMessage3_AND}']" descriptor="XPATH" />
+			<element name="btn_ReturnToLogin" value="//*[@text='{token_btn_ReturnToLogin}' and @enabled='true']|//*[@label='{token_btn_Save_IOS}' and @enabled='true']" descriptor="XPATH" />		
+		</page>
+	</site>
+</elementDefinition>

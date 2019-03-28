@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_CommonReusable" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="btn_Keyboard_Done" value="//UIAKeyboard/UIAButton[@label='{token_btn_Keyboard_Done}']|//XCUIElementTypeKeyboard//following::XCUIElementTypeButton[@label='{token_btn_Keyboard_Done}']" descriptor="XPATH" />
+			<element name="btn_Keyboard_Next" value="//UIAKeyboard/UIAButton[@label='{token_btn_Keyboard_Next}']|//XCUIElementTypeKeyboard//following::XCUIElementTypeButton[@label='{token_btn_Keyboard_Next}']" descriptor="XPATH" />
+			<element name="btn_Allow" value="//*[@text='{token_btn_Allow_AND}']|//*[@text='{token_btn_Allow_AND2}']|//*[@label='{token_btn_Allow_IOS}']|//*[@label='{token_btn_Allow_IOS2}']" descriptor="XPATH" />
+			
+			<!--<element name="lbl_DialNumber_Digits" value="//*[contains(@resource-id,'contacts:id/digits')]" descriptor="XPATH" /> -->
+			<element name="lbl_DialNumber_Digits" value="//android.widget.EditText" descriptor="XPATH" />
+			<element name="btn_DialAlert_Number" value="//UIAAlert//UIAStaticText|//UIAWindow/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="btn_DialAlert_Cancel" value="//UIAAlert//UIAButton[1]|//UIAWindow/UIAButton[7]" descriptor="XPATH" />
+			<element name="btn_Dial_EndCall" value="//UIAButton[@label='End call']" descriptor="XPATH" />
+			<element name="btn_TakePhoto_CameraAppiOS" value="//*[@label='Take Picture']" descriptor="XPATH" />
+			<element name="lnk_UsePhoto_CameraAppiOS" value="//*[@label='Use Photo']" descriptor="XPATH" />
+			<element name="lbl_CameraAppAndroid" value="//*[contains(@resource-id,'camera')]" descriptor="XPATH" />
+			<element name="lbl_PhotosHeader" value="//*[@label='{token_lbl_PhotosHeader}']" descriptor="XPATH" />
+			<element name="lnk_PhotosCancel" value="//*[@label='{token_lnk_PhotosCancel}']" descriptor="XPATH" />
+			<element name="img_Keyboard_Delete" value="//UIAKey[@label='delete']" descriptor="XPATH" />
+			
+			<!-- Added by Saravana to click "I Accept" button after login [*** NEED TO ADD XPATH FOR IOS ALSO ***]-->
+			<element name="btn_IAccept" value="//android.widget.Button[@text='{token_btn_IAccept_L}']|//android.widget.Button[@text='{token_btn_IAccept_U}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 29-Jan-2018 -->
+<!-- Updated Date : 16-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_008" dataProvider="TestData.XFS_FP_Accounts_008,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Forgot Password page validation script and Reset Password without Username </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Click_Login_ForgotPassword" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ForgotPassword" page="pge_ForgotPassword" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ForgotPassword" page="pge_ForgotPassword" />
+		
+<!-- 		<step type="CALL2" name="fn_Click_FP_ContactGuides" page="pge_ForgotPassword" /> -->
+		
+		<step type="CALL2" name="fn_Validate_FP_SubmitButtonStatus" page="pge_ForgotPassword">
+			<parameter type="STATIC" name="param_ExpectedStatus" value="false" />
+		</step>
+		
+		<step type="CALL2" name="fn_Input_FP_Username" page="pge_ForgotPassword">
+			<parameter type="STATIC" name="param_FPUserName" value="edt@f@c" />
+		</step>
+		
+		<step type="CALL2" name="fn_Validate_FP_SubmitButtonStatus" page="pge_ForgotPassword">
+			<parameter type="STATIC" name="param_ExpectedStatus" value="false" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyErrorMessage_FP" page="pge_ForgotPassword">
+			<parameter type="CONTENT" name="param_ExpectedErrorMsg" value="TForgotPassword10" />
+		</step>
+		
+		<step type="CALL2" name="fn_Input_FP_Username" page="pge_ForgotPassword">
+			<parameter type="DATA" name="param_FPUserName" value="TestData.UserName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_FP_Submit" page="pge_ForgotPassword" />
+		
+		<step type="LOOP" name="WaitTillLoadingCompletes" page="pge_EnterAddress" failureMode="IGNORE">
+			<parameter type="STATIC" value="5" />
+			<parameter type="STATIC" value="fn_WaitTillLoadingCompletes" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ResetPassword" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ResetPassword_WithoutUsername" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_Click_ResetPwd_ContactGuides" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ResetPassword" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ResetPassword_WithoutUsername" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_Input_ResetPwd_TempPassword" page="pge_ResetPassword">
+			<parameter type="DATA" name="param_ResetPwd_TempPwd" value="TestData.TemporaryPassword" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateEyeIcon_NewPassword" page="pge_ResetPassword" failureMode="IGNORE" />
+		
+		<step type="CALL2" name="fn_Input_ResetPwd_NewPassword" page="pge_ResetPassword">
+			<parameter type="DATA" name="param_ResetPwd_NewPwd" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_Validate_PasswordRules_ResetPwd" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_ValidateEyeIcon_ConfirmNewPassword" page="pge_ResetPassword" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_Input_ResetPwd_ConfirmNewPwd" page="pge_ResetPassword">
+			<parameter type="DATA" name="param_ResetPwd_ConfirmPwd" value="TestData.Password" />
+		</step>
+		
+<!-- 		To come down on the screen -->
+		<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable" wait="3">
+			<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ResetPwd_Submit" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_CheckError_ResetPassword" page="pge_ResetPassword" failureMode="IGNORE">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TResetPassword16" />
+		</step>
+		
+		<!-- to come out of Reset password page to Login -->
+		<step type="CALL2" name="fn_ClickButton_FP_Close" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_ValidateClick_TemporaryPwdBanner" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ResetPassword" page="pge_ResetPassword" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Close" page="pge_FPCommon" />
+		
+		
+	</test>
+</suite>

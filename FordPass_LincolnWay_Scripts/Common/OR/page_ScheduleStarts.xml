@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_ScheduleStarts" class="org.xframium.page.keyWord.KeyWordPage">
+								
+			<!-- ####### Schedule Starts ######### -->
+			
+			<element name="lnk_NextScheduleStart_Title" value="//*[@text='{token_lnk_NextScheduleStart_Title}']|//*[@label='{token_lnk_NextScheduleStart_Title}']" descriptor="XPATH" />
+			<element name="lnk_NoScheduleStart_Title" value="//*[@text='{token_lnk_NoScheduleStart_Title}']|//*[@label='{token_lnk_NoScheduleStart_Title}']" descriptor="XPATH" />
+			<element name="lnk_NoScheduleStart_Content1" value="//*[@text='{token_lnk_NoScheduleStart_Content1}']|//*[@label='{token_lnk_NoScheduleStart_Content1}']" descriptor="XPATH" />
+			<element name="lnk_NoScheduleStart_Content2" value="//*[@text='{token_lnk_NoScheduleStart_Content2}']|//*[@label='{token_lnk_NoScheduleStart_Content2}']" descriptor="XPATH" />
+			<element name="lbl_Today" value="//*[@text='{token_lbl_Today}']|//*[@label='{token_lbl_Today}']" descriptor="XPATH" />
+			<element name="btn_NextScheduleStart_Switch" value="//android.widget.Switch|//UIASwitch" descriptor="XPATH" />
+			<element name="btn_AddStart" value="//*[@text='{token_btn_AddStart}']|//*[@label='{token_btn_AddStart}']" descriptor="XPATH" />
+			<element name="lbl_Time" value="//*[@text='{token_lbl_Time}']" descriptor="XPATH" />
+			<element name="lbl_Time_Value" value="//android.widget.TextView[3]|//UIAPickerWheel[contains(@value,'{token_lbl_Time_Value}')]" descriptor="XPATH" />
+			<element name="btn_Save" value="//*[@text='{token_btn_Save}'][@enabled='true']|//*[@label='{token_btn_Save}'][@enabled='true']" descriptor="XPATH" />
+			<element name="lnk_Repeat" value="//*[@text='{token_lnk_Repeat}']|//*[@label='{token_lnk_Repeat}']" descriptor="XPATH" />
+			<element name="lnk_Never" value="//*[@text='{token_lnk_Never}']|//*[@label='{token_lnk_Never}']" descriptor="XPATH" />
+			<element name="btn_Save_Disabled" value="//*[@text='{token_btn_Save_Disabled}'][@enabled='false']|//*[@label='{token_btn_Save_Disabled}'][@enabled='false']" descriptor="XPATH" />
+			<element name="lbl_Weekdays" value="//*[@text='{token_lbl_Weekdays}']|//*[@label='{token_lbl_Weekdays}']" descriptor="XPATH" />
+			<element name="lbl_Weekdays_Checkbox" value="(//android.widget.CheckBox)[1]|(//UIAButton)[2]" descriptor="XPATH" />
+			<element name="lbl_Tomorrow" value="//*[@text='{token_lbl_Tomorrow}']|//*[@label='{token_lbl_Tomorrow}']" descriptor="XPATH" />
+			<element name="lbl_Sunday" value="//*[@text='{token_lbl_Sunday}']|//*[@label='{token_lbl_Sunday}']" descriptor="XPATH" />
+			<element name="lbl_Monday" value="//*[@text='{token_lbl_Monday}']|//*[@label='{token_lbl_Monday}']" descriptor="XPATH" />
+			<element name="lbl_Tuesday" value="//*[@text='{token_lbl_Tuesday}']|//*[@label='{token_lbl_Tuesday}']" descriptor="XPATH" />
+			<element name="lbl_Wednesday" value="//*[@text='{token_lbl_Wednesday}']|//*[@label='{token_lbl_Wednesday}']" descriptor="XPATH" />
+			<element name="lbl_Thursday" value="//*[@text='{token_lbl_Thursday}']|//*[@label='{token_lbl_Thursday}']" descriptor="XPATH" />
+			<element name="lbl_Friday" value="//*[@text='{token_lbl_Friday}']|//*[@label='{token_lbl_Friday}']" descriptor="XPATH" />
+			<element name="lbl_Saturday" value="//*[@text='{token_lbl_Saturday}']|//*[@label='{token_lbl_Saturday}']" descriptor="XPATH" />
+			<element name="img_Limit_Reached" value="//android.widget.ImageView|//UIAImage" descriptor="XPATH" />
+			<element name="lbl_Limit_Reached_Title" value="//*[@text='{token_lbl_Limit_Reached_Title}']|//*[@label='{token_lbl_Limit_Reached_Title}']" descriptor="XPATH" />
+			<element name="lbl_Limit_Reached_Popup_Msg" value="//*[@text=&quot;{token_lbl_Limit_Reached_Popup_Msg}&quot;]|//*[@label=&quot;{token_lbl_Limit_Reached_Popup_Msg}&quot;]" descriptor="XPATH" />
+			<element name="btn_Ok" value="//*[@text='{token_btn_Ok}']|//*[@label='{token_btn_Ok}']" descriptor="XPATH" />
+			<element name="btn_Back" value="//*[@content-desc='Navigate up']|(//UIAButton)[1]" descriptor="XPATH" />
+			<element name="lbl_VehicleNickName" value="//*[@text='{token_lbl_VehicleNickName}']|//*[@label='{token_lbl_VehicleNickName}']" descriptor="XPATH" />
+			<element name="btn_Delete_This_Start" value="//*[@text='{token_btn_Delete_This_Start}']|//*[@label='{token_btn_Delete_This_Start}']" descriptor="XPATH" />
+										
+		</page>
+	</site>
+</elementDefinition>

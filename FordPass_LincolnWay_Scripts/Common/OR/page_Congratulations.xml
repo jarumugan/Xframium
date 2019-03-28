@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Congratulations" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_Congratulation" value="//*[@text='{token_lbl_Congratulation}']|//*[contains(@label,'{token_lbl_Congratulation}')]" descriptor="XPATH" />
+			<element name="lbl_FirstName" value="//*[contains(@text,'{token_lbl_FirstName}')]|//*[contains(@label,'{token_lbl_FirstName}')]" descriptor="XPATH" />
+			<element name="lbl_SuccessMsg" value="//*[@text='{token_lbl_SuccessMsg}']|//*[@label='{token_lbl_SuccessMsg}']" descriptor="XPATH" />
+			<element name="btn_TakeTheTour" value="//*[@text=&quot;{token_btn_TakeTheTour_AND}&quot;]|//*[@label=&quot;{token_btn_TakeTheTour_IOS}&quot;]" descriptor="XPATH" />
+			<element name="lnk_SkipForNow" value="//*[@text=&quot;{token_lnk_SkipForNow}&quot;]|//*[@label=&quot;{token_lnk_SkipForNow}&quot;]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

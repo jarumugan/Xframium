@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function validates the contents of Enable SYNC AppLink screen -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_EnableSyncAppLink">
+		<description>fn_Verify_EnableSyncAppLink - function to verify 'Enable Sync AppLink'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnableSyncAppLink.xml" />
+		</step>
+		
+		 	<step type="WAIT_FOR" name="lnk_FordPassSyncAppLink_Title" page="pge_VehicleInfo">
+			<paramerter type="STATIC" value="30"/>
+			<token type="CONTENT" name="token_lnk_FordPassSyncAppLink_Title_AND" value="TEnableSyncApplink1" />
+			<token type="CONTENT" name="token_lnk_FordPassSyncAppLink_Title_IOS" value="TEnableSyncApplink11" />	
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Title' is available" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Title' is not displayed" />
+			</step>
+		</step>				
+		
+		</step>		
+		
+		
+		<step type="EXISTS" name="btn_Back_EnableSyncApplink" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Back button' is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Back button' is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="img_FordPassSyncApplink_image1" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Parked car' image is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Parked car' image is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="img_FordPassSyncApplink_image2" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Bluetooth/USB port' icon image is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Bluetooth/USB port' icon image is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="lbl_FordPassSyncApplink_Content1" page="pge_EnableSyncAppLink">
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content1" value="TEnableSyncApplink2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'First, make sure your vehicle' content is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'First, make sure your vehicle' content is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="lbl_FordPassSyncApplink_Content2" page="pge_EnableSyncAppLink">
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content2_AND" value="TEnableSyncApplink3_AND" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content2_IOS" value="TEnableSyncApplink3_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Please use your phones Bluetooth/Use the USB port to plug' content is available" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Please use your phones Bluetooth/Use the USB port to plug' content is not available" />
+			</step>
+		</step>		
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Title2" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Title2_AND" value="TEnableSyncApplink4_AND" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Title2_IOS" value="TEnableSyncApplink4_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Using Your Vehicle’s SYNC Touchscreen' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Using Your Vehicle’s SYNC Touchscreen' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Content" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_Applink_Content_AND" value="TEnableSyncApplink12_AND" />
+			<token type="CONTENT" name="token_lbl_Applink_Content_IOS" value="TEnableSyncApplink12_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'You must disable Android' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'You must disable Android' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Title3" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Title3" value="TEnableSyncApplink13" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Accessing FordPass in your vehicle' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Accessing FordPass in your vehicle' content is not displayed" />
+			</step>
+		</step>
+		</step>
+				
+		
+		<step type="EXISTS" name="img_FordPassSyncApplink_image3" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'TouchScreen' icon image is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'TouchScreen' icon image is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Content3" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content3" value="TEnableSyncApplink5" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Press the Apps icon in the Feature bar' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Press the Apps icon in the Feature bar' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		
+		 <step type="VISIBLE" name="img_FordPassSyncApplink_image4" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Ford' icon image is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Ford' icon image is not displayed" />
+			</step>
+		</step>
+		</step> 
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Content4" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content4" value="TEnableSyncApplink6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Press the FORDPASS Icon' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Press the FORDPASS Icon' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+			
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Content5" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content5" value="TEnableSyncApplink7" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'If a popup appears asking Would you like to enable mobile' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'If a popup appears asking Would you like to enable mobile' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Content6" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content6" value="TEnableSyncApplink8" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'If a popup appears asking you to enable permissions' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'If a popup appears asking you to enable permissions' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		 
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Title4" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Title4" value="TEnableSyncApplink9" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'If You Don't See the FordPass Icon' content is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'If You Don't See the FordPass Icon' content is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		
+		<step type="VISIBLE" name="img_FordPassSyncApplink_image5" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Bluetooth off/USB Unplug' icon image is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Bluetooth off/USB Unplug' icon image is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		 <step type="VISIBLE" name="img_FordPassSyncApplink_image6" page="pge_EnableSyncAppLink" >
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Bluetooth On/USB plug' icon image is displayed" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Bluetooth On/USB plug' icon image is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_FordPassSyncApplink_Content7" page="pge_EnableSyncAppLink">
+			<parameter type="STATIC" name="maxScroll" value="6" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content7_AND" value="TEnableSyncApplink10_AND" />
+			<token type="CONTENT" name="token_lbl_FordPassSyncApplink_Content7_IOS" value="TEnableSyncApplink10_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Reconnect' content is available" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Reconnect' content is not available" />
+			</step>
+		</step>		
+		</step>
+		
+		</function>
+		
+		<!-- ############################################################################################################# -->
+		<!-- EMUZZAMM - This function clicks on Back button to navigate back to vehicle info screen-->
+		<!-- ############################################################################################################# -->
+		<function name="fn_Click_Back_EnableSyncAppLink">
+		<description>fn_Click_Back_EnableSyncAppLink - function to click on Back button to navigate to vehicle info screen</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="CLICK" name="btn_Back_EnableSyncApplink" page="pge_EnableSyncAppLink"/>
+				
+		<step type="WAIT_FOR" name="lnk_FordPassSyncAppLink" page="pge_VehicleInfo">
+		<paramerter type="STATIC" value="30"/>
+		<token type="CONTENT" name="token_lnk_FordPassSyncAppLink" value="TEnableSyncApplink1" />
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+		<parameter type="STATIC" value="'Back button of AppLink®' is clicked" />
+		</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_EnableSyncAppLink">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Back button of AppLink®' is not clicked" />
+			</step>
+		</step>			
+		
+		</function>
+	
+	
+	
+</suite>

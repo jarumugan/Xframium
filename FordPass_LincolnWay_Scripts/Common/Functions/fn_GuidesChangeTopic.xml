@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+		
+	<function name="fn_ValidatePage_ChangeTopics">
+		<description> fn_ValidatePage_ChangeTopics - > Validate All the Topics in Change Topic Page and Click Close </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding"/>		
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TGuidesChangeTopic1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+				<parameter type="STATIC" value="User successfully landed on Guides Change Topic page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Change Topic page" page="pge_GuidesChangeTopic" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesChangeTopic">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="Guides Change Topic page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyAllTopics" page="pge_GuidesChangeTopic"/>
+		<step type="CALL2" name="fn_ChangeATopic" page="pge_GuidesChangeTopic" tagNames="FP-SA-BR"/>
+								
+	</function>
+		
+	<function name="fn_VerifyAllTopics">
+		<description> fn_VerifyAllTopics - Function to verify all the topics are present in Change Topics Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>
+		
+ 		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" >
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic2" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding"/>		
+		
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" >
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic3" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding"/>		
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" >
+		<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic4" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding" tagNames="FP-SA-BR,FP-CN-EN"/>
+		
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" tagNames="FP-SA-BR,FP-CN-EN,FP-NA-US" >
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic5" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding" tagNames="FP-SA-BR,FP-CN-EN,FP-NA-US" />
+		
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" tagNames="FP-SA-BR,FP-CN-EN">
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic6" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding"/>		
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" >
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic7" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding"/>
+		
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" >
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic8" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding" tagNames="FP-EU-UK,FP-EU-DE,FP-CN-EN" />
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" tagNames="FP-EU-UK,FP-EU-DE,FP-CN-EN">
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic12" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding" tagNames="FP-EU,FP-CN-EN,FP-NA-US"/>
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" tagNames="FP-EU,FP-CN-EN,FP-NA-US">
+		
+		<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic11" />
+			
+
+			<step type="CALL2" name="fn_ValidateCallFordCredit_OperatingHours" page="pge_GuidesLanding" tagNames="FP-EU-UK,FP-EU-DE,FP-EU-FR,FP-CN-EN"/>
+		</step>
+		
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding" tagNames="FP-EU-UK,FP-EU-DE,FP-EU-FR,FP-CN-EN"/>
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" tagNames="FP-EU-UK,FP-EU-DE,FP-EU-FR,FP-CN-EN">
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic13" />			
+		</step>
+		
+			
+		<step type="CALL2" name="fn_ClickChangeTopics" page="pge_GuidesLanding" tagNames="FP-EU-DE,FP-CN-EN" />
+		
+		<step type="CALL2" name="fn_ValidateTopics" page="pge_GuidesChangeTopic" tagNames="FP-EU-DE,FP-CN-EN">
+			<parameter type="CONTENT" name="param_TopicsToVerify" value="TGuidesChangeTopic15" />			
+		</step>
+			
+				
+
+	</function>
+		
+	<function name="fn_ValidateTopics">
+		<description> fn_ValidateTopics - Function to validate a given topic in Change Topics Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>		
+			
+			<step type="VISIBLE" name="lnk_Topic" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />			
+			<token type="CONTEXT" name="token_lnk_Topic" value="param_TopicsToVerify" />
+			
+			<step type="CLICK" name="lnk_Topic" page="pge_GuidesChangeTopic" >
+			<token type="CONTEXT" name="token_lnk_Topic" value="param_TopicsToVerify" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Topic' Link is available and clicked on the Change Topics page" />
+			</step>
+			</step>			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+				<parameter type="STATIC" value="Change Topic text is displayed  on Change Topic Page " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesChangeTopic">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+					<parameter type="STATIC" value="Change Topic text is NOT displayed on Change Topic Page " />
+				</step>
+			</step>
+		</step>
+				
+		<step type="VISIBLE" name="lbl_PopularTopicHeader" page="pge_GuidesLanding">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="DOWN" />			
+			<token type="CONTEXT" name="token_lbl_PopularTopicHeader" value="param_TopicsToVerify" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="CONTEXT" value="param_PopularTopicHeader"/>
+				<parameter type="STATIC" value="Popular Topic Header is displayed  on Guides Landing Page " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+					<parameter type="CONTEXT" value="param_TopicsToVerify"/>
+					<parameter type="STATIC" value="Popular Topic Header is NOT as expected on Guides Landing Page " />
+				</step>
+			</step>
+		</step>
+				
+	</function>
+	
+	<function name="fn_ClickCloseChangeTopics">
+		<description> fn_ClickCloseChangeTopics - Function to click on Close Button in Change Topics Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_Close" page="pge_GuidesChangeTopic" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Close' Link is available and clicked on the Change Topics page" />
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="pge_GuidesLanding"/>		
+	</function>
+	
+	<function name="fn_ChangeATopic">
+		<description> fn_ChangeATopic - Click on a Valid Topic -> Validate Topic Header in Guides Landing Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_Topic" page="pge_GuidesChangeTopic" >
+			<token type="CONTENT" name="token_lnk_Topic" value="TGuidesChangeTopic3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Topic' is available and clicked on the Change Topics page" />
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="pge_GuidesLanding"/>	
+		
+		<step type="EXISTS" name="lbl_PopularTopicHeader" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lbl_PopularTopicHeader" value="TGuidesChangeTopic3"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Popular Topic' header is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Popular Topic' header is NOT available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>			
+	</function>
+	
+	
+</suite>

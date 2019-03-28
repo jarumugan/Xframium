@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_Install_FordPassApp">
+		<description>fn_Install_FordPassApp - Function to Install the fordpass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+<!-- 		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTENT" name="Application Name" value="TAppName"/> -->
+			
+<!-- 			<step name="UNINSTALL" site="FordPass" page="pge_Login" type="APPLICATION" wait="10"> -->
+<!-- 				<parameter type="CONTENT" name="Application Name" value="TAppName"/> -->
+<!-- 			</step> -->
+<!-- 		</step>  -->
+		
+		<step name="INSTALL" site="FordPass" page="pge_Login" type="APPLICATION" wait="20">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			<parameter type="STATIC" name="Instrument" value="false"/>
+		</step>
+		
+		<step type="WAIT" name="Installing the app" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="20" />
+		</step>
+		
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="CONTENT" value="TAppName"/>
+			<parameter type="STATIC" value="FordPass App installed successfully" />
+		</step>
+				
+		<!-- <step type="CALL2" name="fn_Select_FP_Environment" page="pge_FPCommon"/> -->
+		
+		<step type="CALL2" name="fn_Select_FP_Country" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU" />
+		
+		<step type="CALL2" name="fn_AcceptCookies" page="pge_SelectCountry" tagNames="FP-EU" />
+	</function>
+	
+	<function name="fn_Start_FordPassApp">
+		<description>fn_Start_FordPassApp - Function to start the Fordpass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" wait="5" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			
+			<!-- if not, try to install the app -->
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="CALL2" name="fn_Install_FordPassApp" page="pge_FPCommon"/>
+			</step>
+		</step>
+		<!-- Check for login page -->
+		<step type="WAIT_FOR" name="btn_Login" page="pge_Login" failureMode="IGNORE">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_btn_Login_AND" value="TLogin3_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TLogin3_IOS"/>
+			
+			<!-- if not, close and open app -->
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step name="CLOSE" site="FordPass" page="pge_FPCommon" type="APPLICATION" wait="5">
+					<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>
+					
+				<step name="OPEN" site="FordPass" page="pge_FPCommon" type="APPLICATION" wait="5">
+					<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>
+				
+				<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+				<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+				<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+				<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />					
+				
+				
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_Select_FP_Environment" page="pge_FPCommon" failureMode="IGNORE" os="IOS" tagNames="FP-EU"/>
+		
+		<step type="CALL2" name="fn_Select_FP_Country" page="pge_SelectCountry" failureMode="IGNORE" os="IOS" tagNames="FP-EU"/>
+		
+		<step type="CALL2" name="fn_ClickNotDrivingBtn" page="pge_Move" failureMode="IGNORE" os="IOS" tagNames="FP-EU" />
+				
+		<!-- Check for login page -->
+		<!-- <step type="WAIT_FOR" name="btn_Login" page="pge_Login" failureMode="IGNORE">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_btn_Login_AND" value="TLogin3_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TLogin3_IOS"/>
+				
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">	
+
+				HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS
+				<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" tagNames="FP-EU" failureMode="IGNORE"/>
+
+				<step type="WAIT_FOR" name="lnk_Account" page="pge_FPCommon" failureMode="IGNORE">
+					<parameter type="STATIC" value="5" />
+					<token type="CONTENT" name="token_lnk_Account" value="TCommon_Account" />
+				
+					<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon"/>					
+					
+					if not, try to install the app
+					<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+						 <step type="CALL2" name="fn_Install_FordPassApp" page="pge_FPCommon"/>
+					</step>
+				</step>
+			</step>
+		</step>
+ -->	</function>
+
+	<function name="fn_Select_FP_Environment">
+		<description>fn_Select_FP_Environment - function to select the user given envrionment on the FP app Environment list </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_SelectEnvironment" page="pge_FPCommon">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_SelectEnvironment_AND" value="TSelectEnviroment1_AND" />
+			<token type="CONTENT" name="token_lbl_SelectEnvironment_IOS" value="TSelectEnviroment1_IOS" />
+		
+			<step type="STRING2" name="upper" page="pge_FPCommon" context="str_Environment">
+				<parameter type="DATA" name="Original Value" value="Setup.Environment" />
+			</step>
+		
+			<step type="EXISTS" name="lnk_Environment" page="pge_FPCommon">
+				<token type="CONTEXT" name="token_lnk_Environment_AND" value="str_Environment" />
+				<token type="DATA" name="token_lnk_Environment_IOS" value="Setup.Environment" />
+				
+				<step type="CLICK" name="lnk_Environment" page="pge_FPCommon" wait="3">
+					<token type="CONTEXT" name="token_lnk_Environment_AND" value="str_Environment" />
+					<token type="DATA" name="token_lnk_Environment_IOS" value="Setup.Environment" />
+				</step>
+				
+				<step type="STATE" name="Dummy State - Environment Selection" page="pge_FPCommon" failureMode="IGNORE" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="DATA" value="Setup.Environment" />
+					<parameter type="STATIC" value="Above Environment is selected on FordPass app environment list" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+						<parameter type="DATA" value="Setup.Environment" />
+						<parameter type="STATIC" value="Above Environment is not avaialable/displayed on FordPass app environment list" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_ExitNow" page="pge_FPCommon" os="ANDROID">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_ExitNow" value="TSelectEnviroment2" />
+			
+			<step name="CLOSE" site="FordPass" page="pge_Login" type="APPLICATION" wait="5">
+				<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			</step>
+			
+			<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" wait="5">
+				<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="After selecting the environment app closed and opened successfully" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Logout_FordPassApp">
+		<description>fn_Logout_FordPassApp - Function to Logout from FordPass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyDialogOpened_Logout" page="pge_Logout" />
+		
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" />
+		
+		<step type="STATE" name="After closing/cleaning the App" page="pge_Login" failureMode="IGNORE"/>
+	</function>	
+	
+	<function name="fn_ValidateFordPass_Footer">
+		<description> fn_ValidateFordPass_Footer - Function to validate the footer content on the FordPass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_PageFooter" page="pge_FPCommon">
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_PageFooter" value="TCommon_Footer" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="FordPass footer content is same as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="FordPass footer content is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_MoveMenu">
+		<description> fn_Click_MoveMenu - function to click Move menu on the FordPass menu bar </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+
+			<step type="CLICK" name="lnk_Move" page="pge_FPCommon" wait="2">
+				<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'MOVE' menu is available and clicked on the FordPass Menu bar" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'MOVE' menu is not available/displayed on the FordPass Menu bar" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_FindMenu">
+		<description> fn_Click_FindMenu - function to click FIND menu on the FordPass menu bar </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="lnk_Find" page="pge_FPCommon">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lnk_Find" value="TCommon_Find" />
+
+			<step type="CLICK" name="lnk_Find" page="pge_FPCommon" wait="2">
+				<token type="CONTENT" name="token_lnk_Find" value="TCommon_Find" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'FIND' menu is available and clicked on the FordPass Menu bar" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'FIND' menu is not available/displayed on the FordPass Menu bar" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_GuidesMenu">
+		<description> fn_Click_GuidesMenu - function to click GUIDES menu on the FordPass menu bar </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="lnk_Guides" page="pge_FPCommon">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lnk_Guides" value="TCommon_Guides" />
+
+			<step type="CLICK" name="lnk_Guides" page="pge_FPCommon" wait="2">
+				<token type="CONTENT" name="token_lnk_Guides" value="TCommon_Guides" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'GUIDES' menu is available and clicked on the FordPass Menu bar" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'GUIDES' menu is not available/displayed on the FordPass Menu bar" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_AccountMenu">
+		<description> fn_Click_AccountMenu - function to click ACCOUNT menu on the FordPass menu bar </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="lnk_Account" page="pge_FPCommon">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lnk_Account" value="TCommon_Account" />
+
+			<step type="CLICK" name="lnk_Account" page="pge_FPCommon" wait="2">
+				<token type="CONTENT" name="token_lnk_Account" value="TCommon_Account" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'ACCOUNT' menu is available and clicked on the FordPass Menu bar" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'ACCOUNT' menu is not available/displayed on the FordPass Menu bar" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateMenuBar_FordPass">
+		<description> fn_ValidateMenuBar_FordPass - function to validate menu bar of FordPass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'MOVE' menu is available on the FordPass Menu bar" />
+			</step>
+		</step>
+
+		<step type="EXISTS" name="lnk_Find" page="pge_FPCommon">
+			<token type="CONTENT" name="token_lnk_Find" value="TCommon_Find" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'FIND' menu is available on the FordPass Menu bar" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Guides" page="pge_FPCommon">
+			<token type="CONTENT" name="token_lnk_Guides" value="TCommon_Guides" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'GUIDES' menu is available on the FordPass Menu bar" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Account" page="pge_FPCommon">
+			<token type="CONTENT" name="token_lnk_Account" value="TCommon_Account" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'ACCOUNT' menu is available on the FordPass Menu bar" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickButton_FP_Back">
+		<description> fn_ClickButton_FP_Back - function to click Back button on FordPass app page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon">
+			<step type="CLICK" name="lnk_Back" page="pge_FPCommon" wait="2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'BACK' icon/button is available and clicked on the FordPass app page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'BACK' icon/button is available and clicked on the FordPass app page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickButton_FP_Close">
+		<description> fn_ClickButton_FP_Close - function to click Close button on FordPass app page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Close" page="pge_FPCommon">
+			<step type="CLICK" name="lnk_Close" page="pge_FPCommon" wait="2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'Close' icon/button is available and clicked on the FordPass app page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'Close' icon/button is available and clicked on the FordPass app page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckErrorExists_AnyPINpage">
+		<description> fn_CheckErrorExists_AnyPINpage - function to check whether given error message displayed on any PIN page of FordPass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_Error_PINpage" page="pge_FPCommon">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTEXT" name="token_lbl_Error_PINpage" value="param_ExpectedError" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="CONTEXT" value="param_ExpectedError" />
+				<parameter type="STATIC" value="Above expected error message displayed on PIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="CONTEXT" value="param_ExpectedError" />
+					<parameter type="STATIC" value="Above expected error message is not displayed on PIN page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function is to verify the expected pillar/feature available or not -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Find_Expected_Pillar">
+		<description> fn_Find_Expected_Pillar - function to verify the expected pillar/feature on the dash board </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ExpectedPillar" page="pge_FPCommon">
+			<token type="CONTEXT" name="token_lnk_ExpectedPillar" value="str_ExpectedPillar" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RecallInformation">
+				<parameter type="STATIC" value="Expected pillar is displayed omn the dashboard page" />
+			</step>	
+		<step type="ELSE" name="If_Expected_Pillar_Not_Available" page="pge_RecallInformation">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_RecallInformation">
+				<parameter type="STATIC" value="Expected pillar is not displayed on the dashboard page" />
+			</step>	
+		</step>
+		</step>
+	</function>		
+		
+	<function name="fn_WaitTillLoadingCompletes">
+		<description> fn_WaitTillLoadingCompletes - Function to wait till loading progress bar disappears </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+	
+		<step type="STATE" name="Dummy State - Loading Spinner page" page="pge_FPCommon" failureMode="IGNORE" />
+		
+		<step type="VISUAL" name="FIND" page="pge_FPCommon" wait="5" failureMode="IGNORE">
+			<parameter type="STATIC" value="content={token_CommonLoading}">
+				<token type="CONTENT" name="token_CommonLoading" value="TCommon_Loading" />
+			</parameter>
+ 			<parameter type="STATIC" name="new parameter" value="screen.top=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.height=80%" />
+			<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+			<parameter type="STATIC" value="threshold=90" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="Loading Spinner closed/disappear successfully" />
+				</step>
+				
+				<step type="STATE" name="Loading Spinner closed"  page="pge_FPCommon" failureMode="IGNORE" />
+				
+				<step type="BREAK" name="BREAK - Loading Spinner image closed/disappears" page="pge_FPCommon" />
+			</step>
+		</step>
+		
+		<step type="WAIT" name="Hard Wait - for Loading Spinner" page="pge_FPCommon">
+			<parameter type="STATIC" value="10" />
+		</step>
+	</function>
+			
+	<function name="fn_GetUniqueCPFValue">
+		<description> Function get a dynamic CPF value from website </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+
+		<step type="BROWSER" name="NAVIGATE" page="pge_FPCommon"> 
+			<parameter type="STATIC" name="Navigate to URL" value="http://www.theonegenerator.com/geradordecpf" />
+		</step>
+		
+		<step type="CLICK" name="chkbox_UnMaskIt" page="pge_FPCommon" />
+		
+		<step type="CLICK" name="btn_CPFGenerate" page="pge_FPCommon" />
+		
+		<step type="ATTRIBUTE" name="txtBox_CPF" page="pge_FPCommon" context="ATTR_UNIQUE_CPF" >
+			<parameter type="STATIC" value="value" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="CONTEXT" value="ATTR_UNIQUE_CPF" />
+			</step>
+		</step>
+		
+		<!-- Open the fordpass app -->
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+	</function>
+
+	<function name="fn_Click_ReturnToFordPass_IOS">
+		<description> fn_Click_ReturnToFordPass - function to Return back to FordPass App in the IOS App </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="lnk_ReturnToFordPass" page="pge_FPCommon" os="IOS">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lnk_ReturnToFordPass" value="TCommon_ReturnToFordPass" />
+
+			<step type="CLICK" name="lnk_ReturnToFordPass" page="pge_FPCommon" wait="2">
+				<token type="CONTENT" name="token_lnk_ReturnToFordPass" value="TCommon_ReturnToFordPass" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'Back' menu is available and clicked on the FordPass App" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FPCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+					<parameter type="STATIC" value="'Back' menu is not available/displayed on the FordPass App" />
+				</step>
+			</step>
+		</step>
+	</function>
+	<function name="fn_Clean_FordPassApp">
+		<description>fn_Clean_FordPassApp - Function to Clean the fordpass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step type="DEVICE" name="CLEAN" site="FordPass" page="home" os="ANDROID">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>									
+		</step>
+		
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="CALL2" name="fn_Select_FP_Environment" page="pge_FPCommon"/>
+	</function>
+
+	<function name="fn_Install_IOS_FordPassApp">
+		<description>fn_Install_IOS_FordPassApp - Function to install the ios fordpass app </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			
+			<step name="UNINSTALL" site="FordPass" page="pge_Login" type="APPLICATION" wait="10">
+				<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			</step>
+		</step>
+		
+		<step name="INSTALL" site="FordPass" page="pge_Login" type="APPLICATION" wait="10">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="CONTENT" value="TAppName"/>
+			<parameter type="STATIC" value="FordPass App installed successfully" />
+		</step>
+		
+		<step type="CALL2" name="fn_Select_FP_Environment" page="pge_FPCommon"/>
+	</function>
+
+	<function name="fn_Open_And_Safety_Check">
+		<description> fn_Open_And_Safety_Check - function to just open the app and perform a safety check </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FPCommon.xml" />
+		</step>
+		
+		<step name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="5"/>
+		</step>
+		
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_Select_FP_Environment" page="pge_FPCommon" failureMode="IGNORE"/>
+	</function>
+	
+	<function name="fn_Click_PillarMenus_NoWait">
+		<description> fn_Click_AccountMenu - function to click ACCOUNT menu on the FordPass menu bar without wait </description>
+			<step type="CLICK" name="lnk_Move" page="pge_FPCommon" wait="5">
+				<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move"/>
+			</step>
+			<step type="CLICK" name="lnk_Find" page="pge_FPCommon" wait="5">
+				<token type="CONTENT" name="token_lnk_Find" value="TCommon_Find" />
+			</step>
+			<step type="CLICK" name="lnk_Guides" page="pge_FPCommon" wait="5">
+				<token type="CONTENT" name="token_lnk_Guides" value="TCommon_Guides" />
+			</step>
+			<step type="CLICK" name="lnk_Account" page="pge_FPCommon" wait="5">
+				<token type="CONTENT" name="token_lnk_Account" value="TCommon_Account" />
+			</step>
+		
+	</function>
+
+</suite>

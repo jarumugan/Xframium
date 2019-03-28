@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_ValidatePage_FirstImpression1">
+		<description> fn_ValidatePage_FirstImpression1 - Function to validate the 'First Impression (Page 1)' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+			<parameter type="STATIC" value="Function's XML file name: fn_FirstImpression.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FirstImpression1_Header" page="pge_FirstImpression">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_FirstImpression1_Header" value="TFirstImpression1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="User successfully landed on 'FirstImpression - Page 1' page and Header text is also as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'FirstImpression - Page 1' page is not opened or Header text is not as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FirstImpression1_Info" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lbl_FirstImpression1_Info" value="TFirstImpression2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="CONTENT" value="TFirstImpression2" />
+				<parameter type="STATIC" value="Above page information is displayed as expected in 'First Impression - Page 1'" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="CONTENT" value="TFirstImpression2" />
+					<parameter type="STATIC" value="Above page information is not displayed on 'First Impression - Page 1'" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FirstImpression_Skip" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lnk_FirstImpression_Skip" value="TFirstImpression3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="'SKIP' link is available on 'First Impression - Page 1' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'SKIP' link is not displayed/available on 'First Impression - Page 1' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidatePage_FirstImpression2">
+		<description> fn_ValidatePage_FirstImpression2 - Function to validate the 'First Impression (Page 2)' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+			<parameter type="STATIC" value="Function's XML file name: fn_FirstImpression.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FirstImpression2_Header" page="pge_FirstImpression">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_FirstImpression2_Header" value="TFirstImpression4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="User successfully landed on 'FirstImpression - Page 2' page and Header text is also as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'FirstImpression - Page 2' page is not opened or Header text is not as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FirstImpression2_Info" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lbl_FirstImpression2_Info" value="TFirstImpression5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="CONTENT" value="TFirstImpression5" />
+				<parameter type="STATIC" value="Above page information is displayed as expected in 'First Impression - Page 2'" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="CONTENT" value="TFirstImpression5" />
+					<parameter type="STATIC" value="Above page information is not displayed on 'First Impression - Page 2'" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FirstImpression_Skip" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lnk_FirstImpression_Skip" value="TFirstImpression3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="'SKIP' link is available on 'First Impression - Page 2' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'SKIP' link is not displayed/available on 'First Impression - Page 2' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidatePage_FirstImpression3">
+		<description> fn_ValidatePage_FirstImpression3 - Function to validate the 'First Impression (Page 3)' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+			<parameter type="STATIC" value="Function's XML file name: fn_FirstImpression.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FirstImpression3_Header" page="pge_FirstImpression">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_FirstImpression3_Header" value="TFirstImpression6" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="User successfully landed on 'FirstImpression - Page 3' page and Header text is also as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'FirstImpression - Page 3' page is not opened or Header text is not as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FirstImpression3_Info" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lbl_FirstImpression3_Info" value="TFirstImpression7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="CONTENT" value="TFirstImpression7" />
+				<parameter type="STATIC" value="Above page information is displayed as expected in 'First Impression - Page 3'" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="CONTENT" value="TFirstImpression7" />
+					<parameter type="STATIC" value="Above page information is not displayed on 'First Impression - Page 3'" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FirstImpression_Skip" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lnk_FirstImpression_Skip" value="TFirstImpression3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="'SKIP' link is available on 'First Impression - Page 3' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'SKIP' link is not displayed/available on 'First Impression - Page 3' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidatePage_FirstImpression4">
+		<description> fn_ValidatePage_FirstImpression4 - Function to validate the 'First Impression (Page 4)' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+			<parameter type="STATIC" value="Function's XML file name: fn_FirstImpression.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FirstImpression4_Header" page="pge_FirstImpression">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_FirstImpression4_Header" value="TFirstImpression8" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="User successfully landed on 'FirstImpression - Page 4' page and Header text is also as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'FirstImpression - Page 4' page is not opened or Header text is not as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FirstImpression4_Info" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lbl_FirstImpression4_Info" value="TFirstImpression9" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="CONTENT" value="TFirstImpression9" />
+				<parameter type="STATIC" value="Above page information is displayed as expected in 'First Impression - Page 4'" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="CONTENT" value="TFirstImpression9" />
+					<parameter type="STATIC" value="Above page information is not displayed on 'First Impression - Page 4'" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FirstImpression_Skip" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lnk_FirstImpression_Skip" value="TFirstImpression3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="'SKIP' link is available on 'First Impression - Page 4' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'SKIP' link is not displayed/available on 'First Impression - Page 4' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickFirstImpression_Skip">
+		<description> fn_ClickFirstImpression_Skip - Function to click 'SKIP' link on 'First Impression (Page 1)' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+			<parameter type="STATIC" value="Function's XML file name: fn_FirstImpression.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_FirstImpression_Skip" page="pge_FirstImpression">
+			<token type="CONTENT" name="token_lnk_FirstImpression_Skip" value="TFirstImpression3" />
+			
+			<step type="CLICK" name="lnk_FirstImpression_Skip" page="pge_FirstImpression" wait="3">
+				<token type="CONTENT" name="token_lnk_FirstImpression_Skip" value="TFirstImpression3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+				<parameter type="STATIC" value="'SKIP' link is available and clicked on 'First Impression' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FirstImpression">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FirstImpression">
+					<parameter type="STATIC" value="'SKIP' link is not displayed/available on 'First Impression' page" />
+				</step>
+			</step>
+		</step>
+	</function>		
+</suite>

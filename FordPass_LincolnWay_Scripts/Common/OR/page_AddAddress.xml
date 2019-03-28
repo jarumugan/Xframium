@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_AddAddress" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageTitle" value="//android.view.ViewGroup/android.widget.TextView[@text='{token_lbl_PageTitle}']|//*[@label='{token_lbl_PageTitle}']" descriptor="XPATH" />
+			<element name="lbl_PageInfo" value="//*[@text='{token_lbl_PageInfo}']|//*[@label='{token_lbl_PageInfo}']" descriptor="XPATH" />
+			<element name="edt_AddrLine1" value="(//*[@text='{token_edt_AddrLine1}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_AddrLine1}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="edt_AddrLine2" value="(//*[@text='{token_edt_AddrLine2}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_AddrLine2}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="edt_Zip" value="(//*[@text='{token_edt_Zip}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_Zip}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="edt_State" value="(//*[@text='{token_edt_State}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_State}']/following::UIATextField)[1]" descriptor="XPATH" />
+			
+			<element name="btn_SkipforNow" value="//*[@text='{token_edt_State}']|//*[@label='{token_edt_State}']" descriptor="XPATH" />
+			
+			<element name="btn_Next_Disabled" value="//*[@text='{token_btn_Next}' and @enabled='false']|//*[@label='{token_btn_Next}' and @enabled='false']" descriptor="XPATH" />
+			<element name="btn_Next_Enabled" value="//*[@text='{token_btn_Next}' and @enabled='true']|//*[@label='{token_btn_Next}' and @enabled='true']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

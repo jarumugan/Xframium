@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8: LIST OF FUNCTIONS in fn_FindDealersDetails.xml-->
+<!-- fn_Verify_DealersDayTimeList -->
+<!-- fn_Verify_DealersDayTime -->
+<!-- fn_Verify_Button_ViewServices -->
+<!-- fn_Click_Button_ViewServices -->
+<!-- ############################################################################################################# -->	
+	<function name="fn_Verify_DealersDayTimeList">
+		<description> fn_Verify_FuelPriceValues - Function to verify the 'Fuel Pricing Values' in Fuel Bank Details page </description>
+			
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="1" />
+		</step>
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="2" />
+		</step>
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="3" />
+		</step>
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="4" />
+		</step>
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="5" />
+		</step>
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="6" />
+		</step>
+		<step type="CALL2" name="fn_Verify_DealersDayTime" page="pge_FindDealersDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="7" />
+		</step>
+	</function>
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to verify the 'HOURS' Presence -->
+<!-- ############################################################################################################# -->		
+	<function name="fn_Verify_DealersDayTime">
+		<description> fn_Verify_FuelPriceValues - Function to verify the 'Fuel Pricing Values' in Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>	
+			
+		<step type="VISIBLE" name="lbl_ParkHoursAND" page="pge_FindDealersDetails" os="ANDROID">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_ParkHours" value="TFindDealersSection1" />			
+			<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />			
+				<step type="GET" name="lbl_ParkHoursAND" page="pge_FindDealersDetails" context="str_ParkingDateTime">
+				<token type="CONTENT" name="token_ParkHours" value="TFindDealersSection1" />			
+				<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Availability Days and Hours'" />
+						<parameter type="CONTEXT" name="Parking Availability Days and Hours" value="str_ParkingDateTime" />
+					</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindDealersDetails">						
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Details NOT EXISTS" />
+					</step>
+				</step>
+				</step>	
+		</step>	
+		<step type="VISIBLE" name="lbl_ParkDaysIOS" page="pge_FindDealersDetails" os="IOS">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_ParkHours" value="TFindDealersSection1" />			
+			<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />			
+				<step type="GET" name="lbl_ParkDaysIOS" page="pge_FindDealersDetails" context="str_ParkingDays">
+				<token type="CONTENT" name="token_ParkHours" value="TFindDealersSection1" />			
+				<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />
+				<step type="GET" name="lbl_ParkHoursIOS" page="pge_FindDealersDetails" context="str_ParkingTime">
+				<token type="CONTENT" name="token_ParkHours" value="TFindDealersSection1" />			
+				<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Availability Days and Hours'" />
+						<parameter type="CONTEXT" name="Parking Availability Day" value="str_ParkingDays" />
+						<parameter type="CONTEXT" name="Parking Availability Hours" value="str_ParkingTime" />
+					</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindDealersDetails">						
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Details NOT EXISTS" />
+					</step>
+				</step>
+				</step>
+				</step>	
+		</step>	
+		
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to verify the 'SERVICES TAB' Presence -->
+<!-- ############################################################################################################# -->			
+	<function name="fn_Verify_Button_ViewServices">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_Services" page="pge_FindDealersDetails">
+		<token type="CONTENT" name="token_tabbtn_Services" value="TFindDealersServices" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+					<parameter type="STATIC" value="'FIND-DEALERS >> SERVICES'- Element is EXISTS" />
+				</step>
+
+		<step type="ELSE" name="elseCondition" page="pge_FindDealersDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+				<parameter type="STATIC" value="'FIND-DEALERS >> SERVICES'- Element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>	
+	
+	<function name="fn_Click_Button_ViewServices">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_Services" page="pge_FindDealersDetails">
+		<token type="CONTENT" name="token_tabbtn_Services" value="TFindDealersServices" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+					<parameter type="STATIC" value="'FIND-DEALERS >> SERVICES'- Element is CLICKED" />
+				</step>
+
+		<step type="ELSE" name="elseCondition" page="pge_FindDealersDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+				<parameter type="STATIC" value="'FIND-DEALERS >> SERVICES'- Element is NOT CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to verify the 'PREFERRED DEALER TAB' Presence -->
+<!-- ############################################################################################################# -->			
+	<function name="fn_Verify_Button_PreferredDealer">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_PreferredDealer" page="pge_FindDealersDetails">
+		<token type="CONTENT" name="token_tabbtn_PreferredDealer" value="TFindDealersPreferred" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+					<parameter type="STATIC" value="'FIND-DEALERS >> PREFERRED DEALER'- Element is EXISTS" />
+				</step>
+
+		<step type="ELSE" name="elseCondition" page="pge_FindDealersDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+				<parameter type="STATIC" value="'FIND-DEALERS >> PREFERRED DEALER'- Element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>	
+	
+	<function name="fn_Click_Button_PreferredDealer">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<step type="CLICK" name="btn_PreferredDealer" page="pge_FindDealersDetails">
+		<token type="CONTENT" name="token_tabbtn_PreferredDealer" value="TFindDealersPreferred" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+					<parameter type="STATIC" value="'FIND-DEALERS >> PREFERRED DEALER'- Element is CLICKED" />
+				</step>
+
+		<step type="ELSE" name="elseCondition" page="pge_FindDealersDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+				<parameter type="STATIC" value="'FIND-DEALERS >> PREFERRED DEALER'- Element is NOT CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to verify the 'PREFERRED DEALER DIALOG WINDOW' Presence -->
+<!-- ############################################################################################################# -->			
+	<function name="fn_Verify_DWNewPreferredDealers">
+		<description> fn_Verify_DWNewPreferredDealers - Function to verify Dialog Window </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<!-- DialogWindow_Set_new_preferred_dealer: TITLE -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDealersPreferredDWTitle" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDealersPreferredDWTitle" />
+		</step>		
+		<!-- DialogWindow_Set_new_preferred_dealer: CONTENT -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSetNewDealerContent" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSetNewDealerContent" />
+		</step>		
+		<!-- DialogWindow_DisableCarPlay: Yes -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Yes" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Yes" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: No -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_No" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_No" />
+		</step>
+	</function>	
+	
+	<function name="fn_Click_BtnYes_DWNewPreferredDealers">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindDealersDetails.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: OK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Yes" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Yes" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnNo_DWNewPreferredDealers">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindDealersDetails.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: OK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_No" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_No" />
+		</step>
+	</function>
+		
+	<function name="fn_Verify_PreferredDealers_Vehicles">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<!-- PreferredDealer-Vehicle_List: TITLE -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDealersVListTitle" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDealersVListTitle" />
+		</step>		
+		<!-- PreferredDealer-Vehicle_List: CONTENT -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDealersVListContent_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDealersVListContent_AND" />
+		</step>		
+		<!--  PreferredDealer-Vehicle_List: Save -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Save" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Save" />
+		</step>
+	</function>	
+	
+	<function name="fn_Click_BtnSave_PreferredDealers">
+		<description> fn_Click_BtnSave_PreferredDealers - Function to verify ListView Button </description>
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Save" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Save" />
+		</step>
+	</function>	
+	
+	<function name="fn_Verify_DWChangePreferredDealers">
+		<description> fn_Verify_DWChangePreferredDealers - Function to verify Dialog Window </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindDealersDetails.xml" />
+		</step>
+
+		<!-- DialogWindow_Set_new_preferred_dealer: TITLE -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDealersChangePreferredDWTitle" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDealersChangePreferredDWTitle" />
+		</step>		
+		<!-- DialogWindow_Set_new_preferred_dealer: CONTENT -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindChangeDealerContent" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindChangeDealerContent" />
+		</step>		
+		<!-- DialogWindow_DisableCarPlay: Yes -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Yes" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Yes" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: No -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_No" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_No" />
+		</step>
+	</function>	
+	
+	<function name="fn_Click_BtnYes_DWChangePreferredDealers">
+		<description> fn_Click_BtnYes_DWChangePreferredDealers - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindDealersDetails.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: OK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Yes" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Yes" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnNo_DWChangePreferredDealers">
+		<description> fn_Click_BtnNo_DWChangePreferredDealers - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindDealersDetails.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: OK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_No" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_No" />
+		</step>
+	</function>
+</suite>

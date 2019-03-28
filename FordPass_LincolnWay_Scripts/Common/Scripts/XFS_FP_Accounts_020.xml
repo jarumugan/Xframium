@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  //////////////Pre Requiste - Test data with Create Account should be set to NO for Post /////////////// -->
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_020" dataProvider="TestData.XFS_FP_Accounts_020,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Marketing options_Post_Address validation </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+			
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Account" />
+
+				<step type="CALL2" name="fn_Click_MarketingOptions" page="pge_Settings" />
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_SafetyCheck" page="pge_SafetyCheck" os="IOS" />
+			
+			<step type="CALL2" name="fn_ValidatePage_SafetyCheck" page="pge_SafetyCheck" os="IOS" />
+			
+			<step type="CALL2" name="fn_Click_ImNotDriving" page="pge_SafetyCheck" os="IOS" />
+				
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_MarketingOptions" page="pge_MarketingOptions" />
+			
+			
+			<step type="CALL2" name="fn_VerifyOptionStatus_WithExpected" page="pge_MarketingOptions" os="ANDROID" >
+				<parameter type="STATIC" name="param_OptionName" value="Post" />
+				<parameter type="STATIC" name="param_ExpectedStatus" value="OFF" />
+				</step>
+			
+			<step type="CALL2" name="fn_VerifyOptionStatus_WithExpected" page="pge_MarketingOptions" os="IOS" >
+				<parameter type="STATIC" name="param_OptionName" value="Post" />
+				<parameter type="STATIC" name="param_ExpectedStatus" value="0" />
+				</step>
+				
+			<step type="CALL2" name="fn_ClickGivenMarketingOptions" page="pge_MarketingOptions" >
+				<parameter type="STATIC" name="param_Click_OptionName" value="Post" />
+				</step>
+	
+			<step type="CALL2" name="fn_VerifyPageOpened_EnterAddress" page="pge_EnterAddress" />
+			
+			<step type="CALL2" name="fn_InputAllFields_EnterAddress" page="pge_EnterAddress" />
+						
+			<step type="CALL2" name="fn_ClickEnterAddress_Save" page="pge_EnterAddress" />
+			
+			<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+			<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+					
+			
+	</test>
+</suite>
+

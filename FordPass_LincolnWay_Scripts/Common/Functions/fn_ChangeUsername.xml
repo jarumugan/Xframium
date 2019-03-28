@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_ChangeUsername">
+		<description> fn_VerifyPageOpened_ChangeUsername - Function to verify user landed on the Change Username page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TChangeUsername1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="User successfully landed on Change Username page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Change Username page" page="pge_ChangeUsername" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="Change Username page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+			<!-- Validate CurrentUserName -->
+		</function>
+	
+	<function name="fn_ValidateSection_CurrentUserName">
+		<description> fn_ValidateSection_CurrentUserName - Function to validate CurrentUserName(Email) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_CurrentUsername" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_lbl_CurrentUsername" value="TChangeUsername2"/>
+			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'Current Username' field is available on the Change Username page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Current Username' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+		<!-- Validate UserNameEmail -->
+<!-- 		<step type="EXISTS" name="lbl_UserName" page="pge_ChangeUsername"> -->
+<!-- 			<token type="CONTENT" name="token_lbl_UserName" value="TChangeUsername8"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername"> -->
+<!-- 				<parameter type="STATIC" value="'UserName' field is available on the Change Username page" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername"> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername"> -->
+<!-- 					<parameter type="STATIC" value="'UserName' field is not available on the Login page" /> -->
+<!-- 				</step> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+		
+		<!-- Default user id should display in UserName field -->
+		
+		<step type="GET" name="edt_CurrentUsername" page="pge_ChangeUsername" context="str_defaultUsername">
+			<token type="CONTENT" name="token_edt_CurrentUsername" value="TChangeUsername8"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="CONTEXT" name="Value One" value="str_defaultUsername" />
+				<parameter type="CONTEXT" name="Value Two" value="param_ExpectedUserName" />
+					<parameter type="STATIC" value="By default - 'CurrentUsername' field value is displayed" />
+				</step>
+			
+			<step type="COMPARE2" name="STRING" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" name="Value One" value="str_defaultUsername" />
+				<parameter type="CONTEXT" name="Value Two" value="param_ExpectedUserName" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+								
+				<step type="STATE" name="Screenshot - Username field displayed by default" page="pge_ChangeUsername" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="CONTEXT" value="param_ExpectedUserName" />
+					<parameter type="STATIC" value="By default - 'CurrentUsername' field value is displayed" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+					<step type="STATE" name="Screenshot - CurrentUsername  value is not displayed by default" page="pge_ChangeUsername" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+						<parameter type="CONTEXT" value="param_ExpectedUserName" />
+						<parameter type="STATIC" value="By default - 'CurrentUsername' value is not displayed by default" />
+					</step>
+				</step>
+			</step>
+		</step>
+			
+	</function>
+	<!-- Validate NewUserName -->
+	<function name="fn_ValidateSection_NewUserName">
+		<description> fn_ValidateSection_NewUserName - Function to validate NewUserName(Email) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_NewUsername" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_lbl_NewUsername" value="TChangeUsername3"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'New Username' section header is available on the Change Username page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'New Username' section header is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="edt_NewUsername" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_edt_NewUsername_AND" value="TChangeUsername12_AND"/>
+			<token type="CONTENT" name="token_edt_NewUsername_IOS" value="TChangeUsername12_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'New Username' field is available on the Change Username page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'New Username' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+
+	<!-- Confirm ConfirmUserName -->
+			
+<!-- 		<step type="EXISTS" name="lbl_ConfirmUsername" page="pge_ChangeUsername"> -->
+<!-- 			<token type="CONTENT" name="token_lbl_ConfirmUsername" value="TChangeUsername6"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername"> -->
+<!-- 				<parameter type="STATIC" value="'Confirm Username' Section header is available on the Change Username page" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername"> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername"> -->
+<!-- 					<parameter type="STATIC" value="'Confirm Username' Section header is not available on the Login page" /> -->
+<!-- 				</step> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+		<step type="EXISTS" name="edt_ConfirmUsername" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_edt_ConfirmUsername" value="TChangeUsername6"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'Confirm Username' field is available on the Change Username page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Confirm Username' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<!-- Checkbox validation for preferred contact email -->
+
+	
+	<function name="fn_ValidateSection_PreferredContactEmail">
+		<description> fn_ValidateSection_preferredContactEmail - Function to validate PreferredContactEmail </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_SetAsPreferredContactEmail" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_lbl_SetAsPreferredContactEmail" value="TChangeUsername4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'Set new username as preferred contact email.' is available on the Change Username page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Set new username as preferred contact email.' label is not available on the Change Username page" />
+				</step>
+			</step>
+		</step>
+		
+			<!-- ChangeUSerName Message -->
+				
+		<step type="EXISTS" name="lbl_ChangeUsernameMessage" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_lbl_ChangeUsernameMessage" value="TChangeUsername5"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="Expected Text is available on the Change Username page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="Expected Text is not available on the Change Username page" />
+				</step>
+			</step>
+		</step>	
+		</function>
+		
+		<!-- Save Button -->
+		<function name="fn_ValidateSave_Button">
+		<description> fn_ValidateSection_SaveButton - Function to validate Save button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		
+		<step type="EXISTS" name="btn_Save_Disabled" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_btn_Save_AND" value="TChangeUsername7_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TChangeUsername7_IOS" />
+			
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'Save Button' is available and Disabled in Change UserName page" />
+			</step>
+				
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="CONTENT" value="TChangeUsername7_AND" />
+					<parameter type="CONTENT" value="TChangeUsername7_IOS" />
+					<parameter type="STATIC" value="Above Button is not displayed in ChangeUserName Page" />
+				</step>
+			</step>
+		</step>
+		</function>
+		<!-- Cancel Button -->
+		<function name="fn_ValidateCancel_Button">
+		<description> fn_ValidateSection_CancelButton - Function to validate  Cancel button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		<step type="EXISTS" name="btn_Cancel" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_btn_Cancel" value="TChangeUsername9" />
+		
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'Cancel Button' is available in Change UserName page" />
+			</step>
+				
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="CONTENT" value="TChangeUsername9" />
+					<parameter type="STATIC" value="Above Button is not displayed in ChangeUsername Page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="STATE" name="Screenshot - ChangeUsername page taken for validation" page="pge_ChangeUsername" failureMode="IGNORE"/>
+					
+	</function>
+		<!-- Input New Username(email) -->
+	<function name="fn_ValidateInput_NewUsername">
+		<description> fn_ValidateInput_NewUsername - Function to validate and input the NewUser Name field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="EXISTS" name="edt_NewUsername" page="pge_ChangeUsername">
+			<token type="CONTENT" name="token_edt_NewUsername_AND" value="TChangeUsername12_AND" />
+			<token type="CONTENT" name="token_edt_NewUsername_IOS" value="TChangeUsername12_IOS" />
+			
+			<step type="CLICK" name="edt_NewUsername" page="pge_ChangeUsername">
+				<token type="CONTENT" name="token_edt_NewUsername_AND" value="TChangeUsername12_AND" />
+				<token type="CONTENT" name="token_edt_NewUsername_IOS" value="TChangeUsername12_IOS" />
+			</step>
+			
+			<step type="SET" name="edt_NewUsername" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_NewUsername_AND" value="TChangeUsername12_AND" />
+				<token type="CONTENT" name="token_edt_NewUsername_IOS" value="TChangeUsername12_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'New UserName' field is available and inputted with the above value" />
+			</step>
+			
+<!-- 			<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" /> -->
+			
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" />
+				
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'New User Name' field is not available on ChangeUsername page" />
+				</step>
+			</step>
+		</step>
+	</function>	
+	
+		<!-- Input Confirm Username(email) -->
+	<function name="fn_ValidateInput_ConfirmUsername">
+		<description> fn_ValidateInput_ConfirmUsername - Function to validate and input the ConfirmUser Name field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="edt_ConfirmUsername" page="pge_ChangeUsername">
+		
+			<token type="CONTENT" name="token_edt_ConfirmUsername" value="TChangeUsername6" />
+			
+			<step type="CLICK" name="edt_ConfirmUsername" page="pge_ChangeUsername">
+				<token type="CONTENT" name="token_edt_ConfirmUsername" value="TChangeUsername6" />
+			</step>
+			
+			<step type="SET" name="edt_ConfirmUsername" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_ConfirmUsername" value="TChangeUsername6" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'Confirm UserName' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" os="ANDROID" />
+			
+			<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="IOS"/>
+			
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Confirm User Name' field is not available on ChangeUsername page" />
+				</step>
+			</step>
+		</step>
+	</function>	
+	
+	<!-- Input both New and confirm  Username(email) -->
+	<function name="fn_InputAll_ChangeUserName">
+		<description> fn_InputAll_ChangeUserName - function to enter all valid values for Change UserName </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_ChangeUsername.xml ***" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_NewUsername" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_DataValue" value="TestData.NewUserName"/>
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_ValidateInput_ConfirmUsername" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_DataValue" value="TestData.ConfirmUserName"/>
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/>
+	</function>
+	
+	<!-- Revert the changes -->
+	<function name="fn_InputAll_ChangeUserName_Revert">
+		<description> fn_InputAll_ChangeUserName_Revert - function to enter all valid values for Change UserName (To Revert the changes) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_ChangeUsername.xml ***" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_NewUsername" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_DataValue" value="TestData.UserName"/>
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_ValidateInput_ConfirmUsername" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_DataValue" value="TestData.UserName"/>
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/>
+	</function>
+	
+	<!-- Click Save after changes -->
+	<function name="fn_Click_Save_In_ChangeUserName">
+		<description> fn_Click_Save_In_ChangeUserName - Function to click 'Save' in Change UserName page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" wait="2" os="ANDROID"/>
+		
+		<step type="VISIBLE" name="btn_Save_Enabled" page="pge_ChangeUsername">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Save_AND" value="TChangeUsername7_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TChangeUsername7_IOS" />
+			
+			<step type="CLICK" name="btn_Save_Enabled" page="pge_ChangeUsername" wait="5">
+				<token type="CONTENT" name="token_btn_Save_AND" value="TChangeUsername7_AND" />
+				<token type="CONTENT" name="token_btn_Save_IOS" value="TChangeUsername7_IOS" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Save Button' link is available and clicked on Change Username page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Save Button' link is not available or not in enabled state on ChangeUsername page" />
+				</step>
+			</step>
+		</step>
+	</function>
+		<!-- Click Cancel after changes -->
+	<function name="fn_Click_Cancel_In_ChangeUserName">
+		<description> fn_Click_Cancel_In_ChangeUserName - Function to click 'Save' in Change UserName page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+		
+		<step type="CLICK" name="btn_Cancel" page="pge_ChangeUsername" wait="5">
+			<token type="CONTENT" name="token_btn_Cancel" value="TChangeUsername9" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="STATIC" value="'Cancel Button' is available and Clicked in Change Username page" />
+			</step>
+					
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="STATIC" value="'Cancel Button' link is not available on ChangeUsername page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<!-- Check for the error message  -->
+	
+	<function name="fn_CheckforInlineError_ChangeUsername">
+		<description> fn_CheckforInlineError_ChangeUsername - Function to validate for Inline error message displayed next to NewUserName field in ChangeUserName page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+		<step type="STATE" name="Dummy State - Check for Inline error" page="pge_ChangeUsername" failureMode="IGNORE" wait="3"/>
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_ChangeUsername" failureMode="IGNORE">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckNotExist_InlineError_ChangeUsername">
+		<description> fn_CheckNotExist_InlineError_ChangeUsername - Function to validate for Inline error message is not displayed next to field in ChangeUserName page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+			<parameter type="STATIC" value="Function's XML file name: fn_ChangeUsername.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+		<step type="STATE" name="Dummy State - Check for Inline error not exists" page="pge_ChangeUsername" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_ChangeUsername" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message is displayed bottom to the field but it should not" />
+			</step>
+			
+			<!-- stop the execution -->
+			<step type="FLOW" name="END_FAILURE" page="pge_ChangeUsername" failureMode="ERROR"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ChangeUsername">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ChangeUsername">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>	
+</suite>

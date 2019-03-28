@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_UpdatePIN" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[contains(@text,'{token_lbl_PageHeader}')]|//*[contains(@label,'{token_lbl_PageHeader}')]" descriptor="XPATH" />
+			<element name="lbl_PageInfo" value="//*[contains(@text,&quot;{token_lbl_PageInfo}&quot;)]|//*[contains(@label,&quot;{token_lbl_PageInfo}&quot;)]" descriptor="XPATH" />
+			<element name="lnk_ForgotPIN" value="//*[@text='{token_lnk_ForgotPIN}']|//*[@label='{token_lnk_ForgotPIN}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_ProgramBenefits" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lbl_PageInfo" value="//*[@text='{token_lbl_PageInfo}']|//*[@label='{token_lbl_PageInfo}']" descriptor="XPATH" />
+			<element name="lbl_BulletPoints1" value="//*[@text=&quot;{token_lbl_BulletPoints1}&quot;]|//*[@label=&quot;{token_lbl_BulletPoints1}&quot;]" descriptor="XPATH" />
+			<element name="lbl_BulletPoints2" value="//*[@text=&quot;{token_lbl_BulletPoints2}&quot;]|//*[@label=&quot;{token_lbl_BulletPoints2}&quot;]" descriptor="XPATH" />
+			<element name="lbl_BulletPoints3" value="//*[@text=&quot;{token_lbl_BulletPoints3}&quot;]|//*[@label=&quot;{token_lbl_BulletPoints3}&quot;]" descriptor="XPATH" />
+			<element name="lnk_ProgramBenefits_SkipForNow" value="//*[@text=&quot;{token_lnk_ProgramBenefits_SkipForNow}&quot;]|//*[@label=&quot;{token_lnk_ProgramBenefits_SkipForNow}&quot;]" descriptor="XPATH" />
+			<element name="btn_ProgramBenefits_Add" value="//*[@text='{token_btn_ProgramBenefits_Add_AND}']|//*[@label='{token_btn_ProgramBenefits_Add_IOS}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

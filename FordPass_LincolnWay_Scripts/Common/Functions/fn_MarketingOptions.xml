@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_MarketingOptions">
+		<description> fn_VerifyPageOpened_MarketingOptions - Function to verify user landed on the Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+				
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TMarketingOptions1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="STATIC" value="User successfully landed on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="STATIC" value="'Marketing Options' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_MarketingOptions">
+		<description> fn_ValidatePage_MarketingOptions - Function to validate the Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+				
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_MarketingOptions">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TMarketingOptions2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTENT" value="TMarketingOptions2" />
+				<parameter type="STATIC" value="Above page information is displayed in 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTENT" value="TMarketingOptions2" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_VerifyDefaultStatus_MarketingOptions">
+		<description> fn_VerifyDefaultStatus_MarketingOptions - Function to verify the default status of Marketing Options </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+				
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions" tagNames="FP-EU">
+			<token type="CONTENT" name="token_rad_MarketingOptions" value="TMarketingOptions3" />
+			
+			<step type="CALL2" name="fn_VerifyOptionStatus_WithExpected" page="pge_MarketingOptions">
+				<parameter type="CONTENT" name="param_OptionName" value="TMarketingOptions3" />
+				<parameter type="CONTENT" name="param_ExpectedStatus" value="OFF" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTENT" value="TMarketingOptions3" />
+					<parameter type="STATIC" value="Above options is not displayed in 'Marketing Options' page as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions" tagNames="FP-EU">
+			<token type="CONTENT" name="token_rad_MarketingOptions" value="TMarketingOptions4" />
+			
+			<step type="CALL2" name="fn_VerifyOptionStatus_WithExpected" page="pge_MarketingOptions">
+				<parameter type="CONTENT" name="param_OptionName" value="TMarketingOptions4" />
+				<parameter type="CONTENT" name="param_ExpectedStatus" value="OFF" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTENT" value="TMarketingOptions4" />
+					<parameter type="STATIC" value="Above options is not displayed in 'Marketing Options' page as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions" tagNames="FP-EU">
+			<token type="CONTENT" name="token_rad_MarketingOptions" value="TMarketingOptions5" />
+			
+			<step type="CALL2" name="fn_VerifyOptionStatus_WithExpected" page="pge_MarketingOptions">
+				<parameter type="CONTENT" name="param_OptionName" value="TMarketingOptions5" />
+				<parameter type="CONTENT" name="param_ExpectedStatus" value="OFF" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTENT" value="TMarketingOptions5" />
+					<parameter type="STATIC" value="Above options is not displayed in 'Marketing Options' page as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions" tagNames="FP-EU-IT">
+			<token type="CONTENT" name="token_rad_MarketingOptions" value="TMarketingOptions6" />
+			
+			<step type="CALL2" name="fn_VerifyOptionStatus_WithExpected" page="pge_MarketingOptions">
+				<parameter type="CONTENT" name="param_OptionName" value="TMarketingOptions6" />
+				<parameter type="CONTENT" name="param_ExpectedStatus" value="OFF" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTENT" value="TMarketingOptions6" />
+					<parameter type="STATIC" value="Above options is not displayed in 'Marketing Options' page as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickGivenMarketingOptions">
+		<description>fn_ClickGivenMarketingOptions - Function to check whether the options are in expected/given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions">
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Click_OptionName" />
+			
+			<step type="CLICK" name="rad_MarketingOptions" page="pge_MarketingOptions">
+				<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Click_OptionName" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTEXT" value="param_Click_OptionName" />
+				<parameter type="STATIC" value="Above options displayed and clicked on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_Click_OptionName" />
+					<parameter type="STATIC" value="Above option's is not displayed on 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetAll_MarketingOptions">
+		<description>fn_SetAll_MarketingOptions - Function to set all the Marketing options based on User input in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<!-- Email -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions3" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.EmailOption" />
+		</step>
+		
+		<!-- Post -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions4" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.PostOption" />
+		</step>
+		
+		<!-- In-App Message -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions5" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.InAppMsgOption" />
+		</step>
+		
+		<!-- Personalization -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-ES,FP-EU-NL,FP-EU-BE">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions6" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.Personalisation" />
+		</step>
+	</function>
+
+		
+	<function name="fn_VerifyOptionStatus_WithExpected">
+		<description>fn_VerifyOptionStatus_WithExpected - Function to check whether the options are in expected/given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="ATTRIBUTE" name="rad_MarketingOptions" page="pge_MarketingOptions" os="ANDROID">
+			<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			<parameter type="STATIC" value="text" />
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTEXT" value="param_OptionName" />
+				<parameter type="STATIC" value="Above options displayed on 'Marketing Options' page with the below expected status" />
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_OptionName" />
+					<parameter type="STATIC" value="Above option's is not in the below expected status on 'Marketing Options' page" />
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				</step>
+			</step>
+		</step>	
+	<step type="ATTRIBUTE" name="rad_MarketingOptions" page="pge_MarketingOptions" os="IOS">
+			<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTEXT" value="param_OptionName" />
+				<parameter type="STATIC" value="Above options displayed on 'Marketing Options' page with the below expected status" />
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_OptionName" />
+					<parameter type="STATIC" value="Above option's is not in the below expected status on 'Marketing Options' page" />
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetMarketingOptionsToExpectedStatus">
+		<description>fn_SetMarketingOptionsToExpectedStatus - Function to set the market options to user given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions">
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+			
+			<step type="ATTRIBUTE" name="rad_MarketingOptions" page="pge_MarketingOptions" failureMode="IGNORE" os="ANDROID" >
+				<parameter type="CONTEXT" value="param_SetToStatus" />
+				<parameter type="STATIC" value="text" />
+				<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_Set_OptionName" />
+					<parameter type="STATIC" value="Above Marketing Options was already in the below expected state" />
+					<parameter type="CONTEXT" value="param_SetToStatus" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+					<step type="CALL2" name="fn_ClickGivenMarketingOptions" page="pge_MarketingOptions">
+						<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+					</step>
+					
+					<step type="ATTRIBUTE" name="rad_MarketingOptions" page="pge_MarketingOptions" failureMode="IGNORE" >
+						<parameter type="CONTEXT" value="param_SetToStatus" />
+						<parameter type="STATIC" value="text" />
+						<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+						
+						<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+							<step type="CALL2" name="fn_ClickGivenMarketingOptions" page="pge_MarketingOptions">
+								<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+							</step>
+						
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+								<parameter type="CONTEXT" value="param_Set_OptionName" />
+								<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+								<parameter type="CONTEXT" value="param_SetToStatus" />
+							</step>
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_MarketingOptions" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" name="Value One" value="param_SetToStatus" />
+			<parameter type="STATIC" name="Value Two" value="ON" />
+			<parameter type="STATIC" name="Operator" value="EQUALS" />
+		
+			<step type="CONTEXT" name="SET" page="pge_MarketingOptions">
+				<parameter type="STATIC" name="Name" value="param_SetToStatus" />
+				<parameter type="STATIC" name="Value" value="1" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="CONTEXT" name="SET" page="pge_MarketingOptions">
+					<parameter type="STATIC" name="Name" value="param_SetToStatus" />
+					<parameter type="STATIC" name="Value" value="0" />
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above value is SET " />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+			</step>
+		</step>
+		
+		<step type="ATTRIBUTE" name="rad_MarketingOptions" page="pge_MarketingOptions" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" value="param_SetToStatus" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTEXT" value="param_Set_OptionName" />
+				<parameter type="STATIC" value="Above Marketing Options was already in the below expected state" />
+				<parameter type="CONTEXT" value="param_SetToStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="CALL2" name="fn_ClickGivenMarketingOptions" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+				</step>
+				
+				<step type="ATTRIBUTE" name="rad_MarketingOptions" page="pge_MarketingOptions" failureMode="IGNORE" >
+					<parameter type="CONTEXT" value="param_SetToStatus" />
+					<parameter type="STATIC" value="value" />
+					<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+						<parameter type="CONTEXT" value="param_Set_OptionName" />
+						<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+						<parameter type="CONTEXT" value="param_SetToStatus" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+						<step type="CALL2" name="fn_ClickGivenMarketingOptions" page="pge_MarketingOptions">
+							<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+						</step>
+					
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickGivenMarketingOptions">
+		<description>fn_ClickGivenMarketingOptions - Function to check whether the options are in expected/given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions" page="pge_MarketingOptions">
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Click_OptionName" />
+			
+			<step type="CLICK" name="rad_MarketingOptions" page="pge_MarketingOptions">
+				<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Click_OptionName" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTEXT" value="param_Click_OptionName" />
+				<parameter type="STATIC" value="Above options displayed and clicked on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_Click_OptionName" />
+					<parameter type="STATIC" value="Above option's is not displayed on 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetAll_MarketingOptions">
+		<description>fn_SetAll_MarketingOptions - Function to set all the Marketing options based on User input in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<!-- Email -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions3" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.EmailOption" />
+		</step>
+		
+		<!-- Post -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions4" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.PostOption" />
+		</step>
+		
+		<!-- In-App Message -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions5" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.InAppMsgOption" />
+		</step>
+		
+		<!-- Personalization -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus" page="pge_MarketingOptions" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-ES,FP-EU-NL,FP-EU-BE">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions6" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.Personalisation" />
+		</step>
+	</function>
+
+	<function name="fn_SetAll_MarketingOptions_CA">
+		<description>fn_SetAll_MarketingOptions_CA - Function to set all the Marketing options based on User input in Marketing Options-Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<!-- Email -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus_CA" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions3" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.EmailOption" />
+		</step>
+		
+		<!-- Post -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus_CA" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions4" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.PostOption" />
+		</step>
+		
+		<!-- In-App Message -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus_CA" page="pge_MarketingOptions">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions5" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.InAppMsgOption" />
+		</step>
+		
+		<!-- Profiling/Personalization -->
+		<step type="CALL2" name="fn_SetMarketingOptionsToExpectedStatus_CA" page="pge_MarketingOptions" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-ES,FP-EU-NL,FP-EU-BE">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TMarketingOptions6" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.Personalisation" />
+		</step>
+	</function>
+	
+	<function name="fn_VerifyMOSaveButtonStatus">
+		<description>fn_VerifyMOSaveButtonStatus - Function to verify whether the Save button is in expected status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+
+		<step type="ATTRIBUTE" name="btn_Save" page="pge_MarketingOptions">
+			<parameter type="CONTEXT" value="param_ExpStatus" />
+			<parameter type="STATIC" value="enabled" />
+			<token type="CONTENT" name="token_btn_Save_AND" value="TMarketingOptions7_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TMarketingOptions7_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="CONTEXT" value="param_ExpStatus" />
+				<parameter type="STATIC" value="'Save' button is available in 'Marketing Options' page with above expected status" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_ExpStatus" />
+					<parameter type="STATIC" value="'Save' button is available in 'Marketing Options' page not as expected" />
+				</step>
+			</step>			
+		</step>
+	</function>
+	
+	<function name="fn_ClickMarkingOptions_Save">
+		<description>fn_ClickMarkingOptions_Save - Function to click on 'Save' button in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Save" page="pge_MarketingOptions">
+			<token type="CONTENT" name="token_btn_Save_AND" value="TMarketingOptions7_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TMarketingOptions7_IOS" />
+			
+			<step type="CALL2" name="fn_VerifyMOSaveButtonStatus" page="pge_MarketingOptions">
+				<parameter type="STATIC" name="param_ExpStatus" value="true" />
+			</step>
+			
+			<step type="CLICK" name="btn_Save" page="pge_MarketingOptions">
+				<token type="CONTENT" name="token_btn_Save_AND" value="TMarketingOptions7_AND" />
+				<token type="CONTENT" name="token_btn_Save_IOS" value="TMarketingOptions7_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="STATIC" value="'Save' button is available and clicked on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="STATIC" value="'Save' button is not available on 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickMarketingOptions_WeLink">
+		<description>fn_ClickMarketingOptions_WeLink - Function to validate We link in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_We" page="pge_MarketingOptions">
+			<token type="CONTENT" name="token_lnk_We" value="TMarketingOptions8" />
+			
+			<step type="CLICK" name="lnk_We" page="pge_MarketingOptions">
+				<token type="CONTENT" name="token_lnk_We" value="TMarketingOptions8" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+				<parameter type="STATIC" value="'We' link is available and clicked on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="STATIC" value="'We' link is not available on 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_SetMarketingOptionsToExpectedStatus_CA">
+		<description>fn_SetMarketingOptionsToExpectedStatus_CA - Function to set the market options to user given status on Marketing Options-Create Account flow page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+			<parameter type="STATIC" value="Function's XML file name: fn_MarketingOptions.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_MarketingOptions_CA" page="pge_MarketingOptions">
+			<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+			
+			<step type="COMPARE2" name="STRING" page="pge_AcceptCookies" failureMode="IGNORE">
+				<parameter type="CONTEXT" name="Value One" value="param_SetToStatus" />
+				<parameter type="STATIC" name="Value Two" value="ON" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="CLICK" name="rad_MarketingOptions_CA" page="pge_MarketingOptions">
+					<parameter type="STATIC" name="Offset" value="90,50" />
+					<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+				</step>
+				
+<!-- 				<step type="GESTURE" name="PRESS.rad_MarketingOptions_CA" page="pge_MarketingOptions" trace="true" os="IOS"> -->
+<!-- 					<parameter type="STATIC" value="90,50"/> -->
+<!-- 					<parameter type="STATIC" value="3"/> -->
+<!-- 					<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" /> -->
+<!-- 				</step> -->
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_Set_OptionName" />
+					<parameter type="STATIC" value="Above Marketing Options is set to 'ON' state" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+					<step type="CLICK" name="rad_MarketingOptions_CA" page="pge_MarketingOptions">
+						<parameter type="STATIC" name="Offset" value="5,50" />
+						<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" />
+					</step>
+				
+<!-- 					<step type="GESTURE" name="PRESS.rad_MarketingOptions_CA" page="pge_MarketingOptions" trace="true" os="IOS"> -->
+<!-- 						<parameter type="STATIC" value="5,50"/> -->
+<!-- 						<parameter type="STATIC" value="3"/> -->
+<!-- 						<token type="CONTEXT" name="token_rad_MarketingOptions" value="param_Set_OptionName" /> -->
+<!-- 					</step> -->
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+						<parameter type="CONTEXT" value="param_Set_OptionName" />
+						<parameter type="STATIC" value="Above Marketing Options is set to 'OFF' state" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_MarketingOptions">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MarketingOptions">
+					<parameter type="CONTEXT" value="param_Set_OptionName" />
+					<parameter type="STATIC" value="Above Marketing Options is not available on the page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

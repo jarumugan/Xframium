@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Security">
+		<description> fn_VerifyPageOpened_Security - Function to verify user landed on the Security page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+			<parameter type="STATIC" value="Function's XML file name: fn_Security.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_Security">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TSecurity1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+				<parameter type="STATIC" value="User successfully landed to Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Security">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+					<parameter type="STATIC" value="User is not landed on Security page or it is not opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateAllLinks_Security">
+		<description> fn_ValidateAllLinks_Security - Function to validate whether all links are displayed on Security page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+			<parameter type="STATIC" value="Function's XML file name:  fn_Security.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_UpdatePIN" page="pge_Security">
+			<token type="CONTENT" name="token_lnk_UpdatePIN" value="TSecurity2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+				<parameter type="STATIC" value="'Update PIN' link is available on Security page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Security">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Update PIN' link is not available on Security page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_TouchID" page="pge_Security" os="IOS">
+			<token type="CONTENT" name="token_lnk_TouchID" value="TSecurity3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+				<parameter type="STATIC" value="'Touch ID' link is available on Security page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Security">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+					<parameter type="STATIC" value="'Touch ID' link is not available on Security page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_UpdatePIN">
+		<description> fn_Click_UpdatePIN - Function to click 'Update PIN' on Security page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+			<parameter type="STATIC" value="Function's XML file name: fn_Security.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_UpdatePIN" page="pge_Security">
+			<token type="CONTENT" name="token_lnk_UpdatePIN" value="TSecurity2" />
+			
+			<step type="CLICK" name="lnk_UpdatePIN" page="pge_Security" wait="2">
+				<token type="CONTENT" name="token_lnk_UpdatePIN" value="TSecurity2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+				<parameter type="STATIC" value="'Update PIN' link is available and clicked on Security page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Security">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+					<parameter type="STATIC" value="User unable to click on 'Update PIN' link" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_NavigateFrom_Security_To_Settings">
+		<description>fn_NavigateFrom_Park_To_Dashboard - Function to click BACK button on Park page to navigate back to dashboard </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+			<parameter type="STATIC" value="Function's XML file name: fn_Security.xml" />
+		</step>
+		
+		<step type="EXISTS" name="img_Back" page="pge_Security">
+		
+			<step type="CLICK" name="img_Back" page="pge_Security"/>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+				<parameter type="STATIC" value="'Back' button is available on the Security Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Security">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Security">
+					<parameter type="STATIC" value="'Back' button is not available on Security page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+</suite>

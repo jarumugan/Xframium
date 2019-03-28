@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ViewProfile">
+		<description> fn_VerifyPageOpened_ViewProfile - Function to verify user landed on the 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ViewProfile">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TViewProfile1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="User successfully landed on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'View Profile' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Validate_ProfilePhotoSection">
+		<description> fn_Validate_ProfilePhotoSection - Function to validate the Profile Photo section on 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+<!-- 		<step type="EXISTS" name="img_ProfilePhoto" page="pge_ViewProfile"> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile"> -->
+<!-- 				<parameter type="STATIC" value="'Profile Photo' is displayed on 'View Profile' page as expected" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_ViewProfile"> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile"> -->
+<!-- 					<parameter type="STATIC" value="'Profile Photo' is not displayed on 'View Profile' page" /> -->
+<!-- 				</step> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+		
+		<step type="EXISTS" name="lnk_EditPhoto" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lnk_EditPhoto" value="TViewProfile2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Edit Photo' link displayed on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Edit Photo' link is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_EditPhoto">
+		<description> fn_Click_EditPhoto - Function to click 'Edit Photo' link on Profile Photo section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_EditPhoto" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lnk_EditPhoto" value="TViewProfile2" />
+			
+			<step type="CLICK" name="lnk_EditPhoto" page="pge_ViewProfile" wait="2">
+				<token type="CONTENT" name="token_lnk_EditPhoto" value="TViewProfile2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Edit Photo' link is available and clicked on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Edit Photo' link is not available on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ViewProfile_GetValue">
+		<description> fn_ViewProfile_GetValue - Function to get value for the passed label on 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_GetValue" page="pge_ViewProfile" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_GetValue" value="param_ValueforLabel" />
+			
+			<step type="GET" name="lbl_GetValue" page="pge_ViewProfile" context="str_FieldValue">
+				<token type="CONTEXT" name="token_lbl_GetValue" value="param_ValueforLabel" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="CONTEXT" value="param_ValueforLabel" />
+				<parameter type="CONTEXT" value="str_FieldValue" />
+				<parameter type="STATIC" value="Above is the Field's label and value on View Profile page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="CONTEXT" value="param_ValueforLabel" />
+					<parameter type="STATIC" value="Value is not available for the above Field's label on View Profile page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Validate_LoginInfoSection">
+		<description> fn_Validate_LoginInfoSection - Function to validate the Your Login Information section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_YourLoginInfo" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_YourLoginInfo" value="TViewProfile3" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Your Login Information' section header displayed as expected on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Your Login Information' section header is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_EditLoginInfo" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_YourLoginInfo" value="TViewProfile3" />
+			<token type="CONTENT" name="token_lnk_EditLoginInfo" value="TViewProfile4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Edit' link displayed on 'Your Login Information' section at 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Edit' link is not displayed on 'Your Login Information' section at 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_UserName" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_UserName" value="TViewProfile5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Username' field is available on 'Your Login Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile5" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Username' field is not available on 'Your Login Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickYourLoginInformation_Edit">
+		<description> fn_ClickYourLoginInformation_Edit - Function to click 'Edit' link of Your Information section on Profile Photo section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_EditLoginInfo" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_YourLoginInfo" value="TViewProfile3" />
+			<token type="CONTENT" name="token_lnk_EditLoginInfo" value="TViewProfile4" />
+			
+			<step type="CLICK" name="lnk_EditLoginInfo" page="pge_ViewProfile" wait="2">
+				<token type="CONTENT" name="token_lbl_YourLoginInfo" value="TViewProfile3" />
+				<token type="CONTENT" name="token_lnk_EditLoginInfo" value="TViewProfile4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="Your Login Information section's 'Edit' link is available and clicked on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="Your Login Information section's 'Edit' link is not available on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickYourInformation_Edit">
+		<description> fn_ClickYourInformation_Edit - Function to click 'Edit' link of Your Information section on Profile Photo section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_EditUserInfo" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TViewProfile6" />
+			<token type="CONTENT" name="token_lnk_EditUserInfo" value="TViewProfile4" />
+			
+			<step type="CLICK" name="lnk_EditUserInfo" page="pge_ViewProfile" wait="2">
+				<token type="CONTENT" name="token_lbl_UserInfo" value="TViewProfile6" />
+				<token type="CONTENT" name="token_lnk_EditUserInfo" value="TViewProfile4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="Your Information section's 'Edit' link is available and clicked on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="Your Information section's 'Edit' link is not available on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Validate_UserInfoSection">
+		<description> fn_Validate_UserInfoSection - Function to validate the Your Information section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_UserInfo" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TViewProfile6" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Your Information' section header displayed as expected on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Your Information' section header is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_EditUserInfo" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TViewProfile6" />
+			<token type="CONTENT" name="token_lnk_EditUserInfo" value="TViewProfile4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Edit' link displayed on 'Your Information' section at 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Edit' link is not displayed on 'Your Information' section at 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_MiddleName" page="pge_ViewProfile" failureMode="IGNORE" tagNames="FP-SA">
+<!-- 			<parameter type="STATIC" name="maxScroll" value="3" /> -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" /> -->
+			<token type="CONTENT" name="token_lbl_MiddleName" value="TViewProfile9" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_ViewProfile">
+                        <parameter type="STATIC" value="50,50" />
+                        <parameter type="STATIC" value="50,20" />
+                 </step>
+                 
+            <step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+                        <parameter type="STATIC" value="'Middle Name' field is available on 'Your Information' of 'View Profile' page" />
+                 </step>
+                 
+                 <step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+                        <parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile9" />
+                 </step>
+                 
+                 <step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+                        <step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+                               <parameter type="STATIC" value="'Middle Name' field is not available on 'Your Information' of 'View Profile' page" />
+                        </step>
+                 </step>
+          
+                 
+		
+		<step type="EXISTS" name="lbl_CPF" page="pge_ViewProfile" tagNames="FP-SA">
+			<token type="CONTENT" name="token_lbl_CPF" value="TViewProfile21" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'CPF' field is available on 'Your Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile21" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'CPF' field is not available on 'Your Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Title" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_Title" value="TViewProfile7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Title' field is available on 'Your Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile7" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Title' field is not available on 'Your Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FirstName" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_FirstName" value="TViewProfile8" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'First Name' field is available on 'Your Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile8" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'First Name' field is not available on 'Your Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_MiddleName" page="pge_ViewProfile" tagNames="FP-SA">
+			<token type="CONTENT" name="token_lbl_MiddleName" value="TViewProfile9" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Middle Name' field is available on 'Your Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile9" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Middle Name' field is not available on 'Your Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_LastName" page="pge_ViewProfile">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+            <parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_LastName" value="TViewProfile10" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Last Name' field is available on 'Your Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile10" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Last Name' field is not available on 'Your Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Suffix" page="pge_ViewProfile" tagNames="FP-SA,FP-NA">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_Suffix" value="TViewProfile11" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Suffix' field is available on 'Your Information' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile11" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Suffix' field is not available on 'Your Information' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Validate_PhoneNumberSection">
+		<description> fn_Validate_PhoneNumberSection - Function to validate the Phone Number section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_PhoneNumber" page="pge_ViewProfile" failureMode="IGNORE" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_PhoneNumber" value="TViewProfile13" />
+		</step>
+			
+		<step type="EXISTS" name="lbl_YourPhoneNumber" page="pge_ViewProfile" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_YourPhoneNumber" value="TViewProfile12" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Your Phone Number' section header displayed as expected on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Your Phone Number' section header is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PhoneNumber" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_PhoneNumber" value="TViewProfile13" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Username' field is available on 'Your Phone Number' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile13" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Username' field is not available on 'Your Phone Number' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Validate_YourAddressSection">
+		<description> fn_Validate_YourAddressSection - Function to validate the Your Address section at 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_YourAddress" page="pge_ViewProfile" os="ANDROID">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+            <parameter type="STATIC" name="direction" value="UP" />
+		<token type="CONTENT" name="token_lbl_YourAddress" value="TViewProfile14" />
+			
+			<step type="GESTURE" name="SWIPE" page="pge_ViewProfile">
+                        <parameter type="STATIC" value="50,50" />
+                        <parameter type="STATIC" value="50,20" />
+                 </step>
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Your Address' section header displayed as expected on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Your Address' section header is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="lbl_Address" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_lbl_Address" value="TViewProfile15" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Address' field is available on 'Your Address' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile15" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Address' field is not available on 'Your Address' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_ZipCode" page="pge_ViewProfile" failureMode="IGNORE">
+<!-- 			<parameter type="STATIC" name="maxScroll" value="3" /> -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" /> -->
+			<token type="CONTENT" name="token_lbl_ZipCode" value="TViewProfile18" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'ZipCode' field is available on 'Your Address' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile18" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'ZipCode' field is not available on 'Your Address' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_City" page="pge_ViewProfile">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_City" value="TViewProfile16" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'City' field is available on 'Your Address' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile16" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'City' field is not available on 'Your Address' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_State" page="pge_ViewProfile" failureMode="IGNORE" >
+<!-- 			<parameter type="STATIC" name="maxScroll" value="3" /> -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" /> -->
+			<token type="CONTENT" name="token_lbl_State" value="TViewProfile17" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'State' field is available on 'Your Address' of 'View Profile' page" />
+			</step>
+			
+			<step type="CALL2" name="fn_ViewProfile_GetValue" page="pge_ViewProfile">
+				<parameter type="CONTENT" name="param_ValueforLabel" value="TViewProfile17" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'State' field is not available on 'Your Address' of 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateFooter_ViewProfile">
+		<description> fn_ValidateFooter_ViewProfile - Function to validate footer text on 'View Profile' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ViewProfileFooter1" page="pge_ViewProfile" failureMode="IGNORE" >
+<!-- 			<parameter type="STATIC" name="maxScroll" value="3" /> -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" /> -->
+			<token type="CONTENT" name="token_lbl_ViewProfileFooter1" value="TViewProfile19" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="CONTENT" value="TViewProfile19" />
+				<parameter type="STATIC" value="Above footer text is displayed as expected on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="CONTENT" value="TViewProfile19" />
+					<parameter type="STATIC" value="Above footer text is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+				
+		<step type="VISIBLE" name="lbl_ViewProfileFooter2" page="pge_ViewProfile" tagNames="FP-SA">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_ViewProfileFooter2" value="TViewProfile20" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="CONTENT" value="TViewProfile20" />
+				<parameter type="STATIC" value="Above footer text is displayed as expected on 'View Profile' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="CONTENT" value="TViewProfile20" />
+					<parameter type="STATIC" value="Above footer text is not displayed on 'View Profile' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateDialog_EditPhoto">
+		<description> fn_ValidateDialog_EditPhoto - Function to validate Edit Photo dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_AddPhoto_DialogHeader" page="pge_ViewProfile" os="ANDROID">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_AddPhoto_DialogHeader" value="TViewProfile25" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Add Photo' dialog box appears with the expected title" />
+			</step>
+			
+			<step type="EXISTS" name="lbl_AddPhoto_DialogInfo" page="pge_ViewProfile">
+				<token type="CONTENT" name="token_lbl_AddPhoto_DialogInfo" value="TViewProfile26" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Add Photo' dialog box appears with the expected information" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+						<parameter type="STATIC" value="'Add Photo' dialog box information is not the expected one" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Add Photo' dialog box does not appears or title is not the expected one" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_ChoosePhoto" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_btn_ChoosePhoto_AND" value="TViewProfile22_AND" />
+<!-- 			<token type="CONTENT" name="token_btn_ChoosePhoto_AND01" value="TViewProfile22_AND01" /> -->
+			<token type="CONTENT" name="token_btn_ChoosePhoto_IOS" value="TViewProfile22_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Choose Photo/Gallery' button is available as expected on Edit Photo dialogbox" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Choose Photo/Gallery' button is not available or Edit Photo dialogbox is not displayed after clicking the 'Edit Photo' link" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_TakePhoto" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_btn_TakePhoto_AND" value="TViewProfile23_AND" />
+<!-- 			<token type="CONTENT" name="token_btn_TakePhoto_AND01" value="TViewProfile23_AND01" />                      -->
+			<token type="CONTENT" name="token_btn_TakePhoto_IOS" value="TViewProfile23_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Take Photo/Camera' button is available as expected on Edit Photo dialogbox" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_EditPhoto_Cancel" page="pge_ViewProfile" os="IOS">
+			<token type="CONTENT" name="token_btn_EditPhoto_Cancel" value="TViewProfile24" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Cancel' button is available as expected on Edit Photo dialogbox" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_EditPhotoDialog_ChoosePhoto">
+		<description> fn_Click_EditPhotoDialog_ChoosePhoto - Function to click 'Choose Photo' button on Edit Photo dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_ChoosePhoto" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_btn_ChoosePhoto_AND" value="TViewProfile22_AND" />
+			<token type="CONTENT" name="token_btn_ChoosePhoto_IOS" value="TViewProfile22_IOS" />
+			
+			<step type="CLICK" name="btn_ChoosePhoto" page="pge_ViewProfile" wait="3">
+				<token type="CONTENT" name="token_btn_ChoosePhoto_AND" value="TViewProfile22_AND" />
+				<token type="CONTENT" name="token_btn_ChoosePhoto_IOS" value="TViewProfile22_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Choose Photo/Gallery' button is available and clicked on Edit Photo dialogbox" />
+			</step>
+		</step>
+	
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" failureMode="IGNORE" />
+
+		<step type="CALL2" name="fn_Validate_PhotosGallery" page="pge_CommonReusable" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile" />
+	</function>
+	
+	<function name="fn_Click_EditPhotoDialog_TakePhoto">
+		<description> fn_Click_EditPhotoDialog_TakePhoto - Function to click 'Take Photo' button on Edit Photo dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_TakePhoto" page="pge_ViewProfile">
+			<token type="CONTENT" name="token_btn_TakePhoto_AND" value="TViewProfile23_AND" />
+			<token type="CONTENT" name="token_btn_TakePhoto_IOS" value="TViewProfile23_IOS" />
+			
+			<step type="CLICK" name="btn_TakePhoto" page="pge_ViewProfile" wait="3">
+				<token type="CONTENT" name="token_btn_TakePhoto_AND" value="TViewProfile23_AND" />
+				<token type="CONTENT" name="token_btn_TakePhoto_IOS" value="TViewProfile23_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Take Photo/Camera' button is available and clicked on Edit Photo dialogbox" />
+			</step>
+		</step>
+	
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" failureMode="IGNORE" os="IOS" />
+		
+		<step type="CALL2" name="fn_Validate_Camera" page="pge_CommonReusable" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile" />
+		
+		<step type="STATE" name="Screenshot - Profile photo is set with the captured photo" page="pge_CommonReusable" failureMode="IGNORE" />
+	</function>
+	
+	<function name="fn_Click_EditPhotoDialog_Cancel">
+		<description> fn_Click_EditPhotoDialog_Cancel - Function to click 'Cancel' button on Edit Photo dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_EditPhoto_Cancel" page="pge_ViewProfile" os="IOS">
+			<token type="CONTENT" name="token_btn_EditPhoto_Cancel" value="TViewProfile24" />
+			
+			<step type="CLICK" name="btn_EditPhoto_Cancel" page="pge_ViewProfile" wait="3">
+				<token type="CONTENT" name="token_btn_EditPhoto_Cancel" value="TViewProfile24" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="'Cancel' button is available and clicked on Edit Photo dialogbox" />
+			</step>
+		</step>
+		
+		<!-- click on screen to dismiss the dialog box -->
+		<step type="GESTURE" name="PRESS" page="pge_ViewProfile" os="ANDROID">
+			<parameter type="STATIC" value="10,10" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillDialogDisappears" page="pge_ViewProfile">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_WaitToDisappear_EditPhotoDialog" />
+		</step>
+		
+		<step type="EXISTS" name="btn_EditPhoto_Cancel" page="pge_ViewProfile" os="IOS" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_EditPhoto_Cancel" value="TViewProfile24" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="Edit Photo dialog doesn't disappears after clicking CANCEL button" />
+			</step>
+			
+			<!-- stop the execution -->
+			<step type="FLOW" name="END_FAILURE" page="pge_ViewProfile" failureMode="ERROR"/>
+		</step>
+		
+		<step type="EXISTS" name="btn_TakePhoto" page="pge_ViewProfile" os="ANDROID" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_TakePhoto_AND" value="TViewProfile23_AND" />
+			<token type="CONTENT" name="token_btn_TakePhoto_IOS" value="TViewProfile23_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="Edit Photo dialog doesn't disappears after clicking on screen other than dialog" />
+			</step>
+			
+			<!-- stop the execution -->
+			<step type="FLOW" name="END_FAILURE" page="pge_ViewProfile" failureMode="ERROR"/>
+		</step>
+	</function>
+	
+	<function name="fn_WaitToDisappear_EditPhotoDialog">
+		<description>fn_WaitToDisappear_EditPhotoDialog - function to check whether Edit Photo dialog disappears on View Profile page</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+			<parameter type="STATIC" value="Function's XML file name: fn_ViewProfile.xml" />
+		</step>
+		
+		<step type="WAIT" name="WAIT for 10 Sec" page="pge_ViewProfile">
+			<parameter type="STATIC" value="10" />
+		</step>
+		
+		<step type="EXISTS" name="btn_EditPhoto_Cancel" page="pge_ViewProfile" failureMode="IGNORE" os="IOS">
+			<token type="CONTENT" name="token_btn_EditPhoto_Cancel" value="TViewProfile24" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="Edit Photo dialog disappears successfully after clicking CANCEL button" />
+				</step>
+				
+				<step type="BREAK" name="BREAK - Edit Photo dialog disappears" page="pge_ViewProfile" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_TakePhoto" page="pge_ViewProfile" os="ANDROID" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_TakePhoto_AND" value="TViewProfile23_AND" />
+			<token type="CONTENT" name="token_btn_TakePhoto_IOS" value="TViewProfile23_IOS" />
+			
+			<step type="GESTURE" name="PRESS" page="pge_ViewProfile">
+				<parameter type="STATIC" value="10,10" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="Edit Photo dialog disappears successfully after clicking CANCEL button" />
+				</step>
+				
+				<step type="BREAK" name="BREAK - Edit Photo dialog disappears" page="pge_ViewProfile" />
+			</step>
+		</step>
+	</function>
+</suite>

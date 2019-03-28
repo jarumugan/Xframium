@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Wallet">
+		<description> fn_VerifyPageOpened_ - Function to verify user landed on the 'Wallet' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_Wallet">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TWallet1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="User successfully landed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Wallet' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Validate_WalletSection">
+		<description> fn_Validate_WalletSection - Function to validate WalletSection on 'Wallet' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_UserInfo" page="pge_Wallet">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TWallet2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Wallet Userinfo' link displayed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Wallet Userinfo' link is not displayed on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_WalletInfo" page="pge_Wallet">
+			<token type="CONTENT" name="token_lbl_WalletInfo" value="TWallet3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Wallet Userinfo' link displayed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Wallet Userinfo' link is not displayed on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_AddPayment" page="pge_Wallet">
+			<token type="CONTENT" name="token_btn_AddPayment_AND" value="TWallet4_AND" />
+			<token type="CONTENT" name="token_btn_AddPayment_IOS" value="TWallet4_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Add Payment menthod' link displayed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Add Payment method' link is not displayed on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Transactions" page="pge_Wallet" os="ANDROID" tagNames="FP-NA-US" >
+			<token type="CONTENT" name="token_lbl_Transactions" value="TWallet5" />
+			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Transactions' link displayed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Transactions' link is not displayed on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Service" page="pge_Wallet"  tagNames="FP-NA-US" >
+			<token type="CONTENT" name="token_lnk_Service" value="TWallet6" />
+			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Service' link displayed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Service' link is not displayed on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Service">
+		<description> fn_Click_Service - Function to click 'Service' link on Wallet section at 'Wallet' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Service" page="pge_Wallet">
+			<token type="CONTENT" name="token_lnk_Service" value="TWallet6" />
+			
+			<step type="CLICK" name="lnk_Service" page="pge_Wallet" wait="2">
+				<token type="CONTENT" name="token_lnk_Service" value="TWallet6" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Service' link is available and clicked on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Service' link is not available on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_AddPaymentMethod">
+		<description> fn_Click_AddPaymentMethod - Function to click 'AddPaymentMethod' link at 'Wallet' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_AddPayment" page="pge_Wallet">
+			<token type="CONTENT" name="token_btn_AddPayment_AND" value="TWallet4_AND" />
+			<token type="CONTENT" name="token_btn_AddPayment_IOS" value="TWallet4_IOS" />
+			
+			<step type="CLICK" name="btn_AddPayment" page="pge_Wallet" wait="2">
+			<token type="CONTENT" name="token_btn_AddPayment_AND" value="TWallet4_AND" />
+			<token type="CONTENT" name="token_btn_AddPayment_IOS" value="TWallet4_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'AddPaymentMethod' link is available and clicked on 'Wallet' page" />
+			</step>
+			
+			<step type="LOOP" name="WaitTillLoadingCompletes" page="pge_Wallet" failureMode="IGNORE">
+				<parameter type="STATIC" value="9" />
+				<parameter type="STATIC" value="fn_WaitTillLoadingCompletes" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'AddPaymentMethod' link is not available on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_VerifyPageOpened_WalletTermsandConditions">
+		<description> fn_VerifyPageOpened_ - Function to verify user landed on the 'WalletTermsand Conditions' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_WalletTermsandConditions" page="pge_Wallet">
+			<token type="CONTENT" name="token_lbl_WalletTermsandConditions_AND" value="TWallet7_AND" />
+			<token type="CONTENT" name="token_lbl_WalletTermsandConditions_IOS" value="TWallet7_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="User successfully landed on 'Wallet Terms and Conditions ' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'WalletTerms and Conditions' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_WalletMobileTerms" page="pge_Wallet">
+			<token type="CONTENT" name="token_lbl_WalletMobileTerms" value="TWallet8" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="User successfully landed on 'Wallet Terms and Conditions ' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'WalletTerms and Conditions' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Wallet_TermsIAccept">
+		<description> fn_Click_Wallet_TermsIAccept  page gets opened  - Function to verify user selected Iaccept link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_TermsIAccept" page="pge_Wallet" wait="3">
+				<token type="CONTENT" name="token_btn_TermsIAccept_AND" value="TWallet9_AND" />
+				<token type="CONTENT" name="token_btn_TermsIAccept_IOS" value="TWallet9_IOS" />
+			</step>
+		
+		<step type="CLICK" name="btn_TermsIAccept" page="pge_Wallet">
+				<token type="CONTENT" name="token_btn_TermsIAccept_AND" value="TWallet9_AND" />
+				<token type="CONTENT" name="token_btn_TermsIAccept_IOS" value="TWallet9_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="User successfully cliked in IAccept " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - IAccept page" page="pge_Wallet" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>	
+	
+	<function name="fn_Validate_WalletSection_WithCard">
+		<description> fn_Validate_WalletSection - Function to validate WalletSection on 'Wallet' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_UserInfo" page="pge_Wallet">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TWallet10" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Wallet Userinfo' link displayed on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Wallet Userinfo' link is not displayed on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+		
+	</function>	
+	
+	
+	<function name="fn_Click_ManagePaymentMethod">
+		<description> fn_Click_ManagePaymentMethod - Function to click Manage Payment Methods  on 'Wallet' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+			<parameter type="STATIC" value="Function's XML file name: fn_Wallet.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_UserInfo" page="pge_Wallet">
+			<token type="CONTENT" name="token_lbl_UserInfo" value="TWallet10" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+				<parameter type="STATIC" value="'Manage Payment Method' link selected on 'Wallet' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Wallet">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Wallet">
+					<parameter type="STATIC" value="'Manage Payment Method' link is not selected on 'Wallet' page" />
+				</step>
+			</step>
+		</step>
+		
+	</function>	
+	
+</suite>

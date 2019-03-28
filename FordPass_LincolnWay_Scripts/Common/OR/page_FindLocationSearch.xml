@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindLocationSearch" class="org.xframium.page.keyWord.KeyWordPage">		
+					
+			<element name="edt_SearchBar" value="//*[@visible='true']/self::UIATextField[1]|//*[contains(@resource-id,'search_bar_edit_text')]" descriptor="XPATH" />		
+			<element name="lbl_SearchResultList" value="//*[@text='{token_lbl_SearchResultList}'][1]|//*[@label='{token_lbl_SearchResultList}'][1]" descriptor="XPATH" />		
+			<element name="lnk_SearchClearTextIcon" value="//*[contains(@resource-id,'close_icon')]|//*[@label='{token_lnk_SearchClearTextIcon}']" descriptor="XPATH" />		
+		</page>
+	</site>
+</elementDefinition>

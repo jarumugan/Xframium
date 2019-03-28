@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+	<!-- ESURESH8: LIST OF FUNCTIONS in fn_FindCommon.xml-->
+	<!-- fn_Validate_Maps -->
+	<!-- fn_Verify_PageTitle -->
+	<!-- fn_Verify_SearchBar -->
+	<!-- fn_Verify_BtnTimeScale -->
+	<!-- fn_Verify_Button_ListView -->
+	<!-- fn_Click_Button_ListView -->
+	<!-- fn_Verify_Button_Sortby -->
+	<!-- fn_Click_Button_Sortby -->
+	<!-- fn_Verify_ViewList -->
+	<!-- fn_Read_ViewList_Txt -->
+	<!-- fn_Verify_ViewListGetDirection -->
+	<!-- fn_Click_Tab_ViewListDetails -->
+	<!-- fn_Click_Tab_ViewListDetails_WOTitle -->
+	<!-- fn_Click_ViewListGetDirection -->
+	<!-- fn_Verify_Button_ListView_Common -->
+	<!-- fn_Click_Button_ListView_Common -->
+	<!-- fn_Verify_Button_MapView_Common -->
+	<!-- fn_Click_Button_MapView_Common -->
+<!-- ############################################################################################################# -->	
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to Open/Close the Map Application -->
+<!-- ############################################################################################################# -->	
+
+	<function name="fn_Validate_Maps">
+		<description>fn_Validate_Maps - Common function to Open and Close Maps Application in Android and iOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<!-- APPLE MAP APPLICATION -->
+		<step type="WAIT_FOR" name="btn_CancelMapNavigation" page="pge_FindCommon" os="IOS" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<token type="CONTENT" name="token_btn_CancelMapNavigation" value="TMapsDecline_IOS" />
+					
+			<step type="EXISTS" name="btn_AcceptMapNavigation" page="pge_FindCommon" >
+				<token type="CONTENT" name="token_btn_AcceptMapNavigation" value="TMapsAccept_IOS" />
+			<step type="CLICK" name="btn_AcceptMapNavigation" page="pge_FindCommon" wait="3" >
+				<token type="CONTENT" name="token_btn_AcceptMapNavigation" value="TMapsAccept_IOS" />
+					
+
+					<step type="WAIT_FOR" name="img_MapNavigation" page="pge_FindCommon" >
+						<parameter type="STATIC" value="4" />
+						<token type="CONTENT" name="token_img_MapNavigation" value="TMapsNavigation_IOS" />
+						
+							<step type="EXISTS" name="img_MapDrive" page="pge_FindCommon" >
+								<token type="CONTENT" name="token_img_MapDrive" value="TMapsDrive_IOS" />
+									<step type="STATE" name="Map Application Opened Sucessfully" page="pge_FindCommon" failureMode="IGNORE"/>
+
+							<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+								<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+									<parameter type="STATIC" value="Map Not Loaded" />
+								</step>
+							</step>
+							</step>
+					<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+							<parameter type="STATIC" value="Map Not Loaded" />
+						</step>
+					</step>
+					</step>					
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'Map Application' Failed to Open" />
+				</step>
+			</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon" os="IOS">
+				<step type="WAIT_FOR" name="img_MapNavigation" page="pge_FindCommon" >
+					<parameter type="STATIC" value="10" />
+						<token type="CONTENT" name="token_img_MapNavigation" value="TMapsNavigation_IOS" />
+							
+							<step type="EXISTS" name="img_MapDrive" page="pge_FindCommon" >
+								<token type="CONTENT" name="token_img_MapDrive" value="TMapsDrive_IOS" />
+									<step type="STATE" name="Map Application Opened Sucessfully" page="pge_FindCommon" failureMode="IGNORE"/>
+										
+								<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+									<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+										<parameter type="STATIC" value="Map Not Loaded" />
+									</step>
+								</step>
+							</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+						<parameter type="STATIC" value="Map Not Loaded" />
+					</step>
+				</step>
+				</step>			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'Map Application' Failed to Open" />
+				</step>
+			</step>		
+		</step>
+		
+		<!-- ANDROID MAP APPLICATION -->
+		<step type="EXISTS" name="btn_AcceptMapNavigation" page="pge_FindCommon" os="ANDROID" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_Maps_AND" value="TMapsAccept_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="Maps Button is Exists" />
+			</step>
+			<step type="CLICK" name="btn_AcceptMapNavigation" page="pge_FindCommon" wait="2" failureMode="IGNORE">
+				<token type="CONTENT" name="token_btn_Maps_AND" value="TMapsAccept_AND" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="Maps Button is Clicked" />
+				</step>	
+				</step>
+			</step>	
+					
+			<step type="WAIT_FOR" name="img_MapMenu" page="pge_FindCommon" os="ANDROID">
+				<parameter type="STATIC" value="20" />
+				<token type="CONTENT" name="token_img_MapMenu" value="TMapsMenu_AND" />
+					<step type="STATE" name="Map Application Opened Successfully" page="pge_FindCommon" failureMode="IGNORE"/>	
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+						<parameter type="STATIC" value="Map Not Loaded" />
+					</step>
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="Maps Options is Not Exists" />
+				</step>
+			</step>
+			</step>	
+			
+			
+<!-- 		<step name="CLOSE" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE"> -->
+<!-- 			<parameter type="STATIC" value="NativeMap"/> -->
+<!-- 		</step>	 -->
+		<step name="OPEN" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>			
+	
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'Page Title' by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+		
+	<function name="fn_Verify_PageTitle">
+	<description> fn_Verify_SectionTitle: To verify the 'Section Title' by passing it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>	
+		<step type="VISIBLE" name="lbl_PageTitle" page="pge_FindCommon">
+			<parameter type="STATIC" name="maxScroll" value="4" />
+			<parameter type="STATIC" name="direction" value="DOWN" />	
+			<token type="CONTEXT" name="token_lbl_PageTitle_IOS" value="param_PageTitle_IOS" />
+			<token type="CONTEXT" name="token_lbl_PageTitle_AND" value="param_PageTitle_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'PAGE TITLE' is EXISTS as Follows" />
+				<parameter type="CONTEXT" name="PAGE TITLE" value="param_PageTitle_IOS" />
+				<parameter type="CONTEXT" name="PAGE TITLE" value="param_PageTitle_AND" />
+				<step type="STATE" name="FIND - Page Title" page="pge_FindCommon" failureMode="IGNORE" />
+			</step>
+			<step type="STATE" name="Screen Shot - Page" page="pge_FindCommon" failureMode="IGNORE"/> 
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'PAGE TITLE' is NOT EXISTS" />
+				<parameter type="CONTEXT" name="PAGE TITLE" value="param_PageTitle_IOS" />
+				<parameter type="CONTEXT" name="PAGE TITLE" value="param_PageTitle_AND" />
+				<step type="STATE" name="FIND - Page Title" page="pge_FindCommon" failureMode="IGNORE" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	
+	<function name="fn_Verify_SectionTitle_Parking">
+	<description> fn_Verify_SectionTitle: To verify the 'Section Title' by passing it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="VISIBLE" name="lbl_SectionTitle" page="pge_FindCommon">
+			<parameter type="STATIC" name="maxScroll" value="13" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_lbl_SectionTitle" value="param_SectionTitle" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'SECTION TITLE' is EXISTS" />
+					<parameter type="CONTEXT" name="Section Title" value="param_SectionTitle" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SECTION TITLE' is NOT EXISTS" />
+				<parameter type="CONTEXT" name="Section Title" value="param_SectionTitle" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'SEARCH BAR' presence by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+		
+	<function name="fn_Verify_SearchBar">
+	<description> fn_Verify_SearchBar: To verify the 'Search Bar' by passing it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="edt_SearchField" page="pge_FindCommon">
+			<token type="CONTENT" name="token_edt_SearchField" value="TFindPageSearch" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'SEARCH BAR' is EXISTS" />
+			</step>
+				<!-- <step type="EXISTS" name="img_Search" page="pge_FindCommon">
+					<token type="CONTENT" name="token_Img_Search" value="TFindPageSearch" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+						<parameter type="STATIC" value="'SEARCH ICON' is EXISTS" />
+					</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+						<parameter type="STATIC" value="'SEARCH ICON' is NOT EXISTS" />
+					</step>
+				</step>
+				</step> -->
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SEARCH BAR' is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'SEARCH BAR' presence by passing it as a Parameter -->
+	<!-- ESURESH8 - Required Call Function with a Parameter to execute this function  -->
+	<!-- ############################################################################################################# -->
+		
+	<function name="fn_Verify_BtnTimeScale">
+	<description> fn_Verify_BtnTimeScale: To verify the 'Search Bar' by passing it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="btn_TimeScale" page="pge_FindCommon">
+			<token type="CONTENT" name="token_btn_TimeScale" value="TParkTimeScale1" />
+			<step type="GET" name="btn_TimeScale" page="pge_FindCommon" context="str_TimeScale1">
+				<token type="CONTENT" name="token_btn_TimeScale" value="TParkTimeScale1" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'TIME SCALE' is EXISTS, Value as follows" />
+					<parameter type="CONTEXT" name="Time Scale Value" value="str_TimeScale1" />
+				</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'TIME SCALE' is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+			<step type="EXISTS" name="btn_TimeScale" page="pge_FindCommon">
+			<token type="CONTENT" name="token_btn_TimeScale" value="TParkTimeScale1" />
+			<step type="GET" name="btn_TimeScale" page="pge_FindCommon" context="str_TimeScale2">
+				<token type="CONTENT" name="token_btn_TimeScale" value="TParkTimeScale2" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'TIME SCALE' is EXISTS, Value as follows" />
+					<parameter type="CONTEXT" name="Time Scale Value" value="str_TimeScale2" />
+				</step>
+				<step type="STATE" name="Filters - Applied Filters Count" page="pge_FindCommon" failureMode="IGNORE" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'TIME SCALE' is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'SORT BY BUTTON' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_Button_Sortby">
+	<description> fn_Verify_Button_ListView: To verify the 'LIST VIEW' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="btn_Sortby" page="pge_FindCommon">
+		<token type="CONTENT" name="token_btn_Sortby_AND" value="TFindSortBy_AND" />
+		<token type="CONTENT" name="token_btn_Sortby_IOS" value="TFindSortBy_IOS" />
+			<step type="GET" name="btn_Sortby" page="pge_FindCommon" context="str_SortingOrderType" >
+			<token type="CONTENT" name="token_btn_Sortby_AND" value="TFindSortBy_AND" />
+			<token type="CONTENT" name="token_btn_Sortby_IOS" value="TFindSortBy_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SORT BY' Button element is EXISTS and Sorted as follows" />
+				<parameter type="CONTEXT" name="Sorting Order" value="str_SortingOrderType" />
+			</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SORT BY' Button element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	</function>
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function Click on the 'SORT BY' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_Button_Sortby">
+	<description> fn_Verify_Button_ListView: To verify the 'LIST VIEW' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="btn_Sortby" page="pge_FindCommon">
+		<token type="CONTENT" name="token_btn_Sortby_AND" value="TFindSortBy_AND" />
+		<token type="CONTENT" name="token_btn_Sortby_IOS" value="TFindSortBy_IOS" />
+			<step type="GET" name="btn_Sortby" page="pge_FindCommon" context="str_SortingOrderType" >
+			<token type="CONTENT" name="token_btn_Sortby_AND" value="TFindSortBy_AND" />
+			<token type="CONTENT" name="token_btn_Sortby_IOS" value="TFindSortBy_IOS" />
+			</step>
+			<step type="CLICK" name="btn_Sortby" page="pge_FindCommon">
+			<token type="CONTENT" name="token_btn_Sortby_AND" value="TFindSortBy_AND" />
+			<token type="CONTENT" name="token_btn_Sortby_IOS" value="TFindSortBy_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SORT BY' Button element is EXISTS, CLICKED and Sorted as follows" />
+				<parameter type="CONTEXT" name="Sorting Order" value="str_SortingOrderType" />
+			</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SORT BY' Button element is NOT EXISTS and CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Read the 'VIEW LIST' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_ViewList">
+	<description> fn_Verify_ViewList1: To verify the 'LIST VIEW DETAILS' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>	
+		<step type="EXISTS" name="tab_ViewList" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'View List' is EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List" page="pge_FindCommon" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'View List' is NOT EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List" page="pge_FindCommon" failureMode="IGNORE" />
+		</step>
+		</step>	
+	</function>
+	
+	<function name="fn_Read_ViewList_Txt"> 
+	<description> fn_Read_ViewList_Txt: To Read the 'LIST VIEW DETAILS' </description>
+		<step type="EXISTS" name="lbl_ViewList_Txt" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+		<token type="CONTEXT" name="token_List_Txt_Index_AND" value="param_List_Txt_Index_AND" />
+		<token type="CONTEXT" name="token_List_Txt_Index_IOS" value="param_List_Txt_Index_IOS" />
+		
+			<step type="GET" name="lbl_ViewList_Txt" page="pge_FindCommon" context="str_ViewList_Txt" >	
+			<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+			<token type="CONTEXT" name="token_List_Txt_Index_AND" value="param_List_Txt_Index_AND" />
+			<token type="CONTEXT" name="token_List_Txt_Index_IOS" value="param_List_Txt_Index_IOS" />
+			</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'List View Element' is EXISTS" />
+					<parameter type="CONTEXT" name="Title"  value="str_ViewList_Txt" />
+				</step>
+				<step type="STATE" name="FIND - View List Details" page="pge_FindCommon" failureMode="IGNORE" />				
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'List View Element' is NOT EXISTS" />
+				<parameter type="CONTEXT" name="Title"  value="str_ViewList_Txt" />
+			</step>
+			<step type="STATE" name="FIND - View List Details" page="pge_FindCommon" failureMode="IGNORE" />
+		</step>
+		</step>
+	</function>
+		
+
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Verify the 'GET DIRECTION' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_ViewListGetDirection">
+	<description> fn_Verify_ViewListGetDirection: To verify the 'LIST VIEW DETAILS' </description>			
+		<step type="EXISTS" name="lnk_ViewList_GetDirection" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+		<token type="CONTEXT" name="token_GetDirection_AND" value="param_GetDirection_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List 'Get Direction'" page="pge_FindCommon" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is NOT EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List 'Get Direction'" page="pge_FindCommon" failureMode="IGNORE" />
+		</step>
+		</step>
+	</function>
+	
+	
+	<function name="fn_Verify_ViewListGetDirection_CN">
+	<description> fn_Verify_ViewListGetDirection: To verify the 'LIST VIEW DETAILS' </description>			
+		<step type="EXISTS" name="lnk_ViewList_GetDirection_CN" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+		<token type="CONTEXT" name="token_GetDirection_AND" value="param_GetDirection_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List 'Get Direction'" page="pge_FindCommon" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is NOT EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List 'Get Direction'" page="pge_FindCommon" failureMode="IGNORE" />
+		</step>
+		</step>
+	</function>
+	
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Click the 'VIEW LIST TAB' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_Tab_ViewListDetails">
+	<description> fn_Click_Tab_ViewListDetails: To Click the 'LIST' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="tab_ViewList" page="pge_FindCommon">
+			<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+				<step type="GET" name="lbl_ViewList_Title" page="pge_FindCommon" context="str_ViewList_Title" >	
+					<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+				</step>
+				<step type="GET" name="lbl_ViewList_SubTitle" page="pge_FindCommon" context="str_ViewList_SubTitle" >	
+					<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+				</step>
+					<step type="CLICK" name="tab_ViewList" page="pge_FindCommon">
+					<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+							<parameter type="STATIC" value="'LIST VIEW TAB' Button element is EXISTS, CLICKED" />
+							<parameter type="CONTEXT" value="str_ViewList_Title" />
+							<parameter type="CONTEXT" value="str_ViewList_SubTitle" />
+						</step>
+					</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'LIST VIEW TAB' Button element is NOT EXISTS and CLICKED" />
+			</step>
+		</step>
+		</step>
+		<!-- Verifying the 'PAGE TITLE' title on Landing Page -->		
+		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" >
+			<parameter type="CONTEXT" name="param_PageTitle_IOS" value="str_ViewList_Title" />
+			<parameter type="CONTEXT" name="param_PageTitle_AND" value="str_ViewList_Title" />
+		</step>
+		
+<!-- 		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" > -->
+<!-- 			<parameter type="CONTEXT" name="param_PageTitle_IOS" value="str_ViewList_SubTitle" /> -->
+<!-- 			<parameter type="CONTEXT" name="param_PageTitle_AND" value="str_ViewList_SubTitle" /> -->
+<!-- 		</step> -->
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Click the 'VIEW LIST TAB' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_Tab_ViewListDetails_WOTitle">
+	<description> fn_Click_Tab_ViewListDetails_WOTitle: To Click the 'LIST' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="tab_ViewList" page="pge_FindCommon">
+			<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+				<step type="GET" name="lbl_ViewList_Title" page="pge_FindCommon" context="str_ViewList_Title" >	
+					<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+				</step>
+				<step type="GET" name="lbl_ViewList_SubTitle" page="pge_FindCommon" context="str_ViewList_SubTitle" >	
+					<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+				</step>
+					<step type="CLICK" name="tab_ViewList" page="pge_FindCommon">
+					<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+							<parameter type="STATIC" value="'LIST VIEW TAB' Button element is EXISTS, CLICKED" />
+							<parameter type="CONTEXT" value="str_ViewList_Title" />
+							<parameter type="CONTEXT" value="str_ViewList_SubTitle" />
+						</step>
+					</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'LIST VIEW TAB' Button element is NOT EXISTS and CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- This function to Click the 'GET DIRECTION' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Click_ViewListGetDirection">
+	<description> fn_Verify_ViewListGetDirection: To verify the 'LIST VIEW DETAILS' </description>			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<step type="CLICK" name="lnk_ViewList_GetDirection" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+		<token type="CONTEXT" name="token_GetDirection_AND" value="param_GetDirection_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is CLICKED" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is NOT CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ViewListGetDirection_CN">
+	<description> fn_Verify_ViewListGetDirection: To verify the 'LIST VIEW DETAILS' </description>			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<step type="CLICK" name="lnk_ViewList_GetDirection_CN" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_List_Index" value="param_List_Index" />
+		<token type="CONTEXT" name="token_GetDirection_AND" value="param_GetDirection_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is CLICKED" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Get Direction Link' is NOT CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Verify the 'LIST VIEW' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_Button_ListMapView_Common">
+		<description> fn_Verify_Button_ListView_Common - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_ListMapView" page="pge_FindCommon">
+		<token type="CONTENT" name="token_btn_ListMapView_IOS" value="TFindBtnListMapView" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'FIND- LIST/MAP VIEW'- Element is EXISTS" />
+				</step>
+				<step type="STATE" name="FIND - View List/Map Button" page="pge_FindCommon" failureMode="IGNORE" />
+
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'FIND- LIST/MAP VIEW'- Element is NOT EXISTS" />
+			</step>
+			<step type="STATE" name="FIND - View List/Map Button" page="pge_FindCommon" failureMode="IGNORE" />
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Click the 'LIST VIEW' -->
+	<!-- ############################################################################################################# -->	
+	<function name="fn_Click_Button_ListMapView_Common">
+		<description> fn_Click_Button_ListView_Common - Function to Click ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<step type="CLICK" name="btn_ListMapView" page="pge_FindCommon">
+		<token type="CONTENT" name="token_btn_ListMapView_IOS" value="TFindBtnListMapView" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'FIND- LIST/MAP VIEW'- Element is CLICKED" />
+				</step>
+
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'FIND- LIST/MAP VIEW'- Element is NOT CLICKED" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Verify the 'NO RESULTS ON MAP' -->
+	<!-- ############################################################################################################# -->	
+	<function name="fn_Verify_NoRecordsOnMap">
+		<description> fn_Verify_NoRecordsOnMap - This function to Verify the 'NO RESULTS ON MAP' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<step type="EXISTS" name="lbl_NoRecords" page="pge_FindCommon">
+		<token type="CONTENT" name="token_lbl_NoRecords_AND" value="TFindMapNoRecords_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'FIND- MAP NOT LOADED" />
+			</step>
+			<step type="STATE" name="FIND - MAP NOT LOADED" page="pge_FindCommon" failureMode="IGNORE" />
+			<step name="BREAK" type="BREAK" page="pge_FindCommon" />
+
+					<!-- KSARAV53 - After clicking 'Apple Maps' it opens another screen on top of map with route directions -->
+					<!-- KSARAV53 - Hence click 'Cancel' and then verify the map screen -->
+					<!-- START -->
+					<step type="WAIT_FOR" name="btn_CancelMapNavigation" page="pge_FindCommon" os="IOS" failureMode="IGNORE">
+						<parameter type="STATIC" value="10" />
+						<token type="CONTENT" name="token_btn_CancelMapNavigation" value="TMapsDecline_IOS" />
+						<step type="CLICK" name="btn_CancelMapNavigation" page="pge_FindCommon" >
+							<token type="CONTENT" name="token_btn_CancelMapNavigation" value="TMapsDecline_IOS" />
+						</step>
+					</step>
+					<!-- END -->
+					<step type="WAIT_FOR" name="img_MapNavigation" page="pge_FindCommon" >
+						<parameter type="STATIC" value="4" />
+						<token type="CONTENT" name="token_img_MapNavigation" value="TMapsNavigation_IOS" />
+						
+							<step type="EXISTS" name="img_MapDrive" page="pge_FindCommon" >
+								<token type="CONTENT" name="token_img_MapDrive" value="TMapsDrive_IOS" />
+									<step type="STATE" name="Map Application Opened Sucessfully" page="pge_FindCommon" failureMode="IGNORE"/>
+
+							<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+								<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+									<parameter type="STATIC" value="Map Not Loaded" />
+								</step>
+							</step>
+							</step>
+					<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+							<parameter type="STATIC" value="Map Not Loaded" />
+						</step>
+					</step>
+					</step>					
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'Map Application' Failed to Open" />
+				</step>
+			</step>
+
+		
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon" os="IOS">
+				<step type="WAIT_FOR" name="img_MapNavigation" page="pge_FindCommon" >
+					<parameter type="STATIC" value="10" />
+						<token type="CONTENT" name="token_img_MapNavigation" value="TMapsNavigation_IOS" />
+							
+							<step type="EXISTS" name="img_MapDrive" page="pge_FindCommon" >
+								<token type="CONTENT" name="token_img_MapDrive" value="TMapsDrive_IOS" />
+									<step type="STATE" name="Map Application Opened Sucessfully" page="pge_FindCommon" failureMode="IGNORE"/>
+										
+								<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+									<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+										<parameter type="STATIC" value="Map Not Loaded" />
+									</step>
+								</step>
+							</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+						<parameter type="STATIC" value="Map Not Loaded" />
+					</step>
+				</step>
+				</step>			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'Map Application' Failed to Open" />
+				</step>
+			</step>		
+		
+		
+		<!-- ANDROID MAP APPLICATION -->
+		<step type="EXISTS" name="btn_AcceptMapNavigation" page="pge_FindCommon" os="ANDROID" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_Maps_AND" value="TMapsAccept_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="Maps Button is Exists" />
+			</step>
+			<step type="CLICK" name="btn_AcceptMapNavigation" page="pge_FindCommon" wait="2" failureMode="IGNORE">
+				<token type="CONTENT" name="token_btn_Maps_AND" value="TMapsAccept_AND" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="Maps Button is Clicked" />
+				</step>	
+				</step>
+			</step>	
+					
+			<step type="WAIT_FOR" name="img_MapMenu" page="pge_FindCommon" os="ANDROID">
+				<parameter type="STATIC" value="20" />
+				<token type="CONTENT" name="token_img_MapMenu" value="TMapsMenu_AND" />
+					<step type="STATE" name="Map Application Opened Successfully" page="pge_FindCommon" failureMode="IGNORE"/>	
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+						<parameter type="STATIC" value="Map Not Loaded" />
+					</step>
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="Maps Options is Not Exists" />
+				</step>
+			</step>
+			</step>	
+			
+			
+		<step name="CLOSE" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="STATIC" value="NativeMap"/>
+		</step>	
+		<step name="OPEN" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>			
+	
+	</function>
+	
+
+	
+	
+	<!-- ############################################################################################################# -->
+	<!-- This function to Verify and Click the 'CATEGORY' -->
+	<!-- ############################################################################################################# -->		
+<function name="fn_Launch_FindCategories"> 
+	<description> fn_Launch_FindCategories - This function to Launch the 'FIND-CATEGORIES' </description>
+	<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+		<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+	</step>
+	<step type="CALL2" name="fn_Verify_Categories_Paginator" page="pge_FindCategoryApplet" failureMode="IGNORE"/>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">	
+			<step type="CALL2" name="fn_Verify_CategoryTrayBar" page="pge_FindCategoryApplet" failureMode="IGNORE">
+				<step type="CALL2" name="fn_Click_CategoryTrayBar" page="pge_FindCategoryApplet" failureMode="IGNORE">
+			 		<step type="CALL2" name="fn_Verify_Categories_Paginator" page="pge_FindCategoryApplet" failureMode="IGNORE"/>
+			 							
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to Verify the 'CATEGORY - EXISTANCE' by swiping Right and Left -->
+	<!-- ############################################################################################################# -->	
+	<function name="fn_Find_Category_Lookup">
+	<description> fn_Find_Category_Lookup: To verify the 'CATEGORY' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>	
+<!-- 		<step type="CALL2" name="fn_Verify_Categories_Paginator" page="pge_FindCategoryApplet" /> -->
+		<!-- Verifying the 'CATEGEORY' Existence -->
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE">
+			<parameter type="CONTEXT" name="param_Categories_IOS" value="param_Categories_IOS_value" />
+			<parameter type="CONTEXT" name="param_Categories_AND" value="param_Categories_AND_value" />
+			<step type="STATE" name="FIND - Categories" page="pge_FindCommon" failureMode="IGNORE" />
+			
+				<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+				<step type="CALL2" name="fn_SwipeR_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE"/>
+				<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE">
+					<parameter type="CONTEXT" name="param_Categories_IOS" value="param_Categories_IOS_value" />
+					<parameter type="CONTEXT" name="param_Categories_AND" value="param_Categories_AND_value" />
+					<step type="STATE" name="FIND - Categories" page="pge_FindCommon" failureMode="IGNORE" />
+					
+						<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+							<step type="CALL2" name="fn_SwipeR_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE"/>
+							<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE">
+								<parameter type="CONTEXT" name="param_Categories_IOS" value="param_Categories_IOS_value" />
+								<parameter type="CONTEXT" name="param_Categories_AND" value="param_Categories_AND_value" />
+								<step type="STATE" name="FIND - Categories" page="pge_FindCommon" failureMode="IGNORE" />	
+								
+									<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+										<step type="CALL2" name="fn_SwipeL_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE"/>
+										<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE">
+											<parameter type="CONTEXT" name="param_Categories_IOS" value="param_Categories_IOS_value" />
+											<parameter type="CONTEXT" name="param_Categories_AND" value="param_Categories_AND_value" />
+											<step type="STATE" name="FIND - Categories" page="pge_FindCommon" failureMode="IGNORE" />
+												
+												<step type="ELSE" name="elseCondition" page="pge_FindCategoryApplet">	
+													<step type="CALL2" name="fn_SwipeL_Categories" page="pge_FindCategoryApplet" failureMode="IGNORE"/>
+													<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet">
+														<parameter type="CONTEXT" name="param_Categories_IOS" value="param_Categories_IOS_value" />
+														<parameter type="CONTEXT" name="param_Categories_AND" value="param_Categories_AND_value" />
+														<step type="STATE" name="FIND - Categories" page="pge_FindCommon" failureMode="IGNORE" />
+													</step>	
+												</step>
+										</step>	
+									</step>
+							</step>
+						</step>
+				</step>	
+				</step>	
+		</step>
+		</function>
+		
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to verify the 'SAFETY CHECK' -->
+	<!-- ############################################################################################################# -->	
+		<function name="fn_Verify_SafetyCheck">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<step type="EXISTS" name="lbl_SafetyCheck" page="pge_FindCommon">
+		<token type="CONTENT" name="token_lbl_SafetyCheck" value="TFindSafetyCheck" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindDealersDetails">
+					<parameter type="STATIC" value="'SAFETY CHECK'- Title is EXISTS"  />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SAFETY CHECK'- Title is NOT EXISTS"  />
+			</step>
+		</step>
+		</step>
+<!-- 		<step type="EXISTS" name="lbl_SafetyCheckInfo" page="pge_FindCommon"> -->
+<!-- 		<token type="CONTENT" name="token_lbl_SafetyCheckInfo" value="TFindSafetyCheckInfo" />	 -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon"> -->
+<!-- 					<parameter type="STATIC" value="'SAFETY CHECK'- Information is EXISTS"  /> -->
+<!-- 				</step> -->
+<!-- 		<step type="ELSE" name="elseCondition" page="pge_FindCommon"> -->
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon"> -->
+<!-- 				<parameter type="STATIC" value="'SAFETY CHECK'- Information is NOT EXISTS"  /> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+<!-- 		</step> -->
+		<step type="EXISTS" name="btn_NotDriving" page="pge_FindCommon">
+		<token type="CONTENT" name="token_btn_NotDriving_IOS" value="TFindNotDriving_IOS" />	
+		<token type="CONTENT" name="token_btn_NotDriving_AND" value="TFindNotDriving_AND" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'I'M NOT DRIVING'- Button is EXISTS"  />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'I'M NOT DRIVING'- Button is NOT EXISTS"  />
+			</step>
+		</step>
+		</step>
+		
+	</function>	
+	
+	<function name="fn_Accept_SafetyCheck">
+		<description> fn_Verify_Button_FuelListView - Function to verify ListView Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		<step type="CLICK" name="btn_NotDriving" page="pge_FindCommon">
+		<token type="CONTENT" name="token_btn_NotDriving_IOS" value="TFindNotDriving_IOS" />	
+		<token type="CONTENT" name="token_btn_NotDriving_AND" value="TFindNotDriving_AND" />	
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'I'M NOT DRIVING'- Button is CLICKED"  />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'I'M NOT DRIVING'- Button is NOT CLICKED"  />
+			</step>
+		</step>
+		</step>
+	</function>	
+		
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function to verify the 'SORT BY DIALOG BOX' -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_SortbyDialogWindow_AND">
+	<description> fn_Verify_SortbyDialogWindow_AND: To verify the 'SORT BY DIALOG BOX' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+			<step type="EXISTS" name="lbl_SortbyDW_Title" page="pge_FindCommon" os="ANDROID">
+				<token type="CONTENT" name="token_lbl_SortbyDW_Title" value="TFindSortbyDW_Title" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'SORT BY' Title is EXISTS on the Dialog Box Window" />
+				</step>
+				<step type="STATE" name="FIND - SORT BY DIALOG WINDOW" page="pge_FindCommon" failureMode="IGNORE" />
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'SORT BY' Title is NOT EXISTS on the Dialog Box Window" />
+				</step>
+				<step type="STATE" name="FIND - SORT BY DIALOG WINDOW" page="pge_FindCommon" failureMode="IGNORE" />
+			</step>
+			</step>
+			
+<!-- 			<step type="EXISTS" name="rdb_SortbyDW_Price" page="pge_FindCommon" os="ANDROID"> -->
+<!-- 				<token type="CONTENT" name="token_rdb_SortbyDW_Price" value="TFindSortbyDW_Price" /> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon"> -->
+<!-- 					<parameter type="STATIC" value="'RADIO BUTTON - PRICE' is EXISTS on the Dialog Box Window" /> -->
+<!-- 				</step> -->
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_FindCommon"> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon"> -->
+<!-- 					<parameter type="STATIC" value="'RADIO BUTTON - PRICE' is NOT EXISTS on the Dialog Box Window" /> -->
+<!-- 				</step> -->
+<!-- 			</step> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="EXISTS" name="rdb_SortbyDW_Distance" page="pge_FindCommon" os="ANDROID"> -->
+<!-- 				<token type="CONTENT" name="token_rdb_SortbyDW_Distance" value="TFindSortbyDW_Distance" /> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon"> -->
+<!-- 					<parameter type="STATIC" value="'RADIO BUTTON - DISTANCE' is EXISTS on the Dialog Box Window" /> -->
+<!-- 				</step> -->
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_FindCommon"> -->
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon"> -->
+<!-- 					<parameter type="STATIC" value="'RADIO BUTTON - DISTANCE' is NOT EXISTS on the Dialog Box Window" /> -->
+<!-- 				</step> -->
+<!-- 			</step> -->
+<!-- 			</step> -->
+			
+			<step type="EXISTS" name="btn_SortbyDW_Ok" page="pge_FindCommon" os="ANDROID">
+				<token type="CONTENT" name="token_btn_SortbyDW_Ok" value="TFindSortbyDW_Ok" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'BUTTON - OK' is EXISTS on the Dialog Box Window" />
+				</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'BUTTON - OK' is NOT EXISTS on the Dialog Box Window" />
+				</step>
+			</step>
+			</step>
+			
+			<step type="EXISTS" name="btn_SortbyDW_Cancel" page="pge_FindCommon" os="ANDROID">
+				<token type="CONTENT" name="token_btn_SortbyDW_Cancel" value="TFindSortbyDW_Cancel" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'BUTTON - CANCEL' is EXISTS on the Dialog Box Window" />
+				</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'BUTTON - CANCEL' is NOT EXISTS on the Dialog Box Window" />
+				</step>
+			</step>
+			</step>
+	</function>
+	
+	<function name="fn_Click_SortbyDW_RdbValue_AND">
+	<description> fn_Click_SortbyDW_RdbValue_AND: To Click the 'SORT BY PARAMETER' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+			<step type="EXISTS" name="rdb_SortbyDW_Value" page="pge_FindCommon" os="ANDROID">
+				<token type="CONTEXT" name="token_rdb_SortbyDW_Value" value="param_rdb_SortbyDW_Value" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'RADIO BUTTON' is EXISTS on the Dialog Box Window with following Value" />
+					<parameter type="CONTEXT" name="Sorting Order By" value="param_rdb_SortbyDW_Value" />
+				</step>
+					<step type="CLICK" name="rdb_SortbyDW_Value" page="pge_FindCommon" >
+						<token type="CONTEXT" name="token_rdb_SortbyDW_Value" value="param_rdb_SortbyDW_Value" />
+					</step>
+						<step type="CLICK" name="btn_SortbyDW_Ok" page="pge_FindCommon" >
+							<token type="CONTENT" name="token_btn_SortbyDW_Ok" value="TFindSortbyDW_Ok" />
+						</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'RADIO BUTTON' is EXISTS on the Dialog Box Window with following Value" />
+					<parameter type="CONTEXT" name="Sorting Order By" value="param_rdb_SortbyDW_Value" />
+				</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					<parameter type="STATIC" value="'RADIO BUTTON' is NOT EXISTS on the Dialog Box Window for following Value" />
+					<parameter type="CONTEXT" name="Sorting Order By" value="param_rdb_SortbyDW_Value" />
+				</step>
+			</step>
+			</step>
+	</function>
+	
+	<function name="fn_Select_PickerWheel_IOS">
+	<description> fn_Select_PickerWheel_IOS: To Pick the Value from 'PICKER WHEEL' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="SET" name="edt_PickrWheel_Value" page="pge_FindCommon" os="IOS">
+			<parameter type="CONTEXT" name="PickerWheel Value" value="param_PickerWheel_Value" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Picker Wheel' Value defined as follows" />
+				<parameter type="CONTEXT" name="Picker Wheel Value" value="param_PickerWheel_Value" />
+			</step>
+			<step type="STATE" name="Picker Wheel" page="pge_FindCommon" failureMode="IGNORE" />
+			<step type="CLICK" name="btn_PickerWheel_Done" page="pge_FindCommon" >
+				<token type="CONTENT" name="token_btn_PickerWheel_Done" value="TFindPickerWheel_Done" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'Picker Wheel' following value is not found" />
+				<parameter type="CONTEXT" name="Picker Wheel Value" value="param_PickerWheel_Value" />
+			</step>
+		</step>		
+		</step>	
+	</function>
+	
+	<function name="fn_Verify_SortedOrderType">
+	<description> fn_Verify_SortedOrderType: To verify the 'SORTED ORDER BUTTON' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>		
+		<step type="EXISTS" name="btn_Sortedby" page="pge_FindCommon">
+		<token type="CONTEXT" name="token_SortedOrderType" value="param_SortedOrderType" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SORT BY' Button element is EXISTS and Sorted as follows" />
+				<parameter type="CONTEXT" name="Sorted Order" value="param_SortedOrderType" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SORT BY' Button element is NOT EXISTS as follows" />
+				<parameter type="CONTEXT" name="Sorted Order" value="param_SortedOrderType" />
+			</step>
+		</step>
+		</step>
+	</function>
+			
+	<function name="fn_Validate_SortedOrder_Price">
+		<description> fn_Validate_SortedOrder_Price: To Validate the 'SORTED ORDER BY PRICE' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>	
+		<!-- Verifying and Fetching the 'VIEW LIST PRICE' Text Elements on Page		 -->
+			<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="1" />
+				<parameter type="STATIC" name="param_List_Txt_Index_AND" value="2" />
+				<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="3" />
+			</step>
+			<step name="SET" page="pge_FindCommon" type="CONTEXT" >
+				<parameter type="STATIC" name="Name" value="ListView_1" />
+				<parameter type="CONTEXT" name="Value" value="str_ViewList_Txt" />
+			</step>
+		
+		<!-- Verifying and Fetching the 'VIEW LIST PRICE' Text Elements on Page		 -->
+			<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="2" />
+				<parameter type="STATIC" name="param_List_Txt_Index_AND" value="2" />
+				<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="3" />
+			</step>
+			<step name="SET" page="pge_FindCommon" type="CONTEXT" >
+				<parameter type="STATIC" name="Name" value="ListView_2" />
+				<parameter type="CONTEXT" name="Value" value="str_ViewList_Txt" />
+			</step>
+			<step type="COMPARE2" name="STRING" page="pge_FindCommon" failureMode="IGNORE">
+			  <parameter type="CONTEXT" name="Value One" value="ListView_2" />
+			  <parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+			  <parameter type="STATIC" name="Operator" value="GREATER" />
+				  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				  		<parameter type="STATIC" name="Compared Result" value="COMPARED RESULT: The List are sorted as per the 'Price' Order " />
+						<parameter type="CONTEXT" name="Value One" value="ListView_2" />
+			  			<parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+					</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">		
+				<step type="COMPARE2" name="STRING" page="pge_FindCommon">
+				  <parameter type="CONTEXT" name="Value One" value="ListView_2" />
+				  <parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+				  <parameter type="STATIC" name="Operator" value="EQUALS" />
+					  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					  		<parameter type="STATIC" name="Compared Result" value="COMPARED RESULT: The List are sorted as per the 'Price' Order " />
+							<parameter type="CONTEXT" name="Value One" value="ListView_2" />
+				  			<parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+						</step>					
+				</step>
+			</step>
+			</step>
+		</function>	
+		
+		<function name="fn_Validate_SortedOrder_Distance">
+		<description> fn_Validate_SortedOrder_Price: To Validate the 'SORTED ORDER BY PRICE' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>	
+		<!-- Verifying and Fetching the 'VIEW LIST PRICE' Text Elements on Page		 -->
+			<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="1" />
+				<parameter type="STATIC" name="param_List_Txt_Index_AND" value="4" />
+				<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="5" />
+			</step>
+			<step name="SET" page="pge_FindCommon" type="CONTEXT" >
+				<parameter type="STATIC" name="Name" value="ListView_1" />
+				<parameter type="CONTEXT" name="Value" value="str_ViewList_Txt" />
+			</step>
+		
+		<!-- Verifying and Fetching the 'VIEW LIST PRICE' Text Elements on Page		 -->
+			<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="2" />
+				<parameter type="STATIC" name="param_List_Txt_Index_AND" value="4" />
+				<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="5" />
+			</step>
+			<step name="SET" page="pge_FindCommon" type="CONTEXT" >
+				<parameter type="STATIC" name="Name" value="ListView_2" />
+				<parameter type="CONTEXT" name="Value" value="str_ViewList_Txt" />
+			</step>
+			<step type="COMPARE2" name="STRING" page="pge_FindCommon" failureMode="IGNORE">
+			  <parameter type="CONTEXT" name="Value One" value="ListView_2" />
+			  <parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+			  <parameter type="STATIC" name="Operator" value="GREATER" />
+				  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				  		<parameter type="STATIC" name="Compared Result" value="COMPARED RESULT: The List are sorted as per the 'Distance' Order " />
+						<parameter type="CONTEXT" name="Value One" value="ListView_2" />
+			  			<parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+					</step>
+			<step type="ELSE" name="elseCondition" page="pge_FindCommon">		
+				<step type="COMPARE2" name="STRING" page="pge_FindCommon">
+				  <parameter type="CONTEXT" name="Value One" value="ListView_2" />
+				  <parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+				  <parameter type="STATIC" name="Operator" value="EQUALS" />
+					  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+					  		<parameter type="STATIC" name="Compared Result" value="COMPARED RESULT: The List are sorted as per the 'Distance' Order " />
+							<parameter type="CONTEXT" name="Value One" value="ListView_2" />
+				  			<parameter type="CONTEXT" name="Value Two" value="ListView_1" />
+						</step>					
+				</step>
+			</step>
+			</step>
+		</function>	
+
+	<!-- ############################################################################################################# -->
+	<!-- KSARAV53 - This function to verify whether the search bar content "Going somewhere?" exists or not -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_SearchBarText">
+	<description> fn_Verify_SearchBarText: To verify the 'Search Bar' text by passing it as a Parameter  </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindCommon.xml" />
+		</step>
+		
+		<step type="WAIT" name="Wait_For_10_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="10"/>
+		</step>	
+				
+		<step type="EXISTS" name="edt_SearchField" page="pge_FindCommon">
+			<token type="CONTENT" name="token_edt_SearchField" value="TFindPageSearch" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'SEARCH BAR' is EXISTS" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindCommon">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindCommon">
+				<parameter type="STATIC" value="'SEARCH BAR' DOES NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+		
+	</function>
+</suite>

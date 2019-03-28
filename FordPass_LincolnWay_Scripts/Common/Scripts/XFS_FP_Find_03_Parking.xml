@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID : -->
+<!-- Author Name : ESURESH8 -->
+<!-- Created Date : 23-Mar-2018 -->
+<!-- Updated Date : 18-Apr-2018 -->
+<!-- Pre-Requisite :  Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc.-->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_03_Parking" dataProvider="TestData.XFS_FP_Find_001" contentKeys="EU_UK_EN" timed="false" threshold="0" active="true">
+		<description> FIND >> PARKING Page Verification and Validations</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		<step name="OPEN" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	
+<!-- Enable this for location specific search -->
+<!-- 			<step type="COMMAND" name="mobile:location:set" page="pge_Login"> -->
+<!--     		<parameter type="STATIC" name="address" value="S1 Yingbin Expy, Pudong Xinqu, Shanghai Shi, China" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_Launch_FindCategories" page="pge_FindCommon"> -->
+<!-- 		</step> -->
+			
+		<!-- Clicking the 'CATEGEORY-PARKING'  -->
+<!-- 		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" > -->
+<!-- 			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory2_IOS" /> -->
+<!-- 			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory2_AND" /> -->
+<!-- 		</step> -->
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> PARKING >> VERIFY LANDING PAGE -->
+<!-- ############################################################################################################# -->
+
+		<!-- Verifying the 'MAP IS LOADED WITH DATA' on Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_NoRecordsOnMap" page="pge_FindCommon" failureMode="IGNORE" os="ANDROID"/> -->
+		
+		<!-- Verifying the 'PARKING' title on FIND>>PARKING Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" > -->
+<!-- 			<parameter type="CONTENT" name="param_PageTitle_IOS" value="TFindPageTitle2_IOS" /> -->
+<!-- 			<parameter type="CONTENT" name="param_PageTitle_AND" value="TFindPageTitle2_AND" /> -->
+<!-- 		</step> -->
+		
+		<!-- Verifying the 'FILTER' Button on Parking Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_Button_Filters" page="pge_FindFilters" /> -->
+		
+		<!-- Verifying the 'SEARCH FIELD & ICON' edit field on Fuel Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_SearchBar" page="pge_FindCommon" /> -->
+		
+		<!-- Verifying the 'TIME SCALE' button on Parking Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_BtnTimeScale" page="pge_FindCommon" /> -->
+		
+		<!-- Verifying the 'CATEGORY TRAY ICON' on Fuel Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_CategoryTrayBar" page="pge_FindCategoryApplet" /> -->
+		
+		<!-- Verifying the 'LIST VIEW' button on Parking Page -->
+<!--  			<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon" /> -->
+						
+		<!-- Verifying the 'MENU BAR - FORD PASS' tabs on Parking Page -->
+<!-- 		<step type="CALL2" name="fn_ValidateMenuBar_FordPass" page="pge_FPCommon" /> -->
+		
+	<!-- ##################################################################################################### -->
+<!-- ESURESH8 - FIND >> PARKING >> LIST VIEW -->
+<!-- ##################################################################################################### -->	
+
+	<!-- Clicking the 'LIST VIEW BUTTON' on Page -->
+<!-- 		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_Verify_Button_Sortby" page="pge_FindCommon" os="ANDROID"/> -->
+		
+		<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		 -->
+<!-- 			<parameter type="STATIC" name="param_List_Index" value="1" /> -->
+<!-- 		</step> -->
+			
+	<!-- Verifying and Fetching the 'VIEW LIST GET DIRECTION LINK' Text Elements on Page -->	
+<!-- 		<step type="CALL2" name="fn_Verify_ViewListGetDirection" page="pge_FindCommon" > -->
+<!-- 			<parameter type="STATIC" name="param_List_Index" value="1" /> -->
+<!-- 			<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" /> -->
+<!-- 		</step>	 -->
+		<!-- CLICKING the 'VIEW LIST TAB' Elements on Page -->
+<!-- 		<step type="CALL2" name="fn_Click_Tab_ViewListDetails" page="pge_FindCommon">		 -->
+<!-- 			<parameter type="STATIC" name="param_List_Index" value="1" /> -->
+<!-- 		</step> -->
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> PARKING >> LIST VIEW >> FUEL DETAILS SCRIPTS -->
+<!-- ############################################################################################################# -->
+
+<!-- 		<step type="CALL2" name="fn_Verify_PriceHeader" page="pge_FindFuelBankDetails" /> -->
+		
+		
+<!-- 		<step type="CALL2" name="fn_Validate_MapDirection" page="pge_FindFuelBankDetails"> -->
+<!-- 			<step type="CALL2" name="fn_Validate_Maps" page="pge_FindCommon" /> -->
+<!-- 		</step> -->
+		
+	<!-- Verifying the 'PARKING DETAILS' title on Parking Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindCommon"> -->
+<!-- 			<parameter type="CONTENT" name="param_SectionTitle" value="TFindParkSection1" /> -->
+<!-- 		</step> -->
+		
+				
+<!-- 		Verifying the 'PARKING HOURS' on Park Details Page (Sunday - Saturday List) -->
+<!-- 		<step type="CALL2" name="fn_Verify_ParkingDayTimeList" page="pge_FindParkingDetails" /> -->
+		
+		<!-- Verifying the 'RATING' title on Parking Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindCommon"> -->
+<!-- 			<parameter type="CONTENT" name="param_SectionTitle" value="TFindParkSection2" /> -->
+<!-- 		</step> -->
+		
+		<!-- Verifying the 'RATING BAR' on Parking Page -->
+<!-- 		<step type="CALL2" name="fn_Validate_RatingBar" page="pge_FindCommon" os="ANDROID"> -->
+<!-- 			<parameter type="CONTENT" name="param_RatingStrBar" value="TFindParkSection2" /> -->
+<!-- 		</step> -->
+		
+		<!-- Verifying the 'REVIEW LINK' on Parking Page -->
+		<step type="CALL2" name="fn_Verify_Reviews" page="pge_FindParkingDetails">
+			<parameter type="CONTENT" name="param_lnk_review" value="TFindParkSection2" />
+		</step>
+		
+		<!-- Clicking the 'REVIEW LINK' on Parking Page -->
+		<step type="CALL2" name="fn_Click_Reviews" page="pge_FindParkingDetails">
+			<parameter type="CONTENT" name="param_lnk_review" value="TFindParkSection2" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+
+		<!-- Verifying the 'Amenities' title on Parking Page -->
+		
+			<parameter type="STATIC" name="maxScroll" value="4" /> 
+			<parameter type="STATIC" name="direction" value="UP" /> 
+		<step type="CALL2" name="fn_Verify_SectionTitle_Parking" page="pge_FindCommon">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TFindParkSection3" />
+		</step>
+		
+		<!-- Verifying the 'Amenities' Details on Parking Page -->
+		<step type="CALL2" name="fn_Verify_Amenities" page="pge_FindParkingDetails" failureMode="IGNORE">
+			<parameter type="CONTENT" name="param_lbl_Amenities" value="TFindParkSection3" />
+			<parameter type="STATIC" name="param_lbl_Amenities_Index" value="1" />
+				<step type="CALL2" name="fn_Verify_Amenities" page="pge_FindParkingDetails">
+					<parameter type="CONTENT" name="param_lbl_Amenities" value="TFindParkSection3" />
+					<parameter type="STATIC" name="param_lbl_Amenities_Index" value="2" />
+						<step type="CALL2" name="fn_Verify_Amenities" page="pge_FindParkingDetails">
+							<parameter type="CONTENT" name="param_lbl_Amenities" value="TFindParkSection3" />
+							<parameter type="STATIC" name="param_lbl_Amenities_Index" value="3" />
+								<step type="CALL2" name="fn_Verify_Amenities" page="pge_FindParkingDetails">
+									<parameter type="CONTENT" name="param_lbl_Amenities" value="TFindParkSection3" />
+									<parameter type="STATIC" name="param_lbl_Amenities_Index" value="4" />
+										<step type="CALL2" name="fn_Verify_Amenities" page="pge_FindParkingDetails">
+											<parameter type="CONTENT" name="param_lbl_Amenities" value="TFindParkSection3" />
+											<parameter type="STATIC" name="param_lbl_Amenities_Index" value="5" />
+										</step>
+								</step>
+						</step>
+				</step>
+		</step>
+	
+		
+		
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> PARKING >> FILTER SCRIPTS -->
+<!-- ############################################################################################################# -->
+
+		<step type="CALL2" name="fn_Click_Button_FiltersOpen" page="pge_FindFilters" />
+		
+		<step type="CALL2" name="fn_Verify_FiltersPage" page="pge_FindFilters" />
+				
+		<!-- ##################################################################################################### -->
+		<!-- ESURESH8 - FIND >> PARKING >> FILTER >> BRANDS -->
+		<!-- ##################################################################################################### -->
+		
+		<!-- Verifying & Validating the 'FUEL BRAND >> Check Box' on Fuel Filter Page -->
+		<step type="CALL2" name="fn_Verify_CbxBtnWithLabel" page="pge_FindFilters" tagNames="FP-EU">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TParkFilterSection1" />
+			<parameter type="STATIC" name="param_cbxIndex" value='1' />
+		</step>
+		
+		<!-- ##################################################################################################### -->
+		<!-- ESURESH8 - FIND >> PARKING >> FILTER >> MAXIMUM PRICE - SLEEK BAR -->
+		<!-- ##################################################################################################### -->
+		
+		<step type="CALL2" name="fn_Validate_SeekBar" page="pge_FindFilters" os="IOS">
+			<parameter type="CONTENT" name="param_SbrName" value="TParkFilterSection2_IOS" />
+		</step>
+		<step type="CALL2" name="fn_Validate_SeekBar" page="pge_FindFilters" os="ANDROID">
+			<parameter type="CONTENT" name="param_SbrName" value="TParkFilterSection2_AND" />
+		</step>
+		
+		<!-- ##################################################################################################### -->
+		<!-- ESURESH8 - FIND >> PARKING >> FILTER >> MAXIMUM DISTANCE - SLEEK BAR -->
+		<!-- ##################################################################################################### -->
+		
+		<step type="CALL2" name="fn_Validate_SeekBar" page="pge_FindFilters" os="IOS">
+			<parameter type="CONTENT" name="param_SbrName" value="TParkFilterSection3_IOS" />
+		</step>
+		<step type="CALL2" name="fn_Validate_SeekBar" page="pge_FindFilters" os="ANDROID">
+			<parameter type="CONTENT" name="param_SbrName" value="TParkFilterSection3_AND" />
+		</step>
+		
+		<!-- ##################################################################################################### -->
+		<!-- ESURESH8 - FIND >> PARKING >> FILTER >> RATING - RATING STARS -->
+		<!-- ##################################################################################################### -->
+		
+		<step type="CALL2" name="fn_Validate_RatingBar" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_RatingStrBar" value="TParkFilterSection4" />
+		</step>
+		
+		<!-- ##################################################################################################### -->
+		<!-- ESURESH8 - FIND >> FUEL >> FILTER >> APPLY FILTER -->
+		<!-- ##################################################################################################### -->		
+		
+		<!-- Verifying & Validating the 'FILTERS APPLY >> Filters Count' on Fuel Filter Page -->
+		<step type="CALL2" name="fn_Click_Button_FiltersApply" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_ApplyFilter_IOS" value="TFiltersApply_IOS" />
+			<parameter type="CONTENT" name="param_ApplyFilter_AND" value="TFiltersApply_AND" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_Button_FiltersOpen" page="pge_FindFilters" />
+		
+		<!-- Verifying the 'CLEAR FILTER' on Fuel Filter Page for Android -->
+		<step type="CALL2" name="fn_ClickLink_Filters_Clear" page="pge_FindFilters" />
+		
+		<!-- Verifying & Validating the 'FILTERS APPLY >> Filters Count' on Fuel Filter Page -->
+		<step type="CALL2" name="fn_Click_Button_FiltersApply" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_ApplyFilter_IOS" value="TFiltersApplyDone_IOS" />
+			<parameter type="CONTENT" name="param_ApplyFilter_AND" value="TFiltersApplyDone_AND" />
+		</step>
+		
+	<!-- Clicking the 'MAP VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+	</test>
+</suite>

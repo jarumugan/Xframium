@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Congratulations">
+		<description> fn_VerifyPageOpened_Congratulations - Function to verify user landed on the 'Congratulations - Create Account' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Congratulations.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_Congratulation" page="pge_Congratulations">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_Congratulation" value="TCongratulations1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="STATIC" value="User successfully landed on 'Congratulations - Create Account' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="STATIC" value="'Congratulations - Create Account' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_Congratulations">
+		<description> fn_ValidatePage_Congratulations - Function to validate the 'Congratulations - Create Account' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Congratulations.xml" />
+		</step>
+		
+		<!-- 	<step type="EXISTS" name="lbl_FirstName" page="pge_Congratulations">  -->
+		
+		<!-- first name is auto append with "-"(hyphen) when it is not fit within a line -->
+		<step type="EXISTS" name="lbl_FirstName" page="pge_Congratulations" os="IOS">
+			<token type="DATA" name="token_lbl_FirstName" value="TestData.FirstName" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="DATA" value="TestData.FirstName" />
+				<parameter type="STATIC" value="Given above FirstName displayed on 'Congratulations - Create Account' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="DATA" value="TestData.FirstName" />
+					<parameter type="STATIC" value="Given above FirstName is not displayed on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="lbl_SuccessMsg" page="pge_Congratulations">
+			<token type="CONTENT" name="token_lbl_SuccessMsg" value="TCongratulations2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="CONTENT" value="TCongratulations2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on 'Congratulations - Create Account' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="CONTENT" value="TCongratulations2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+		
+				
+		<step type="EXISTS" name="lbl_SuccessMsg" page="pge_Congratulations">
+			<token type="CONTENT" name="token_lbl_SuccessMsg" value="TCongratulations2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="CONTENT" value="TCongratulations2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on 'Congratulations - Create Account' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="CONTENT" value="TCongratulations2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_TakeTheTour" page="pge_Congratulations">
+			<token type="CONTENT" name="token_btn_TakeTheTour_AND" value="TCongratulations3_AND" />
+			<token type="CONTENT" name="token_btn_TakeTheTour_IOS" value="TCongratulations3_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="STATIC" value="'Take The Tour' button is available on 'Congratulations - Create Account' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="STATIC" value="'Take The Tour' button is not available or label is not expected on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_SkipForNow" page="pge_Congratulations">
+			<token type="CONTENT" name="token_lnk_SkipForNow" value="TCongratulations4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="STATIC" value="'Skip for Now' link is available on 'Congratulations - Create Account' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="STATIC" value="'Skip for Now' link is not available or label is not expected on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_TakeTheTour">
+		<description> fn_Click_TakeTheTour - Function to click 'Take the Tour' button on the 'Congratulations - Create Account' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Congratulations.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_TakeTheTour" page="pge_Congratulations">
+			<token type="CONTENT" name="token_btn_TakeTheTour_AND" value="TCongratulations3_AND" />
+			<token type="CONTENT" name="token_btn_TakeTheTour_IOS" value="TCongratulations3_IOS" />
+			
+			<step type="CLICK" name="btn_TakeTheTour" page="pge_Congratulations" wait="3">
+				<token type="CONTENT" name="token_btn_TakeTheTour_AND" value="TCongratulations3_AND" />
+			<token type="CONTENT" name="token_btn_TakeTheTour_IOS" value="TCongratulations3_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="STATIC" value="'Take The Tour' button is available and clicked on 'Congratulations - Create Account' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="STATIC" value="'Take The Tour' button is not available or label is not expected on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_SkipForNow">
+		<description> fn_Click_SkipForNow - Function to click 'Skip for Now' link on the 'Congratulations - Create Account' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Congratulations.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_SkipForNow" page="pge_Congratulations">
+			<token type="CONTENT" name="token_lnk_SkipForNow" value="TCongratulations4" />
+			
+			<step type="CLICK" name="lnk_SkipForNow" page="pge_Congratulations">
+				<token type="CONTENT" name="token_lnk_SkipForNow" value="TCongratulations4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+				<parameter type="STATIC" value="'Skip For Now' link is available and clicked on 'Congratulations - Create Account' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Congratulations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Congratulations">
+					<parameter type="STATIC" value="'Skip For Now' link is not available on 'Congratulations - Create Account' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

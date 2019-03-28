@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FSA" class="org.xframium.page.keyWord.KeyWordPage">
+		
+			<element name="lbl_FSANotifiInVehicleDetail" value="//*[@text='{token_lbl_FSANotifiInVehicleDetail}']|//*[@label='{token_lbl_FSANotifiInVehicleDetail}']" descriptor="XPATH" />
+			<element name="img_FSANotifiInVehicleDetail" value="//*[@text='{token_lbl_FSANotifiInVehicleDetail}']/preceding-sibling::android.widget.ImageView[1]|//*[@label='{token_lbl_FSANotifiInVehicleDetail}']/preceding-sibling::UIAImage[1]" descriptor="XPATH" />
+			<element name="lbl_FSA" value="//*[contains(translate(@text,'{token_lbl_FSA_L}','{token_lbl_FSA_U}'),'{token_lbl_FSA_U}')]|//*[contains(translate(@label,'{token_lbl_FSA_L}','{token_lbl_FSA_U}'),'{token_lbl_FSA_U}')]" descriptor="XPATH" />
+			<element name="lnk_FSAName" value="//*[@text='{token_lnk_FSAName}']|//*[@label='{token_lnk_FSAName}']" descriptor="XPATH" />
+			<element name="lbl_FsaInfoTitle" value="//*[@text='{token_lbl_FsaInfoTitle}']|//*[@label='{token_lbl_FsaInfoTitle}']" descriptor="XPATH" />
+			<element name="lbl_FsaInfo" value="//*[contains(translate(@text,'{token_lbl_FsaInfo_L}','{token_lbl_FsaInfo_U}'),'{token_lbl_FsaInfo_U}')]|//*[contains(translate(@label,'{token_lbl_FsaInfo_L}','{token_lbl_FsaInfo_U}'),'{token_lbl_FsaInfo_U}')]" descriptor="XPATH" />
+			<element name="lbl_FsaNameInfo" value="//*[contains(translate(@text,'{token_lbl_FsaInfo_L}','{token_lbl_FsaInfo_U}'),'{token_lbl_FsaInfo_U}')]/following-sibling::*[@text='{token_lnk_FSAName}']|//UIATableCell[contains(translate(@name,'{token_lbl_FsaInfo_L}','{token_lbl_FsaInfo_U}'),'{token_lbl_FsaInfo_U}')]//*[@label='{token_lnk_FSAName}']" descriptor="XPATH" />
+			<element name="lbl_FordFsaNoLbl" value="//*[@text='{token_lbl_FordFsaNoLbl}']|//*[@label='{token_lbl_FordFsaNoLbl}']" descriptor="XPATH" />
+			<element name="lbl_FordFsaNo" value="//*[@text='{token_lbl_FordFsaNo}']|//*[@label='{token_lbl_FordFsaNo}']" descriptor="XPATH" />
+			<element name="lbl_RecallDesc" value="//*[@text='{token_lbl_RecallDesc}']|//*[@label='{token_lbl_RecallDesc}']" descriptor="XPATH" />
+			<element name="lbl_FSANameDesc" value="//*[@text='{token_lbl_FSANameDesc}']/following-sibling::*[@text='{token_lnk_FSAName}']|//UIATableCell[@name='{token_lbl_FSANameDesc}']//*[@label='{token_lnk_FSAName}']" descriptor="XPATH" />
+			<element name="lbl_FSADetailDesc" value="//*[contains(@text,'{token_lbl_FSADetailDesc_AND}')]|//*[contains(@label,'{token_lbl_FSADetailDesc}')]" descriptor="XPATH" />
+			<element name="lbl_FSAName_IOS" value="//*[@text='{token_lbl_RecallDesc}']/following-sibling::*[@text='{token_lnk_FSAName}']|//UIATableCell[@name='{token_lbl_RecallDesc}']//*[@label='{token_lnk_FSAName}']" descriptor="XPATH" />
+			<element name="lbl_VIN" value="//*[contains(translate(@text,'{token_lbl_VIN_L}','{token_lbl_VIN_U}'),'{token_lbl_VIN_U}')]|//*[contains(translate(@label,'{token_lbl_VIN_L}','{token_lbl_VIN_U}'),'{token_lbl_VIN_U}')]" descriptor="XPATH" />
+			<element name="btn_FindADealer" value="//*[@text='{token_btn_FindADealer}']|//UIAButton[@label='{token_btn_FindADealer}']" descriptor="XPATH" />
+						
+		</page>
+	</site>
+</elementDefinition>
+

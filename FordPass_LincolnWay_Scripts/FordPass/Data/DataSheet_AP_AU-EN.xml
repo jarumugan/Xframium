@@ -1,0 +1,183 @@
+<data>
+	<!-- Setting the Environment and Country -->
+	<recordType name="Setup" lockRecords="false">
+		<record name="XFS_StartFordPass" Environment="QA" Country="Australia" AllowCookies="true" />
+	</recordType>
+	
+	<!-- App Crash Scenarios test data across all the pillars -->
+	<recordType name="TestData" lockRecords="false">
+		<record name="XFS_FP_CrossPillar_Moving_Betwen_Validations" ALM_TC_Name="Validation for Moving between pillars smothly" UserName="muralisastage@yop.com" Password="Test@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+	</recordType>
+	
+	
+	<!-- ACCOUNTS & GUIDES Pillar Test Data -->
+	<recordType name="TestData" lockRecords="false">
+	
+		<record name="XFS_FP_Guides_001" ALM_TC_Name="Validate Email A Guide" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Guides_002" ALM_TC_Name="Validate Call A Guide during Operational Hours" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Guides_003" ALM_TC_Name="Validate Call A Guide during Non-Operational Hours" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Guides_004" ALM_TC_Name="Validate Chat With A Guide during Non-Operational Hours" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Guides_005" ALM_TC_Name="Validate Guides Change Topics and Popular Topics Header" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Guides_006" ALM_TC_Name="Validate Guides RSA Landing Page and RSA Call" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Guides_007" ALM_TC_Name="Validate Guides Search Topics (Astute)" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" SearchText="My Vehicles" active="true" />
+		<record name="XFS_FP_Guides_008" ALM_TC_Name="Validate Chat With A Guide Wait Time" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+	
+		<record name="XFS_FP_GDPR_001_AND" ALM_TC_Name="Validate when user is already logged in FP 1.0 and Post address is set to Yes in GDPR flow" UserName="helloowarm1@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" active="true" />
+		<record name="XFS_FP_GDPR_001_IOS" ALM_TC_Name="Validate when user is already logged in FP 1.0 and Post address is set to Yes in GDPR flow" UserName="balauk@staging.com" Password="Ford@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" active="true" />		
+		<record name="XFS_FP_GDPR_002_AND" ALM_TC_Name="Validate when user is already logged in FP 1.0 and Post address is set to NO in GDPR flow" UserName="helloowarm1@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="OFF" InAppMsgOption="ON" active="true" />
+		<record name="XFS_FP_GDPR_002_IOS" ALM_TC_Name="Validate when user is already logged in FP 1.0 and Post address is set to NO in GDPR flow" UserName="balauk@staging.com" Password="Ford@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="OFF" InAppMsgOption="ON" active="true" />		
+		<record name="XFS_FP_GDPR_003_AND" ALM_TC_Name="Validate when user has not logged into FP 1.0 and Post address is set to Yes in GDPR flow" UserName="helloowarm1@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" active="true" />
+		<record name="XFS_FP_GDPR_003_IOS" ALM_TC_Name="Validate when user has not logged into FP 1.0 and Post address is set to Yes in GDPR flow" UserName="balauk@staging.com" Password="Ford@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" active="true" />		
+		<record name="XFS_FP_GDPR_004_AND" ALM_TC_Name="Validate when user has not logged into FP 1.0 and Post address is set to No in GDPR flow" UserName="helloowarm1@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="OFF" InAppMsgOption="ON" active="true" />
+		<record name="XFS_FP_GDPR_004_IOS" ALM_TC_Name="Validate when user has not logged into FP 1.0 and Post address is set to No in GDPR flow" UserName="balauk@staging.com" Password="Ford@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="OFF" PostOption="OFF" InAppMsgOption="ON" active="true" />
+		
+		
+		<record name="XFS_FP_Accounts_001_AND" ALM_TC_Name="Create Account (Happpy path)" UserName="" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="FordPassEUUK" LastName="EUUKFordPass" CPF="" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" City="City" State="State" ZipcodeCEP="SW1A 1AA" PhoneNumber="1234567890" Address1="Addr1" Address2="Addr2" Number="" ShareLocation="true" active="true" />
+		<record name="XFS_FP_Accounts_001_IOS" ALM_TC_Name="Create Account (Happpy path)" UserName="" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="FordPassEUUK" LastName="EUUKFordPass" CPF="" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" City="City" State="State" ZipcodeCEP="SW1A 1AA" PhoneNumber="1234567891" Address1="Addr1" Address2="Addr2" Number="" ShareLocation="true" active="true" />
+
+		<record name="XFS_FP_Accounts_002" ALM_TC_Name="Login Validation" UserName="09962307810" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" ExpecetdStatus="false" active="true" />
+		<record name="XFS_FP_Accounts_003" ALM_TC_Name="View Profile" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" ExpecetdStatus="false" active="true" />
+		<record name="XFS_FP_Accounts_004" ALM_TC_Name="Create Account Validation" UserName="fp2_038933@yopmail.com" Password="Test123" FirstName="Sara" LastName="Sara" CPF="12345" active="true" />
+		<record name="XFS_FP_Accounts_005" ALM_TC_Name="Edit Photo" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" ExpecetdStatus="false" active="true" />
+		<record name="XFS_FP_Accounts_006" ALM_TC_Name="Units of Measure" UserName="userautomat@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" Distance="Kilometers" TirePressure="bar" Temperature="Fahrenheit" active="true" />
+		<record name="XFS_FP_Accounts_007_AND" ALM_TC_Name="Edit Profile" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="VIJAYA" Title="MRS." LastName="CHITHRA" PhoneNumber="441917316670" StreetName="Wuli Tingliang Village" Number="200237" City="Shanghai" State="Shanghai" active="true" />
+		<record name="XFS_FP_Accounts_007_IOS" ALM_TC_Name="Edit Profile" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="VIJAYA" Title="MRS." LastName="CHITHRA" PhoneNumber="441917316670" StreetName="Wuli Tingliang Village" Number="200237" City="Shanghai" State="Shanghai" active="true" />
+
+		<record name="XFS_FP_Accounts_008" ALM_TC_Name="Forgot Password" UserName="helloowarm1@yopmail.com" TemporaryPassword="12345" active="true" />
+		<record name="XFS_FP_Accounts_009" ALM_TC_Name="Reset Password" UserName="well@done.com" Password="Test@123" TemporaryPassword="12345" active="true" />
+		<record name="XFS_FP_Accounts_010_AND" ALM_TC_Name="Change Password" UserName="98403941535" Password="Test@123" PIN1="4" PIN2="1" PIN3="4" PIN4="1" NewPassword="Test123" ConfirmPassword="Test123" active="true" />
+		<record name="XFS_FP_Accounts_010_IOS" ALM_TC_Name="Change Password" UserName="98407979181" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" NewPassword="Test@123" ConfirmPassword="Test@123" active="true" />
+		<record name="XFS_FP_Accounts_011" ALM_TC_Name="Update PIN, Forgot PIN - Logout" UserName="useranz700@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" NewPIN1="1" NewPIN2="3" NewPIN3="1" NewPIN4="3" active="true" />
+		<record name="XFS_FP_Accounts_012_AND" ALM_TC_Name="Enter Address field level validation" UserName="" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="FordPassEUUK" LastName="EUUKFordPass" CPF="" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" City="City" State="State" ZipcodeCEP="SW1A 1AA" PhoneNumber="1234567890" Address1="Addr1" Address2="Addr2" Number="" ShareLocation="true" active="true" />
+		<record name="XFS_FP_Accounts_012_IOS" ALM_TC_Name="Enter Address field level validation" UserName="" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="FordPassEUUK" LastName="EUUKFordPass" CPF="" EmailOption="OFF" PostOption="ON" InAppMsgOption="ON" City="City" State="State" ZipcodeCEP="SW1A 1AA" PhoneNumber="1234567891" Address1="Addr1" Address2="Addr2" Number="" ShareLocation="true" active="true" />
+		<record name="XFS_FP_Accounts_013_AND" ALM_TC_Name="Enter Address field level validation" UserName="" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="FordPassEUUK" LastName="EUUKFordPass" CPF="" EmailOption="ON" PostOption="OFF" InAppMsgOption="ON" City="City" State="State" ZipcodeCEP="SW1A 1AA" PhoneNumber="1234567890" Address1="Addr1" Address2="Addr2" Number="" ShareLocation="true" active="true" />
+		<record name="XFS_FP_Accounts_013_IOS" ALM_TC_Name="Enter Address field level validation" UserName="" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="FordPassEUUK" LastName="EUUKFordPass" CPF="" EmailOption="ON" PostOption="OFF" InAppMsgOption="ON" City="City" State="State" ZipcodeCEP="SW1A 1AA" PhoneNumber="1234567891" Address1="Addr1" Address2="Addr2" Number="" ShareLocation="true" active="true" />
+
+		<record name="XFS_FP_Accounts_014" ALM_TC_Name="Update PIN - Too Many Login Attempts" UserName="ukcarsharing01@gmail.com" Password="Ford123$" PIN1="1" PIN2="2" PIN3="1" PIN4="2" NoOfTimes="10" InvalidPIN1="2" InvalidPIN2="1" InvalidPIN3="2" InvalidPIN4="1" active="true" />
+		<record name="XFS_FP_Accounts_017" ALM_TC_Name="MarketingOptions Validation" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="ON" PostOption="OFF" InAppMsgOption="ON" ProfilingOption="ON" active="true" />
+		<record name="XFS_FP_Accounts_018" ALM_TC_Name="FordCredit Login_Without FordpassPin" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FordCreditUserName="78945661233" FordCreditPassword="QAZwsx@1" active="true" />
+		<record name="XFS_FP_Accounts_019" ALM_TC_Name="ManageMyData Validation" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" AdvertisingCookies="ON" DeviceLocation="ON" active="true" />
+
+		<record name="XFS_FP_Accounts_014" ALM_TC_Name="Update PIN - Too Many Login Attempts" UserName="98403941535" Password="Test@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" NoOfTimes="10" InvalidPIN1="2" InvalidPIN2="1" InvalidPIN3="2" InvalidPIN4="1" active="true" />
+		<record name="XFS_FP_Accounts_017" ALM_TC_Name="MarketingOptions Validation" UserName="vijayachithra@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" EmailOption="ON" PostOption="OFF" InAppMsgOption="ON" ProfilingOption="ON" active="true" />
+		<record name="XFS_FP_Accounts_018" ALM_TC_Name="FordCredit Login_Without FordpassPin" UserName="vijayachithra@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FordCreditUserName="78945661233" FordCreditPassword="QAZwsx@1" active="true" />
+		<record name="XFS_FP_Accounts_019" ALM_TC_Name="ManageMyData Validation" UserName="vijayachithra@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" AdvertisingCookies="ON" DeviceLocation="ON" active="true" />
+
+		<record name="XFS_FP_Accounts_020" ALM_TC_Name="MarketingOptions_Post validation" UserName="vijayachithra@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" Address1="757" Address2="Lane Street" ZipcodeCEP="75016" City="Bordeaux" active="true" />
+		<record name="XFS_FP_Accounts_021" ALM_TC_Name="FordCredit Login Validation" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FirstName="CLEAR" Title="MME" MiddleName="middle" LastName="last" Suffix="" PhoneNumber="123" City="city" State="state" ZipcodeCEP="123" active="true" />
+		<record name="XFS_FP_Accounts_022" ALM_TC_Name="FordCredit Login_With FordpassPin" UserName="vijayachithra@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" FordCreditUserName="fr007@ford.com" FordCreditPassword="test123" active="true" />
+		<record name="XFS_FP_Accounts_024" ALM_TC_Name="Smartlink Validation Script" UserName="vijayachithra@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" ACCESSFORDPASSSMARTLINK ="ON" ACCESSFORDPASSSMARTLINK1 = "OFF" active="true" />
+		<record name="XFS_FP_Accounts_025" ALM_TC_Name="Wallet_Without Transactions" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Accounts_026" ALM_TC_Name="Wallet_With Transactions" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Accounts_027" ALM_TC_Name="Wallet_Add Payment_Use Existing Address" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" CardholderName="Chithra" CreditcardNumber="4111111111111111" ExpirationDateIOS="08/2018" ExpirationDateAND="5" CVN="123 " active="true" />
+		<record name="XFS_FP_Accounts_028" ALM_TC_Name="Wallet_Add Payment Method_New Address" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" CardholderName="Chithra" CreditcardNumber="4111111111111111" ExpirationDateIOS="08/2018" ExpirationDateAND="5" CVN="123" StreetName="37West 24th Street" Number="10010" City="Newyork" State="NY" active="true" />
+		<record name="XFS_FP_Accounts_029" ALM_TC_Name="Wallet_WithdrawConsent" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Accounts_031" ALM_TC_Name="MessageCentre" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Accounts_033" ALM_TC_Name="Wallet _Manage Payment methods_Add card" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		<record name="XFS_FP_Accounts_034" ALM_TC_Name=" Wallet _Add Payment_Add card _Activate" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" active="true" />
+		
+		
+		<record name="XFS_FP_AALogin" ALM_TC_Name="Login Sample Script" UserName="userautomat@yopmail.com" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" ExpecetdStatus="false" active="true" />
+	</recordType>
+		
+	
+
+	<!-- MOVE Pillar Test Data -->
+	<recordType name="TestData" lockRecords="false">
+		<!-- SMART CARDS -->
+		<record name="XFS_FP_Move_SmartCards_001" ALM_TC_Name="Sample - get Device info" UserName="fpsaen0000023staging@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="SINGLE FSA" VehicleNickName_AND="SINGLE FSA" active="true" />
+		<record name="XFS_FP_Move_SmartCards_002" ALM_TC_Name="Validate Smart Card - Single FSA" UserName="fpsaen0000023staging@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="SINGLE FSA" VehicleNickName_AND="SINGLE FSA" active="true" />
+		<record name="XFS_FP_Move_SmartCards_003" ALM_TC_Name="Validate Smart Card - Single Recall" UserName="96325412358" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="SINGLE RECALL" VehicleNickName_AND="SINGLE RECALL" active="true" />
+		<record name="XFS_FP_Move_SmartCards_004" Environment="Staging" ALM_TC_Name="Validate Smart Card - Multiple FSA" UserName="78523691234" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="MULTI FSA" VehicleNickName_AND="MULTI FSA" active="true" />
+		<record name="XFS_FP_Move_SmartCards_005" ALM_TC_Name="Validate Smart Card - Multiple Recalls" UserName="96325412358" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="MULTI RECALL" VehicleNickName_AND="MULTI RECALL" active="true" />
+		<record name="XFS_FP_Move_SmartCards_006" ALM_TC_Name="Validate Smart Card - Single Recall and Single FSA" UserName="fpsaen0000028staging@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="SINGLE RF" VehicleNickName_AND="SINGLE RF" active="true" />
+		<record name="XFS_FP_Move_SmartCards_007" ALM_TC_Name="Validate Smart Card - Multiple Recalls and Multiple FSA" UserName="fpsaen0000029staging@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="MULTIPLE RF" VehicleNickName_AND="MULTIPLE RF" active="true" />
+		<record name="XFS_FP_Move_SmartCards_008" ALM_TC_Name="Dismiss Smart Card Tiles" UserName="63254178902" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="SINGLE FSA" VehicleNickName_AND="SINGLE FSA" active="true" />
+		<record name="XFS_FP_Move_SmartCards_009" ALM_TC_Name="Validating Smart Tip/Welcome Tip Cards" UserName="63254178902" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="SINGLE FSA" VehicleNickName_AND="SINGLE FSA" active="true" />
+
+		<!-- TPMS -->
+		<record name="XFS_FP_TPMS_Without_DRW" ALM_TC_Name="Validate TPMS Without DRW" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="5500" VehicleNickName_IOS="5500" TirePressure="kPa" active="true" />
+		
+		<!-- Not Applicable for CN -->
+		<!-- <record name="XFS_FP_TPMS_With_DRW" ALM_TC_Name="Validate TPMS With DRW enabled" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="5500" VehicleNickName_IOS="5500" TirePressure="kPa" active="true" /> -->
+		
+		<!-- Vehicle Location -->
+		<record name="XFS_FP_Vehicle_Location" ALM_TC_Name="Validate Vehicle Location" UserName="vehiloceuuk@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="VEHLOC EU_UK" VehicleNickName_IOS="VEHLOC EU_UK" active="true" />
+		
+		<!-- AUTHORIZED TCU VIN -->
+		<record name="XFS_FP_AuthorizedTCUVIN" ALM_TC_Name="Validate Vehicle Details of Authorized TCU VIN" UserName="vehiloceuuk@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="VEHLOC EU_UK" VehicleNickName_IOS="VEHLOC EU_UK" active="true" />
+		
+		<!-- ENABLE SYNC APPLINK -->
+		<record name="XFS_FP_EnableSyncAppLink" ALM_TC_Name="Validate Enable SYNC AppLink" UserName="applinkeuuk@gmail.com" Password="Perf@123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="APPLINK EU_UK" VehicleNickName_IOS="APPLINK EU_UK"  active="true"  />
+		
+		<!-- APP CRASH SCENARIO -->
+		<record name="XFS_FP_App_Crash_Add_VIN_And_VehicleDetails" ALM_TC_Name="App crash scenario - Add VIN/Vehicle Details" UserName="fpeuukprdenv0001@gmail.com" Password="Perf@123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" VehicleName_AND="TRANSIT VIN" VehicleName_IOS="TRANSIT VIN" VehicleNickName_IOS="TRANSIT VIN" VehicleNickName_AND="TRANSIT VIN" VIN="WF0FXXTTFFCC43003" active="true" />
+		
+		<!-- AUTHORIZATION -->
+		<record name="XFS_FP_Authorization_AND" ALM_TC_Name="To Authorize TCU VIN" UserName="15801898463" Password="12348765@a" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="MY MUSTANG(进口)" VIN="1FA6P8CF4J5145900" active="true"/>	
+		<record name="XFS_FP_Authorization_IOS" ALM_TC_Name="To Authorize TCU VIN" UserName="15801898463" Password="12348765@a" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="MY MUSTANG(进口)" VIN="1FA6P8CF4J5145900" active="true"/>
+		<!-- 98745632100 -->
+		
+		
+		<!--Remote Start/Stop, Unlock/Lock -->
+		<record name="XFS_FP_Remote_StartStop_UnlockLock_AND" ALM_TC_Name="Validate Unlock/Lock and Remote Start/Stop" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="5500" active="true" />
+		<record name="XFS_FP_Remote_StartStop_UnlockLock_IOS" ALM_TC_Name="Validate Unlock/Lock and Remote Start/Stop" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="5500" active="true" />
+		
+		
+			
+		<!-- End to End Move Scripts -->	
+		<record name="XFS_FP_Move_WorkFlow_AND" ALM_TC_Name="Move end to end flow" UserName="78523691234" Password="Test123" PIN1="2" PIN2="2" PIN3="5" PIN4="5" FirstName="fpsa" VIN="8AFAR22FXFJ262000" VehicleName_AND="SA_Vehicle" NewNickname="SA_Vehicle_NewNickName" NewLicencePlateNo="TN11X6149" OldLicencePlateNo="XXXXXXXXX" WarrantyStartDate_AND="9/18/14"  WarrantyTerms="3 years" SingleRecallVIN="8AFAR22FXFJ284000" SingleRecallVINModel="" MultipleRecallVIN="9BFZD55P4GB532001" MultiRecallVINModel="" SingleFSAVIN="9BFZH55J8F8216807"	SingleFSAVINModel="" MultipleFSAVIN="3FADP4YJXFM109000" MultiFSAVINModel=""	active="true"  />
+		<record name="XFS_FP_Move_WorkFlow_IOS" ALM_TC_Name="Move end to end flow" UserName="96007359999" Password="Test123" PIN1="2" PIN2="2" PIN3="5" PIN4="5" FirstName="fpsa" VIN="8AFAR22FXFJ262000" VehicleName_IOS="SA_Vehicle" NewNickname="SA_Vehicle_NewNickName" NewLicencePlateNo="TN11X6149" OldLicencePlateNo="XXXXXXXXX"  WarrantyStartDate_IOS="09/18/2014" WarrantyTerms="3 years" SingleRecallVIN="8AFAR22FXFJ284000" SingleRecallVINModel="" MultipleRecallVIN="9BFZD55P4GB532001" MultiRecallVINModel="" SingleFSAVIN="9BFZH55J8F8216807"	SingleFSAVINModel="" MultipleFSAVIN="3FADP4YJXFM109000" MultiFSAVINModel=""	active="true"  />
+
+		<!-- Pending -->
+
+		<record name="XFS_FP_Move_VehicleDetails_001" ALM_TC_Name="Change Password" UserName="09962307813" Password="Test123" PIN1="2" PIN2="2" PIN3="5" PIN4="5" NewNickname="TESTVINNEW" VIN="LVSHCFDB7CE074731" NewLicencePlateNo="" VehicleNickName_IOS="TESTVIN" VehicleNickName_AND="TESTVIN" WarrantyStartDate="" WarrantyTerms="" active="true" />
+		<record name="XFS_FP_Move_VehicleDetails_VehicleSupport_001" ALM_TC_Name="Validate Vehicle support and alert guides" UserName="09962307813" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="TESTVIN" VehicleNickName_AND="TESTVIN" active="true" />	
+		<record name="XFS_FP_Move_AddVehicle_InvalidVIN" ALM_TC_Name="Validating invalid vin in Add Vehicle" UserName="fpeuukinvalidvin20@yop.com" Password="Test@123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" VehicleName_AND="V2000" VehicleName_IOS="V2000" VIN="6FPPXXMJ2PDA29000" VINWithSpecialChars="9B!@#$%^*()_+=-||][]:;'??,>.~`" VINWithOutSpecialChars="9B" VINLessThan17Chars="6FPPXXMJ2PDA2900" InvalidVIN="6FPPXXMJ2PDA29XXX" LW_VIN="5LMTJ2AH6FUJ00835" active="true" />
+
+
+<!-- Compelted 	 -->
+ 		<!-- Service History -->    
+  		<record name="XFS_FP_Move_VehicleDetails_ServiceHistory_01" ALM_TC_Name="Service History -with Details" UserName="09962307812" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="MY MUSTANG" VehicleNickName_AND="My Mustang" active="true" />		
+  		<record name="XFS_FP_Move_VehicleDetails_ServiceHistory_02" ALM_TC_Name="Service History -without Details" UserName="09962307810" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="MY MUSTANG" VehicleNickName_AND="My Mustang" active="true" />		
+ 		<!-- Bonma VIN -->    
+		<record name="XFS_FP_Move_AddAndDelete_BonmaVIN_001_IOS" ALM_TC_Name="Validating add and delete BONMA vehicle for existing user." UserName="09962307815" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleName_IOS="TESTVIN" str_VehicleNickName_IOS="TESTVIN" VIN="LVSHJCAC3JE687282" FirstName="fp" active="true" />		
+		<record name="XFS_FP_Move_AddAndDelete_BonmaVIN_001_AND" ALM_TC_Name="Validating add and delete BONMA vehicle for existing user." UserName="09962307815" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleName_AND="TESTVIN" str_VehicleNickName_IOS="TESTVIN" str_VehicleNickName_AND="TESTVIN" VIN="LVSHJCAC3JE687282" FirstName="fp" active="true" />		
+		<record name="XFS_FP_Move_VehicleDetails_MaintenanceSchedule" ALM_TC_Name="Validate the Maintanance Schedule Functionality" UserName="09962307810" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_IOS="TESTVIN" VehicleNickName_AND="testvin" active="true" />		
+ 		<!-- BASE WARRANTY -->        
+        <record name="XFS_FP_Move_VehicleDetails_BaseWarranty" ALM_TC_Name="Change Password" UserName="09962307815" Password="Test123" PIN1="2" PIN2="2" PIN3="5" PIN4="5" NewNickname="TESTVIN" VinNum="WF0FB9KH2DLS09060" NewLicencePlateNo="" VehicleNickName_IOS="TESTVIN" VehicleNickName_AND="TESTVIN" WarrantyStartDate_AND="09-05-2013" WarrantyStartDate_Val_IOS="2013-05-09" WarrantyTerms="3 yr/100,000 km" active="true" />
+		<!-- Add & Remove VIN				 -->
+		<record name="XFS_FP_Move_AddRemoveVehicle_ExistingUser_AND" ALM_TC_Name="Validating add and delete vehicle for existing user." UserName="78523691234" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleName_AND="TESTVIN" str_VehicleNickName_IOS="TESTVIN" str_VehicleNickName_AND="TESTVIN" VIN="LVSHCADB6DE295757" FirstName="fp" active="true" />		
+		<record name="XFS_FP_Move_AddRemoveVehicle_ExistingUser_IOS" ALM_TC_Name="Validating add and delete vehicle for existing user_ios" UserName="78523691234" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleName_IOS="TESTVIN" VIN="LVSHCADB6DE295757" str_VehicleNickName_IOS="TESTVIN" str_VehicleNickName_AND="TESTVIN" FirstName="fp" active="true" />
+		<!-- RSA  -->
+   		<record name="XFS_FP_Move_RSA_In_All_Module" ALM_TC_Name="Validating RSA in across pillar" UserName="FP_MultipleFSA_01@YOP.COM" Password="Test@123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" active="true" />
+   		
+<!-- Vehicle Hotspot -->
+              <record name="XFS_FP_AuthorisedTCU_VehicleHotspot" ALM_TC_Name="Validate Vehicle Hotspot_Complimentary Data plan" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="5500" VehicleNickName_IOS="5500" active="true" />
+              
+<!-- DEEP SLEEP BANNER -->
+        <record name="XFS_FP_DeepSleep" active="true" PIN4="2" PIN3="1" PIN2="2" PIN1="1" Password="Ford1234" UserName="18936010669" ALM_TC_Name="Verify the Deep Sleep Banner on the Vehicle Landing and Vehicle Details Screens" VehicleNickName_AND="8450" VehicleNickName_IOS="8450"/>
+   		
+   		
+   		<record name="XFS_FP_Move_ScheduleServices_ServiceType_Inspection_01" ALM_TC_Name="Verify user enters schedule service screen from dashboard" UserName="09962307813" Password="Test123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" VehicleNickName01_IOS="TESTVIN01" VehicleNickName01_AND="TESTVIN01" VehicleNickName02_IOS="TESTVIN02" VehicleNickName02_AND="TESTVIN02" DateRowNum_IOS="3" DateRowNum_AND="3" SearchLoc="shanghai" active="true" />
+		<record name="XFS_FP_Move_ScheduleServices_ServiceType_Maintenance_01" ALM_TC_Name="Verify user enters schedule service screen from dashboard" UserName="09962307813" Password="Test123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" VehicleNickName01_IOS="TESTVIN01" VehicleNickName01_AND="TESTVIN01" VehicleNickName02_IOS="TESTVIN02" VehicleNickName02_AND="TESTVIN02" DateRowNum_IOS="3" DateRowNum_AND="3" SearchLoc="shanghai" active="true" />
+		<record name="XFS_FP_Move_ScheduleServices_ServiceType_Others_01" ALM_TC_Name="Verify user enters schedule service screen from dashboard" UserName="09962307813" Password="Test123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" VehicleNickName01_IOS="TESTVIN01" VehicleNickName01_AND="TESTVIN01" VehicleNickName02_IOS="TESTVIN02" VehicleNickName02_AND="TESTVIN02" DateRowNum_IOS="3" DateRowNum_AND="3" SearchLoc="shanghai" active="true" />
+		<record name="XFS_FP_Move_ScheduleServices_ServiceType_Repair_01" ALM_TC_Name="Verify user enters schedule service screen from dashboard" UserName="09962307813" Password="Test123" PIN1="2" PIN2="5" PIN3="2" PIN4="5" VehicleNickName01_IOS="TESTVIN01" VehicleNickName01_AND="TESTVIN01" VehicleNickName02_IOS="TESTVIN02" VehicleNickName02_AND="TESTVIN02" DateRowNum_IOS="3" DateRowNum_AND="3" SearchLoc="shanghai" active="true" />
+			
+	</recordType>
+
+	
+		<recordType name="TestData1" lockRecords="false">
+		<record name="XFS_FP_Authorization_AND" ALM_TC_Name="To Authorize TCU VIN" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="5500"  active="true" />
+		<record name="XFS_FP_Authorization_IOS" ALM_TC_Name="To Authorize TCU VIN" UserName="96007359999" Password="Test123" PIN1="1" PIN2="2" PIN3="1" PIN4="2" VehicleNickName_AND="5500"  active="true" />
+		</recordType>
+	
+	
+	<recordType name="TestData" lockRecords="false">
+		<record name="XFS_FP_Find_001" ALM_TC_Name="FIND PILLER >> LOGIN and FIND Page" UserName="78523691234"  Password="Test123" PIN1="1" PIN2="2" PIN3="3" PIN4="4" FindSearchKey="Wuhan" FindSelectSearchListItem="Wuhan, HUBEI" FindInvalidSearchKey="Invalid"  FindInvalidSearchKeyResult="No results for Invalid" ExpecetdStatus="false" active="true" />
+		<record name="XFS_FP_Find_002" ALM_TC_Name="FIND PILLER >> FUEL Page Details" UserName="78945661233"  Password="QAZwsx@1" PIN1="1" PIN2="2" PIN3="3" PIN4="4"  ExpecetdStatus="false" active="true" />
+		<record name="XFS_FP_Find_003" ALM_TC_Name="FIND PILLER >> PARKING Page Details" UserName="balauk@staging.com"  Password="Ford@123" PIN1="1" PIN2="2" PIN3="3" PIN4="4"  ExpecetdStatus="false" active="true" />
+	</recordType>
+
+</data>
+

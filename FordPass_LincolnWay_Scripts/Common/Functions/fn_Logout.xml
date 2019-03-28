@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyDialogOpened_Logout">
+		<description> fn_VerifyDialogOpened_Logout - Function to verify 'Logout' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+			<parameter type="STATIC" value="Function's XML file name: fn_Logout.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_DialogHeader" page="pge_Logout">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_DialogHeader" value="TLogout1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="STATIC" value="User successfully landed on 'Logout' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="STATIC" value="'Logout' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateDialog_Logout">
+		<description> fn_ValidateDialog_Logout - Function to validate the 'Logout' dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+			<parameter type="STATIC" value="Function's XML file name: fn_Logout.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_DialogInfo" page="pge_Logout">
+			<token type="CONTENT" name="token_lbl_DialogInfo" value="TLogout2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="CONTENT" value="TLogout2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on 'Logout' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="CONTENT" value="TLogout2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Logout' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BulletPoints1" page="pge_Logout">
+			<token type="CONTENT" name="token_lbl_BulletPoints1" value="TLogout5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="CONTENT" value="TLogout5" />
+				<parameter type="STATIC" value="Above text is displayed as bullet points on 'Logout' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="CONTENT" value="TLogout5" />
+					<parameter type="STATIC" value="Above text is displayed as bullet points on 'Logout' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BulletPoints2" page="pge_Logout">
+			<token type="CONTENT" name="token_lbl_BulletPoints2" value="TLogout6" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="CONTENT" value="TLogout6" />
+				<parameter type="STATIC" value="Above text is displayed as bullet points on 'Logout' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="CONTENT" value="TLogout6" />
+					<parameter type="STATIC" value="Above text is displayed as bullet points on 'Logout' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BulletPoints3" page="pge_Logout">
+			<token type="CONTENT" name="token_lbl_BulletPoints3" value="TLogout7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="CONTENT" value="TLogout7" />
+				<parameter type="STATIC" value="Above text is displayed as bullet points on 'Logout' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="CONTENT" value="TLogout7" />
+					<parameter type="STATIC" value="Above text is displayed as bullet points on 'Logout' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Logout" page="pge_Logout">
+			<token type="CONTENT" name="token_btn_Logout_AND" value="TLogout3_AND" />
+			<token type="CONTENT" name="token_btn_Logout_AND_UpperCase" value="TLogout3_AND_UpperCase" />			
+			<token type="CONTENT" name="token_btn_Logout_IOS" value="TLogout3_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="STATIC" value="'Logout' button is available on the 'Logout' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="STATIC" value="'Logout' button is not available on the 'Logout' dialog box" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Cancel" page="pge_Logout">
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TLogout4_AND" />
+			<token type="CONTENT" name="token_btn_Cancel_IOS" value="TLogout4_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="STATIC" value="'Cancel' button is available on the 'Logout' dialog box" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Logout">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+					<parameter type="STATIC" value="'Cancel' button is not available on the 'Logout' dialog box" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickCancel_LogoutDialogue">
+		<description> fn_ClickCancel_LogoutDialogue - Function to click Cancel button on 'Logout' dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+			<parameter type="STATIC" value="Function's XML file name: fn_Logout.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_Cancel" page="pge_Logout">
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TLogout4_AND" />
+			<token type="CONTENT" name="token_btn_Cancel_IOS" value="TLogout4_IOS" />
+		
+			<step type="CLICK" name="btn_Cancel" page="pge_Logout">
+				<token type="CONTENT" name="token_btn_Cancel_AND" value="TLogout4_AND" />
+				<token type="CONTENT" name="token_btn_Cancel_IOS" value="TLogout4_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="STATIC" value="'Cancel' button is available and clicked on the 'Logout' dialog box" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickLogout_LogoutDialogue">
+		<description> fn_ClickLogout_LogoutDialogue - Function to click Logout button on 'Logout' dialog box </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+			<parameter type="STATIC" value="Function's XML file name: fn_Logout.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_Logout" page="pge_Logout">
+			<token type="CONTENT" name="token_btn_Logout_AND" value="TLogoutLast_AND" />
+			<token type="CONTENT" name="token_btn_Logout_AND" value="TLogout3_AND" />
+			<token type="CONTENT" name="token_btn_Logout_AND_UpperCase" value="TLogout3_AND_UpperCase" />
+			<token type="CONTENT" name="token_btn_Logout_IOS" value="TLogout3_IOS" />
+		
+			<step type="CLICK" name="btn_Logout" page="pge_Logout">
+				<token type="CONTENT" name="token_btn_Logout_AND" value="TLogoutLast_AND" />
+				<token type="CONTENT" name="token_btn_Logout_AND" value="TLogout3_AND" />
+				<token type="CONTENT" name="token_btn_Logout_AND_UpperCase" value="TLogout3_AND_UpperCase" />
+				<token type="CONTENT" name="token_btn_Logout_IOS" value="TLogout3_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Logout">
+				<parameter type="STATIC" value="'Cancel' button is available and clicked on the 'Logout' dialog box" />
+			</step>
+		</step>
+	</function>	
+	
+</suite>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ManageMyData">
+		<description> fn_VerifyPageOpened_ManageMyData - Function to verify user landed on the ManageMyData page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+				
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ManageMyData">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TManageMyData1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="STATIC" value="User successfully landed on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="STATIC" value="'Marketing Options' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_ManageMyData">
+		<description> fn_ValidatePage_ManageMyData - Function to validate the Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+				
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ManageMyData">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TManageMyData2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="CONTENT" value="TManageMyData2" />
+				<parameter type="STATIC" value="Above page information is displayed in 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="CONTENT" value="TManageMyData2" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	<function name="fn_VerifyOptionStatus_WithExpected">
+		<description>fn_VerifyOptionStatus_WithExpected - Function to check whether the options are in expected/given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<step type="ATTRIBUTE" name="rad_ManageMyData" page="pge_ManageMyData" os="ANDROID">
+			<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			<parameter type="STATIC" value="text" />
+			<token type="CONTEXT" name="token_rad_ManageMyData" value="param_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="CONTEXT" value="param_OptionName" />
+				<parameter type="STATIC" value="Above options displayed on 'Marketing Options' page with the below expected status" />
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="CONTEXT" value="param_OptionName" />
+					<parameter type="STATIC" value="Above option's is not in the below expected status on 'Marketing Options' page" />
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				</step>
+			</step>
+		</step>	
+	<step type="ATTRIBUTE" name="rad_ManageMyData" page="pge_ManageMyData" os="IOS">
+			<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTEXT" name="token_rad_ManageMyData" value="param_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="CONTEXT" value="param_OptionName" />
+				<parameter type="STATIC" value="Above options displayed on 'Marketing Options' page with the below expected status" />
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="CONTEXT" value="param_OptionName" />
+					<parameter type="STATIC" value="Above option's is not in the below expected status on 'Marketing Options' page" />
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetManageMyDataToExpectedStatus">
+		<description>fn_SetManageMyDataToExpectedStatus - Function to set the market options to user given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_ManageMyData" page="pge_ManageMyData">
+			<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Set_OptionName" />
+			
+			<step type="ATTRIBUTE" name="rad_ManageMyData" page="pge_ManageMyData" failureMode="IGNORE" os="ANDROID" >
+				<parameter type="CONTEXT" value="param_SetToStatus" />
+				<parameter type="STATIC" value="text" />
+				<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Set_OptionName" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="CONTEXT" value="param_Set_OptionName" />
+					<parameter type="STATIC" value="Above Marketing Options was already in the below expected state" />
+					<parameter type="CONTEXT" value="param_SetToStatus" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+					<step type="CALL2" name="fn_ClickGivenManageMyData" page="pge_ManageMyData">
+						<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+					</step>
+					
+					<step type="ATTRIBUTE" name="rad_ManageMyData" page="pge_ManageMyData" failureMode="IGNORE" >
+						<parameter type="CONTEXT" value="param_SetToStatus" />
+						<parameter type="STATIC" value="text" />
+						<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Set_OptionName" />
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+						
+						<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+							<step type="CALL2" name="fn_ClickGivenManageMyData" page="pge_ManageMyData">
+								<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+							</step>
+						
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+								<parameter type="CONTEXT" value="param_Set_OptionName" />
+								<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+								<parameter type="CONTEXT" value="param_SetToStatus" />
+							</step>
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_ManageMyData" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" name="Value One" value="param_SetToStatus" />
+			<parameter type="STATIC" name="Value Two" value="ON" />
+			<parameter type="STATIC" name="Operator" value="EQUALS" />
+		
+			<step type="CONTEXT" name="SET" page="pge_ManageMyData">
+				<parameter type="STATIC" name="Name" value="param_SetToStatus" />
+				<parameter type="STATIC" name="Value" value="1" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="CONTEXT" name="SET" page="pge_ManageMyData">
+					<parameter type="STATIC" name="Name" value="param_SetToStatus" />
+					<parameter type="STATIC" name="Value" value="0" />
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above value is SET " />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+			</step>
+		</step>
+		
+		<step type="ATTRIBUTE" name="rad_ManageMyData" page="pge_ManageMyData" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" value="param_SetToStatus" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Set_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="CONTEXT" value="param_Set_OptionName" />
+				<parameter type="STATIC" value="Above Marketing Options was already in the below expected state" />
+				<parameter type="CONTEXT" value="param_SetToStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="CALL2" name="fn_ClickGivenManageMyData" page="pge_ManageMyData">
+					<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+				</step>
+				
+				<step type="ATTRIBUTE" name="rad_ManageMyData" page="pge_ManageMyData" failureMode="IGNORE" >
+					<parameter type="CONTEXT" value="param_SetToStatus" />
+					<parameter type="STATIC" value="value" />
+					<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Set_OptionName" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+						<parameter type="CONTEXT" value="param_Set_OptionName" />
+						<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+						<parameter type="CONTEXT" value="param_SetToStatus" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+						<step type="CALL2" name="fn_ClickGivenManageMyData" page="pge_ManageMyData">
+							<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+						</step>
+					
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above Marketing Options is set to the below expected state" />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickGivenManageMyData">
+		<description>fn_ClickGivenManageMyData - Function to check whether the options are in expected/given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_ManageMyData" page="pge_ManageMyData">
+			<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Click_OptionName" />
+			
+			<step type="CLICK" name="rad_ManageMyData" page="pge_ManageMyData">
+				<token type="CONTEXT" name="token_rad_ManageMyData" value="param_Click_OptionName" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="CONTEXT" value="param_Click_OptionName" />
+				<parameter type="STATIC" value="Above options displayed and clicked on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="CONTEXT" value="param_Click_OptionName" />
+					<parameter type="STATIC" value="Above option's is not displayed on 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetAll_ManageMyData">
+		<description>fn_SetAll_ManageMyData - Function to set all the Marketing options based on User input in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<!-- Advertising Cookies -->
+		<step type="CALL2" name="fn_SetManageMyDataToExpectedStatus" page="pge_ManageMyData">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TManageMyData3" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.AdvertisingCookies" />
+		</step>
+		
+		<!-- Device Location -->
+		<step type="CALL2" name="fn_SetManageMyDataToExpectedStatus" page="pge_ManageMyData">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TManageMyData4" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.DeviceLocation" />
+		</step>
+	</function>
+	
+	
+	
+	<function name="fn_ClickManageMyData_WeLink">
+		<description>fn_ClickManageMyData_WeLink - Function to validate We link in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_We" page="pge_ManageMyData">
+			<token type="CONTENT" name="token_lnk_We" value="TManageMyData8" />
+			
+			<step type="CLICK" name="lnk_We" page="pge_ManageMyData">
+				<token type="CONTENT" name="token_lnk_We" value="TManageMyData8" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="STATIC" value="'We' link is available and clicked on 'Marketing Options' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="STATIC" value="'We' link is not available on 'Marketing Options' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+		<function name="fn_ClickManageMyData_Iicon_AcceptCookies">
+		<description>fn_ClickManageMyData_WeLink - Function to validate We link in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Iicon" page="pge_ManageMyData">
+			<token type="CONTENT" name="token_icon_ManagemyData" value="TManageMyData3" />
+		
+			
+			<step type="CLICK" name="lnk_Iicon" page="pge_ManageMyData">
+				<token type="CONTENT" name="token_icon_ManagemyData" value="TManageMyData3" />	
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="STATIC" value="'I icon' link is available and clicked on 'ManageMyData' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="STATIC" value="'Iicon' link is not available on 'ManageMyData' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+<function name="fn_ClickManageMyData_Iicon_DeviceLocation">
+		<description>fn_ClickManageMyData_WeLink - Function to validate We link in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+			<parameter type="STATIC" value="Function's XML file name: fn_ManageMyData.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Iicon" page="pge_ManageMyData">
+	
+			<token type="CONTENT" name="token_icon_ManagemyData" value="TManageMyData4" />
+			
+			<step type="CLICK" name="lnk_Iicon" page="pge_ManageMyData">
+				<token type="CONTENT" name="token_icon_ManagemyData" value="TManageMyData4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+				<parameter type="STATIC" value="'I icon' link is available and clicked on 'ManageMyData' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ManageMyData">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ManageMyData">
+					<parameter type="STATIC" value="'Iicon' link is not available on 'ManageMyData' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindCommon" class="org.xframium.page.keyWord.KeyWordPage">		
+			<!-- FILTERS: MAP APPLICATION OR -->
+			<element name="btn_AcceptMapNavigation" value="//*[@label='{token_btn_AcceptMapNavigation}']|//*[@text='{token_btn_Maps_AND}']" descriptor="XPATH" />
+			<element name="btn_CancelMapNavigation" value="//*[@label='{token_btn_CancelMapNavigation}']" descriptor="XPATH" />
+			<element name="btn_MapSendToVehicle" value="//*[@label='{token_btn_MapSendToVehicle}']" descriptor="XPATH" />
+			<element name="img_MapNavigation" value="//*[@label='{token_img_MapNavigation}']" descriptor="XPATH" />
+			<element name="img_MapDrive" value="//*[@label='{token_img_MapDrive}']" descriptor="XPATH" />
+			<element name="img_MapMenu" value="//*[@content-desc='{token_img_MapMenu}']" descriptor="XPATH" />
+			<!-- FILTERS: MAP APPLICATION OR -->
+			<!-- FILTERS: OPEN|CLEAR|APPLY FILTER|CLOSE -->
+			<element name="btn_OpenFilter" value="//*[@text='{token_btn_OpenFilter_AND}']/parent::android.widget.LinearLayout|//*[@label='{token_btn_OpenFilter_IOS}']" descriptor="XPATH" />	
+			<element name="lnk_ClearFilter" value="//*[@text='{token_lnk_ClearFilter}']" descriptor="XPATH" />
+			<element name="btn_ApplyFilter" value="//*[@text='{token_btn_ApplyFilter_AND}']|//*[@label='{token_btn_ApplyFilter_IOS}']" descriptor="XPATH"/>				
+			<element name="img_CloseFilter" value="//*[@text='{token_img_CloseFilter_AND}']/preceding-sibling::android.widget.ImageView|//*[@label='{token_img_CloseFilter_IOS}']/preceding-sibling::UIAButton" descriptor="XPATH" />
+			<!-- FILTERS: OPEN|CLEAR|APPLY FILTER|CLOSE -->
+			<!-- FILTERS: Page Elements Handler -->
+			<element name="lbl_SectionTitle" value="//*[@text='{token_lbl_SectionTitle}']|//*[@label='{token_lbl_SectionTitle}']" descriptor="XPATH" />
+			<element name="rdb_name" value="//*[@text='{token_rdb_name}']/following-sibling::android.widget.RadioButton|//*[@label='{token_rdb_name}']" descriptor="XPATH"/>
+			<element name="cbx_name" value="//*[@text='{token_cbx_name}']/following-sibling::android.widget.CheckBox|//*[@label='{token_cbx_name}']" descriptor="XPATH"/>
+			<element name="sbr_Name" value="//*[@text='{token_sbr_name}']/following::android.widget.SeekBar[1]|//*[@label='{token_sbr_name}']/following-sibling::UIAElement[1]" descriptor="XPATH" />
+			<element name="rating_Str_Name" value="//*[@text='{token_rating_Str_Name}']/following::android.widget.RatingBar[1]|//*[@label='{token_rating_Str_Name}']/following-sibling::UIAButton[5]" descriptor="XPATH" />
+			<element name="btn_FilterTxtApplied" value="//*[@text='{token_btn_FilterTxtApplied}']/parent::android.view.ViewGroup|//*[@label='{token_btn_FilterTxtApplied}']/parent::UIACollectionCell" descriptor="XPATH" />
+			<element name="btn_FilterCountApplied" value="//*[@text='{token_btn_FilterCountApplied}']/following-sibling::android.widget.TextView|//*[@label='{token_btn_FilterCountApplied}']/following-sibling::UIAStaticText" descriptor="XPATH" />
+			<element name="panel_FilterApplied" value="//*[@class='android.support.v7.widget.RecyclerView']|//UIAApplication/UIAWindow[1]/UIACollectionView[2]" descriptor="XPATH" />
+			<!-- FILTERS: Page Elements Handler -->
+			<!-- FIND PAGES: Common Page Elements -->
+
+			<element name="lbl_PageTitle" value="//*[@text=&quot;{token_lbl_PageTitle_IOS}&quot;][1]/self::android.widget.TextView|//*[@text=&quot;{token_lbl_PageTitle_AND}&quot;][1]/self::android.widget.TextView|//*[@label=&quot;{token_lbl_PageTitle_IOS}&quot;][1]/self::UIAStaticText" descriptor="XPATH" />
+
+			<element name="edt_SearchField" value="//*[@text='{token_edt_SearchField}']|//*[@value='{token_edt_SearchField}']" descriptor="XPATH" />
+
+<!-- 			<element name="img_Search" value="//*[@text='{token_Img_Search}']/preceding-sibling::android.widget.ImageView|//*[@value='{token_Img_Search}']/following-sibling::UIAImage[1]" descriptor="XPATH" /> -->
+
+			<!-- KSARAV53 - Updated img_Search XPATH  -->	
+			<element name="img_Search" value="//*[@text='{token_Img_Search}']//following-sibling::android.widget.ImageView|//*[@value='{token_Img_Search}']/following-sibling::UIAImage[1]" descriptor="XPATH" />
+
+
+			<element name="btn_TimeScale" value="//*[@text='{token_btn_TimeScale}']/following-sibling::android.widget.TextView|//*[contains(@label,'{token_btn_TimeScale}')]/self::UIAButton" descriptor="XPATH" />
+		
+			<element name="btn_CurrentLocation" value="//android.support.v7.widget.RecyclerView[1]/following-sibling::android.widget.ImageButton[2]|//UIAApplication/UIAWindow[1]/UIAButton[3]" descriptor="XPATH" />
+			<element name="btn_ListMapView" value="//*[contains(@resource-id,'toggle_fab')]|//*[@name='{token_btn_ListMapView_IOS}']/self::UIAButton" descriptor="XPATH" />
+	
+			<element name="btn_Sortby" value="//*[@text='{token_btn_Sortby_AND}']/following-sibling::android.widget.Button[1]|//*[contains(@label,'{token_btn_Sortby_IOS}')]/following-sibling::UIAButton[1]" descriptor="XPATH" />
+			<element name="btn_Sortedby" value="//*[@text='{token_SortedOrderType}']/self::android.widget.Button|//*[contains(@label,'{token_SortedOrderType}')]/self::UIAButton" descriptor="XPATH" />
+			<!-- VIEW LIST -->
+			<element name="tab_ViewList" value="//*[contains(@resource-id,'item_view')][{token_List_Index}]|//UIATableView/UIATableCell[{token_List_Index}]" descriptor="XPATH" />
+			<element name="lbl_ViewList_Txt" value="//*[contains(@resource-id,'item_view')][{token_List_Index}]/android.widget.TextView[{token_List_Txt_Index_AND}]|//UIATableView/UIATableCell[{token_List_Index}]/UIAStaticText[{token_List_Txt_Index_IOS}]" descriptor="XPATH" />
+			<element name="lbl_ViewList_Title" value="//*[contains(@resource-id,'item_view')][{token_List_Index}]/android.widget.TextView[1]|//UIATableView/UIATableCell[{token_List_Index}]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_ViewList_SubTitle" value="//*[contains(@resource-id,'item_view')][{token_List_Index}]/android.widget.TextView[3]|//UIATableView/UIATableCell[{token_List_Index}]/UIAStaticText[2]" descriptor="XPATH" />
+			<element name="lnk_ViewList_GetDirection" value="//*[contains(@resource-id,'item_view')][{token_List_Index}]/android.widget.TextView[@text='{token_GetDirection_AND}']|//UIATableView/UIATableCell[{token_List_Index}]/UIAButton" descriptor="XPATH" />
+			<!-- VIEW LIST -->
+			<element name="lbl_Clicked_ListTitle" value="//*[@text='{token_Param_ViewList1_Title}']/preceding::android.widget.TextView[2]|//*[@label='{token_Param_ViewList1_Title}']/preceding::UIAStaticText[2]" descriptor="XPATH" />
+			<!-- SORT BY DIALOG WINDOW -->
+			<element name="lbl_SortbyDW_Title" value="//*[@text='{token_lbl_SortbyDW_Title}']/self::android.widget.TextView[1]" descriptor="XPATH" />
+			<element name="rdb_SortbyDW_Value" value="//*[@text='{token_rdb_SortbyDW_Value}']" descriptor="XPATH" />
+<!-- 			<element name="rdb_SortbyDW_Distance" value="//*[@text='{token_rdb_SortbyDW_Distance}']" descriptor="XPATH" /> -->
+			<element name="btn_SortbyDW_Ok" value="//*[@text='{token_btn_SortbyDW_Ok}']" descriptor="XPATH" />
+			<element name="btn_SortbyDW_Cancel" value="//*[@text='{token_btn_SortbyDW_Cancel}']" descriptor="XPATH" />		
+			<element name="lbl_NoRecords" value="//*[@text='{token_lbl_NoRecords_AND}']" descriptor="XPATH" />		
+			<!-- SAFETY CHECK-->
+			<element name="lbl_SafetyCheck" value="//*[@label='{token_lbl_SafetyCheck}']|//*[@text='{token_lbl_SafetyCheck}']" descriptor="XPATH" />		
+			<element name="lbl_SafetyCheckInfo" value="//*[@label='{token_lbl_SafetyCheckInfo}']|//*[@text='{token_lbl_SafetyCheckInfo}']" descriptor="XPATH" />		
+			<element name="btn_NotDriving" value="//*[contains(@label,'{token_btn_NotDriving_IOS}')]|//*[contains(@text,'{token_btn_NotDriving_AND}')]" descriptor="XPATH" />		
+		
+			<element name="edt_PickrWheel_Value" value="//UIAPickerWheel" descriptor="XPATH" />		
+			<element name="btn_PickerWheel_Done" value="//*[@label='{token_btn_PickerWheel_Done}']" descriptor="XPATH" />		
+
+		</page>
+	</site>
+</elementDefinition>

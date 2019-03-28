@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FirstImpression" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_FirstImpression1_Header" value="//*[@text=&quot;{token_lbl_FirstImpression1_Header}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression1_Header}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression1_Info" value="//*[@text=&quot;{token_lbl_FirstImpression1_Info}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression1_Info}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression2_Header" value="//*[@text=&quot;{token_lbl_FirstImpression2_Header}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression2_Header}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression2_Info" value="//*[@text=&quot;{token_lbl_FirstImpression2_Info}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression2_Info}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression3_Header" value="//*[@text=&quot;{token_lbl_FirstImpression3_Header}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression3_Header}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression3_Info" value="//*[@text=&quot;{token_lbl_FirstImpression3_Info}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression3_Info}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression4_Header" value="//*[@text=&quot;{token_lbl_FirstImpression4_Header}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression4_Header}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FirstImpression4_Info" value="//*[@text=&quot;{token_lbl_FirstImpression4_Info}&quot;]|//*[@label=&quot;{token_lbl_FirstImpression4_Info}&quot;]" descriptor="XPATH" />
+			<element name="lnk_FirstImpression_Skip" value="//*[@text='{token_lnk_FirstImpression_Skip}']|//*[@label='{token_lnk_FirstImpression_Skip}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

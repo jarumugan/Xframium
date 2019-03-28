@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_UpdatePIN">
+		<description> fn_VerifyPageOpened_UpdatePIN - Function to verify user landed on the 'Update PIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TUpdatePIN1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+				<parameter type="STATIC" value="User successfully landed on 'Update PIN' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_UpdatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+					<parameter type="STATIC" value="'Update PIN' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_UpdatePIN">
+		<description> fn_ValidatePage_UpdatePIN - Function to validate the 'Update PIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_UpdatePIN" os="IOS">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TUpdatePIN2_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+				<parameter type="CONTENT" value="TUpdatePIN2_IOS" />
+				<parameter type="STATIC" value="Above text is displayed as page info on 'Update PIN' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_UpdatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+					<parameter type="CONTENT" value="TUpdatePIN2_IOS" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Update PIN' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_UpdatePIN" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TUpdatePIN2_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+				<parameter type="CONTENT" value="TUpdatePIN2_AND" />
+				<parameter type="STATIC" value="Above text is displayed as page info on 'Update PIN' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_UpdatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+					<parameter type="CONTENT" value="TUpdatePIN2_AND" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Update PIN' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<!-- <step type="CALL2" name="fn_Input_UpdatePIN">
+		<parameter type="DATA" name="param_Pin1" value="TestData.Pin1" />
+		<parameter type="DATA" name="param_Pin2" value="TestData.Pin1" />
+		<parameter type="DATA" name="param_Pin3" value="TestData.Pin1" />
+		<parameter type="DATA" name="param_Pin4" value="TestData.Pin1" />
+	</step> -->
+	
+	<function name="fn_Input_UpdatePIN">
+		<description> fn_InputAll_UpdatePIN - Function to Input all the four PIN on 'Update PIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+		
+		<!-- Click PIN1 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_UpdatePIN">
+			<parameter type="CONTEXT" name="param_PINNumber" value="param_Pin1" />
+		</step>
+		
+		<!-- Click PIN2 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_UpdatePIN">
+			<parameter type="CONTEXT" name="param_PINNumber" value="param_Pin2" />
+		</step>
+		
+		<!-- Click PIN3 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_UpdatePIN">
+			<parameter type="CONTEXT" name="param_PINNumber" value="param_Pin3" />
+		</step>
+		
+		<!-- Click PIN4 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_UpdatePIN">
+			<parameter type="CONTEXT" name="param_PINNumber" value="param_Pin4" />
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_NewPIN_In_UpdatePIN">
+		<description> fn_ValidatePage_EnterPIN_In_UpdatePIN - Function to validate the 'Update PIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageInfo" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TUpdatePIN4" />
+
+			<step type="EXISTS" name="lbl_PageInfo" page="pge_UpdatePIN">
+				<token type="CONTENT" name="token_lbl_PageInfo" value="TUpdatePIN4" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+					<parameter type="CONTENT" value="TUpdatePIN4" />
+					<parameter type="STATIC" value="Above text is displayed as page info on 'Update PIN' page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_UpdatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+					<parameter type="CONTENT" value="TUpdatePIN4" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on 'Update PIN' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickForgotPIN_UpdatePIN">
+		<description> fn_ClickForgotPIN_UpdatePIN - Function to click Forgot PIN on 'Update PIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_ForgotPIN" page="pge_UpdatePIN">
+			<token type="CONTENT" name="token_lnk_ForgotPIN" value="TUpdatePIN3" />
+		
+			<step type="CLICK" name="lnk_ForgotPIN" page="pge_UpdatePIN">
+				<token type="CONTENT" name="token_lnk_ForgotPIN" value="TUpdatePIN3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+				<parameter type="STATIC" value="'ForgotPIN' button is available and clicked on the 'Update PIN' page " />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputInvalidPIN_UpdatePIN_parameterized">
+		<description> fn_InputInvalidPIN_UpdatePIN_parameterized - Function to input invalid PIN on Update PIN page for given number of times </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+	
+		<step type="LOOP" name="Loop_InputInvalid_UpdatePIN" page="pge_CommonReusable" failureMode="IGNORE">
+			<parameter type="CONTEXT" value="param_NoOfTimes" />
+			<parameter type="STATIC" value="fn_InputInvalid_UpdatePIN" />
+		</step>
+	</function>
+	
+	<function name="fn_InputInvalid_UpdatePIN">
+		<description> fn_InputInvalid_UpdatePIN - Function to input invalid PIN on Update PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_UpdatePIN.xml" />
+		</step>
+		
+		<!-- To print the loop count -->
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">	
+			<parameter type="STATIC" value="Loop - Iteration count is" />
+			<parameter type="CONTEXT" value="_LOOP.INDEX" />
+		</step>
+		
+		<!-- Invalid Current PIN -->
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="DATA" name="param_Pin1" value="TestData.InvalidPIN1" />
+			<parameter type="DATA" name="param_Pin2" value="TestData.InvalidPIN2" />
+			<parameter type="DATA" name="param_Pin3" value="TestData.InvalidPIN3" />
+			<parameter type="DATA" name="param_Pin4" value="TestData.InvalidPIN4" />
+		</step>
+		
+		<step type="CALL2" name="fn_CheckErrorExists_AnyPINpage" page="pge_FPCommon" failureMode="IGNORE">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TEnterPIN4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_UpdatePIN">
+				<parameter type="CONTENT" value="TEnterPIN4" />
+				<parameter type="STATIC" value="Above error message is displayed as expected" />
+			</step>
+		</step>
+	</function>
+</suite>

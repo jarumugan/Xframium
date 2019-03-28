@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_UnitsofMeasure" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//android.widget.TextView[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			
+			<element name="lbl_Header_Distance" value="//*[@text='{token_lbl_Header_Distance}']|//*[@label='{token_lbl_Header_Distance}']" descriptor="XPATH" />
+			<element name="rad_Select_Distance" value="//*[@text='{token_rad_Select_Distance}']/following::android.widget.RadioButton[1]|//*[@label='{token_rad_Select_Distance}']" descriptor="XPATH" />
+			
+			<element name="lbl_Header_TirePressure" value="//*[@text='{token_lbl_Header_TirePressure}']|//*[@label='{token_lbl_Header_TirePressure}']" descriptor="XPATH" />
+			<element name="rad_Select_TirePressure" value="//*[@text='{token_rad_Select_TirePressure}']/following::android.widget.RadioButton[1]|//*[@label='{token_rad_Select_TirePressure}']" descriptor="XPATH" />
+			
+			<element name="lbl_Header_Temperature" value="//*[@text='{token_lbl_Header_Temperature}']|//*[@label='{token_lbl_Header_Temperature}']" descriptor="XPATH" />
+			<element name="rad_Select_Temperature" value="//*[@text='{token_rad_Select_Temperature}']/following::android.widget.RadioButton[1]|//*[@label='{token_rad_Select_Temperature}']" descriptor="XPATH" />
+			
+			<element name="rad_GivenRadioButton" value="//*[@text='{token_rad_GivenRadioButton}']/following::android.widget.RadioButton[1]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

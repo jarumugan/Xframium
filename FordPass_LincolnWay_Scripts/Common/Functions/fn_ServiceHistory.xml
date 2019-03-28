@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_Verify_ServiceHistory">
+		<description>fn_Verify_ServiceHistory - function to verify 'Service History' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_ServiceHistory.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ServiceHistory" page="pge_ServiceHistory">
+			<token type="CONTENT" name="token_lbl_ServiceHistory" value="TServiceHostory" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ServiceHistory">
+				<parameter type="STATIC" value="'Service History' lable is found ." />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_ServiceHistory">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ServiceHistory">
+				<parameter type="STATIC" value="'Service History' lable is found ." />
+			</step>
+		</step>			
+		</step>
+	</function>
+
+	<function name="fn_Click_ServiceHistory">
+		<description>fn_Click_ServiceHistory - function to click 'Service History' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_ServiceHistory.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_ServiceHistory" page="pge_ServiceHistory">
+			<token type="CONTENT" name="token_lbl_ServiceHistory" value="TServiceHostory" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ServiceHistory">
+				<parameter type="STATIC" value="'Service History' lable is found and Clicked on ." />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_ServiceHistory">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ServiceHistory">
+				<parameter type="STATIC" value="'Service History' lable is found and NOT Clicked on" />
+			</step>
+		</step>			
+		</step>
+	</function>
+
+
+	<function name="fn_Verify_NoServiceHistory">
+		<description>fn_Verify_NoServiceHistory - function to check YOU HAVE NO SERVICE HISTORY text. </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_NoServiceHistory.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_NoServiceHistory" page="pge_ServiceHistory">
+			<token type="CONTENT" name="token_lbl_NoServiceHistory" value="TSH_NoServiceHistory" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ServiceHistory">
+				<parameter type="STATIC" value=" In 'Service History' page - YOU HAVE NO SERVICE HISTORY lable is displayed ." />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_ServiceHistory">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ServiceHistory">
+				<parameter type="STATIC" value=" In 'Service History' page - YOU HAVE NO SERVICE HISTORY lable is Not displayed ." />
+			</step>
+		</step>			
+		</step>
+	</function>
+	
+
+ 	
+    
+	
+</suite>

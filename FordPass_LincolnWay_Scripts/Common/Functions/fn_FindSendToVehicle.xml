@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> SEND TO VEHICLE FUNCTIONS -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_MapSendToVehicle">
+		<description> fn_Click_MapSendToVehicle - Click on the 'Send to Vehicle'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="EXISTS" name="btn_Map_SendToVehicle" page="pge_FindSendToVehicle">
+			<token type="CONTENT" name="token_Map_SendToVehicle" value="TFindSendToVehicle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Exists for Click action" />
+			</step>
+			<step type="STATE" name="'Send To Vehicle' Element is Exists" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Not Exists for Click action" />
+			</step>
+		</step>
+		</step>
+		<step type="CLICK" name="btn_Map_SendToVehicle" page="pge_FindSendToVehicle">
+			<token type="CONTENT" name="token_Map_SendToVehicle" value="TFindSendToVehicle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Exists for Click action" />
+			</step>
+			<step type="STATE" name="'Send To Vehicle' Element is Exists" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Not Exists for Click action" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_SearchSendToVehicle">
+		<description> fn_Click_MapSendToVehicle - Click on the 'Send to Vehicle'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="EXISTS" name="btn_Search_SendToVehicle" page="pge_FindSendToVehicle">
+			<token type="CONTENT" name="token_Search_SendToVehicle" value="TFindSendtovehicle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Exists for Click action" />
+			</step>
+			<step type="STATE" name="'Send To Vehicle' Element is Exists" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Not Exists for Click action" />
+			</step>
+		</step>
+		</step>
+		<step type="CLICK" name="btn_Search_SendToVehicle" page="pge_FindSendToVehicle">
+			<token type="CONTENT" name="token_Search_SendToVehicle" value="TFindSendtovehicle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Exists for Click action" />
+			</step>
+			<step type="STATE" name="'Send To Vehicle' Element is Exists" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="'Send To Vehicle' Element is Not Exists for Click action" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> COMMON FUNCTION TO READ LABEL, RBTN, TXT BTN -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_Common_TxtStatement">
+		<description> fn_Verify_Common_TxtStatement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="EXISTS" name="lbl_Common_TxtStatement" page="pge_FindSendToVehicle">
+			<token type="CONTEXT" name="token_lbl_Common_TxtStatement_IOS" value="param_Common_TxtStatement_IOS" />
+			<token type="CONTEXT" name="token_lbl_Common_TxtStatement_AND" value="param_Common_TxtStatement_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Statement is Exists as follows:" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_IOS" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_AND" />
+			</step>
+			<step type="STATE" name="Common_TxtStatement" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Statement is Not Exists as follows:" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_IOS" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_AND" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Common_TxtPrecedingCbxbtn">
+		<description> fn_Verify_Common_TxtPrecedingCbxbtn - Verifying the Radio Button as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="EXISTS" name="Cbxbtn_CommonTxtPreceding" page="pge_FindSendToVehicle">
+			<token type="CONTEXT" name="token_Cbxbtn_CommonTxtPreceding_IOS" value="param_Cbxbtn_CommonTxtPreceding_IOS" />
+			<token type="CONTEXT" name="token_Cbxbtn_CommonTxtPreceding_AND" value="param_Cbxbtn_CommonTxtPreceding_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="RadioButton is Exists with Preceding Label as follows:" />
+				<parameter type="CONTEXT" value="param_Cbxbtn_CommonTxtPreceding_IOS" />
+				<parameter type="CONTEXT" value="param_Cbxbtn_CommonTxtPreceding_AND" />
+			</step>
+			<step type="STATE" name="Cbxbtn_CommonTxtPreceding" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="RadioButton is Not Exists with Preceding Label as follows:" />
+				<parameter type="CONTEXT" value="param_Cbxbtn_CommonTxtPreceding_IOS" />
+				<parameter type="CONTEXT" value="param_Cbxbtn_CommonTxtPreceding_AND" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Common_BtnSelfTxt">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="EXISTS" name="btn_CommonSelfTxt" page="pge_FindSendToVehicle">
+			<token type="CONTEXT" name="token_btn_CommonSelfTxt_IOS" value="param_btn_CommonSelfTxt_IOS" />
+			<token type="CONTEXT" name="token_btn_CommonSelfTxt_AND" value="param_btn_CommonSelfTxt_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Button is Exists with the Label as follows:" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_IOS" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_AND" />
+			</step>
+			<step type="STATE" name="btn_CommonSelfTxt" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Button is Not Exists with the Label as follows:" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_IOS" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_AND" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Common_Btnback_PrecedingTxtLabel">
+		<description> fn_Verify_Common_Btnback_PrecedingTxtLabel - Verifying the back button by getting the following label value </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="VISIBLE" name="btn_back_PrecedingTxtLabel" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" name="maxScroll" value="4" />
+			<parameter type="STATIC" name="direction" value="DOWN" />	
+			<token type="CONTEXT" name="token_btn_back_PrecedingTxtLabel_IOS" value="param_btn_back_PrecedingTxtLabel_IOS" />
+			<token type="CONTEXT" name="token_btn_back_PrecedingTxtLabel_AND" value="param_btn_back_PrecedingTxtLabel_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Button is Exists" />
+			</step>
+			<step type="STATE" name="btn_back_PrecedingTxtLabel" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Back Button is Not Exists" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Common_Btnback_PrecedingTxtLabel">
+		<description> fn_Click_Common_Btnback_PrecedingTxtLabel - Clicking the back button by getting the following label value </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_Btnback_PrecedingTxtLabel" page="pge_FindSendToVehicle" />
+		<step type="CLICK" name="btn_back_PrecedingTxtLabel" page="pge_FindSendToVehicle">
+			<token type="CONTEXT" name="token_btn_back_PrecedingTxtLabel_IOS" value="param_btn_back_PrecedingTxtLabel_IOS" />
+			<token type="CONTEXT" name="token_btn_back_PrecedingTxtLabel_AND" value="param_btn_back_PrecedingTxtLabel_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Button is Clicked" />
+			</step>
+			<step type="STATE" name="btn_back_PrecedingTxtLabel_Snap" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Back Button is Not Clickable" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEND TO VEHICLE' >> DIALOG WINDOW ON 'DISABLE CARPLAY' -->
+<!-- ############################################################################################################# -->
+			
+	<function name="fn_Verify_DW_DisableCarPlay">
+		<description> fn_Verify_DW_DisableCarPlay - Click on the 'Send to Vehicle'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>	
+		
+		<!-- DialogWindow_DisableCarPlay: TITLE -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDisableCarPlayTitle" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDisableAndroidAutoTitle" />
+		</step>
+		
+		<!-- DialogWindow_DisableCarPlay: CONTENT -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDisableCarPlayContent" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDisableAndroidAutoContent" />
+		</step>
+		
+		<!-- DialogWindow_DisableCarPlay: CHECKBOX BTN -->
+		<step type="CALL2" name="fn_Verify_Common_TxtPrecedingCbxbtn" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Cbxbtn_CommonTxtPreceding_IOS" value="TFindDisableCarPlayRbtn" />
+			<parameter type="CONTENT" name="param_Cbxbtn_CommonTxtPreceding_AND" value="TFindDisableCarPlayRbtn" />
+		</step>
+		
+		<!-- DialogWindow_DisableCarPlay: LINK- How Do I Disable CarPlay -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDisableCarPlayLnk" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDisableAndroidAutoLnk" />
+		</step>
+		
+		<!-- DialogWindow_DisableCarPlay: OK -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_OK" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_OK" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_Common_LinkTxt">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="CLICK" name="lbl_Common_TxtStatement" page="pge_FindSendToVehicle">
+			<token type="CONTEXT" name="token_lbl_Common_TxtStatement_IOS" value="param_Common_TxtStatement_IOS" />
+			<token type="CONTEXT" name="token_lbl_Common_TxtStatement_AND" value="param_Common_TxtStatement_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Statement is Exists as follows:" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_IOS" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_AND" />
+			</step>
+			<step type="STATE" name="CommonTxt_Statement" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Statement is Not Exists as follows:" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_IOS" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_AND" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Lnk_HowDoIDisableCarPlay">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: LINK- How Do I Disable CarPlay -->
+		<step type="CALL2" name="fn_Click_Common_LinkTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindDisableCarPlayLnk" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindDisableAndroidAutoLnk" />
+		</step>
+	</function>
+		
+	<function name="fn_Click_Common_BtnSelfTxt">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="CLICK" name="btn_CommonSelfTxt" page="pge_FindSendToVehicle">
+			<token type="CONTEXT" name="token_btn_CommonSelfTxt_IOS" value="param_btn_CommonSelfTxt_IOS" />
+			<token type="CONTEXT" name="token_btn_CommonSelfTxt_AND" value="param_btn_CommonSelfTxt_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Button is Exists with the Label as follows:" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_IOS" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_AND" />
+			</step>
+			<step type="STATE" name="btn_CommonSelfTxt" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Button is Not Exists with the Label as follows:" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_IOS" />
+				<parameter type="CONTEXT" value="param_btn_CommonSelfTxt_AND" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnOk_DWDisableCarPlay">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: OK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_OK" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_OK" />
+		</step>
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEND TO VEHICLE' >> DIALOG WINDOW ON 'DISABLE CARPLAY' >> 'HOW DO I DISABLE CARPLAY' PAGE -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_Common_TxtStatementByScroll">
+	<description> fn_Verify_SectionTitle: To verify the 'Section Title' by passing it as a Parameter  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>	
+		<step type="VISIBLE" name="lbl_Common_TxtStatement" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />	
+			<token type="CONTEXT" name="token_lbl_Common_TxtStatement_IOS" value="param_Common_TxtStatement_IOS" />
+			<token type="CONTEXT" name="token_lbl_Common_TxtStatement_AND" value="param_Common_TxtStatement_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Statement is Exists as follows:" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_IOS" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_AND" />
+				<step type="STATE" name="Common_TxtStatement" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+				<parameter type="STATIC" value="Statement is Not Exists as follows:" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_IOS" />
+				<parameter type="CONTEXT" value="param_Common_TxtStatement_AND" />
+				<step type="STATE" name="Common_TxtStatement" page="pge_FindSendToVehicle" failureMode="IGNORE" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_Page_HowDoDisableCarPlay">
+		<description> fn_Verify_Page_HowDoDisableCarPlay - Verify the Page 'How Do I Disable CarPlay?'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecT1" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecT1" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC1_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC1_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecT2_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecT2_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC2_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC2_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecT3" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecT3" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC3_1_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC3_1_AND" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC3_2" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC3_2" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC3_3" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC3_3" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC3_4" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC3_4" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecT4" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecT4" />
+		</step>
+		<step type="CALL2" name="fn_Verify_Common_TxtStatementByScroll" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindHowDoDisableCP_SecC4_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindHowDoDisableCP_SecC4_AND" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_Btnback_HowDoDisableCarPlay">
+		<description> fn_Click_back_HowDoDisableCarPlay - Click on the Back Button</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="CALL2" name="fn_Click_Common_Btnback_PrecedingTxtLabel" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_IOS" value="TFindHowDoDisableCP_SecT1" />
+			<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_AND" value="TFindHowDoDisableCP_SecT1" />
+		</step>
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEND TO VEHICLE' >> DIALOG WINDOW ON 'CHANGE IN PLANS' -->
+<!-- ############################################################################################################# -->
+			
+	<function name="fn_Verify_DW_ChangeInPlans">
+		<description> fn_Verify_DW_CHangeInPlans - Verify the Change In Plans Dialog Window'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>	
+		
+		<!-- DialogWindow_DisableChangeInPlans: TITLE -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindChangeInPlansTitle" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindChangeInPlansTitle" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: CONTENT -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindChangeInPlansContent" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindChangeInPlansContent" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: YES,REPLACE -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_YES,REPLACE" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_YES,REPLACE" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: BACK -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_BACK" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_BACK" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnYesReplace_DWChangeInPlans">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: YES,REPLACE -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_YES,REPLACE" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_YES,REPLACE" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnBack_DWChangeInPlans">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: BACK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_BACK" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_BACK" />
+		</step>
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEND TO VEHICLE' >> USB PORT CONNECTION ALERT PAGE										   -->
+<!-- ############################################################################################################# -->	
+	
+	<function name="fn_Verify_USBConnectionAlert">
+		<description> fn_Verify_USBConnectionAlert - Verifying the USB Alert Instructions </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		
+		<!-- USBConnectionAlert: Next Step  -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVUSB_NextStep" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVUSB_NextStep" />
+		</step>
+		
+		<!-- USBConnectionAlert: CONTENT  -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVUSB_Content_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVUSB_Content_AND" />
+		</step>
+		
+		<!-- USBConnectionAlert: Selected Location Detail  -->
+<!-- 		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" > -->
+<!-- 			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="str_ViewList_Txt" /> -->
+<!-- 			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="str_ViewList_Txt" /> -->
+<!-- 		</step> -->
+		
+		<!-- USBConnectionAlert: Need More Help? -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Needmorehelp?" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Needmorehelp?" />
+		</step>
+		
+		<!-- USBConnectionAlert: OK -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_OK" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_OK" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_LnkNeedMoreHelp_USBConnAlert">
+		<description> fn_Click_LnkNeedMoreHelp_USBConnAlert - Click on the link labeled as 'Need more Help?' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: Need more Help? -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Needmorehelp?" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Needmorehelp?" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnOk_USBConnectionAlert">
+		<description> fn_Click_BtnOk_USBConnectionAlert - Click on the link labeled as 'OK' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: Need more Help? -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_OK" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_OK" />
+		</step>
+	</function>
+	
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEARCH - SEND TO VEHICLE' >> ZERO RESULT PAGE											   -->
+<!-- ############################################################################################################# -->
+			
+	<function name="fn_Verify_SendToVehicle_ZeroResults">
+		<description> fn_Verify_SendToVehicle_ZeroResults - Verify the Send To Vehicle Zero Results Page'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>	
+		
+		<!-- DialogWindow_DisableChangeInPlans: TITLE1 -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVNoDetails_T1" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVNoDetails_T1" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: CONTENT1 -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVNoDetails_C1" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVNoDetails_C1" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: TITLE2 -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVNoDetails_T2" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVNoDetails_T2" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: CONTENT2 -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVNoDetails_C2" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVNoDetails_C2" />
+		</step>
+		
+		<!-- DialogWindow_DisableChangeInPlans: Back Button -->
+		<step type="CALL2" name="fn_Verify_Common_Btnback_PrecedingTxtLabel" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_IOS" value="TFindSTVNoDetails_T1" />
+			<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_AND" value="TFindSTVNoDetails_T1" />
+		</step>
+		
+	</function>
+	
+	<function name="fn_Click_Btnback_SendToVehicle_ZeroResults">
+		<description> fn_Click_Btnback_SendToVehicle_ZeroResults - Click on the Back Button</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<step type="CALL2" name="fn_Click_Common_Btnback_PrecedingTxtLabel" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_IOS" value="TFindSTVNoDetails_T1" />
+			<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_AND" value="TFindSTVNoDetails_T1" />
+		</step>
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEND TO VEHICLE' >> DIALOG WINDOW ON 'CANCEL THE OPTED SEND TO VEHICLE LOCATION' -->
+<!-- ############################################################################################################# -->
+			
+	<function name="fn_Verify_DW_CancelStoV">
+		<description> fn_Verify_DW_CancelStoV - Verify the Cancel Dialog Window'</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>	
+		
+		<!-- DialogWindow_Cancel_LocationOpted_SendToVehicle: TITLE -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVCancelDWTitle" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVCancelDWTitle" />
+		</step>
+		
+		<!-- DialogWindow_Cancel_LocationOpted_SendToVehicle: CONTENT -->
+		<step type="CALL2" name="fn_Verify_Common_TxtStatement" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVCancelDWContent" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVCancelDWContent" />
+		</step>
+		
+		<!-- DialogWindow_Cancel_LocationOpted_SendToVehicle: YES,CANCEL -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_YesCancel" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_YesCancel" />
+		</step>
+		
+		<!-- DialogWindow_Cancel_LocationOpted_SendToVehicle: BACK -->
+		<step type="CALL2" name="fn_Verify_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Back" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Back" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnYesCancel_DWCancelStoV">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: YES,CANCEL -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_YesCancel" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_YesCancel" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnBack_DWCancelStoV">
+		<description> fn_Verify_CommonTxt_Statement - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- DialogWindow_DisableCarPlay: BACK -->
+		<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Back" />
+			<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Back" />
+		</step>
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> 'SEND TO VEHICLE' >> 'USB ALERT FOOTER NOTE' -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_Lnk_USBAlertFooterNote">
+		<description> fn_Click_Lnk_USBAlertFooterNote - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- USBAlertFooterNote: LINK- USB Alert -->
+		<step type="CALL2" name="fn_Click_Common_LinkTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVUSBFooterLink_IOS" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVUSBFooterLink_AND" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_Lnk_USBAlertFooterNoteHELP">
+		<description> fn_Click_Lnk_USBAlertFooterNote - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- USBAlertFooterNote: LINK- USB Alert -->
+		<step type="CALL2" name="fn_Click_Common_LinkTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindSTVFooterLink_HELP" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindSTVFooterLink_HELP" />
+		</step>
+	</function>
+	
+	<function name="fn_Click_BtnCancelDestination_USBConnectionAlert">
+		<description> fn_Click_BtnCancelDestination_USBConnectionAlert - Verifying the Statements by getting the phrases as parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindSendToVehicle">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FindSendToVehicle.xml ***" />
+		</step>
+		<!-- USBAlert: Click Cancel Destination -->
+		<step type="CALL2" name="fn_Click_Common_LinkTxt" page="pge_FindSendToVehicle" >
+			<parameter type="CONTENT" name="param_Common_TxtStatement_IOS" value="TFindTxtBtn_CancelDestination" />
+			<parameter type="CONTENT" name="param_Common_TxtStatement_AND" value="TFindTxtBtn_CancelDestination" />
+		</step>
+	</function>
+	
+</suite>

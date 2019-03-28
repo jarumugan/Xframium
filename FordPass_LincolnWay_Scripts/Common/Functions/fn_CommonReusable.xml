@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_ClickAllow">
+		<description>fn_ClickAllow - function to click Allow in the popup </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="btn_Allow" page="pge_CommonReusable" failureMode="IGNORE">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_btn_Allow_AND" value="TCommon_Allow" />
+			<token type="CONTENT" name="token_btn_Allow_AND2" value="TCommon_Allow2" />
+			<token type="CONTENT" name="token_btn_Allow_IOS" value="TCommon_Allow" />
+			<token type="CONTENT" name="token_btn_Allow_IOS2" value="TCommon_OK" />
+			
+			<step type="STATE" name="Allow - App Permissions" page="pge_CommonReusable" failureMode="IGNORE" />
+			
+			<step type="CLICK" name="btn_Allow" page="pge_CommonReusable" wait="3">
+				<token type="CONTENT" name="token_btn_Allow_AND" value="TCommon_Allow" />
+				<token type="CONTENT" name="token_btn_Allow_AND2" value="TCommon_Allow2" />
+				<token type="CONTENT" name="token_btn_Allow_IOS" value="TCommon_Allow" />
+				<token type="CONTENT" name="token_btn_Allow_IOS2" value="TCommon_OK" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="'Allow/OK' button is available and clicked on the Permission access popup" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_HideKeyboard">
+		<description>fn_HideKeyboard - function to hide keyboard on Android/iOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<!-- Hide Keyboard method called for Android -->
+		<step type="DEVICE" name="HIDE_KEYBOARD" site="FordPass" page="pge_CommonReusable" os="ANDROID">
+		
+			<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+				<step type="GESTURE" name="PRESS.ele_FullPage" page="pge_FPCommon" os="ANDROID">
+					<parameter type="STATIC" value="98,98" />
+				</step>		
+			</step>
+		</step>
+		
+		<!-- Click Keyboard Done/Save button for iOS -->
+		<step type="EXISTS" name="btn_Keyboard_Next" page="pge_CommonReusable" os="IOS" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_Keyboard_Next" value="TCommon_KeyboardNext" />
+			
+			<step type="CLICK" name="btn_Keyboard_Next" page="pge_CommonReusable">
+				<token type="CONTENT" name="token_btn_Keyboard_Next" value="TCommon_KeyboardNext" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+				<step type="EXISTS" name="btn_Keyboard_Done" page="pge_CommonReusable" failureMode="IGNORE">
+					<token type="CONTENT" name="token_btn_Keyboard_Done" value="TCommon_KeyboardDone" />
+					
+					<step type="CLICK" name="btn_Keyboard_Done" page="pge_CommonReusable">
+						<token type="CONTENT" name="token_btn_Keyboard_Done" value="TCommon_KeyboardDone" />
+					</step>
+			
+					<!-- For Save button -->
+					<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+						<step type="EXISTS" name="btn_Keyboard_Done" page="pge_CommonReusable" failureMode="IGNORE">
+							<token type="CONTENT" name="token_btn_Keyboard_Done" value="TCommon_KeyboardSave" />
+							
+							<step type="CLICK" name="btn_Keyboard_Done" page="pge_CommonReusable">
+								<token type="CONTENT" name="token_btn_Keyboard_Done" value="TCommon_KeyboardSave" />
+							</step>
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="'Hide Keyboard' operation is performed" />
+		</step>
+	</function>
+	
+	<function name="fn_ClickNext_Keyboard">
+		<description>fn_ClickNext_Keyboard - function to click on NEXT button on keyboard (Android/iOS) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<!-- Click Keyboard Next button for ANDROID -->
+		<!-- <step type="VISUAL" name="BUTTON" page="pge_CommonReusable" os="ANDROID" wait="3">
+			<parameter type="STATIC" value="label=Next" />
+			<parameter type="STATIC" name="new parameter" value="screen.top=50%" />
+			<parameter type="STATIC" name="new parameter" value="screen.height=50%" />
+			<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+			<parameter type="STATIC" value="threshold=90" />
+		</step> -->
+		
+		<step type="GESTURE" name="PRESS.ele_FullPage" page="pge_FPCommon" os="ANDROID">
+			<parameter type="STATIC" value="98,98" />
+		</step>
+		
+		<!-- Click Keyboard Next button for iOS -->
+		<step type="EXISTS" name="btn_Keyboard_Next" page="pge_CommonReusable" os="IOS">
+			<token type="CONTENT" name="token_btn_Keyboard_Next" value="TCommon_KeyboardNext" />
+			
+			<step type="CLICK" name="btn_Keyboard_Next" page="pge_CommonReusable">
+				<token type="CONTENT" name="token_btn_Keyboard_Next" value="TCommon_KeyboardNext" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickNext_OnFullDevice">
+		<description>fn_ClickNext_OnFullDevice - function to click on NEXT button on keyboard (Android/iOS) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<!-- Click Keyboard Next button for ANDROID -->
+		<!-- <step type="VISUAL" name="BUTTON" page="pge_CommonReusable" os="ANDROID" wait="3">
+			<parameter type="STATIC" value="label=Next" />
+			<parameter type="STATIC" name="new parameter" value="screen.top=50%" />
+			<parameter type="STATIC" name="new parameter" value="screen.height=50%" />
+			<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+			<parameter type="STATIC" value="threshold=90" />
+		</step> -->
+		
+		<step type="GESTURE" name="PRESS" page="pge_FPCommon" os="ANDROID">
+			<parameter type="STATIC" value="99,99" />
+		</step>
+		
+		<!-- Click Keyboard Next button for iOS -->
+		<step type="EXISTS" name="btn_Keyboard_Next" page="pge_CommonReusable" os="IOS">
+			<token type="CONTENT" name="token_btn_Keyboard_Next" value="TCommon_KeyboardNext" />
+			
+			<step type="CLICK" name="btn_Keyboard_Next" page="pge_CommonReusable">
+				<token type="CONTENT" name="token_btn_Keyboard_Next" value="TCommon_KeyboardNext" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SwipeToTop_Parameterized">
+		<description>fn_SwipeToTop_Parameterized - function to swipe to top of screen for given times </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="LOOP" name="Swipe_To_Top" page="pge_CommonReusable" failureMode="IGNORE">
+			<parameter type="CONTEXT" value="param_NoOfSwipe" />
+			<parameter type="STATIC" value="fn_SwipeToTop" />
+		</step>
+	</function>
+	
+	<function name="fn_SwipeToTop">
+		<description>fn_SwipeToTop - function to swipe up </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_CommonReusable">
+			<parameter type="STATIC" value="50,30" />
+			<parameter type="STATIC" value="50,50" />
+		</step>
+	</function>
+	
+	<function name="fn_SwipeToBottom_Parameterized">
+		<description>fn_SwipeToBottom_Parameterized - function to swipe to Bottom of screen for given times </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="LOOP" name="Swipe_To_Bottom" page="pge_CommonReusable" failureMode="IGNORE">
+			<parameter type="CONTEXT" value="param_NoOfSwipe" />
+			<parameter type="STATIC" value="fn_SwipeToBottom" />
+		</step>		
+	</function>
+	
+	<function name="fn_SwipeToBottom">
+		<description>fn_SwipeToBottom - function to swipe down </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_CommonReusable">
+			<parameter type="STATIC" value="50,50" />
+			<parameter type="STATIC" value="50,30" />
+		</step>
+	</function>
+	
+	<function name="fn_Validate_Dialer">
+		<description>fn_Validate_Dialer - common function to validate the Call Dialer functionality on Android and iOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+				
+		 <step type="WAIT_FOR" name="lbl_DialNumber_Digits" page="pge_CommonReusable" os="ANDROID">
+			<parameter type="STATIC" value="30" />
+			
+			<!-- To work on all devices -->
+			<step type="LOOP" name="GetDialerDigits" page="pge_CommonReusable">
+				<parameter type="STATIC" value="lbl_DialNumber_Digits" />
+				<parameter type="STATIC" value="fn_LoopToGetDigits" />
+			</step>
+
+			<step type="GET" name="lbl_DialNumber_Digits" page="pge_CommonReusable" context="str_DialerDigits" />
+
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="CONTEXT" value="str_DialerDigits" />
+			</step>
+					
+			<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+					<parameter type="STATIC" value="Phone Dialer is not opened" />
+				</step>
+			</step>
+		</step>
+			
+		<!-- <step type="APPLICATION" name="CLOSE" page="pge_CommonReusable" os="ANDROID">
+			<parameter type="STATIC" name="Application Name" value="NativeContacts" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="TestFlow Control is switched back to FordPass app from Phone Dialer" />
+			</step>			
+		</step> -->
+
+		<step name="OPEN" page="pge_CommonReusable" type="APPLICATION" os="ANDROID" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="WAIT_FOR" name="btn_Dial_EndCall" page="pge_CommonReusable" os="IOS" failureMode="IGNORE">
+			<parameter type="STATIC" value="30" />
+			
+			<step type="CLICK" name="btn_Dial_EndCall" page="pge_CommonReusable" wait="5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="Call is made successfully and it is ended by clicking 'End Call' in iOS device" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+				<step type="WAIT_FOR" name="btn_DialAlert_Number" page="pge_CommonReusable">
+					<parameter type="STATIC" value="30" />
+					
+					<step type="GET" name="btn_DialAlert_Number" page="pge_CommonReusable" context="str_PhoneNumber" />
+					
+					<step type="CLICK" name="btn_DialAlert_Cancel" page="pge_CommonReusable" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+						<parameter type="STATIC" value="Phone Number is displayed on Phone Dialer" />
+						<parameter type="CONTEXT" value="str_PhoneNumber" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+							<parameter type="STATIC" value="Phone Dialer is not opened" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_LoopToGetDigits">
+		<description>fn_LoopToGetDigits - function to get digits from dialer for ANDROID </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="GET" name="_CONTEXT.ELEMENT" page="pge_CommonReusable" context="str_DialerDigits" />
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="CONTEXT" value="str_DialerDigits" />
+		</step>
+	</function>
+	
+	<function name="fn_Validate_Camera">
+		<description>fn_Validate_Camera - Common function to validate the Camera functionality on Android and iOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="STATE" name="Screenshot - Camera app opened or not" page="pge_CommonReusable" failureMode="IGNORE"/> 
+		
+		<step type="WAIT_FOR" name="lbl_CameraAppAndroid" page="pge_CommonReusable" os="ANDROID">
+			<parameter type="STATIC" value="30" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="Camera app opens successfully (ANDROID)" />
+			</step>
+			
+			<step type="APPLICATION" name="CLOSE" page="pge_CommonReusable" wait="10">
+				<parameter type="STATIC" name="Application Name" value="NativeCamera" />
+			</step>
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+					<parameter type="STATIC" value="'View profile' page opens successfully after closing the Camera app" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CommonReusable">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+					<parameter type="STATIC" value="Camera app does not open after clicking Camera option in FordPass app(ANDROID)" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="btn_TakePhoto_CameraAppiOS" page="pge_CommonReusable" os="IOS">
+			<parameter type="STATIC" value="30" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="'Camera app' is opened on iOS as expected" />
+			</step>
+			
+<!-- 			<step type="CLICK" name="btn_TakePhoto_CameraAppiOS" page="pge_CommonReusable" wait="3"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable"> -->
+<!-- 				<parameter type="STATIC" value="'Take Picture' button is clicked to capture the image" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="STATE" name="Screenshot - After clicking Take Photo button" page="pge_CommonReusable" failureMode="IGNORE"/> -->
+			
+<!-- 			<step type="WAIT_FOR" name="lnk_UsePhoto_CameraAppiOS" page="pge_CommonReusable"> -->
+<!-- 				<parameter type="STATIC" value="30" /> -->
+			
+<!-- 				<step type="STATE" name="Screenshot - After capturing the image" page="pge_CommonReusable" failureMode="IGNORE" /> -->
+				
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable"> -->
+<!-- 					<parameter type="STATIC" value="'Use Photo' link is available so the camera capture the shot as expected" /> -->
+<!-- 				</step> -->
+				
+<!-- 				<step type="CLICK" name="lnk_UsePhoto_CameraAppiOS" page="pge_CommonReusable" wait="3"/> -->
+				
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable"> -->
+<!-- 					<parameter type="STATIC" value="'Use Photo' link is clicked" /> -->
+<!-- 				</step> -->
+<!-- 			</step> -->
+
+				<step type="EXISTS" name="lnk_PhotosCancel" page="pge_CommonReusable">
+				<token type="CONTENT" name="token_lnk_PhotosCancel" value="TCommon_PhotosCancel" />
+				
+				<step type="CLICK" name="lnk_PhotosCancel" page="pge_CommonReusable">
+					<token type="CONTENT" name="token_lnk_PhotosCancel" value="TCommon_PhotosCancel" />
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Cancel' button is availabe and clicked on 'Photos Gallery'" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+						<parameter type="STATIC" value="'Cancel' button is not availabe on 'Photos Gallery'" />
+					</step>
+				</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Validate_PhotosGallery">
+		<description>fn_Validate_PhotosGallery - Common function to validate the Gallery on Android and iOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PhotosHeader" page="pge_CommonReusable" os="IOS">
+			<parameter type="STATIC" value="20" />
+			<token type="CONTENT" name="token_lbl_PhotosHeader" value="TCommon_Photos" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="'Photos Gallery' opened successfully" />
+			</step>
+			
+			<step type="EXISTS" name="lnk_PhotosCancel" page="pge_CommonReusable">
+				<token type="CONTENT" name="token_lnk_PhotosCancel" value="TCommon_PhotosCancel" />
+				
+				<step type="CLICK" name="lnk_PhotosCancel" page="pge_CommonReusable">
+					<token type="CONTENT" name="token_lnk_PhotosCancel" value="TCommon_PhotosCancel" />
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Cancel' button is availabe and clicked on 'Photos Gallery'" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+						<parameter type="STATIC" value="'Cancel' button is not availabe on 'Photos Gallery'" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="'Photos Gallery' doesn't open or page header is not as expected" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="btn_ChoosePhoto" page="pge_ViewProfile" os="ANDROID">
+			<parameter type="STATIC" value="20" />
+<!-- 			<token type="CONTENT" name="token_btn_ChoosePhoto_AND01" value="TViewProfile22_AND01" /> -->
+			<token type="CONTENT" name="token_btn_ChoosePhoto_AND" value="TViewProfile22_AND" />
+			<token type="CONTENT" name="token_btn_ChoosePhoto_IOS" value="TViewProfile22_IOS" />
+		
+			<step type="STATE" name="Dummy State - Gallery app opened" page="pge_ViewProfile" failureMode="IGNORE"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+				<parameter type="STATIC" value="Gallery app opened after clicking on 'Gallery' open on Add photo" />
+			</step>
+			
+			<step type="DEVICE" name="BACK" page="pge_ViewProfile" os="ANDROID" wait="10" />
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_ViewProfile">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ViewProfile">
+					<parameter type="STATIC" value="Gallery app is not opened even after 20 secs (ANDROID)" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SwipeFromRight">
+		<description>fn_SwipeFromRight - function to swipe from right to go to SPAD Welcome Screen next pages </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_CommonReusable" wait="3">
+			<parameter type="STATIC" value="RIGHT" />
+		  
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="The action Swipe from Right was performed"/>
+		  	</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_All_Allow">
+		<description>fn_Click_All_Allow - function to click all the Allow button on the Permission dialog on all OS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+		
+		<!-- To loop 3 times -->
+		<step type="LOOP" name="ClickAllAllow" page="pge_CommonReusable" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_ClickAllow" />
+		</step>
+	</function>
+
+<!-- Added by Saravana to click "I Accept" button after login [*** NEED TO ADD XPATH FOR IOS ALSO ***]-->
+	
+	<function name="fn_ClickAccept_Terms_And_Conditions">
+		<description>fn_ClickAccept_Terms_And_Conditions - function to click Accept in the Terms and Conditions screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+			<parameter type="STATIC" value="Function's XML file name: fn_CommonReusable.xml" />
+		</step>
+	
+		<step type="WAIT_FOR" name="btn_IAccept" page="pge_CommonReusable" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_IAccept_L" value="TPrivacyPolicy3_L" />
+			<token type="CONTENT" name="token_btn_IAccept_U" value="TPrivacyPolicy3_U" />
+
+			<step type="STATE" name="Terms and Conditions page" page="pge_CommonReusable"/>
+			
+			<step type="CLICK" name="btn_IAccept" page="pge_CommonReusable" >
+				<token type="CONTENT" name="token_btn_IAccept_L" value="TPrivacyPolicy3_L" />
+				<token type="CONTENT" name="token_btn_IAccept_U" value="TPrivacyPolicy3_U" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+				<parameter type="STATIC" value="'I ACCEPT' button is available and clicked on the Terms and Conditions Page" />
+			</step>
+		</step>
+	</function>
+	
+</suite>

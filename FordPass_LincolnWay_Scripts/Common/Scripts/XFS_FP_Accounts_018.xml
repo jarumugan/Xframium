@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_018" dataProvider="TestData.XFS_FP_Accounts_018,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> FordCredit Login page without Fordpass PIN settings </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCreditLogin">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" /> 
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_FordCredit" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_ValidatePage_FordCredit" page="pge_FordCredit" />
+		
+<!-- 		Verify Guides link -->
+		
+		<step type="CALL2" name="fn_Click_Guides" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Guides" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+		
+<!-- 		For AP after selecting guides and click Account Menu, it will come back to Ford Credit page -->
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_FordCredit" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+		
+<!-- 		Verify Cancel link -->
+		
+		<step type="CALL2" name="fn_Click_Cancel" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_FordCredit" page="pge_Account" />
+		
+		
+<!-- 		Verify Register Now Link -->
+
+		<step type="CALL2" name="fn_Click_RegsiterNow" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+	<step type="CALL2" name="fn_Cancel_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Cancel_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyWarningWindow_Opened" page="pge_FordCredit" />
+
+		<step type="CALL2" name="fn_Click_WarningWindow_Cancel" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Cancel_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Click_WarningWindow_Confirm" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+		
+		
+<!-- 		Verify Trouble Logging in Link -->		
+
+		<step type="CALL2" name="fn_Click_TroubleLogging" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyWarningWindow_TroubleLogging_Opened" page="pge_FordCredit" />
+		
+		<!-- 		Verify ForgotUsername Link -->	
+		
+		<step type="CALL2" name="fn_Click_WarningWindow_ForgotUsername" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Cancel_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+		
+		<!-- 		Verify ForgotPassword Link -->	
+		
+		<step type="CALL2" name="fn_Click_TroubleLogging" page="pge_FordCredit" />
+		
+<!-- 		Warning window N/A for CHINA Market , hence Commented below 2 lines  -->
+		
+<!-- 		<step type="CALL2" name="fn_VerifyWarningWindow_TroubleLogging_Opened" page="pge_FordCredit" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_Click_WarningWindow_ForgotPassword" page="pge_FordCredit" /> -->
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Cancel_RegisterNowFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+		
+<!-- 		Login with Invalid Credentials -->
+		
+		<step type="CALL2" name="fn_FordCreditLogin_Parameterized_WithoutFordPassPIN" page="pge_FordCredit" tagNames ="FP-NA,FP-EU">
+			<parameter type="STATIC" name="param_FordCreditUsername" value="fpxfram123@ford.com" />
+			<parameter type="STATIC" name="param_FordCreditPassword" value="Perf123" />
+		</step>
+		
+		<step type="CALL2" name="fn_FordCreditLogin_Parameterized_WithoutFordPassPIN" page="pge_FordCredit" tagNames ="FP-CN">
+			<parameter type="STATIC" name="param_FordCreditUsername" value="78945661233" />
+			<parameter type="STATIC" name="param_FordCreditPassword" value="Test123" />
+		</step>
+		
+<!-- 		Login with Valid Credentials -->
+		
+		
+		<step type="CALL2" name="fn_FordCreditLogin_Parameterized_WithoutFordPassPIN" page="pge_FordCredit">
+			<parameter type="DATA" name="param_FordCreditUsername" value="TestData.FordCreditUserName" />
+			<parameter type="DATA" name="param_FordCreditPassword" value="TestData.FordCreditPassword" />
+		</step>
+		
+		<step type="CALL2" name="fn_FordCredit_LoginSuccess" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Click_FordCredit_Cancel" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+	
+		
+		<!-- 		FordCredit Settings , This is not Applicable for CHINA  --> 
+		
+		
+		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+			
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+
+		<step type="CALL2" name="fn_Click_FordCredit" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCreditSettingsWithoutPin" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_ValidatePage_FordCreditSettingsWithoutPin" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_Click_LoginToFordCredit" page="pge_FordCredit" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_FordCredit" page="pge_FordCredit" />
+
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		
+
+	</test>
+</suite>

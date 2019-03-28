@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ProgramBenefits">
+		<description> fn_VerifyPageOpened_ProgramBenefits - Function to verify user landed on the 'Program Benefits' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+			<parameter type="STATIC" value="Function's XML file name: fn_ProgramBenefits.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ProgramBenefits">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TProgramBenefits1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="STATIC" value="User successfully landed on 'Program Benefits' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="STATIC" value="'Program Benefits' page is not opened or page header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_ProgramBenefits">
+		<description> fn_ValidatePage_ProgramBenefits - Function to validate the 'Program Benefits' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+			<parameter type="STATIC" value="Function's XML file name: fn_ProgramBenefits.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TProgramBenefits2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="CONTENT" value="TProgramBenefits2" />
+				<parameter type="STATIC" value="Above page info is displayed as expected on 'Program Benefits' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="CONTENT" value="TProgramBenefits2" />
+					<parameter type="STATIC" value="Above page info is not displayed or not as expected on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BulletPoints1" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_lbl_BulletPoints1" value="TProgramBenefits3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="CONTENT" value="TProgramBenefits3" />
+				<parameter type="STATIC" value="Above information is displayed as Bulletin points on 'Program Benefits' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="CONTENT" value="TProgramBenefits3" />
+					<parameter type="STATIC" value="Above information is not displayed as Bulletin points on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BulletPoints2" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_lbl_BulletPoints2" value="TProgramBenefits4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="CONTENT" value="TProgramBenefits4" />
+				<parameter type="STATIC" value="Above information is displayed as Bulletin points on 'Program Benefits' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="CONTENT" value="TProgramBenefits4" />
+					<parameter type="STATIC" value="Above information is not displayed as Bulletin points on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BulletPoints3" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_lbl_BulletPoints3" value="TProgramBenefits5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="CONTENT" value="TProgramBenefits5" />
+				<parameter type="STATIC" value="Above information is displayed as Bulletin points on 'Program Benefits' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="CONTENT" value="TProgramBenefits5" />
+					<parameter type="STATIC" value="Above information is not displayed as Bulletin points on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_ProgramBenefits_Add" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_btn_ProgramBenefits_Add_AND" value="TProgramBenefits6_AND" />
+			<token type="CONTENT" name="token_btn_ProgramBenefits_Add_IOS" value="TProgramBenefits6_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="STATIC" value="'ADD' button is available on 'Program Benefits' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="STATIC" value="'ADD' button is not displayed/available on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_ProgramBenefits_SkipForNow" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_lnk_ProgramBenefits_SkipForNow" value="TProgramBenefits7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="STATIC" value="'Skip for Now' link is available on 'Program Benefits' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="STATIC" value="'Skip for Now' link is not displayed/available on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickProgramBenefits_Add">
+		<description> fn_ClickProgramBenefits_Add - Function to click 'ADD' button on 'Program Benefits' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+			<parameter type="STATIC" value="Function's XML file name: fn_ProgramBenefits.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_ProgramBenefits_Add" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_btn_ProgramBenefits_Add_AND" value="TProgramBenefits6_AND" />
+			<token type="CONTENT" name="token_btn_ProgramBenefits_Add_IOS" value="TProgramBenefits6_IOS" />
+
+			<step type="CLICK" name="btn_ProgramBenefits_Add" page="pge_ProgramBenefits" wait="3">
+				<token type="CONTENT" name="token_btn_ProgramBenefits_Add_AND" value="TProgramBenefits6_AND" />
+				<token type="CONTENT" name="token_btn_ProgramBenefits_Add_IOS" value="TProgramBenefits6_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="STATIC" value="'ADD' button is available and clicked on 'Program Benefits' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="STATIC" value="'ADD' button is not displayed/available on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickProgramBenefits_SkipForNow">
+		<description> fn_ClickProgramBenefits_SkipForNow - Function to click 'Skip for Now' link on 'Program Benefits' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+			<parameter type="STATIC" value="Function's XML file name: fn_ProgramBenefits.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ProgramBenefits_SkipForNow" page="pge_ProgramBenefits">
+			<token type="CONTENT" name="token_lnk_ProgramBenefits_SkipForNow" value="TProgramBenefits7" />
+			
+			<step type="CLICK" name="lnk_ProgramBenefits_SkipForNow" page="pge_ProgramBenefits" >
+				<token type="CONTENT" name="token_lnk_ProgramBenefits_SkipForNow" value="TProgramBenefits7" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+				<parameter type="STATIC" value="'Skip for Now' link is available and clicked on 'Program Benefits' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ProgramBenefits">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ProgramBenefits">
+					<parameter type="STATIC" value="'Skip for Now' link is not displayed/available on 'Program Benefits' page" />
+				</step>
+			</step>
+		</step>
+	</function>		
+</suite>

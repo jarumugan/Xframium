@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID : -->
+<!-- Author Name : MCHUNDUR -->
+<!-- Created Date : 20-JUL-2018 -->
+<!-- Updated Date : 20-JUL-2018 -->
+<!-- Pre-Requisite : Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc.-->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_CH_Education" dataProvider="TestData.XFS_FP_Find_001"
+		contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		
+		<description> FIND >> EDUCATION Page Verification and Validations</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Launch_FindCategories" page="pge_FindCommon"/>
+		
+		<!-- Select the 'CATEGEORY-EDUCATION'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory12_AND" />
+		</step>
+				
+		<!-- Clicking the 'CATEGEORY-EDUCATION'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory12_AND" />
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> EDUCATION >> VERIFY LANDING PAGE -->
+<!-- ############################################################################################################# -->
+
+		<!-- Verifying the 'EDUCATION' title on FIND>>EDUCATION Page -->
+		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_PageTitle_IOS" value="TFindPageTitle12_IOS" />
+			<parameter type="CONTENT" name="param_PageTitle_AND" value="TFindPageTitle12_AND" />
+		</step>
+		
+		<!-- Verifying the 'SEARCH FIELD & ICON' edit field on EDUCATION Page -->
+		<step type="CALL2" name="fn_Verify_SearchBar" page="pge_FindCommon" />
+		
+		<!-- Verifying the 'CATEGORY TRAY ICON' on EDUCATION Page -->
+		<step type="CALL2" name="fn_Verify_CategoryTrayBar" page="pge_FindCategoryApplet" />
+		
+		<!-- Click on the 'CATEGORY TRAY ICON' on EDUCATION Page -->
+		<step type="CALL2" name="fn_Click_CategoryTrayBar" page="pge_FindCategoryApplet" />
+		
+		<!-- Verifying the 'ALL CATEGEORIES' existence by SWIPE on Find Page -->
+<!-- 		<step type="CALL2" name="fn_Validate_Categories" page="pge_FindCategoryApplet" /> -->
+				
+		<!-- Verifying the 'CATEGEORY-EDUCATION' existence -->
+		<step type="CALL2" name="fn_Verify_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory12_AND" />
+		</step>
+		
+		<!-- Verifying the 'MENU BAR - FORD PASS' tabs on EDUCATION Page -->
+		<step type="CALL2" name="fn_ValidateMenuBar_FordPass" page="pge_FPCommon" />
+		
+		<!-- Clicking the 'CATEGEORY-EDUCATION'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory12_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory12_AND" />
+		</step>
+		
+<!-- ##################################################################################################### -->
+<!-- ESURESH8 - FIND >> EDUCATION >> LIST VIEW -->
+<!-- ##################################################################################################### -->	
+
+		<!-- Verifying the 'MAP IS LOADED WITH DATA' on Page -->
+		<step type="CALL2" name="fn_Verify_NoRecordsOnMap" page="pge_FindCommon" failureMode="IGNORE" os="ANDROID"/>
+		
+		<!-- Verifying the 'LIST VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Clicking the 'LIST VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+<!-- 		<step type="CALL2" name="fn_Verify_Button_Sortby" page="pge_FindCommon" os="ANDROID"/> -->
+		
+		<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		<!-- Verifying and Fetching the 'VIEW LIST TITLE' Text Elements on Page -->		
+		<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="STATIC" name="param_List_Txt_Index_AND" value="1" />
+			<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="1" />
+		</step>
+		<!-- Verifying and Fetching the 'VIEW LIST SUB TITLE' Text Elements on Page -->		
+		<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="STATIC" name="param_List_Txt_Index_AND" value="2" />
+			<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="2" />
+		</step>
+		<!-- Verifying and Fetching the 'VIEW LIST DISTANCE' Text Elements on Page -->		
+		<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="STATIC" name="param_List_Txt_Index_AND" value="3" />
+			<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="3" />
+		</step>
+		<!-- Verifying and Fetching the 'VIEW LIST GET DIRECTION LINK' Text Elements on Page -->	
+		<step type="CALL2" name="fn_Verify_ViewListGetDirection" page="pge_FindCommon" >
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+		</step>	
+		
+		<!-- CLICKING the 'VIEW LIST TAB' Elements on Page -->
+<!-- 		<step type="CALL2" name="fn_Click_Tab_ViewListDetails_WOTitle" page="pge_FindCommon" os="ANDROID">		 -->
+<!-- 			<parameter type="STATIC" name="param_List_Index" value="1" /> -->
+<!-- 		</step> -->
+		<!-- Clicking the 'VIEW LIST GET DIRECTION LINK' Elements on Page -->	
+		<step type="CALL2" name="fn_Click_ViewListGetDirection" page="pge_FindCommon">
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+		</step>
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> EDUCATION >> LIST VIEW >> EDUCATION LOCATION NAVIGATION -->
+<!-- ############################################################################################################# -->
+
+		<step type="CALL2" name="fn_Validate_Maps" page="pge_FindCommon" />
+
+		<!-- Verifying the 'MAP VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Clicking the 'MAP VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+	</test>
+</suite>

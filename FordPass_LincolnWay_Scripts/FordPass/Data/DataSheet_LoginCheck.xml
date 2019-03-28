@@ -1,0 +1,11 @@
+<data>
+	<!-- Setting the Environment and Country -->
+	<recordType name="Setup" lockRecords="false">
+		<record name="XFS_StartFordPass" Environment="Staging" Country="Deutschland" AllowCookies="true" />
+	</recordType>
+	
+	<!-- ACCOUNTS & GUIDES Pillar Test Data -->
+	<recordType name="TestData" lockRecords="false">
+		<record name="XFS_FP_Accounts_LoginCheck_AND" ALM_TC_Name="Login Check - Android" Country1="Deutschland" Country2="España" Country3="France" Country4="Italia" Country5="United Kingdom" UserName1="fp2_072069@yopmail.com" UserName2="fp2_01331@yopmail.com" UserName3="fp2_054365@yopmail.com" UserName4="fp2_026635@yopmail.com" UserName5="fp2_012549@yopmail.com" Password="Test123" active="true" />
+	</recordType>
+</data>

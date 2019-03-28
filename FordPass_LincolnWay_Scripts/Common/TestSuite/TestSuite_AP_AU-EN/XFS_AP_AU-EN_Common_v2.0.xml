@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+		
+	<!-- FUNCTIONS IMPORT -->
+	<!-- ../../ -> denotes two levels up in the folder hierarchy -->
+	<import fileName="../../../Common/Functions/XFS_Functions.xml" />
+
+
+	<!-- SCRIPTS IMPORT -->
+<!-- 	    <import fileName="../../../Common/Scripts/XFS_FP_Accounts_005.xml" /> -->
+<!--     <import fileName="../../../Common/Scripts/XFS_FP_Accounts_006.xml" /> -->
+    <import fileName="../../../Common/Scripts/XFS_FP_AALogin.xml" />
+    
+  
+<!--     <import fileName="../../../Common/Scripts/XFS_FP_Accounts_008.xml" /> -->
+    
+    
+    
+<!--     <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_001.xml" />   -->  
+	 
+<!--     <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_VehicleSupport_001.xml" />     -->
+	 
+	 
+	 
+</suite>

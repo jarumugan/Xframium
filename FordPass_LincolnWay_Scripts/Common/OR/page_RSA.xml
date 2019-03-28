@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_RSA" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lbl_PageMessage" value="//*[@text='{token_lbl_PageMessage}']|//*[@label='{token_lbl_PageMessage}']" descriptor="XPATH" />
+			<element name="lbl_KeepMoving" value="//*[@text='{token_lbl_KeepMoving}']|//*[@label='{token_lbl_KeepMoving}']" descriptor="XPATH" />
+			<element name="lbl_Assitance1" value="//*[@text='{token_lbl_Assitance1}']|//*[@label='{token_lbl_Assitance1}']" descriptor="XPATH" />
+			<element name="lbl_Assitance2" value="//*[@text='{token_lbl_Assitance2}']|//*[@label='{token_lbl_Assitance2}']" descriptor="XPATH" />
+			<element name="lbl_Assitance3" value="//*[@text='{token_lbl_Assitance3}']|//*[@label='{token_lbl_Assitance3}']" descriptor="XPATH" />
+			<element name="lbl_Assitance4" value="//*[@text='{token_lbl_Assitance4}']|//*[@label='{token_lbl_Assitance4}']" descriptor="XPATH" />
+			<element name="lbl_Assitance5" value="//*[@text='{token_lbl_Assitance5}']|//*[@label='{token_lbl_Assitance5}']" descriptor="XPATH" />
+			<element name="lbl_Assitance6" value="//*[@text='{token_lbl_Assitance6}']|//*[@label='{token_lbl_Assitance6}']" descriptor="XPATH" />
+<!-- 			<element name="btn_CallRSA" value="//*[@text='{token_btn_CallRSA_AND}']|//*[@label='{token_btn_CallRSA_IOS}']|//*[@label='{token_btn_CallRSA_IOS}']/preceding::UIAButton[1]" descriptor="XPATH" /> -->
+<!-- 			<element name="btn_CallRSA" value="//*[@text='{token_btn_CallRSA_AND}']|//*[@label='{token_btn_CallRSA_IOS}']|//*[@label='{token_btn_CallRSA_IOS}']/preceding::UIAButton[1]|//*[@label='{token_btn_CallRSA_IOS}']" descriptor="XPATH" /> -->
+
+			<element name="btn_CallRSA" value="//*[@text='{token_btn_CallRSA_IOS}']|//*[@label='{token_btn_CallRSA_IOS}']|//*[@text='CALL ROADSIDE ASSISTANCE']" descriptor="XPATH" />
+
+			<element name="lbl_CallConfirmationHeader" value="(//*[@text='{token_lbl_CallConfirmationHeader}'])[1]|(//*[@label='{token_lbl_CallConfirmationHeader}'])[2]" descriptor="XPATH" />
+			<element name="btn_CancelCallRoadAssistance" value="//*[@text='{token_btn_CancelCallRoadAssistance_AND}']|//*[@label='{token_btn_CancelCallRoadAssistance_IOS}']|//*[@text='Cancel']" descriptor="XPATH" />
+			
+			<!-- RSA : APARTHI3-->
+						
+			<element name="lnk_MoveRSA" value="//UIAWindow[1]/UIAButton[1]|//*[contains(@resource-id, 'component_rsa_button')]" descriptor="XPATH" />
+			<element name="lnk_FindRSA" value="//UIAWindow[1]/UIAButton[1]|//*[contains(@resource-id,'toolbar')]//*[@class='android.widget.ImageButton']" descriptor="XPATH" />
+			<element name="lnk_GuideRSA" value="//UIANavigationBar/UIAButton|//*[contains(@resource-id, 'component_rsa_button')]" descriptor="XPATH" />
+			<element name="lnk_AccountRSA" value="//UIAApplication/UIAWindow[1]/UIAButton|//*[contains(@resource-id, 'component_rsa_button')]" descriptor="XPATH" />			
+			<element name="lbl_RSATitle" value="//*[@text='{token_lbl_RSATitle}']|//*[@label='{token_lbl_RSATitle}']" descriptor="XPATH" />
+			<element name="btn_RSABack" value="//*[@text='{token_lbl_RSATitle}']/preceding::android.widget.ImageButton|//*[@name='MobilityCommon.RSAView']//UIAButton" descriptor="XPATH" />
+		
+			<element name="lbl_CallConfirmationMessage" value="//*[contains(@text,&quot;{token_lbl_CallConfirmationMessage}&quot;)]|//*[contains(@label,&quot;{token_lbl_CallConfirmationMessage}&quot;)]" descriptor="XPATH" />
+
+			<element name="btn_ConfirmCallRoadAssistance" value="(//*[@label='{token_btn_ConfirmCallRoadAssistance_IOS}'])[3]|(//*[@text='{token_btn_ConfirmCallRoadAssistance_AND}'])[2]|(//*[@text='{token_btn_ConfirmCallRoadAssistance_IOS}'])[2]|(//*[@text='CALL ROADSIDE ASSISTANCE'])[1]" descriptor="XPATH" />
+			
+			<!-- RSA -->	
+<!--		<element name="img_CallRSA" value="//*[@text='{token_img_CallRSA_AND}']/(preceding::android.widget.ImageView)[2]|//*[@label='{token_img_CallRSA_IOS}']/preceding::UIAButton[1]" descriptor="XPATH" /> -->
+			<element name="img_CallRSA" value="//*[@text='{token_img_CallRSA_AND}']/(preceding::android.widget.ImageView)[2]|(//*[@label='{token_img_CallRSA_IOS}']/preceding::UIAButton[1])[2]|//*[@text='{token_img_CallRSA_AND}']" descriptor="XPATH" />
+<!--		<element name="lbl_CallConfirmationMessage" value="//*[@text=&quot;{token_lbl_CallConfirmationMessage}&quot;]|//*[@label=&quot;{token_lbl_CallConfirmationMessage}&quot;]" descriptor="XPATH" /> -->
+<!-- 			<element name="lbl_CallConfirmationMessage" value="//*[contains(@text,'{token_lbl_CallConfirmationMessage}')]|//*[contains(@label,'{token_lbl_CallConfirmationMessage}')]" descriptor="XPATH" />
+			<element name="btn_ConfirmCallRoadAssistance" value="//*[@label='{token_btn_ConfirmCallRoadAssistance_IOS}']|//*[@text='{token_btn_ConfirmCallRoadAssistance_AND}']" descriptor="XPATH" /> -->
+			
+			<element name="btn_BackRSA" value="//*[@class='android.widget.ImageButton']|//*[@name='MobilityCommon.RSAView']//UIAButton" descriptor="XPATH" />
+			
+		</page>
+	</site>
+</elementDefinition>

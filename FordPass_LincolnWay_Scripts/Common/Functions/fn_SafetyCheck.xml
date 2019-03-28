@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_SafetyCheck">
+		<description> fn_VerifyPageOpened_SafetyCheck - Function to verify user landed on the SafetyCheck page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+			<parameter type="STATIC" value="Function's XML file name: fn_SafetyCheck.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_SafetyCheck">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TSafetyCheck1"/>
+
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+				<parameter type="STATIC" value="User SafetyCheckfully landed on SafetyCheck page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass SafetyCheck page" page="pge_SafetyCheck" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_SafetyCheck">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+					<parameter type="STATIC" value="SafetyCheck page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+			</function>
+	
+	<function name="fn_ValidatePage_SafetyCheck">
+		<description> fn_ValidatePage_SafetyCheck - Function to validate the Safety Check page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+			<parameter type="STATIC" value="Function's XML file name: fn_SafetyCheck.xml" />
+		</step>
+				
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_SafetyCheck">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TSafetyCheck2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+				<parameter type="CONTENT" value="TSafetyCheck2" />
+				<parameter type="STATIC" value="Above page information is displayed in 'SafetyCheck' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_SafetyCheck">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+					<parameter type="CONTENT" value="TSafetyCheck2" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'SafetyCheck' page" />
+				</step>
+			</step>
+		</step>
+	</function>	
+
+<function name="fn_Click_ImNotDriving">
+		<description> fn_Click_ImNotDriving - Function to click Iam not driving Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+			<parameter type="STATIC" value="Function's XML file name: fn_SafetyCheck.xml" />
+		</step>
+		
+				
+		<step type="CLICK" name="btn_ImNotDriving" page="pge_SafetyCheck">
+			<token type="CONTENT" name="token_btn_ImNotDriving_AND" value="TSafetyCheck3_AND" />
+			<token type="CONTENT" name="token_btn_ImNotDriving_IOS" value="TSafetyCheck3_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+				<parameter type="CONTENT" value="TSafetyCheck3_AND" />
+				<parameter type="CONTENT" value="TSafetyCheck3_IOS" />
+				<parameter type="STATIC" value="Above page information is displayed in 'SafetyCheck' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_SafetyCheck">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SafetyCheck">
+					<parameter type="CONTENT" value="TSafetyCheck3_AND" />
+					<parameter type="CONTENT" value="TSafetyCheck3_IOS" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'SafetyCheck' page" />
+				</step>
+			</step>
+		</step>
+	</function>	
+</suite>

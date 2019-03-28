@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : APARTHI3 -->
+<!-- Created Date : 12-Mar-2018 -->
+<!-- Updated Date : 12-Mar-2018 -->
+<!-- Pre-Requisite : User  should have already added a VIN given in testdata xml-->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Move_AddVehicle_InvalidVIN" dataProvider="TestData.XFS_FP_Move_AddVehicle_InvalidVIN,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN,SA_BR_EN" timed="false" threshold="0" active="true" >
+		<description> Validating add and delete vehicle for existing user </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />			
+		</step>
+		<step type="APPLICATION" name="OPEN" page="pge_Login" wait="3">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+				
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />	
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		 <step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />   
+
+		<step type="WAIT" name="Wait_For_30_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="30"/>
+		</step>
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+			
+		<step type="CALL2" name="fn_ClickAddVehicle" page="pge_AddVIN" />		
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_AddVIN" page="pge_AddVIN" />
+				
+		<step type="CALL2" name="fn_AddVehicle_VINLessThan17Chars" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_AddVehicle_VINWithSpecialChars" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_AddVehicle_ErrorValidation" page="pge_AddVIN" >
+			<parameter type="DATA" name="param_VIN" value="TestData.VIN" />
+			<parameter type="CONTENT" name="AddVinError02_AND" value="TVehicleAlreadyExists2" />
+			<parameter type="CONTENT" name="AddVinError01_AND" value="TVehicleAlreadyExists1" />
+			<parameter type="CONTENT" name="param_Btn_AND" value="TVehicleAlreadyExistsOK" />
+			<parameter type="CONTENT" name="AddVinError02_IOS" value="TVehicleAlreadyExists2" />
+			<parameter type="CONTENT" name="AddVinError01_IOS" value="TVehicleAlreadyExists1" />
+			<parameter type="CONTENT" name="param_Btn_IOS" value="TVehicleAlreadyExistsOK" />			
+		</step>
+		
+		<step type="CALL2" name="fn_AddVehicle_ErrorValidation" page="pge_AddVIN" >
+			<parameter type="DATA" name="param_VIN" value="TestData.InvalidVIN" />
+			<parameter type="CONTENT" name="AddVinError02_AND" value="TAddVinInvalidVin2_AND" />
+			<parameter type="CONTENT" name="AddVinError01_AND" value="TAddVinInvalidVin1_AND" />
+			<parameter type="CONTENT" name="param_Btn_AND" value="TAddVinInvalidVin3" />
+			<parameter type="CONTENT" name="AddVinError02_IOS" value="TAddVinInvalidVin2_IOS" />
+			<parameter type="CONTENT" name="AddVinError01_IOS" value="TAddVinInvalidVin1_IOS" />
+			<parameter type="CONTENT" name="param_Btn_IOS" value="TAddVinInvalidVin3" />			
+		</step>
+		
+		<step type="CALL2" name="fn_AddVehicle_ErrorValidation" page="pge_AddVIN" >
+			<parameter type="DATA" name="param_VIN" value="TestData.LW_VIN" />
+			<parameter type="CONTENT" name="AddVinError02_AND" value="TAddVinLWVin2_AND" />
+			<parameter type="CONTENT" name="AddVinError01_AND" value="TAddVinLWVin1_AND" />
+			<parameter type="CONTENT" name="param_Btn_AND" value="TAddVinLWVin3_AND" />
+			<parameter type="CONTENT" name="AddVinError02_IOS" value="TAddVinLWVin2_IOS" />
+			<parameter type="CONTENT" name="AddVinError01_IOS" value="TAddVinLWVin1_IOS" />
+			<parameter type="CONTENT" name="param_Btn_IOS" value="TAddVinLWVin3_IOS" />			
+		</step>
+		
+		<step type="CALL2" name="fn_NavigateFromAddVehicleToDashboard" page="pge_AddVIN" />				
+								
+		 <step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />		 	 -->
+	</test>
+</suite>

@@ -1,0 +1,89 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<!-- ../../ -> denotes two levels up in the folder hierarchy  -->
+	
+	<import fileName="../../Functions/fn_AcceptCookies.xml" />
+	<import fileName="../../Functions/fn_Account.xml" />
+	<import fileName="../../Functions/fn_ChangePassword.xml" />
+	<import fileName="../../Functions/fn_ChangeUsername.xml" />
+	<import fileName="../../Functions/fn_CommonReusable.xml" />
+	<import fileName="../../Functions/fn_ConfirmPIN.xml" />
+	<import fileName="../../Functions/fn_Congratulations.xml" />
+	<import fileName="../../Functions/fn_CreateAccount.xml" />
+	<import fileName="../../Functions/fn_CreatePIN.xml" />
+	<import fileName="../../Functions/fn_EditProfile.xml" />
+	<import fileName="../../Functions/fn_EnterAddress.xml" />
+	<import fileName="../../Functions/fn_EnterPIN.xml" />
+	<import fileName="../../Functions/fn_FirstImpression.xml" />
+	<import fileName="../../Functions/fn_ForgotPassword.xml" />
+	<import fileName="../../Functions/fn_ForgotPIN.xml" />
+	<import fileName="../../Functions/fn_FPCommon.xml" />
+	<import fileName="../../Functions/fn_GuidesChangeTopic.xml" />
+	<import fileName="../../Functions/fn_GuidesLanding.xml" />
+	<import fileName="../../Functions/fn_GuidesSearch.xml" />
+	<import fileName="../../Functions/fn_Login.xml" />
+	<import fileName="../../Functions/fn_Logout.xml" />
+	<import fileName="../../Functions/fn_MarketingOptions.xml" />
+	<import fileName="../../Functions/fn_Move.xml" />
+	<import fileName="../../Functions/fn_PrivacyPolicy.xml" />
+	<import fileName="../../Functions/fn_ProgramBenefits.xml" />
+	<import fileName="../../Functions/fn_Recall.xml" />
+	<import fileName="../../Functions/fn_ResetPassword.xml" />
+	<import fileName="../../Functions/fn_RSA.xml" />
+	<import fileName="../../Functions/fn_ScanorEnterVIN.xml" />
+	<import fileName="../../Functions/fn_Security.xml" />
+	<import fileName="../../Functions/fn_SelectCountry.xml" />
+	<import fileName="../../Functions/fn_Settings.xml" />
+	<import fileName="../../Functions/fn_ShareLocation.xml" />
+	<import fileName="../../Functions/fn_Success.xml" />
+	<import fileName="../../Functions/fn_TermsAndConditions.xml"/>
+	<import fileName="../../Functions/fn_TermsAndPrivacy.xml"/>
+	<import fileName="../../Functions/fn_TooManyAttempts.xml"/>
+	<import fileName="../../Functions/fn_UnitsofMeasure.xml" />
+	<import fileName="../../Functions/fn_UpdatePIN.xml" />
+	<import fileName="../../Functions/fn_VehicleInfo.xml" />
+	<import fileName="../../Functions/fn_ViewProfile.xml" />
+	<import fileName="../../Functions/fn_AddVehicle.xml" />
+	<import fileName="../../Functions/fn_DeleteVehicle.xml" />
+	<import fileName="../../Functions/fn_RSA.xml" />
+	<import fileName="../../Functions/fn_FSA.xml" />
+	<import fileName="../../Functions/fn_OnlineServiceBooking.xml" />
+	<import fileName="../../Functions/fn_MaintenanceSchedule.xml" />
+	<import fileName="../../Functions/fn_FindFuelBankDetails.xml" />
+	<import fileName="../../Functions/fn_FindCategoryApplet.xml" />
+	<import fileName="../../Functions/fn_FindFilters.xml" />
+	<import fileName="../../Functions/fn_FindCommon.xml" />
+	<import fileName="../../Functions/fn_FindParkingDetails.xml" />	
+	<import fileName="../../Functions/fn_FindLocationSearch.xml" />	
+	<import fileName="../../Functions/fn_FindSendToVehicle.xml" />	
+	<import fileName="../../Functions/fn_FindDealersDetails.xml" />	
+	<import fileName="../../Functions/fn_FordCredit.xml" />
+	<import fileName="../../Functions/fn_SafetyCheck.xml" />	
+	<import fileName="../../Functions/fn_ManageMyData.xml" />
+	<import fileName="../../Functions/fn_SmartTip.xml" />
+	<import fileName="../../Functions/fn_Smartlink.xml" />
+	<import fileName="../../Functions/fn_Wallet.xml" />
+	<import fileName="../../Functions/fn_Transactions.xml" />
+	<import fileName="../../Functions/fn_AddCard.xml" />
+	<import fileName="../../Functions/fn_ECM.xml" />
+	<import fileName="../../Functions/fn_AuthorizedTCUVIN_VehicleInfo.xml" />
+	<import fileName="../../Functions/fn_TPMS.xml" />
+	<import fileName="../../Functions/fn_ScheduleStarts.xml" />
+	<import fileName="../../Functions/fn_EnableSyncAppLink.xml" />
+	<import fileName="../../Functions/fn_Messagecenter.xml" />
+	<import fileName="../../Functions/fn_PersonalDriver.xml" />
+	<import fileName="../../Functions/fn_Device2.xml"/>
+	<import fileName="../../Functions/fn_Device2_ConfirmPIN.xml"/>
+	<import fileName="../../Functions/fn_Device2_CreatePIN.xml"/>
+	<import fileName="../../Functions/fn_ScheduleServices.xml"/>
+	<import fileName="../../Functions/fn_ServiceHistory.xml"/>
+	<import fileName="../../Functions/fn_AALogin.xml"/>
+
+	
+	
+	
+
+	
+
+</suite>

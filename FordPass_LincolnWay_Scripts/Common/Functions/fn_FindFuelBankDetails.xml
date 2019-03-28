@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8: LIST OF FUNCTIONS in fn_FindFuelBankDetails.xml-->	
+<!-- fn_Verify_PriceHeader -->
+<!-- fn_Validate_FuelDirection -->
+<!-- fn_Validate_FuelCall -->
+<!-- fn_Verify_FuelPriceValues -->
+<!-- ############################################################################################################# -->	
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function verify whether the page landed on 'FUEL DETAILS PAGE' -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_PriceHeader">
+		<description> fn_Verify_PageOpened - Function to verify user landed on the Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFuelBankDetails.xml" />
+		</step>
+		<step type="WAIT_FOR" name="lbl_PriceHeader" page="pge_FindFuelBankDetails">
+			<parameter type="STATIC" value="10" />
+			<step type="GET" name="lbl_PriceHeader" page="pge_FindFuelBankDetails" context="str_FuelPrice"/>
+			<step type="STATE" name="Screen Shot - Fuel Details Page" page="pge_FindFuelBankDetails" failureMode="IGNORE"/>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Price Header Label and Image are Present" />
+					<parameter type="CONTEXT" name="Fuel Price" value="str_FuelPrice" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFuelBankDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+				<parameter type="STATIC" value="'Price Header Label and Image are not Present" />
+			</step>
+		</step>
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function verify whether the Fuel Bank Direction feature is working  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Validate_FuelDirection">
+		<description> fn_Validate_FuelDirection - Function to verify and validate the 'Direction' in Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFuelBankDetails.xml" />
+		</step>	
+		<step type="EXISTS" name="lbl_FuelDirections" page="pge_FindFuelBankDetails">
+			<token type="CONTENT" name="token_lbl_FuelDirections" value="TFindFuelBankDetails1" />			
+			
+			<step type="CLICK" name="lbl_FuelDirections" page="pge_FindFuelBankDetails" wait="3">
+				<token type="CONTENT" name="token_lbl_FuelDirections" value="TFindFuelBankDetails1" />	
+						
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+					<parameter type="STATIC" value="'FIND-FUEL DETAILS >> Directions' element is EXISTS and CLICKED" />
+				</step>
+			</step>			
+		<step type="ELSE" name="elseCondition" page="pge_FindFuelBankDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+				<parameter type="STATIC" value="'FIND-FUEL DETAILS >> Directions' element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	 </function>
+	 
+	 <function name="fn_Validate_MapDirection">
+		<description> fn_Validate_MapDirection - Function to verify and validate the 'Direction' in Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFuelBankDetails.xml" />
+		</step>	
+		<step type="EXISTS" name="lbl_FuelDirections" page="pge_FindFuelBankDetails">
+			<token type="CONTENT" name="token_lbl_FuelDirections" value="TFindMapDetails1" />			
+			
+			<step type="CLICK" name="lbl_FuelDirections" page="pge_FindFuelBankDetails" wait="3">
+				<token type="CONTENT" name="token_lbl_FuelDirections" value="TFindMapDetails1" />	
+						
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+					<parameter type="STATIC" value="FIND DETAILS >> Directions element is EXISTS and CLICKED" />
+				</step>
+			</step>			
+		<step type="ELSE" name="elseCondition" page="pge_FindFuelBankDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+				<parameter type="STATIC" value="FIND DETAILS >> Directions element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+	 </function>
+	 
+	 <!-- Note:	call the function to validate the Map Application: fn_CommonReusable.xml >> fn_Validate_Maps -->
+	 
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function verify whether the Fuel Bank Call Option Feature is working  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Validate_FuelCall">
+		<description> fn_Validate_FuelCall - Function to verify and validate the 'Call' in Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFuelBankDetails.xml" />
+		</step>		
+		<step type="EXISTS" name="lbl_FuelCall" page="pge_FindFuelBankDetails">
+			<token type="CONTENT" name="token_lbl_FuelCall" value="TFindFuelBankDetails2" />			
+			
+			<step type="CLICK" name="lbl_FuelCall" page="pge_FindFuelBankDetails" wait="3">
+				<token type="CONTENT" name="token_lbl_FuelCall" value="TFindFuelBankDetails2" />	
+						
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+					<parameter type="STATIC"
+						value="'FIND-FUEL DETAILS >> Call' element is EXISTS and DIALED" />
+				</step>
+			</step>			
+		<step type="ELSE" name="elseCondition" page="pge_FindFuelBankDetails">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+				<parameter type="CONTEXT" value="param_ExpValue" />
+				<parameter type="STATIC" value="'FIND-FUEL DETAILS >> Call' element is NOT EXISTS" />
+			</step>
+		</step>
+		</step>		
+	</function>
+	
+	<!-- Note:	call the function to end call: fn_CommonReusable.xml >> fn_Validate_Dialer -->
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to verify the 'Fuel Pricing Values' Presence -->
+<!-- ############################################################################################################# -->		
+	<function name="fn_Verify_FuelPriceValues">
+		<description> fn_Verify_FuelPriceValues - Function to verify the 'Fuel Pricing Values' in Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindFuelBankDetails.xml" />
+		</step>	
+			
+		<step type="VISIBLE" name="lbl_FuelType" page="pge_FindFuelBankDetails" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_FuelPriceIndex" value="param_FuelPriceIndex" />			
+				<step type="GET" name="lbl_FuelType" page="pge_FindFuelBankDetails" context="str_FuelType">
+				<token type="CONTEXT" name="token_FuelPriceIndex" value="param_FuelPriceIndex" />			
+				<step type="GET" name="lbl_FuelPriceDate" page="pge_FindFuelBankDetails" context="str_FuelPriceDate">
+					<token type="CONTEXT" name="token_lbl_FuelType" value="str_FuelType" />
+				<step type="GET" name="lbl_FuelPrice" page="pge_FindFuelBankDetails" context="str_FuelPrice">
+					<token type="CONTEXT" name="token_lbl_FuelType" value="str_FuelType" />
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+							<parameter type="STATIC" value="'FIND-FUEL DETAILS >> Fuel Type and Price'" />
+							<parameter type="CONTEXT" name="Fuel Type" value="param_FuelType" />
+							<parameter type="CONTEXT" name="Fuel Price" value="str_FuelPriceDate" />
+							<parameter type="CONTEXT" name="Fuel Price" value="str_FuelPrice" />
+						</step>
+						<step type="STATE" name="Screenshot - Fuel Type and It's Price Details" page="pge_FindFuelBankDetails"/>	
+				</step>
+				</step>
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindFuelBankDetails">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindFuelBankDetails">
+				<parameter type="STATIC" value="'FIND-FUEL DETAILS >> Fuel Type and Price'- The Provided Fuel Details NOT EXISTS" />
+			</step>
+		</step>
+		</step>
+		<!-- Note:	call the function to Navigate Back Operation: fn_FPCommon.xml >> fn_ClickButton_FP_Back -->						
+	</function>
+	
+</suite>

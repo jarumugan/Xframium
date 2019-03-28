@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 23-Jan-2018 -->
+<!-- Updated Date : 16-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_015_IOS" dataProvider="TestData.XFS_FP_Accounts_015_IOS" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true" os="IOS">
+		<description> Change UserName Validation Script </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login" >
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+
+		<step type="CALL2" name="fn_Click_ChangeUsername" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_EnterPIN" page="pge_EnterPIN" />
+			
+		<step type="CALL2" name="fn_ValidateSection_CurrentUserName" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_ExpectedUserName" value="TestData.UserName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateSection_NewUserName" page="pge_ChangeUsername" />
+		
+		<step type="CALL2" name="fn_ValidateSection_PreferredContactEmail" page="pge_ChangeUsername" />
+		
+		<step type="CALL2" name="fn_ValidateSave_Button" page="pge_ChangeUsername" />
+		
+		<step type="CALL2" name="fn_ValidateCancel_Button" page="pge_ChangeUsername" />
+		
+		
+<!--  Error message validation -->
+
+
+<!-- Validate the NewUserName field with Null value -->
+		<step type="CALL2" name="fn_ValidateInput_NewUsername" page="pge_ChangeUsername">
+			<parameter type="STATIC" name="param_DataValue" value="" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_ChangeUsername" page="pge_ChangeUsername">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TChangeUsername10" />
+		</step>
+		
+		<!-- Validate by input invalid NewUserName -->
+		<step type="CALL2" name="fn_ValidateInput_NewUsername" page="pge_ChangeUsername">
+			<parameter type="STATIC" name="param_DataValue" value="1234567" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_ChangeUsername" page="pge_ChangeUsername">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TChangeUsername10" />
+		</step>
+		
+		<!-- Validate the NewUserName field with valid value -->
+		<step type="CALL2" name="fn_ValidateInput_NewUsername" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_DataValue" value="TestData.NewUserName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_ChangeUsername" page="pge_ChangeUsername">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TChangeUsername10" />
+		</step>
+		
+		<!-- Validate by input valid ConfirmUserName -->
+		<step type="CALL2" name="fn_ValidateInput_ConfirmUsername" page="pge_ChangeUsername">
+			<parameter type="STATIC" name="param_DataValue" value="1234567" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckforInlineError_ChangeUsername" page="pge_ChangeUsername">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TChangeUsername11" />
+		</step>
+		
+		<!-- Validate the Confirm Username field with valid value -->
+		<step type="CALL2" name="fn_ValidateInput_ConfirmUsername" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_DataValue" value="TestData.ConfirmUserName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_ChangeUsername" page="pge_ChangeUsername">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TChangeUsername10" />
+		</step>
+		
+		
+		<step type="CALL2" name="fn_Click_Cancel_In_ChangeUserName" page="pge_ChangeUsername" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_Click_ChangeUsername" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_EnterPIN" page="pge_EnterPIN" />
+			
+		<step type="CALL2" name="fn_InputAll_ChangeUserName" page="pge_ChangeUsername" />
+		
+		<step type="CALL2" name="fn_Click_Save_In_ChangeUserName" page="pge_ChangeUsername" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Success" page="pge_Success" />
+		
+		<step type="CALL2" name="fn_ValidateSection_ConfirmMessage_IOS" page="pge_Success" />
+		
+		<step type="CALL2" name="fn_Click_ReturnToLogin" page="pge_Success" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login" >
+			<parameter type="DATA" name="param_Username" value="TestData.NewUserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />	
+		
+		<step type="CALL2" name="fn_Click_ChangeUsername" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_ValidateSection_CurrentUserName" page="pge_ChangeUsername">
+			<parameter type="DATA" name="param_ExpectedUserName" value="TestData.NewUserName" />
+		</step>
+		
+		<step type="CALL2" name="fn_InputAll_ChangeUserName_Revert" page="pge_ChangeUsername" />
+
+		<step type="CALL2" name="fn_Click_Save_In_ChangeUserName" page="pge_ChangeUsername" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Success" page="pge_Success" />
+		
+		<step type="CALL2" name="fn_ValidateSection_ConfirmMessage" page="pge_Success" />
+		
+		<step type="CALL2" name="fn_Click_ReturnToLogin" page="pge_Success" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+	
+	</test>
+</suite>

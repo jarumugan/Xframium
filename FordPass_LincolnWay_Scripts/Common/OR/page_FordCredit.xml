@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FordCredit" class="org.xframium.page.keyWord.KeyWordPage">
+		
+<!-- 			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']/preceding::android.widget.ImageView[1]|//*[@label='{token_lbl_PageHeader}']/preceding::UIAImage" descriptor="XPATH" /> -->
+			<element name="lbl_PageHeader" value="(//android.widget.ImageView)[3]|//UIAImage" descriptor="XPATH" /> 
+			<element name="lbl_PageInfo" value="//*[@text='{token_lbl_PageInfo}']|//*[@name='{token_lbl_PageInfo}']" descriptor="XPATH" />
+			<element name="edt_FordCredit_UserName" value="(//*[@text='{token_edt_FordCreditUserName}']//android.widget.EditText)[1]|(//*[@value='{token_edt_FordCreditUserName}']/following::UIATextField)[1]|(//*[@value='{token_edt_UserName}']/preceding::UIATextField)[1]" descriptor="XPATH" />
+<!-- 			<element name="edt_FordCredit_password" value="(//*[@text='{token_edt_FordCreditPassword}']//android.widget.EditText)[1]|(//*[@value='{token_edt_FordCreditPassword}']/following::UIASecureTextField)[1]|(//*[@value='{token_edt_Password}']/preceding::UIASecureTextField)[1]" descriptor="XPATH" /> -->
+			<element name="img_PasswordMask" value="//*[@content-desc='Toggle password visibility']|//UIASecureTextField/UIAButton[1]|//UIATextField/UIAButton[1]" descriptor="XPATH" />
+<!-- 			<element name="edt_PasswordWithoutMask" value="(//*[@text='{token_edt_FordCreditPassword}']//android.widget.EditText)[1]|(//*[@value='{token_edt_FordCreditPassword}']/following::UIASecureTextField)[1]" descriptor="XPATH" /> -->
+			<element name="lbl_FordpassPin" value="//*[@text='{token_edt_FordpassPin}' and @checked='false']/preceding::android.widget.CheckBox|//*[@value='{token_edt_FordpassPin}']/preceding::UIAButton[1]" descriptor="XPATH" />
+			<element name="lnk_TroubleLogging" value="//*[@text='{token_lnk_TroubleLogging_AND}']|//*[@label='{token_lnk_TroubleLogging_IOS}']" descriptor="XPATH" />
+			<element name="lnk_ForgotUsername" value="//*[@text='{token_lnk_ForgotUsername}']" descriptor="XPATH" />
+			
+			<element name="btn_Login_Disabled" value="//*[@text='{token_btn_Login_AND}' and @enabled='false']|//*[@label='{token_btn_Login_IOS}' and @enabled='false']" descriptor="XPATH" />
+			<element name="btn_Login_Enabled" value="//*[@text='{token_btn_Login_AND}' and @enabled='true']|//*[@label='{token_btn_Login_IOS}' and @enabled='true']" descriptor="XPATH" />
+			<element name="btn_Login" value="//*[@text='{token_btn_Login_AND}']|//*[@label='{token_btn_Login_IOS}']" descriptor="XPATH" />
+			
+			<element name="btn_Deactivate" value="//*[@text='{token_btn_Deactivate}']|//*[@label='{token_btn_Deactivate}']" descriptor="XPATH" />
+			
+			<element name="lbl_NewToAccount" value="//*[@text='{token_lbl_NewToAccount}']|//*[@label='{token_lbl_NewToAccount}']" descriptor="XPATH" />
+			<element name="lbl_FirstRegister" value="//*[@text='{token_lbl_FirstRegister}']|//*[@label='{token_lbl_FirstRegister}']" descriptor="XPATH" />
+			<element name="lnk_RegisterNow" value="//*[@text='{token_lnk_RegisterNow_AND}']|//*[@label='{token_lnk_RegisterNow_IOS}']" descriptor="XPATH" />
+<!-- 			<element name="lnk_Guides" value="//*[@text='{token_lnk_Guides}']/preceding::android.widget.ImageView[1]|//*[@name='MobilityCommon.FordCreditLoginView']/UIAButton[2]" descriptor="XPATH" /> -->
+			<element name="lnk_Guides" value="(//android.widget.ImageView)[2]|(//UIAButton)[2]" descriptor="XPATH" /> 
+
+<!-- 			<element name="lnk_Cancel" value="//*[@text='{token_lnk_Cancel}']/preceding::android.widget.ImageView[2]|//*[@name='MobilityCommon.FordCreditLoginView']/UIAButton[1]" descriptor="XPATH" /> -->
+			
+			<element name="lnk_Cancel" value="(//android.widget.ImageView)[1]|(//UIAButton)[1]" descriptor="XPATH" />
+			<element name="lnk_CancelFordCredit" value="//*[@text='{token_lnk_CancelFordCredit}']/preceding::android.widget.ImageView[3]|//*[@label='{token_lnk_CancelFordCredit}']/preceding::UIAButton" descriptor="XPATH" />
+			
+			<element name="lbl_GuidesOpen" value="//*[@text='{token_lnk_GuidesOpen}']|//*[@value='{token_lnk_GuidesOpen}']" descriptor="XPATH" />
+			<element name="lnk_RegisterNowOpen" value="//*[@text='{token_lnk_RegisterNowOpen_AND}']|//*[@label='{token_lnk_RegisterNowOpen_IOS}']" descriptor="XPATH" />
+			<element name="lnk_RegisterNowCancel" value="//*[@text='{token_lnk_RegisterNowCancel_AND}']/preceding::android.widget.ImageButton|//*[@label='{token_lnk_RegisterNowCancel_IOS}']/preceding::UIAButton" descriptor="XPATH" />
+			<element name="lbl_Warning" value="//*[@text='{token_lbl_Warning}']|//*[@label='{token_lbl_Warning}']" descriptor="XPATH" />
+			<element name="lbl_WarningMsg" value="//*[@text='{token_lbl_WarningMsg}']|//*[@label='{token_lbl_WarningMsg}']" descriptor="XPATH" />
+			<element name="lnk_WarningConfirm" value="//*[@text='{token_lnk_WarningConfirm_AND}']|//*[@label='{token_lnk_WarningConfirm_IOS}']" descriptor="XPATH" />
+			<element name="lnk_WarningCancel" value="//*[@text='{token_lnk_WarningCancel_AND}']|//*[@label='{token_lnk_WarningCancel_IOS}']" descriptor="XPATH" />
+			
+			<element name="lbl_WarningTroubleLogging" value="//*[@text='{token_lbl_WarningTroubleLogging}']|//*[@value='{token_lbl_WarningTroubleLogging}']" descriptor="XPATH" />
+			<element name="lbl_WarningTroubleLoggingMsg" value="//*[@text='{token_lbl_WarningTroubleLoggingMsg}']|//*[@label='{token_lbl_WarningTroubleLoggingMsg}']" descriptor="XPATH" />
+			<element name="lnk_WarningForgotUsername" value="//*[@text='{token_lnk_WarningForgotUsername_AND}']|//*[@label='{token_lnk_WarningForgotUsername_IOS}']" descriptor="XPATH" />
+			
+			<element name="lnk_WarningForgotPassword" value="//*[@text='{token_lnk_WarningForgotPassword_AND}']|//*[@label='{token_lnk_WarningForgotPassword_IOS}']" descriptor="XPATH" />
+			<element name="lbl_FordCreditSettings" value="//*[@text='{token_lbl_FordCreditSettings}']|//*[@label='{token_lbl_FordCreditSettings}']" descriptor="XPATH" />
+			<element name="lbl_FordpassPinMsg" value="//*[@text='{token_edt_FordpassPinMsg}' and @checked='false']|//*[@name='{token_edt_FordpassPinMsg}']" descriptor="XPATH" />
+			<element name="btn_Login_EnabledFordCredit" value="//*[@text='{token_btn_LoginFordCredit_AND}' and @enabled='true']|//*[@label='{token_btn_LoginFordCredit_IOS}' and @enabled='true']" descriptor="XPATH" />
+			
+			<element name="lbl_FordCreditSuccess" value="//*[@text='{token_lbl_FordCreditSuccess_AND}']|//*[@label='{token_lbl_FordCreditSuccess_IOS}']" descriptor="XPATH" />
+			<element name="lbl_FordCreditCancel" value="//*[@text='{token_lnk_FordCreditCancel_AND}']/preceding::android.widget.ImageButton|//*[@label='{token_lnk_FordCreditCancel_IOS}']//preceding::UIAButton" descriptor="XPATH" />
+			
+			
+			<element name="lbl_ErrorBanner" value="//*[contains(@text,&quot;{token_lbl_ErrorBanner}&quot;)]|//*[contains(@label,&quot;{token_lbl_ErrorBanner}&quot;)]" descriptor="XPATH" />
+			<element name="lnk_TemporaryPwd_Banner" value="//*[@text='{token_lnk_TemporaryPwd_Banner}']|//*[@label='{token_lnk_TemporaryPwd_Banner}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

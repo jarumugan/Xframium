@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_CreateAccount">
+		<description> fn_VerifyPageOpened_CreateAccount - Function to verify user landed on the Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+				
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_CreateAccount">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TCreateAccount1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="User successfully landed on Create Account page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="Create Account page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputAllFields_CreateAccount">
+		<description> fn_InputAllFields_CreateAccount - Function to call all the input function to input value to all fields in Create account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_GetUniqueCPFValue" page="pge_FPCommon" tagNames="FP-SA" />
+		
+		<step type="CALL2" name="fn_ValidateInput_CPF" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="CONTEXT" name="param_DataValue" value="ATTR_UNIQUE_CPF" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_Firstname" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.FirstName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_Lastname" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.LastName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_Username" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.UserName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Input_Password" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/>
+	</function>
+	
+	<function name="fn_ValidateInput_Firstname">
+		<description> fn_ValidateInput_Firstname - Function to validate and input the First name field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="EXISTS" name="edt_FirstName" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_edt_FirstName" value="TCreateAccount2" />
+			
+			<!-- <step type="CLICK" name="edt_FirstName" page="pge_CreateAccount">
+				<token type="CONTENT" name="token_edt_FirstName" value="TCreateAccount2" />
+			</step> -->
+			
+			<step type="SET" name="edt_FirstName" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_FirstName" value="TCreateAccount2" />
+			</step>
+			
+			<!-- <step type="CLICK" name="edt_FirstName" page="pge_CreateAccount" wait="2">
+				<token type="CONTENT" name="token_edt_FirstName" value="TCreateAccount2" />
+			</step>
+			
+			<step name="SEND_KEYS" page="pge_CreateAccount" type="DEVICE">
+                <parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+			</step> -->
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'First Name' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'First Name' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateInput_Lastname">
+		<description> fn_ValidateInput_Lastname - Function to validate and input the Last name field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="EXISTS" name="edt_LastName" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_edt_LastName" value="TCreateAccount3" />
+			
+			<step type="CLICK" name="edt_LastName" page="pge_CreateAccount">
+				<token type="CONTENT" name="token_edt_LastName" value="TCreateAccount3" />
+			</step>
+			
+			<step type="SET" name="edt_LastName" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_LastName" value="TCreateAccount3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'Last Name' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Last Name' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidateInput_CPF">
+		<description> fn_ValidateInput_CPF - Function to validate and input the CPF field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="edt_CPF" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_edt_CPF" value="TCreateAccount4" />
+			
+			<step type="SET" name="edt_CPF" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_CPF" value="TCreateAccount4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'CPF' field is available and inputted with the above value" />
+			</step>
+			
+			<!-- to make the lost focus from CPF field -->
+			<step type="EXISTS" name="edt_FirstName" page="pge_CreateAccount">
+				<token type="CONTENT" name="token_edt_FirstName" value="TCreateAccount2" />
+				
+				<step type="CLICK" name="edt_FirstName" page="pge_CreateAccount">
+					<token type="CONTENT" name="token_edt_FirstName" value="TCreateAccount2" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'CPF' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateCPF_WithExpected">
+		<description> fn_ValidateCPF_WithExpected - Function to validate and input the User Name field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="STATE" name="Dummy State - Validate CPF with expected value" page="pge_CreateAccount" failureMode="IGNORE" />
+		
+		<step type="ATTRIBUTE" name="edt_CPF" page="pge_CreateAccount" os="ANDROID">
+			<parameter type="CONTEXT" value="param_ExpValue" />
+			<parameter type="STATIC" value="text" />
+			<token type="CONTENT" name="token_edt_CPF" value="TCreateAccount4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_ExpValue" />
+				<parameter type="STATIC" value="'CPF' field is available with the above value" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="CONTEXT" value="param_ExpValue" />
+					<parameter type="STATIC" value="'CPF' field doesnt contains the expected value" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="ATTRIBUTE" name="edt_CPF" page="pge_CreateAccount" os="IOS">
+			<parameter type="CONTEXT" value="param_ExpValue" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTENT" name="token_edt_CPF" value="TCreateAccount4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_ExpValue" />
+				<parameter type="STATIC" value="'CPF' field is available with the above value" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="CONTEXT" value="param_ExpValue" />
+					<parameter type="STATIC" value="'CPF' field doesnt contains the expected value" />
+				</step>
+			</step>
+		</step>
+		
+	</function>
+
+	<function name="fn_ValidateInput_Username">
+		<description> fn_ValidateInput_Username - Function to validate and input the User Name field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step name="NUMBER" site="xTest" page="home" type="RANDOM" active="true" threshold="0" wait="0" failureMode="ERROR" context="R_NUMBER">
+            <parameter type="STATIC" name="Minimum" value="10" />
+            <parameter type="STATIC" name="Maximum" value="100000" />
+            <parameter type="STATIC" name="Format" value="###" />
+        </step>
+        
+        <step type="STRING2" name="concat" page="home" context="UserName">
+        
+<!--         <parameter name="Email" type="STATIC" value="LWNA20" /> -->
+        	<parameter name="Email" type="STATIC" value="fp2_0" />
+            <parameter name="RandomNumber" type="CONTEXT" value="R_NUMBER" />
+            <parameter name="RandomNumber" type="STATIC" value="@yopmail.com" />
+        </step>
+        <step type="REPORT" name="Add_Report" page="test">
+            <parameter type="CONTEXT" name="generated user email" value="UserName" />             
+        </step>	
+        
+		<step type="VISIBLE" name="edt_UserName" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			
+			<step type="CLICK" name="edt_UserName" page="pge_CreateAccount">
+				<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			</step>
+			
+			<step type="SET" name="edt_UserName" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="UserName" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'User Name' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'User Name' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_SendCode">
+		<description> fn_Click_SendCode - Function to click 'Send Code' link on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_SendCode" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			<token type="CONTENT" name="token_lnk_SendCode" value="TCreateAccount8" />
+		
+			<step type="CLICK" name="lnk_SendCode" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+				<token type="CONTENT" name="token_lnk_SendCode" value="TCreateAccount8" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Send Code' link is available and clicked on Create Account page" />
+				</step>
+			</step>
+				
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Send Code' link is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_ReSendVerificationCode">
+		<description> fn_Click_ReSendVerificationCode - Function to click 'ReSend Verification Code' link on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ResendCode" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			<token type="CONTENT" name="token_lnk_ResendCode" value="TCreateAccount9" />
+		
+			<step type="CLICK" name="lnk_ResendCode" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+				<token type="CONTENT" name="token_lnk_ResendCode" value="TCreateAccount9" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Resend Verification Code' link is available and clicked on Create Account page" />
+				</step>
+			</step>
+				
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Resend Verification Code' link is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidateInput_MobileVerificationCode">
+		<description> fn_ValidateInput_MobileVerificationCode - Function to validate and input the Mobile Verification Code field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="edt_MobileVerificationCode" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_edt_MobileVerificationCode" value="TCreateAccount7" />
+			
+			<step type="SET" name="edt_MobileVerificationCode" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_MobileVerificationCode" value="TCreateAccount7" />
+			</step>
+			
+			<!-- <step type="CLICK" name="edt_MobileVerificationCode" page="pge_CreateAccount">
+				<token type="CONTENT" name="token_edt_MobileVerificationCode" value="TCreateAccount7" />
+			</step>
+			
+			<step name="SEND_KEYS" page="pge_CreateAccount" type="DEVICE">
+                <parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+			</step> -->
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'Mobile Verification Code' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Mobile Verification Code' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateCA_PasswordMask">
+		<description> fn_ValidateCA_PasswordMask - Function to validate the Password field masking functionality in Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+<!-- 		Input the Password field with Ford@1 -->
+		<step type="VISIBLE" name="edt_Password" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6" />
+			<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+			
+			<step type="SET" name="edt_Password" page="pge_CreateAccount">
+				<parameter type="STATIC" name="value to set" value="Ford@1" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6" />
+				<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+			</step>
+		</step>
+		
+<!-- 		By default password field values should be masked -->
+		<step type="GET" name="edt_Password" page="pge_CreateAccount" context="str_PasswordFieldValue">
+			<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6"/>
+			<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+			
+			<step type="COMPARE2" name="STRING" page="pge_CreateAccount">
+				<parameter type="STATIC" name="Value One" value="" />
+				<parameter type="STATIC" name="Value One" value="••••••" />
+				<parameter type="CONTEXT" name="Value Two" value="str_PasswordFieldValue" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="STATE" name="Screenshot - Password field value is masked by default" page="pge_CreateAccount" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="By default - 'Password' field value is displayed as masked" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="STATE" name="Screenshot - Password field value is not masked by default" page="pge_CreateAccount" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="By default - 'Password' field value is not masked" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+<!-- 		clicking on the Password Mask Eye image -->
+		<step type="EXISTS" name="img_PasswordMask" page="pge_CreateAccount">
+			<step type="CLICK" name="img_PasswordMask" page="pge_CreateAccount" wait="5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Eye icon' on password field is available and clicked on Login page" />
+			</step>
+		</step>
+		
+<!-- 		Check whether password field value is unmasked -->
+		<step type="GET" name="edt_PasswordWithoutMask" page="pge_CreateAccount" context="str_PasswordFieldValue">
+			<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6"/>
+				
+			<step type="COMPARE2" name="STRING" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="Value One" value="str_PasswordFieldValue" />
+				<parameter type="STATIC" name="Value Two" value="Ford@1" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="STATE" name="Screenshot - Password field value is unmasked" page="pge_CreateAccount" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Password' field value is unmasked as expected" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="STATE" name="Screenshot - Password field value is not unmasked" page="pge_CreateAccount" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="'Password' field value is not unmasked" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+<!-- 		clicking on the Password Mask Eye image -->
+		<step type="EXISTS" name="img_PasswordMask" page="pge_CreateAccount">
+			<step type="CLICK" name="img_PasswordMask" page="pge_CreateAccount" wait="5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Eye icon' on password field is available and clicked on Login page" />
+			</step>
+		</step>
+		
+<!-- 		Check whether password field value masked once again -->
+		<step type="GET" name="edt_Password" page="pge_CreateAccount" context="str_PasswordFieldValue">
+			<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6"/>
+			
+			<step type="COMPARE2" name="STRING" page="pge_CreateAccount">
+				<parameter type="STATIC" name="Value One" value="" />
+				<parameter type="STATIC" name="Value One" value="••••••" />
+				<parameter type="CONTEXT" name="Value Two" value="str_PasswordFieldValue" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="STATE" name="Screenshot - Password field value is masked" page="pge_CreateAccount" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Password' field value is masked again as expected after clicking Eye icon" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="STATE" name="Screenshot - Password field value is not masked" page="pge_CreateAccount" failureMode="IGNORE"/>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="'Password' field value is not masked as expected" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="SET" name="edt_Password" page="pge_CreateAccount" wait="2">
+			<parameter type="STATIC" name="value to set" value="" />
+			<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6"/>
+			<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+		</step>
+		
+<!-- 		To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+	</function>
+<!-- 	 -->
+	<function name="fn_Input_Password">
+		<description> fn_Input_Password - Function to input value to the Password field </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="edt_Password" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="4" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6" />
+			<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+			
+			<step type="CLICK" name="edt_Password" page="pge_CreateAccount">				
+				<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6" />
+				<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+			</step>
+			
+			<step type="SET" name="edt_Password" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_Password" value="TCreateAccount6" />
+				<token type="CONTENT" name="token_edt_Password" value="TResourceId" />
+				
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'Password' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Password' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISUAL" name="BUTTON" page="pge_CreateAccount" wait="5000" os="ANDROID" failureMode="IGNORE" >
+		   <parameter type="STATIC" value="label=Done" />
+		   <parameter type="STATIC" value="timeout=20" />
+		   <parameter type="STATIC" value="screen.top=77%" />
+		   <parameter type="STATIC" value="screen.height=23%" />
+		   <parameter type="STATIC" value="screen.left=0%" />
+		   <parameter type="STATIC" value="screen.width=100%" />
+		   <parameter type="STATIC" value="threshold=20" />
+		</step>
+			
+<!-- 		To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+	</function>
+
+	<function name="fn_Click_CA_TermsandConditions">
+		<description> fn_Click_CA_TermsandConditions - Function to click on Terms and Conditions link in Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_TermsandConditions" page="pge_CreateAccount" wait="3" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TermsandConditions" value="TCreateAccount37" />
+		</step>
+		
+		<step type="VISUAL" name="BUTTON" page="pge_CreateAccount" wait="3" os="ANDROID">
+<!-- 		<step type="VISUAL" name="BUTTON" page="pge_CreateAccount" wait="10" tagNames="FP-NA,FP-CA"> -->
+			<parameter type="STATIC" value="label={token_TermsCondition}">
+				<token type="CONTENT" name="token_TermsCondition" value="TCreateAccount37" />
+			</parameter>
+ 			<parameter type="STATIC" name="new parameter" value="screen.top=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.height=100%" />
+			<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+			<parameter type="STATIC" value="threshold=90" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Terms and Conditions' link is available and clicked on Create Account page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Terms and Conditions' link is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CLICK" name="lnk_TermsandConditions" page="pge_CreateAccount" wait="3" os="IOS">
+			<token type="CONTENT" name="token_lnk_TermsandConditions" value="TCreateAccount37" />
+				
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Terms and Conditions' link is available and clicked on Create Account page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Terms and Conditions' link is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_CA_PrivacyPolicy">
+		<description> fn_Click_CA_PrivacyPolicy - Function to click on Privacy Policy link in Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_PrivacyPolicy" page="pge_CreateAccount" wait="3" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TCreateAccount36" />
+		</step>
+		
+		<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+			<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+		</step>
+		
+		<step type="VISUAL" name="BUTTON" page="pge_CreateAccount" wait="3" os="ANDROID">
+<!-- 		<step type="VISUAL" name="BUTTON" page="pge_CreateAccount" wait="10" tagNames="FP-NA,FP-CA"> -->
+			<parameter type="STATIC" value="label={token_PrivacyCookie}">
+				<token type="CONTENT" name="token_PrivacyCookie" value="TCreateAccount36" />
+			</parameter>
+ 			<parameter type="STATIC" name="new parameter" value="screen.top=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.height=100%" />
+			<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+			<parameter type="STATIC" value="threshold=90" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Privacy Policy' link is available and clicked on Create Account page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Privacy Policy' link is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CLICK" name="lnk_PrivacyPolicy" page="pge_CreateAccount" wait="3" os="IOS">
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TCreateAccount36" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Privacy Policy' link is available and clicked on Create Account page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Privacy Policy' link is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Checked_TCCheckbox">
+		<description> fn_Checked_TCCheckbox - Function to select/checked the Terms and condition checkbox on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="chk_TCAccept_UnChecked" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_AcceptTermsCondition" value="TCreateAccount10" />
+			
+			<step type="CLICK" name="chk_TCAccept_UnChecked" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_lnk_AcceptTermsCondition" value="TCreateAccount10" />
+			</step>
+			
+			<step type="WAIT_FOR" name="chk_TCAccept_Checked" page="pge_CreateAccount">
+				<parameter type="STATIC" name="Wait Time" value="10" />
+				<token type="CONTENT" name="token_lnk_AcceptTermsCondition" value="TCreateAccount10" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Terms and Conditions' checkbox is checked successfully" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="'Terms and Condition' checkbox is not changed to checked state after checked/clicked it" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Terms and Condition' checkbox is not exists or already in checked state" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Checked_LWTCCheckbox">
+		<description> fn_Checked_TCCheckbox - Function to select/checked the Terms and condition checkbox on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="chk_LWTCAccept_UnChecked" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_LWTermsandConditions" value="TCreateAccount39" />
+			
+			<step type="CLICK" name="chk_LWTCAccept_UnChecked" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_lbl_LWTermsandConditions" value="TCreateAccount39" />
+			</step>
+			
+			<step type="WAIT_FOR" name="chk_LWTCAccept_Checked" page="pge_CreateAccount">
+				<parameter type="STATIC" name="Wait Time" value="10" />
+				<token type="CONTENT" name="token_lbl_LWTermsandConditions" value="TCreateAccount39" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Terms and Conditions' checkbox is checked successfully" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="'Terms and Condition' checkbox is not changed to checked state after checked/clicked it" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Terms and Condition' checkbox is not exists or already in checked state" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	<function name="fn_Checked_MCCheckbox">
+		<description> fn_Checked_MCCheckbox - Function to select/checked the Marketing Communications checkbox on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="chk_MCAccept_UnChecked" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TCreateAccount16" />
+			<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TResourceId" />
+			
+			<step type="CLICK" name="chk_MCAccept_UnChecked" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TCreateAccount16" />
+				<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TResourceId" />
+			</step>
+			
+			<step type="WAIT_FOR" name="chk_MCAccept_Checked" page="pge_CreateAccount">
+				<parameter type="STATIC" name="Wait Time" value="10" />
+				<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TCreateAccount16" />
+				<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TResourceId" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Marketing Communications' checkbox is checked successfully" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="'Marketing Communications' checkbox is not changed to checked state after checked/clicked it" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Marketing Communications' checkbox is not exists or already in checked state" />
+				</step>
+			</step>
+		</step>
+	</function>	
+	
+	<function name="fn_DefaultStatusCheck_Checkbox">
+		<description> fn_DefaultStatusCheck_Checkbox - Function to check whether checkboxes are in an unchecked status by default </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="chk_TCAccept_UnChecked" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_AcceptTermsCondition" value="TCreateAccount10" />
+			<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TResourceId" />
+			
+			
+			<step type="STATE" name="Dummy State - Checkbox default status (iOS validation - Manual)" page="pge_CreateAccount" failureMode="IGNORE" /> 
+			
+			<step type="ATTRIBUTE" name="chk_TCAccept_UnChecked" page="pge_CreateAccount" os="ANDROID">
+				<parameter type="STATIC" value="false" />
+				<parameter type="STATIC" value="checked" />
+				<token type="CONTENT" name="token_lnk_AcceptTermsCondition" value="TCreateAccount10" />
+				<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TResourceId" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="By Default - Terms and Condition checkbox is in unchecked state" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="By Default - Terms and Condition checkbox is not in unchecked state" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="chk_MCAccept_UnChecked" page="pge_CreateAccount" tagNames="FP-NA">
+			<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TCreateAccount16" />
+			<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TResourceId" />
+			
+			<step type="STATE" name="Dummy State - Marketing Checkbox default status (iOS validation - Manual)" page="pge_CreateAccount" failureMode="IGNORE" /> 
+			
+			<step type="ATTRIBUTE" name="chk_MCAccept_UnChecked" page="pge_CreateAccount" os="ANDROID">
+				<parameter type="STATIC" value="false" />
+				<parameter type="STATIC" value="checked" />
+				<token type="CONTENT" name="token_lbl_AcceptMarketCommunication" value="TCreateAccount16" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="By Default - Marketing Communication checkbox is in unchecked state" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="By Default - Marketing Communication checkbox is not in unchecked state" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="chk_PCAccept_UnChecked" page="pge_CreateAccount" tagNames="FP-EU">
+			<token type="CONTENT" name="token_lbl_AcceptPrivacyCokkies" value="TCreateAccount38" />
+			
+			<step type="STATE" name="Dummy State - Privacy Cookies policy Checkbox default status (iOS validation - Manual)" page="pge_CreateAccount" failureMode="IGNORE" /> 
+			
+			<step type="ATTRIBUTE" name="chk_PCAccept_UnChecked" page="pge_CreateAccount" os="ANDROID">
+				<parameter type="STATIC" value="false" />
+				<parameter type="STATIC" value="checked" />
+				<token type="CONTENT" name="token_lbl_AcceptPrivacyCokkies" value="TCreateAccount38" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="By Default - Privacy and Cookies policy checkbox is in unchecked state" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="By Default - Privacy and Cookies policy checkbox is not in unchecked state" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_DefaultStatus_NextButton">
+		<description> fn_DefaultStatus_NextButton - Function to check whether Next button is in disabled state by default </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_Next_Disabled" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next_AND" value="TCreateAccount11_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TCreateAccount11_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="By default - 'Next' button is in disabled state as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Next' button is not in disabled state by default" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_CA_NextButton">
+		<description> fn_Click_CA_NextButton - Function to click Next button on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_Next_Enabled" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next_AND" value="TCreateAccount11_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TCreateAccount11_IOS" />
+			
+			<step type="CLICK" name="btn_Next_Enabled" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TCreateAccount11_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TCreateAccount11_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="STATIC" value="'Next' button is available/enabled and clicked on Create account page" />
+			</step>
+			
+			<step type="LOOP" name="WaitTillLoadingCompletes" page="pge_CreateAccount" failureMode="IGNORE">
+				<parameter type="STATIC" value="5" />
+				<parameter type="STATIC" value="fn_WaitTillLoadingCompletes" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Next' button is not available/enabled to click on Create account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Validate_PasswordRules">
+		<description> fn_Validate_PasswordRules - Function to check whether password rules are exist on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PasswordRules1" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_lbl_PasswordRules1" value="TCreateAccount12" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTENT" value="TCreateAccount12" />
+				<parameter type="STATIC" value="Above text displayed on Password rules section as expected" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PasswordRules2" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_lbl_PasswordRules2" value="TCreateAccount13" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTENT" value="TCreateAccount13" />
+				<parameter type="STATIC" value="Above text displayed on Password rules section as expected" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PasswordRules3" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_lbl_PasswordRules3" value="TCreateAccount14" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTENT" value="TCreateAccount14" />
+				<parameter type="STATIC" value="Above text displayed on Password rules section as expected" />
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PasswordRules4" page="pge_CreateAccount">
+			<token type="CONTENT" name="token_lbl_PasswordRules4" value="TCreateAccount15" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTENT" value="TCreateAccount15" />
+				<parameter type="STATIC" value="Above text displayed on Password rules section as expected" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_CheckforInlineError_CreateAccount">
+		<description> fn_CheckforInlineError_CreateAccount - Function to validate for Inline error message displayed next to field in Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+		<step type="STATE" name="Dummy State - Check for Inline error" page="pge_CreateAccount" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_CreateAccount">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckNotExist_InlineError_CreateAccount">
+		<description> fn_CheckNotExist_InlineError_CreateAccount - Function to validate for Inline error message is not displayed next to field in Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+		<step type="STATE" name="Dummy State - Check for Inline error not exists" page="pge_CreateAccount" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_CreateAccount" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message is displayed bottom to the field but it should not" />
+			</step>
+			
+			<!-- stop the execution -->
+			<step type="FLOW" name="END_FAILURE" page="pge_CreateAccount" failureMode="ERROR"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Checked_PCCheckbox">
+		<description> fn_Checked_PCCheckbox - Function to select/checked the Privacy and Cookies policy checkbox on Create Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="chk_PCAccept_UnChecked" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_AcceptPrivacyCokkies" value="TCreateAccount38" />
+			
+			<step type="CLICK" name="chk_PCAccept_UnChecked" page="pge_CreateAccount" wait="3">
+				<token type="CONTENT" name="token_lbl_AcceptPrivacyCokkies" value="TCreateAccount38" />
+			</step>
+			
+			<step type="WAIT_FOR" name="chk_PCAccept_Checked" page="pge_CreateAccount">
+				<parameter type="STATIC" name="Wait Time" value="10" />
+				<token type="CONTENT" name="token_lbl_AcceptPrivacyCokkies" value="TCreateAccount38" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Privacy and Cookies policy' checkbox is checked successfully" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+						<parameter type="STATIC" value="'Privacy and Cookies policy' checkbox is not changed to checked state after checked/clicked it" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'Privacy and Cookies policy' checkbox is not exists or already in checked state" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+		
+	
+	<function name="fn_ValidateInput_GivenUsername">
+		<description> fn_ValidateInput_GivenUsername - Function to validate and input the given User Name </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+
+		<step type="VISIBLE" name="edt_UserName" page="pge_CreateAccount">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			
+			<step type="CLICK" name="edt_UserName" page="pge_CreateAccount">
+				<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			</step>
+			
+			<step type="SET" name="edt_UserName" page="pge_CreateAccount">
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_UserName" value="TCreateAccount5" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+				<parameter type="CONTEXT" value="param_DataValue" />
+				<parameter type="STATIC" value="'User Name' field is available and inputted with the above value" />
+			</step>
+			
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreateAccount">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreateAccount">
+					<parameter type="STATIC" value="'User Name' field is not available on Create Account page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

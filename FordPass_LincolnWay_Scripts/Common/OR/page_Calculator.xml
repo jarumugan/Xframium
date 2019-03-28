@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Calculator" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="btn_five" value="//*[@text='5']|//*[@label='5']" descriptor="XPATH" />
+			<element name="btn_plus" value="//*[@text='+']|//*[@label='add']" descriptor="XPATH" />
+			<element name="btn_four" value="//*[@text='4']|//*[@label='4']" descriptor="XPATH" />
+			<element name="btn_Equals" value="//*[@text='=']|//*[@label='equals']" descriptor="XPATH" />
+			<element name="lbl_Results" value="//*[@resource-id='com.sec.android.app.popupcalculator:id/txtCalc']|//*[@label='Results']" descriptor="XPATH" />
+			
+		</page>
+	</site>
+</elementDefinition>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : KSARAV53 -->
+<!-- Created Date : 26-Feb-2018 -->
+<!-- Updated Date : 24-Apr-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Move_SmartCards_009" dataProvider="TestData.XFS_FP_Move_SmartCards_009" contentKeys="NA_USA_EN,SA_BR_EN" timed="false" threshold="0" active="true">
+		<description> Validating the Smart Cards - Smart tip tiles/Welcome tip tiles  </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+
+		<step type="WAIT" name="Wait_For_10_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="10"/>
+		</step>
+		
+<!-- 		<step name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="5"/>
+		</step> -->
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED -->
+<!-- 		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" failureMode="IGNORE"/>
+ -->
+<!-- ACCESSING SMART TIP 1 AND NAVIGATING BACK (USING BACK BUTTON)-->
+
+		<step type="CALL2" name="fn_Find_SmartCardContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip2" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip2" />
+  		</step>
+
+		<!-- 	HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+		  		
+		<step type="CALL2" name="fn_VerifySmartCard_DetailedDescription" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip2" />
+			<parameter type="CONTENT" name="str_smartTipDescription" value="TSmartTip6" />
+  		</step>
+
+		<step type="CALL2" name="fn_Navigate_Back_From_SmartCard_Description_Page" page="pge_SmartTip"/>
+  		  		
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>
+
+<!-- ACCESSING SMART TIP 1 AND NAVIGATING BACK (USING 'OK' BUTTON)-->
+
+		<step type="CALL2" name="fn_Find_SmartCardContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip2" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip2" />
+  		</step>
+  		
+		<!-- 	HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+		  		
+		<step type="CALL2" name="fn_VerifySmartCard_DetailedDescription" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip2" />
+			<parameter type="CONTENT" name="str_smartTipDescription" value="TSmartTip6" />
+  		</step>
+
+		<step type="CALL2" name="fn_Click_SmartCard_Description_OK" page="pge_SmartTip"/>
+  		  		
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>
+
+<!-- ACCESSING SMART TIP 2 AND NAVIGATING BACK (USING BACK BUTTON)-->
+
+		<!-- Verify that the smart tip for "Where is Ford Credit?" is not displayed for SPAIN and ITALY -->
+		<step type="EXISTS" name="lbl_TileContent" page="pge_Move" tagNames="FP-EU-ES,FP-EU-IT" inverse="true">
+			<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip3" />
+		</step>
+		
+		<step type="CALL2" name="fn_Find_SmartCardContent" page="pge_Move" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip3" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip3" />
+  		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+		  		
+		<step type="CALL2" name="fn_VerifySmartCard_DetailedDescription" page="pge_SmartTip" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip3" />
+			<parameter type="CONTENT" name="str_smartTipDescription" value="TSmartTip7" />
+  		</step>
+
+		<step type="CALL2" name="fn_Navigate_Back_From_SmartCard_Description_Page" page="pge_SmartTip" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+  		  		
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_SmartTip" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>
+		
+<!-- ACCESSING SMART TIP 2 AND NAVIGATING TO FORD CREDIT SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCardContent" page="pge_Move" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip3" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip3" />
+  		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+		  		
+		<step type="CALL2" name="fn_VerifySmartCard_DetailedDescription" page="pge_SmartTip" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip3" />
+			<parameter type="CONTENT" name="str_smartTipDescription" value="TSmartTip7" />
+  		</step>
+
+		<step type="CALL2" name="fn_Click_Show_Me_FordCredit_Button" page="pge_SmartTip" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+  		  		
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+
+ 		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-CN">
+			<parameter type="STATIC" value="5"/>
+		</step>
+
+<!-- ACCESSING SMART TIP 3 AND NAVIGATING BACK (USING BACK BUTTON)-->
+
+		<step type="CALL2" name="fn_Find_SmartCardContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip4" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip4" />
+  		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+		  		
+		<step type="CALL2" name="fn_VerifySmartCard_DetailedDescription" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip4" />
+			<parameter type="CONTENT" name="str_smartTipDescription" value="TSmartTip9" />
+  		</step>
+
+		<step type="CALL2" name="fn_Navigate_Back_From_SmartCard_Description_Page" page="pge_SmartTip"/>
+  		  		
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>
+		
+<!-- ACCESSING SMART TIP 3 AND NAVIGATING TO FIND SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCardContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip4" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip4" />
+  		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+		  		
+		<step type="CALL2" name="fn_VerifySmartCard_DetailedDescription" page="pge_SmartTip">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TSmartTip4" />
+			<parameter type="CONTENT" name="str_smartTipDescription" value="TSmartTip9" />
+  		</step>
+
+		<step type="CALL2" name="fn_Click_Explore_Find_Button" page="pge_SmartTip"/>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" os="ANDROID" failureMode="IGNORE"/>
+
+		<step type="WAIT" name="Wait_For_3_Seconds" os="ANDROID" page="pge_SmartTip" >
+			<parameter type="STATIC" value="3"/>
+		</step>
+		
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" os="ANDROID" failureMode="IGNORE"/>
+
+		<step type="CALL2" name="fn_Verify_SearchBarText" page="pge_FindCommon"/>
+  		  		
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="5"/>
+		</step>		
+ 		
+		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move"/>
+
+<!-- ACCESSING WELCOME TIP 1 AND NAVIGATING TO FIND SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCard" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard1" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_Title" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard1" />
+		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+				
+		<step type="CALL2" name="fn_Verify_SearchBarText" page="pge_FindCommon"/>
+				
+		<step type="STATE" page="pge_Move" name="Screenshot_Smart_Cards" />
+
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="5"/>
+		</step>		
+ 		
+		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move"/>
+				
+<!-- ACCESSING WELCOME TIP 2 AND NAVIGATING TO FIND SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCard" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard2" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_Title" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard2" />
+		</step>
+		
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+				
+		<step type="CALL2" name="fn_Verify_SearchBarText" page="pge_FindCommon"/>
+				
+		<step type="STATE" page="pge_Move" name="Screenshot_Smart_Cards" />
+
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="5"/>
+		</step>		
+ 		
+		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move"/>
+		
+<!-- ACCESSING WELCOME TIP 3 AND NAVIGATING TO FIND SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCard" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard3" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_Title" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard3" />
+		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+				
+		<step type="CALL2" name="fn_Verify_SearchBarText" page="pge_FindCommon"/>
+				
+		<step type="STATE" page="pge_Move" name="Screenshot_Smart_Cards" />
+
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="5"/>
+		</step>			
+ 		
+		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move"/>
+		
+<!-- ACCESSING WELCOME TIP 4 AND NAVIGATING TO FIND SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCard" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard4" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_Title" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard4" />
+		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+				
+		<step type="CALL2" name="fn_Verify_SearchBarText" page="pge_FindCommon"/>
+				
+		<step type="STATE" page="pge_Move" name="Screenshot_Smart_Cards" />
+
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="5"/>
+		</step>			
+ 		
+		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move"/>
+		
+<!-- ACCESSING WELCOME TIP 5 AND NAVIGATING TO FIND SCREEN -->
+
+		<step type="CALL2" name="fn_Find_SmartCard" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard5" />
+		</step>
+
+		<step type="CALL2" name="fn_ClickSmartCard_Title" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard5" />
+		</step>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED FOR IOS -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" os="IOS" failureMode="IGNORE"/>
+					
+		<step type="CALL2" name="fn_Verify_SearchBarText" page="pge_FindCommon"/>
+				
+		<step type="STATE" page="pge_Move" name="Screenshot_Smart_Cards" />
+
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon"/>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_SmartTip" >
+			<parameter type="STATIC" value="5"/>
+		</step>			
+ 		
+		<step type="STATE" name="Screenshot_After_Clicking_Move_Icon" page="pge_Move"/>
+
+<!-- LOG OUT OF THE APPLICATION -->
+
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />	
+										
+	</test>
+</suite>

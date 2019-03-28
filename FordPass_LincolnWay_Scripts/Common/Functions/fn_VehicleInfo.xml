@@ -1,0 +1,2794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates the contents of Vehicle Info page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_VehicleInfo">
+		<description>fn_Verify_VehicleInfo - function to the vehicle info page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+
+		<step type="VISIBLE" name="lbl_Glovebox" page="pge_VehicleInfo" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_Glovebox" value="TVehicleInfo3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="GloveBox label is found" />
+			</step>	
+		<step type="ELSE" name="If_GloveBox_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="GloveBox label is not found" />
+			</step>
+		</step>
+		</step>
+
+		<step type="VISIBLE" name="btn_VehicleDetails" page="pge_VehicleInfo" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_VehicleDetails" value="TVehicleInfo1" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Details button is found" />
+			</step>	
+		<step type="ELSE" name="If_VehicleDetails_button_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Details button is not found" />
+			</step>
+		</step>
+		</step>
+
+		<step type="VISIBLE" name="btn_VehicleSupport" page="pge_VehicleInfo" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_VehicleSupport" value="TVehicleInfo2" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Support button is found" />
+				
+			</step>	
+		<step type="ELSE" name="If_VehicleSupport_button_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Support button is not found" />
+			</step>
+		</step>
+		</step>		
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the Vehicle Details button -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_VehicleDetails">
+		<description>fn_Click_VehicleDetails - function to click 'Vehicle Details' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_VehicleDetails" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_btn_VehicleDetails" value="TVehicleInfo1" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<step type="CLICK" name="btn_VehicleDetails" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_VehicleDetails" value="TVehicleInfo1" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE DETAILS' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE DETAILS' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+	</function>
+
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the Vehicle Support button -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_Backbutton">
+	
+		<step type="EXISTS" name="btn_BackIcon" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_btn_BackIcon" value="TVehicleInfo4" />
+			<step type="CLICK" name="btn_BackIcon" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_BackIcon" value="TVehicleInfo4" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' icon is available and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' icon is not available to click" />
+			</step>
+		</step>			
+		</step>	
+	
+	</function>
+	
+	<!-- ############################################################################################################# -->
+<!-- KSIVANAN - This function clicks the Vehicle Details button -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_VehicleBackbutton">
+	
+		<step type="EXISTS" name="btn_Back" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_btn_BackIcon" value="TVehicleInfo4" />
+			<step type="CLICK" name="btn_BackIcon" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_BackIcon" value="TVehicleInfo4" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' icon is available and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' icon is not available to click" />
+			</step>
+		</step>			
+		</step>	
+	
+	</function>
+	
+	
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the Vehicle Support button -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_BackbuttonVehiclepge">
+	
+		<step type="EXISTS" name="lnk_Back" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_lnk_Back" value="TLogoutLast_AND" />
+			<step type="CLICK" name="lnk_Back" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_lnk_Back" value="TLogoutLast_AND" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' icon is available and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' icon is not available to click" />
+			</step>
+		</step>			
+		</step>	
+	
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the Vehicle Support button -->
+<!-- ############################################################################################################# -->
+
+
+	<function name="fn_Click_VehicleSupport">
+		<description>fn_Click_VehicleSupport - function to click 'Vehicle Details' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_VehicleSupport" page="pge_VehicleInfo">
+		    <parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_VehicleSupport" value="TVehicleInfo2" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" /> 
+			<step type="CLICK" name="btn_VehicleSupport" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_VehicleSupport" value="TVehicleInfo2" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE SUPPORT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE SUPPORT' button is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function validates the contents of Vehicles page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_VehiclesPage">
+		<description>fn_Verify_VehiclesPage - function to the vehicles page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="VISIBLE" name="btn_Scheduleservice" page="pge_VehicleInfo" failureMode="IGNORE">			
+			<token type="CONTENT" name="token_btn_Scheduleservice" value="btn_Scheduleservice" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="btn_Scheduleservice label is found" />
+			</step>	
+		<step type="ELSE" name="If_Schedule service_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Schedule service label is not found" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_MakeModel" page="pge_VehicleInfo" failureMode="IGNORE" tagNames="FP-EU">			
+			<token type="DATA" name="token_lbl_MakeModel" value="TestData.lbl_MakeModel" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="lbl_MakeModel label is found" />
+			</step>	
+		<step type="ELSE" name="If_Make Model_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Make Model label is not found" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_PreferredDealer" page="pge_VehicleInfo" failureMode="IGNORE" tagNames="FP-EU">			
+			<token type="CONTENT" name="token_lbl_PreferredDealer" value="lbl_PreferredDealer" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="lbl_PreferredDealer label is found" />
+			</step>	
+		<step type="ELSE" name="If_lbl_PreferredDealer_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" lbl_PreferredDealer label is not found" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="txt_NoPreferredDealer" page="pge_VehicleInfo" failureMode="IGNORE" tagNames="FP-EU">			
+			<token type="CONTENT" name="token_txt_NoPreferredDealer" value="txt_NoPreferredDealer" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="txt_NoPreferredDealer label is found" />
+			</step>	
+		<step type="ELSE" name="If_txt_NoPreferredDealer_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" txt_NoPreferredDealer label is not found" />
+			</step>
+		</step>
+		</step>
+		
+		
+		<step type="VISIBLE" name="btn_MaintenanceSchedule" page="pge_VehicleInfo" >			
+			<token type="CONTENT" name="token_btn_MaintenanceSchedule" value="btn_MaintenanceSchedule" />
+			<token type="CONTENT" name="token_btn_MaintenanceSchedule_AND" value="btn_MaintenanceSchedule_AND" />
+			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Maintenance Schedule link is found" />
+			</step>	
+		<step type="ELSE" name="If_Maintenance Schedule_link_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Maintenance Schedule link is not found" />
+			</step>
+		</step>
+		</step>
+
+		<step type="VISIBLE" name="lbl_Glovebox" page="pge_VehicleInfo" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_Glovebox" value="TVehicleInfo3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="GloveBox label is found" />
+			</step>	
+		<step type="ELSE" name="If_GloveBox_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="GloveBox label is not found" />
+			</step>
+		</step>
+		</step>
+
+		<step type="VISIBLE" name="btn_VehicleDetails" page="pge_VehicleInfo" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_VehicleDetails" value="TVehicleInfo1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Details button is found" />
+			</step>	
+		<step type="ELSE" name="If_VehicleDetails_button_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Details button is not found" />
+			</step>
+		</step>
+		</step>
+
+		<step type="VISIBLE" name="btn_VehicleSupport" page="pge_VehicleInfo" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_VehicleSupport" value="TVehicleInfo2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Support button is found" />
+			</step>	
+		<step type="ELSE" name="If_VehicleSupport_button_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Vehicle Support button is not found" />
+			</step>
+		</step>
+		</step>	
+		<step type="VISIBLE" name="btn_RemoveVehicle" page="pge_VehicleInfo" >	
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />		
+			<token type="CONTENT" name="token_btn_RemoveVehicle" value="btn_RemoveVehicle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Remove Vehicle link is found" />
+			</step>	
+		<step type="ELSE" name="If_Remove Vehicle_link_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Remove Vehicle link is not found" />
+			</step>
+		</step>
+		</step>	
+	</function>	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - fn_Verify_VehicleDetailsPage : This function validates the contents in Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_VehicleDetailsPage">
+		<description>fn_Verify_VehicleDetailsPage - function to the vehicle details page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+
+		<step type="VISIBLE" name="lbl_Nickname" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_Nickname" value="lbl_Nickname" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Nick Name label is found" />
+			</step>	
+		<step type="ELSE" name="If_Nickname_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Nickname label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_NickNameValue" page="pge_VehicleInfo" >
+			<token type="DATA" name="token_edt_NickName" value="TestData.NickName" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is not found" />
+			</step>
+		</step>
+		</step>	
+		<step type="VISIBLE" name="lbl_LicensePlate" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_LicensePlate" value="lbl_LicensePlate" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Licence plate label is found" />
+			</step>	
+		<step type="ELSE" name="If_Licence plate_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Licence plate label is not found" />
+			</step>
+		</step>
+		</step>
+		<!-- <step type="VISIBLE" name="btn_BaseWarranty" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_BaseWarranty" value="btn_BaseWarranty" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Basewarranty label is found" />
+			</step>	
+		<step type="ELSE" name="If_Basewarranty_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Basewarranty label is not found" />
+			</step>
+		</step>
+		</step> -->
+		<step type="VISIBLE" name="lbl_VIN" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_VIN" value="lbl_VIN" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN label is found" />
+			</step>	
+		<step type="ELSE" name="If_VIN_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_VIN" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_VIN" value="param_VinNumber" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN number is found" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN number is not found" />
+			</step>
+		</step>
+		</step>		
+
+			
+	</function>	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function clicks the EDIT button Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_Edit_VehicleDetails">
+		<description>fn_Click_Edit_VehicleDetails - function to click 'EDIT' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Edit" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_btn_Edit" value="btn_Edit" />
+			<step type="CLICK" name="btn_Edit" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_Edit" value="btn_Edit" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'EDIT' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'EDIT' button is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - function to click 'Cancel' link and validate the functionality Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Validate_Cancel_Functionality_VehicleDetails">
+		<description>fn_Validate_Cancel_Functionality_VehicleDetails - function to click 'Cancel' link and validate the functionality </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Cancel" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_btn_Cancel" value="btn_Cancel" />
+			
+			<step type="CLICK" name="btn_Cancel" page="pge_VehicleInfo">
+				<token type="CONTENT" name="token_btn_Cancel" value="btn_Cancel" />
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />	
+				<token type="CONTENT" name="token_btn_Cancel_U" value="TFindSortbyDW_Cancel" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Cancel' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Cancel' button is not available" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="CLICK" name="btn_Yes" page="pge_VehicleInfo" failureMode="IGNORE" os="ANDROID">
+			<token type="CONTENT" name="token_btn_Yes" value="TYes" />
+			<token type="CONTENT" name="token_btn_Yes_Caps" value="TFindTxtBtn_YES" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_Edit" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_Edit" value="btn_Edit" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Edit' is found" />
+			</step>	
+		<step type="ELSE" name="Edit_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Edit' is not found" />
+			</step>
+		</step>
+		</step>	
+		
+	</function>
+	
+	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function edits the Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Edit_VehicleDetails_RevertBackToOldValues">
+		<description>fn_Edit_VehicleDetails - function to edit vehicle details like nick name </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>		
+		<step type="CALL2" name="fn_Validate_Cancel_Functionality_VehicleDetails"/>		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>
+		
+		<step type="ATTRIBUTE" name="edt_NickName" page="pge_VehicleInfo" context="existingNickname" os="ANDROID" wait="10">
+			<parameter type="STATIC" value="text"/>	
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />		
+		</step>
+		<step type="ATTRIBUTE" name="edt_NickName" page="pge_VehicleInfo" context="existingNickname" os="IOS" wait="10">
+			<parameter type="STATIC" value="value"/>					
+		</step>	
+		
+		<step type="EXISTS" name="edt_NickName" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="SET" name="edt_NickName" page="pge_VehicleInfo">
+				<parameter type="DATA" value="TestData.NewNickname"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'Nickname' has not been changed" />
+				</step>
+			</step>			
+		</step>		
+	
+		<step type="EXISTS" name="edt_LicensePlate" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>
+			<step type="SET" name="edt_LicensePlate" page="pge_VehicleInfo">				
+				<parameter type="DATA" value="TestData.NewLicencePlateNo"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'NewLicencePlateNo' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'NewLicencePlateNo' has not been changed" />
+				</step>
+			</step>			
+		</step> 
+		
+		<step type="CALL2" name="fn_Click_Save_VehicleDetails"/>
+		
+		<step type="WAIT_FOR" name="lbl_ChangeSaved" page="pge_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" value="5"/>
+			<token type="CONTENT" name="token_lbl_ChangeSaved" value="lbl_ChangeSaved" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Changes successfully saved' is found" />
+			</step>	
+		<step type="ELSE" name="If_Changes successfully saved_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Changes successfully saved' is not found" />
+			</step>
+		</step>
+		</step>		
+			
+		<step type="ATTRIBUTE" name="lbl_NickNameValue" page="pge_VehicleInfo" context="ATTR_NEW_VEHICLE_NAME_AND" os="ANDROID">
+    		<parameter type="STATIC" value="text" />
+    		<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+				
+			<step type="COMPARE2" name="STRING"  page="pge_VehicleInfo" >
+				<parameter type="CONTEXT" name="Value One" value="ATTR_NEW_VEHICLE_NAME_AND" />
+				<parameter type="DATA" name="Value Two" value="TestData.NewNickname"/>
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has not been changed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="ATTRIBUTE" name="lbl_NickNameValue" page="pge_VehicleInfo" context="ATTR_NEW_VEHICLE_NAME_IOS" os="IOS">
+    		<parameter type="STATIC" value="value" />
+    		<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+				
+			<step type="COMPARE2" name="STRING"  page="pge_VehicleInfo" >
+				<parameter type="CONTEXT" name="Value One" value="ATTR_NEW_VEHICLE_NAME_IOS" />
+				<parameter type="DATA" name="Value Two" value="TestData.NewNickname"/>
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has not been changed" />
+			</step>
+		</step>
+		</step>
+	
+		<!-- Revert back to old values -->
+		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>	
+<!-- 	Seshu un commented  -->
+		<step type="EXISTS" name="edt_NickName" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="SET" name="edt_NickName" page="pge_VehicleInfo">
+				<parameter type="DATA" value="TestData.VehicleNickName_IOS"/>		
+<!-- 				<parameter type="CONTEXT" value="existingNickname"/> -->
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'Nickname' has not been changed" />
+				</step>
+			</step>			
+		</step>
+
+		<step type="EXISTS" name="edt_LicensePlate" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>
+			<step type="SET" name="edt_LicensePlate" page="pge_VehicleInfo">				
+				<parameter type="DATA" value="TestData.OldLicencePlateNo"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'NewLicencePlateNo' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'NewLicencePlateNo' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="CALL2" name="fn_Click_Save_VehicleDetails"/>
+		
+		<step type="WAIT_FOR" name="lbl_ChangeSaved" page="pge_VehicleInfo" failureMode="IGNORE">
+			<parameter type="STATIC" value="5"/>
+			<token type="CONTENT" name="token_lbl_ChangeSaved" value="lbl_ChangeSaved" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Changes successfully saved' is found" />
+			</step>	
+		<step type="ELSE" name="If_Changes successfully saved_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Changes successfully saved' is not found" />
+			</step>
+		</step>
+		</step>			
+		
+	</function>
+	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function clicks the Save button in Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_Save_VehicleDetails">
+		<description>fn_Click_Save_VehicleDetails - function to click 'Save' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+		
+		<step type="VISIBLE" name="btn_Save" page="pge_VehicleInfo" wait="3">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />		
+			<token type="CONTENT" name="token_btn_Save" value="btn_Save" />
+
+			<!-- KSARAV53 - Updated step -->
+			<token type="CONTENT" name="token_btn_Save_Caps" value="TEditProfile17_AND" />
+			
+			<step type="CLICK" name="btn_Save" page="pge_VehicleInfo">
+
+				<token type="CONTENT" name="token_btn_Save" value="btn_Save" />
+				<!-- KSARAV53 - Updated step -->	
+				<token type="CONTENT" name="token_btn_Save_Caps" value="TEditProfile17_AND" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Save' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Save' button is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>
+	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function clicks the BaseWarranty button in Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Click_BaseWarranty_VehicleDetails">
+           <description>fn_Click_BaseWarranty_VehicleDetails - function to click 'BaseWarranty' link </description>
+           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                  <parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+           </step>
+           <step type="EXISTS" name="btn_BaseWarranty" page="pge_VehicleInfo" wait="10">
+                <token type="CONTENT" name="token_btn_BaseWarranty" value="btn_BaseWarranty" />
+                <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+                
+                <step type="CLICK" name="btn_BaseWarranty" page="pge_VehicleInfo">
+                      <token type="CONTENT" name="token_btn_BaseWarranty" value="btn_BaseWarranty" />
+                      <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+                </step>
+                <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                      <parameter type="STATIC"
+                             value="'BaseWarranty' button is found and clicked" />
+                </step>
+                <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                      <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                             <parameter type="STATIC" value="'BaseWarranty' button is not available" />
+                       </step>
+                 </step>
+          </step>
+
+</function>
+
+
+	
+		
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - fn_Validate_BaseWarranty_VehicleDetails : This function validates the contents in Base Warranty page -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Validate_BaseWarranty_VehicleDetails">
+		<description>fn_Verify_BaseWarrantyPage - function to the Base Warranty page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+
+		<step type="VISIBLE" name="btn_BaseWarranty" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_BaseWarranty" value="btn_BaseWarranty" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Base Warranty page is found" />
+			</step>	
+		<step type="ELSE" name="If_Base Warranty page_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Base Warranty page is not found" />
+			</step>
+		</step>
+		</step>
+
+		<step type="VISIBLE" name="lbl_WarrantyStartDate" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_WarrantyStartDate" value="lbl_WarrantyStartDate" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Start Date label is found" />
+			</step>	
+			<step type="ELSE" name="If_Warranty Start Date_label_Not_Available" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value=" Warranty Start Date label is not found" />
+				</step>
+			</step>
+		</step>
+
+				
+		<step type="VISIBLE" name="lbl_WarrantyStartDate_Val" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_WarrantyStartDate_Val" value="param_WarrantyStartDate_Val" />
+			<token type="CONTEXT" name="token_lbl_WarrantyStartDate_Val_IOS" value="param_WarrantyStartDate_Val_IOS" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Start Date value is found" />
+			</step>	
+			<step type="ELSE" name="If_Warranty Start Date_Value_Not_Available" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value=" Warranty Start Date value is not found" />
+				</step>
+			</step>
+		</step>
+					
+		<step type="VISIBLE" name="lbl_WarrantyTerms_txt" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_WarrantyTerms_txt" value="param_WarrantyTerms_Val" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms text value is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty terms text value_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms text value is not found" />
+			</step>
+		</step>
+		</step>	
+
+		<step type="VISIBLE" name="lbl_WarrantyTerms_txt" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_WarrantyTerms_txt" value="param_WarrantyTerms_Val" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms text value is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty terms text value_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms text value is not found" />
+			</step>
+		</step>
+		</step>		
+			
+	</function>	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - fn_Click_Back_Icon_VehicleDetails : This function clicks the back icon page -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_Back_Icon_VehicleDetails">
+		<description>fn_Click_Back_Icon_VehicleDetails - function to the Base Warranty page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="CLICK" name="lnk_Back" page="pge_FPCommon" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>		
+			
+	</function>	
+	
+	
+	<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function edits the Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Edit_LicencePlate_VehicleDetails">
+		<description>fn_Edit_VehicleDetails - function to edit vehicle details like nick name </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>	
+		
+		<step type="CALL2" name="fn_Validate_Cancel_Functionality_VehicleDetails"/>	
+		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>
+		
+		<step type="ATTRIBUTE" name="edt_NickName" page="pge_VehicleInfo" context="existingNickname" os="ANDROID" wait="10">
+			<parameter type="STATIC" value="text"/>	
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />		
+		</step>
+		<step type="ATTRIBUTE" name="edt_NickName" page="pge_VehicleInfo" context="existingNickname" os="IOS" wait="10">
+			<parameter type="STATIC" value="value"/>					
+		</step>	
+		
+		<step type="EXISTS" name="edt_NickName" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="SET" name="edt_NickName" page="pge_VehicleInfo">
+				<parameter type="DATA" value="TestData.NewNickname"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'Nickname' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		<step type="ATTRIBUTE" name="edt_LicensePlate" page="pge_VehicleInfo" context="existingLicencePlateNo" os="ANDROID" wait="10">
+			<parameter type="STATIC" value="text"/>	
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>		
+		</step>
+		<step type="ATTRIBUTE" name="edt_LicensePlate" page="pge_VehicleInfo" context="existingLicencePlateNo" os="IOS" wait="10">
+			<parameter type="STATIC" value="value"/>
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>					
+		</step>
+		<step type="EXISTS" name="edt_LicensePlate" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>
+			<step type="SET" name="edt_LicensePlate" page="pge_VehicleInfo">				
+				<parameter type="DATA" value="TestData.NewLicencePlateNo"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'NewLicencePlateNo' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'NewLicencePlateNo' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		<step type="CALL2" name="fn_Click_Save_VehicleDetails"/>
+		
+		<step type="VISIBLE" name="lbl_ChangeSaved" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_ChangeSaved" value="lbl_ChangeSaved" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Changes successfully saved' is found" />
+			</step>	
+		<step type="ELSE" name="If_Changes successfully saved_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Changes successfully saved' is not found" />
+			</step>
+		</step>
+		</step>	
+		
+		<!-- Revert back to old values -->
+		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>		
+		
+		<step type="EXISTS" name="edt_NickName" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="SET" name="edt_NickName" page="pge_VehicleInfo">
+				<parameter type="CONTEXT" value="existingNickname"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'Nickname' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="EXISTS" name="edt_LicensePlate" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>
+			<step type="SET" name="edt_LicensePlate" page="pge_VehicleInfo">				
+				<parameter type="CONTEXT" value="existingLicencePlateNo"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'NewLicencePlateNo' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'NewLicencePlateNo' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		<step type="CALL2" name="fn_Click_Save_VehicleDetails"/>
+		
+		<step type="VISIBLE" name="lbl_ChangeSaved" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_ChangeSaved" value="lbl_ChangeSaved" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Changes successfully saved' is found" />
+			</step>	
+		<step type="ELSE" name="If_Changes successfully saved_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Changes successfully saved' is not found" />
+			</step>
+		</step>
+		</step>			
+		
+	</function>
+	
+		<!-- ############################################################################################################# -->
+		<!-- MCHUNDUR - This function edits the Vehicle Details page -->
+	<!-- ############################################################################################################# -->
+
+	<function name="fn_Edit_NickName_VehicleDetails">
+		<description>fn_Edit_NickName_VehicleDetails - function to edit vehicle details nick name </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>	
+		
+		<step type="CALL2" name="fn_Validate_Cancel_Functionality_VehicleDetails"/>	
+		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>
+		
+		<step type="ATTRIBUTE" name="edt_NickName" page="pge_VehicleInfo" context="existingNickname" os="ANDROID" wait="10">
+			<parameter type="STATIC" value="text"/>	
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />		
+		</step>
+		<step type="ATTRIBUTE" name="edt_NickName" page="pge_VehicleInfo" context="existingNickname" os="IOS" wait="10">
+			<parameter type="STATIC" value="value"/>					
+		</step>	
+		
+		<step type="EXISTS" name="edt_NickName" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="SET" name="edt_NickName" page="pge_VehicleInfo">
+				<parameter type="DATA" value="TestData.NewNickname"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'Nickname' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		<step type="ATTRIBUTE" name="edt_LicensePlate" page="pge_VehicleInfo" context="existingLicencePlateNo" os="ANDROID" wait="10">
+			<parameter type="STATIC" value="text"/>	
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>		
+		</step>
+		<step type="ATTRIBUTE" name="edt_LicensePlate" page="pge_VehicleInfo" context="existingLicencePlateNo" os="IOS" wait="10">
+			<parameter type="STATIC" value="value"/>
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>					
+		</step>
+		<step type="EXISTS" name="edt_LicensePlate" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>
+			<step type="SET" name="edt_LicensePlate" page="pge_VehicleInfo">				
+				<parameter type="DATA" value="TestData.NewLicencePlateNo"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'NewLicencePlateNo' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'NewLicencePlateNo' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		<step type="CALL2" name="fn_Click_Save_VehicleDetails"/>
+		
+		<step type="VISIBLE" name="lbl_ChangeSaved" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_ChangeSaved" value="lbl_ChangeSaved" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Changes successfully saved' is found" />
+			</step>	
+		<step type="ELSE" name="If_Changes successfully saved_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Changes successfully saved' is not found" />
+			</step>
+		</step>
+		</step>	
+		
+		<!-- Revert back to old values -->
+		
+		<step type="CALL2" name="fn_Click_Edit_VehicleDetails"/>		
+		
+		<step type="EXISTS" name="edt_NickName" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="SET" name="edt_NickName" page="pge_VehicleInfo">
+				<parameter type="CONTEXT" value="existingNickname"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_ResourceId" value="TResourceId" />				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Nickname' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'Nickname' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="EXISTS" name="edt_LicensePlate" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>
+			<step type="SET" name="edt_LicensePlate" page="pge_VehicleInfo">				
+				<parameter type="CONTEXT" value="existingLicencePlateNo"/>
+				<parameter type="STATIC" name="Set Method" value="DEFAULT"/>
+				<token type="CONTENT" name="token_edt_LicensePlate" value="lbl_LicensePlate"/>				
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'NewLicencePlateNo' has been changed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="'NewLicencePlateNo' has not been changed" />
+				</step>
+			</step>			
+		</step>
+		<step type="CALL2" name="fn_Click_Save_VehicleDetails"/>
+		
+		<step type="VISIBLE" name="lbl_ChangeSaved" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_ChangeSaved" value="lbl_ChangeSaved" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Changes successfully saved' is found" />
+			</step>	
+		<step type="ELSE" name="If_Changes successfully saved_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" 'Changes successfully saved' is not found" />
+			</step>
+		</step>
+		</step>			
+		
+	</function>	
+	
+	
+	<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Verify_VehicleSupportPage : This function validates the contents in Vehicle Support page -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_VehicleSupportPage">
+		<description>fn_Verify_VehicleSupportPage - function to verify Vehicle Support page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<!-- steps to verify the back icon in android and ios on vehicle support page  -->
+		<step type="EXISTS" name="btn_Back_VehicleSupport" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_Back_VehicleSupport" value="TVehicleSupportBack" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+	
+	<!-- steps to verify the vehicle support title in android and ios on vehicle support page  -->
+
+        <step type="EXISTS" name="lbl_VehicleSupport_title" page="pge_VehicleInfo" >
+            <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_VehicleSupport_title" value="TVehicleSupportTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE SUPPORT HEADER' label is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE SUPPORT HEADER' label is not available" />
+			</step>
+		</step>			
+		</step>
+	
+	<!-- steps to verify the Alert Guides label in android and ios on vehicle support page  -->
+		
+		 <step type="EXISTS" name="lbl_AlertsGuide" page="pge_VehicleInfo" >
+		    <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AlertsGuide" value="TAlertsGuide" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' label is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' label is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>	
+	
+		<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Click_AlertsGuide : This function clicks the AlertsGuide and move to alerts page -->
+	    <!-- ############################################################################################################# -->
+	 
+	
+	<function name="fn_Click_AlertsGuide">
+		<description>fn_Click_AlertsGuide - function to click 'AlertsGuide' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_AlertsGuide" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AlertsGuide" value="TAlertsGuide" />
+	    </step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' button is not available" />
+			</step>
+		</step>			
+		
+	</function>
+	
+	  <!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_ValidateEachAlertsGuide : This function Verify "My Vehicle Alerts Guide" feature -->
+	    <!-- ############################################################################################################# -->
+	 <function name="fn_Loop">
+              <description>fn_ValidateEachAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+                          
+		    <step type="LOOP" name="myloop">
+		    	<parameter type="STATIC" value="5"/>
+		    	<parameter type="STATIC" value="fn_LoopTxt"/>
+		    		    	
+		    </step>           
+     
+    
+       </function>
+	 <function name="fn_LoopTxt">
+              <description>fn_ValidateEachAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+                   <step name="CONCAT" page="pge_VehicleInfo" type="STRING2" context="GuideAlertNum">
+				  			<parameter type="STATIC" value="TVehicleAlertsGuide0"/>  			
+				  			<parameter type="CONTEXT" value="_LOOP.INDEX" />	  	
+					</step>  
+					
+					<step type="EXISTS" name="lbl_AlertsGuide" page="pge_VehicleInfo" >	
+					 <token type="CONTENT" name="token_ResourceId"  value="TResourceId" />
+					 <token type="CONTENT" name="token_lbl_AlertsGuide" value="TVehicleAlertsGuide02"/>
+					</step>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo" >		    				    
+							<parameter type="CONTEXT" value="GuideAlertNum" />
+			    		</step>
+			    		  
+			    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo" >		    				    
+							<token type="CONTENT" name="token_ResourceId" value="TVehicleAlertsGuide01" />
+			    	</step>
+         
+       </function>
+	
+	<function name="fn_ValidateEachAlertsGuide">
+    	<description>fn_ValidateEachAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+             
+             <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		    </step>
+              
+     <step type="WAIT_FOR" name="lbl_VehicleAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+     	<parameter type="STATIC" name="wait for 10 sec" value="10" />
+     	<token type="CONTEXT" name="token_lbl_VehicleAlertsGuide" value="label_AlertsGuide"/> 
+     	<step name="BREAK" type="BREAK" page="pge_VehicleInfo" />
+       <step type="ELSE" name="Scroll the page" page="pge_VehicleInfo">      
+         <step type="GESTURE" name="SWIPE" page="pge_VehicleInfo">
+         	<parameter type="STATIC" value="30,50" />
+            <parameter type="STATIC" value="30,30" />                        
+          </step>
+	   </step>
+	  </step>    
+      </function>
+	
+	  <function name="fn_ScrollAndValidateEachAlertsGuide">
+                	
+            <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		    </step>
+		    
+            <step type="LOOP" name="ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" >
+	            	<parameter type="STATIC" name="Loop Iterator" value="5" />
+	               <parameter type="STATIC" name="Function Name" value="fn_ValidateEachAlertsGuide" />			     
+            </step>        
+            
+            <step type="EXISTS" name="lbl_VehicleAlertsGuide" page="pge_VehicleInfo" >
+   				<token type="CONTEXT" name="token_lbl_VehicleAlertsGuide" value="label_AlertsGuide"/> 
+	     		<step type="ELSE" name="Vehicle Alert Guide is not found" page="pge_VehicleInfo"> 
+	     		 	<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+	     		 		<parameter type="STATIC" value="Below Vehicle Alert Guide is not found:" />
+						<parameter type="CONTEXT" value="label_AlertsGuide" />
+			    	</step>
+			    </step>
+            </step>
+     </function> 
+		
+		<function name="fn_ValidateMyVehicleAlertsGuide_AND">
+              <description>fn_ClickMyVehicleAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+             <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		    </step>
+		    
+		    <step type="GESTURE" name="SWIPE" page="pge_VehicleInfo">
+                    	<parameter type="STATIC" value="50,20" />
+                        <parameter type="STATIC" value="50,50" />
+            </step>
+                    
+		   		       	
+              <step type="WAIT_FOR" name="lbl_AlertsGuideTitle" page="pge_VehicleInfo" >
+                     <parameter type="STATIC" value="30"></parameter>
+                     <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+                     <token type="CONTENT" name="token_lbl_AlertsGuideTitle" value="TAlertsGuide" />                     
+              		                      
+              </step>
+                                 
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide01"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide02"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide03"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide04"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide05"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide06"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide07"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide08"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide09"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide10"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide11"/>
+              </step>
+              
+
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide12"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide13"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide14"/>
+              </step>
+
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide15"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide16"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide17"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide18"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide19"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide20"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide21"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide22"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide23"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide24"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide25"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide26"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide27"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide28"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide29"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide30"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide31"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide32"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide33"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide34"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide35"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide36"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide37"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide38"/>
+              </step>
+       
+              <step type="EXISTS" name ="btn_Schedule_Service" page="pge_VehicleInfo">
+                 <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+              </step>
+              
+              
+              </function>
+              
+              
+              <function name="fn_ValidateMyVehicleAlertsGuide_IOS">
+              <description>fn_ClickMyVehicleAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+              
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		      </step>
+		      
+		      <step type="GESTURE" name="SWIPE" page="pge_VehicleInfo">
+<!--                     	<parameter type="STATIC" value="50,20" />
+                        <parameter type="STATIC" value="50,50" /> -->
+            	</step>
+            
+              <step type="WAIT_FOR" name="lbl_AlertsGuideTitle" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="30"></parameter>
+                     <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+              		 <token type="CONTENT" name="token_lbl_AlertsGuideTitle" value="TAlertsGuide"/>                         
+              </step>                                
+                        
+
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide01"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide02"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide03"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide04"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide05"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide06"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide07"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide08"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide09"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide10"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide11"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide12"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide13"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide14"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide15"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide16"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide17"/>
+              </step>
+
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide18"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide19"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide20"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide21"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide22"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide23"/>
+              </step>
+
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide24"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide25"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide26"/>
+              </step>
+              
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide27"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide28"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide29"/>
+              </step>
+
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide30"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide31"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide32"/>
+              </step>
+              
+
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide33"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide34"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide35"/>
+              </step>
+              
+
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide36"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide37"/>
+              </step>
+              
+              <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+                <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide38"/>
+              </step>
+              
+               <step type="EXISTS" name ="btn_Schedule_Service" page="pge_VehicleInfo">
+                 <token type="CONTENT" name="token_btn_Schedule_Service" value="TScheduleService" />
+              </step>
+              
+              </function>
+              
+              
+    	<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Navigate_From_VehicleAltersGuide_To_VehicleSupport : This function clicks back arrow to reach one step back navigation to MyVehicles support screen </description>
+           -->
+	    <!-- ############################################################################################################# -->          
+              
+       <function name="fn_Navigate_From_VehicleAltersGuide_To_VehicleSupport">
+
+              <description> fn_Navigate_From_VehicleAltersGuide_To_VehicleSupport--> Verify one step back navigation to MyVehicles support screen </description>
+
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo" >
+                     <parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_VehicleInfo***" />
+              </step>              
+       
+              <step type="CLICK" name="btn_Back_VehicleSupport" page="pge_VehicleInfo">
+              
+			  <token type="CONTENT" name="token_btn_Back_VehicleSupport" value="TVehicleSupportBack" />
+              
+  
+           <step type="WAIT_FOR" name="lbl_AlertsGuide" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AlertsGuide" value="TAlertsGuide" />
+	       </step>
+           
+           </step>
+       </function>   
+       
+		<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Navigate_From_VehicleSupport_To_VehicleInfo : This function clicks back arrow to reach one step back navigation to Vehicle Info screen  -->
+	    <!-- ############################################################################################################# -->
+		<function name="fn_Navigate_From_VehicleSupport_To_VehicleInfo">
+
+              <description> fn_Navigate_From_VehicleSupport_To_VehicleInfo--> Verify one step back navigation to Vehicle Info screen </description>
+
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo" >
+                     <parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_VehicleInfo ***" />
+              </step>              
+       
+              <step type="CLICK" name="btn_Back_VehicleSupport" page="pge_VehicleInfo">
+              
+			  <token type="CONTENT" name="token_btn_Back_VehicleSupport" value="TVehicleSupportBack" />
+              
+          
+			
+           </step>
+       </function>   
+
+	
+	 
+		
+	<!-- ############################################################################################################# -->
+		<!--  APARTHI3 - copy of existing fn_Verify_VehicleDetailsPage with parameterized -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_VehicleDetailsPage__Parametrized">
+		<description>fn_Verify_VehicleDetailsPage__Parametrized - function to the vehicle details page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+
+		<step type="VISIBLE" name="lbl_Nickname" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_Nickname" value="lbl_Nickname" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Nick Name label is found" />
+			</step>	
+		<step type="ELSE" name="If_Nickname_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Nickname label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_NickNameValue" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_edt_NickName" value="param_NickName" />
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is not found" />
+			</step>
+		</step>
+		</step>	
+		<step type="VISIBLE" name="lbl_LicensePlate" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_LicensePlate" value="lbl_LicensePlate" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Licence plate label is found" />
+			</step>	
+		<step type="ELSE" name="If_Licence plate_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Licence plate label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="btn_BaseWarranty" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_BaseWarranty" value="btn_BaseWarranty" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Basewarranty label is found" />
+			</step>	
+		<step type="ELSE" name="If_Basewarranty_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Basewarranty label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_VIN" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_VIN" value="lbl_VIN" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN label is found" />
+			</step>	
+		<step type="ELSE" name="If_VIN_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_VIN" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_VIN" value="param_VinNumber" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN number is found" />
+			</step>	
+		<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN number is not found" />
+			</step>
+		</step>
+		</step>	
+	</function>
+	
+	<!-- ############################################################################################################# -->
+		<!-- APARTHI3 - copy of fn_Validate_BaseWarranty_VehicleDetails with paramterized -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Validate_BaseWarranty_VehicleDetails__Parametrized">
+		<description>fn_Validate_BaseWarranty_VehicleDetails__Parametrized - function to the Base Warranty page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_Back" page="pge_FPCommon" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+
+		<step type="VISIBLE" name="btn_BaseWarranty" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_BaseWarranty" value="btn_BaseWarranty" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Base Warranty page is found" />
+			</step>	
+		<step type="ELSE" name="If_Base Warranty page_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Base Warranty page is not found" />
+			</step>
+		</step>
+		</step>
+	
+		<step type="VISIBLE" name="lbl_WarrantyStartDate" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_WarrantyStartDate" value="lbl_WarrantyStartDate" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Start Date label is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty Start Date_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Start Date label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_WarrantyStartDate_Val" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_WarrantyStartDate_Val" value="param_WarrantyStartDate_Val" />
+			<token type="CONTEXT" name="token_lbl_WarrantyStartDate_Val_IOS" value="param_WarrantyStartDate_Val_IOS" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Start Date value is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty Start Date_Value_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Start Date value is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_WarrantyTerms" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_WarrantyTerms" value="lbl_WarrantyTerms" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms label is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty terms_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms label is not found" />
+			</step>
+		</step>
+		</step>
+		<step type="VISIBLE" name="lbl_WarrantyTerms_txt" page="pge_VehicleInfo" >
+			<token type="CONTEXT" name="token_lbl_WarrantyTerms_txt" value="param_WarrantyTerms_Val" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms text value is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty terms text value_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Warranty terms text value is not found" />
+			</step>
+		</step>
+		</step>		
+			
+	</function>	
+	
+	<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Verify_VehicleSupportPage : This function validates the contents in Vehicle Support page -->
+	<!-- ############################################################################################################# -->
+	
+	<function name="fn_Verify_VehicleSupportPage">
+		<description>fn_Verify_VehicleSupportPage - function to verify Vehicle Support page contents and links </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<!-- steps to verify the back icon in android and ios on vehicle support page  -->
+		<step type="EXISTS" name="btn_Back_VehicleSupport" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_btn_Back_VehicleSupport" value="TVehicleSupportBack" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'BACK' button is not available" />
+			</step>
+		</step>			
+		</step>
+	
+	<!-- steps to verify the vehicle support title in android and ios on vehicle support page  -->
+
+        <step type="EXISTS" name="lbl_VehicleSupport_title" page="pge_VehicleInfo" >
+            <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_VehicleSupport_title" value="TVehicleSupportTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE SUPPORT HEADER' label is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'VEHICLE SUPPORT HEADER' label is not available" />
+			</step>
+		</step>			
+		</step>
+	
+	<!-- steps to verify the Alert Guides label in android and ios on vehicle support page  -->
+		
+		 <step type="EXISTS" name="lbl_AlertsGuide" page="pge_VehicleInfo" >
+		    <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AlertsGuide" value="TAlertsGuide" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' label is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' label is not available" />
+			</step>
+		</step>			
+		</step>
+	</function>	
+	
+		<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Click_AlertsGuide : This function clicks the AlertsGuide and move to alerts page -->
+	    <!-- ############################################################################################################# -->
+	 
+	
+	<function name="fn_Click_AlertsGuide">
+		<description>fn_Click_AlertsGuide - function to click 'AlertsGuide' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_AlertsGuide" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AlertsGuide" value="TAlertsGuide" />
+	    </step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' button is found and clicked" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'ALERT GUIDES' button is not available" />
+			</step>
+		</step>			
+		
+	</function>
+		              
+              
+    	<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Navigate_From_VehicleAltersGuide_To_VehicleSupport : This function clicks back arrow to reach one step back navigation to MyVehicles support screen </description>
+           -->
+	    <!-- ############################################################################################################# -->          
+              
+       <function name="fn_Navigate_From_VehicleAltersGuide_To_VehicleSupport">
+
+              <description> fn_Navigate_From_VehicleAltersGuide_To_VehicleSupport--> Verify one step back navigation to MyVehicles support screen </description>
+
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo" >
+                     <parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_VehicleInfo***" />
+              </step>              
+       
+              <step type="CLICK" name="btn_Back_VehicleSupport" page="pge_VehicleInfo">
+              
+			  <token type="CONTENT" name="token_btn_Back_VehicleSupport" value="TVehicleSupportBack" />
+              
+  
+           <step type="WAIT_FOR" name="lbl_AlertsGuide" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+			<token type="CONTENT" name="token_lbl_AlertsGuide" value="TAlertsGuide" />
+	       </step>
+           
+           </step>
+       </function>   
+       
+		<!-- ############################################################################################################# -->
+		<!-- PMAHESH9 - fn_Navigate_From_VehicleSupport_To_VehicleInfo : This function clicks back arrow to reach one step back navigation to Vehicle Info screen  -->
+	    <!-- ############################################################################################################# -->
+		<function name="fn_Navigate_From_VehicleSupport_To_VehicleInfo">
+
+              <description> fn_Navigate_From_VehicleSupport_To_VehicleInfo--> Verify one step back navigation to Vehicle Info screen </description>
+
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo" >
+                     <parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_VehicleInfo ***" />
+              </step>              
+       
+              <step type="CLICK" name="btn_Back_VehicleSupport" page="pge_VehicleInfo">
+              
+			  <token type="CONTENT" name="token_btn_Back_VehicleSupport" value="TVehicleSupportBack" />
+              		
+           </step>
+       </function>
+       
+       
+	<!-- ############################################################################################################# -->
+	<!-- EMUZZAMM - This function clicks on Enable FordPass on SYNC® AppLink® button -->
+	<!-- ############################################################################################################# -->
+		<function name="fn_Click_EnableSyncAppLink">
+		<description>fn_Click_EnableSyncAppLink - function to click on Enable FordPass on SYNC AppLink</description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		
+				
+		<step type="WAIT_FOR" name="lnk_FordPassSyncAppLink" page="pge_VehicleInfo">
+		<parameter type="STATIC" value="30"/>
+		<!-- <token type="CONTENT" name="token_lnk_FordPassSyncAppLink" value="TEnableSyncApplink1" /> -->
+							
+		<step type="CLICK" name="lnk_FordPassSyncAppLink" page="pge_VehicleInfo">
+		<!-- <token type="CONTENT" name="token_lnk_FordPassSyncApplink" value="TEnableSyncApplink1" /> -->		
+		</step>
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Enable FordPass on SYNC® AppLink®' is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnableSyncAppLink">
+				<parameter type="STATIC" value="'Enable FordPass on SYNC® AppLink®' is not clicked" />
+			</step>
+		</step>			
+		</step>
+		
+		</function>
+
+<!-- ############################################################################################################# 
+EMUZZAMM - This function clicks on back button to navigate to dashboard
+#############################################################################################################	 -->
+	
+	<!-- <function name="fn_NavigateFromVehicleDetailToDashboard">
+              <description> fn_NavigateFromVehicleDetailToDashboard - Function to navigate from vehicle details to dashboard page </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+              </step>
+       
+              <step type="CLICK" name="btn_BackFromVehiclesToDasboard" page="pge_VehicleInfo">
+                                                
+                     <step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+                           <parameter type="STATIC" value="20" />
+                           <token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+                      </step>
+                      
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                                  <parameter type="STATIC" value="User successfully landed on dashboard page" />
+                           </step>
+                           <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                                  <parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+                           </step>
+                     </step>                    
+              </step>
+              
+     </function> -->
+     
+     
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify activate vehicle link												   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_ActivateVehicle_Link">
+              <description> fn_Verify_ActivateVehicle_Link - Function to verify activate vehicle link</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+     
+      <step type="EXISTS" name="lnk_ActivateVehicle" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_lnk_ActivateVehicle" value="TVehicleInfo5" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Activate Vehicle' link is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Activate Vehicle' link is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+</function>
+     
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on activate vehicle link												   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_ActivateVehicle_Link">
+              <description> fn_Click_ActivateVehicle_Link - Function to click on activate vehicle link</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+     
+      <step type="CLICK" name="lnk_ActivateVehicle" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_lnk_ActivateVehicle" value="TVehicleInfo5" />
+	  		  	
+	  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Activate Vehicle' link is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Activate Vehicle' link is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify vehicle activated pop up message						    			   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_VehicleActivated_Popup_Message">
+              <description> fn_Verify_VehicleActivated_Popup_Message - Function to verify vehicle activated pop up message</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+              
+              
+       <step type="WAIT_FOR" name="lbl_VehicleActivated_Title" page="pge_VehicleInfo">
+			<token type="CONTENT" name="token_lbl_VehicleActivated_Content1" value="TVehicleInfo6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Activated' title is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Activated' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+        
+             
+             
+      <step type="EXISTS" name="lbl_VehicleActivated_Content1" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_lbl_VehicleActivated_Content1_AND" value="TestData.VehicleNickName_AND" />
+	  	<token type="CONTENT" name="token_lbl_VehicleActivated_Content1_IOS" value="TestData.VehicleNickName_IOS" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Activated' content1 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Activated' content1 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_VehicleActivated_Content2" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_lbl_VehicleActivated_Content2" value="TVehicleInfo7" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Activated' content1 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Vehicle Activated' content1 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="btn_RequestAuthorization" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_btn_RequestAuthorization" value="TVehicleInfo8" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Request Authorization' button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Request Authorization' button is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="btn_PerformMasterReset" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_btn_PerformMasterReset" value="TVehicleInfo9" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Perform Master Reset' button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Perform Master Reset' button is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+</function>
+       
+          
+	<function name="fn_Validate_BaseWarranty_ExpiryDate">
+		<description>fn_Validate_BaseWarranty_ExpiryDate - function to the verify Base Warranty page expiry date </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_Verify_VehicleInfo.xml" />
+		</step>
+
+		<step type="VISIBLE" name="lbl_WarrantyStartDate_Val" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_WarrantyStartDate_Val" value="TWarrentyDate_AND" />
+			<token type="CONTENT" name="token_lbl_WarrantyStartDate_Val_IOS" value="TWarrentyDate_IOS" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Expiry Date label is found" />
+			</step>	
+		<step type="ELSE" name="If_Warranty Start Date_label_Not_Available" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value=" Warranty Expiry Date label is not found" />
+			</step>
+		</step>
+		</step>
+		       
+	</function>       
+ 
+ 	<function name="fn_ValidateEachAlertsGuide_China">
+    	<description>fn_ValidateEachAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+             
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+		</step>
+		 <step type="EXISTS" name="lbl_VehicleAlertsGuide" page="pge_VehicleInfo" >
+		 	<token type="CONTEXT" name="token_lbl_VehicleAlertsGuide" value="label_AlertsGuide"/> 
+	
+			 <step type="CLICK" name="lbl_VehicleAlertsGuide" page="pge_VehicleInfo" >
+			 	<token type="CONTEXT" name="token_lbl_VehicleAlertsGuide" value="label_AlertsGuide"/> 
+			</step>
+		</step>
+		   
+      </function>
+        
+       
+    <function name="fn_ValidateMyVehicleAlertsGuide_IOS_China">
+       <description>fn_ClickMyVehicleAlertsGuide - Verify "My Vehicle Alerts Guide" feature </description>
+       
+       <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+			<parameter type="STATIC" value="Function's XML file name: fn_VehicleInfo.xml" />
+ 		</step>
+    
+       <step type="WAIT_FOR" name="lbl_AlertsGuideTitle" page="pge_VehicleInfo">
+              <parameter type="STATIC" value="30"></parameter>
+              <token type="CONTENT" name="token_ResourceId" value="TResourceId" />
+       		 <token type="CONTENT" name="token_lbl_AlertsGuideTitle" value="TAlertsGuide"/>                         
+       </step>                                
+
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide_China" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide01"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide_China" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide02"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide_China" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide03"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide_China" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide04"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide_China" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide05"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide06"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide07"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide08"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide09"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide10"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide11"/>
+       </step>
+       
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide12"/>
+       </step>
+       
+<!--        <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide13"/>
+       </step> -->
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide14"/>
+       </step>
+       
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide15"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide16"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide17"/>
+       </step>
+
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide18"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide19"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide20"/>
+       </step>
+       
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide21"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide22"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide23"/>
+       </step>
+
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide24"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo" >
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide25"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo" >
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide26"/>
+       </step>
+       
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide27"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide28"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide29"/>
+       </step>
+
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide30"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide31"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide32"/>
+       </step>
+       
+
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide33"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide34"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide35"/>
+       </step>
+       
+
+<!--        <step type="CALL2" name ="fn_ScrollAndValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE" >
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide36"/>
+       </step> -->
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo" failureMode="IGNORE">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide37"/>
+       </step>
+       
+       <step type="CALL2" name ="fn_ValidateEachAlertsGuide" page="pge_VehicleInfo">
+         <parameter type="CONTENT" name="label_AlertsGuide" value="TVehicleAlertsGuide38"/>
+       </step>
+       
+<!--         <step type="EXISTS" name ="btn_Schedule_Service" page="pge_VehicleInfo">
+          <token type="CONTENT" name="token_btn_Schedule_Service" value="TScheduleService" />
+       </step> -->
+       
+       </function>      
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Request Authorization												   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_RequestAuthroization">
+              <description> fn_Click_RequestAuthroization - Function to click on Request Authroization</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+     
+      <step type="CLICK" name="btn_RequestAuthorization" page="pge_VehicleInfo">
+	  	<token type="CONTENT" name="token_btn_RequestAuthorization" value="TVehicleInfo8" />
+	  		  	
+	  	<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Request Authroization' button is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="'Request Authorization' button is not clicked" />
+			</step>
+		</step>		
+	</step>
+	
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- SSHOBHIT - This function is to verify the Deep Sleep banner on the Vehicle Details Screen                                                                -->
+<!-- ############################################################################################################# -->        
+       
+         <function name="fn_Verify_DeepSleep_Message_LandingPage">
+              <description> fn_Verify_DeepSleep_Message - Function to Verify the Deep Sleep Banner on the landing</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+              
+        <step type="EXISTS" name="lbl_DeepSleepBanner_VehicleLanding" page="pge_VehicleInfo">
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner'  is displayed in the Vehicle landing Page" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' is not displayed on the vehicle landing page" />
+                     </step>
+              </step>      
+              
+                </step>
+                     </function> 
+        
+        
+        
+        <function name="fn_Verify_DeepSleep_Message">
+              <description> fn_Verify_DeepSleep_Message - Function to Verify the Deep Sleep Banner</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+              
+        <step type="EXISTS" name="lbl_DeepSleepBanner" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_DeepSleepBanner" value="TDeepSleepBanner" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' content is displayed" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' is not displayed" />
+                     </step>
+              </step>      
+              
+                </step>
+                     </function> 
+              
+          <function name="fn_Verify_DeepSleep_Message_Close">
+       
+              <description> fn_Verify_DeepSleep_Message_Close - Function to Verify if the Deep Sleep Banner closes</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>     
+                           
+              <step type="CLICK" name="lbl_DeepSleepBanner_Close" page="pge_VehicleInfo">
+              </step>
+                     
+                      <step type="EXISTS" name="lbl_DeepSleepBanner" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_DeepSleepBanner" value="TDeepSleepBanner" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' content is displayed" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' is not displayed" />
+                     </step>
+              </step>      
+              
+       </step>      
+              </function>  
+              
+              
+              <function name="fn_Verify_DeepSleep_Schedule_Start"> 
+              
+                    <description> fn_Verify_DeepSleep_Message_Close - Function to Verify if the Deep Sleep Banner closes</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+              <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>     
+              
+            <step type="VISIBLE" name="lnk_NextScheduleStart_Title" page="pge_ScheduleStarts" wait="5" >
+                     <parameter type="STATIC" name="maxScroll" value="5" />
+                     <parameter type="STATIC" name="direction" value="UP" />
+                     <token type="CONTENT" name="token_lnk_NextScheduleStart_Title" value="TScheduleStart1"   />
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                           <parameter type="STATIC" value="'NEXT SCHEDULE START' is displayed" />
+                     </step>      
+                  <step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                           <parameter type="STATIC" value="'NEXT SCHEDULE START' is not displayed" />
+                     </step>
+                     
+                     <step type="EXISTS" name="lbl_NextScheduleStart_disabled" page="pge_ScheduleStarts" >
+                     <token type="CONTENT" name="token_lbl_NextScheduleStart_disabled" value="TScheduleStartDisabled" />
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                           <parameter type="STATIC" value="'feature not available' is displayed" />
+                     </step>      
+              <step type="ELSE" name="elseCondition" page="pge_ScheduleStarts">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleStarts">
+                           <parameter type="STATIC" value="'feature not available' is not displayed" />
+                     </step>
+                     
+              </step>
+
+        </step>
+        </step>
+        </step>
+       </function> 
+       
+       
+       
+       <function name="fn_Verify_DeepSleep_Message_ON_Click_PressToRefresh">
+       
+              <description> fn_Verify_DeepSleep_Message_Close - Function to Verify if the Deep Sleep Banner closes</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>     
+                           
+              <step type="CLICK" name="lbl_PresstoRefresh" page="pge_AuthorizedTCUVIN_VehicleInfo" wait="5">
+              <token type="CONTENT" name="token_lbl_PresstoRefresh" value="TVehicleDetailsAuthTCUVIN15" />
+              </step>
+                     
+                      <step type="EXISTS" name="lbl_DeepSleepBanner" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_DeepSleepBanner" value="TDeepSleepBanner" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' content is displayed" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'Deep Sleep Banner' is not displayed" />
+                     </step>
+              </step>      
+              
+       </step>      
+              </function> 
+              
+<!-- ############################################################################################################# -->
+<!-- SSHOBHIT - This function is to verify the vehicle Hotspot on the Vehicle Details Screen                                                                -->
+<!-- ############################################################################################################# -->      
+
+
+<function name="fn_Verify_VehicleHotspotWidget">
+              <description> fn_Verify_VehicleHotspotWidget - Function to Verify the vehicle Hotspot Widget and Text (If VIN is Wifi Capable)</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+                
+              
+        <step type="VISIBLE" name="lbl_VehicleHotspot" page="pge_VehicleInfo" wait="20">
+        
+        <parameter type="STATIC" name="maxScroll" value="4" />
+                     <parameter type="STATIC" name="direction" value="UP" />
+                     
+              <token type="CONTENT" name="token_lbl_VehicleHotspot" value="TVehicleHotspot" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Vehicle is WiFi- Capable" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Vehicle is not Wi-Fi Capable" />
+                     </step>
+              </step>      
+              
+                      <step type="EXISTS" name="lbl_VehicleHotspot_1" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_VehicleHotspot_1" value="TVehicleHotspot_1" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Text Verified" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Text Missing" />
+                     </step>
+              </step>      
+                </step>
+</step>
+                     </function> 
+                     
+                     
+                     
+<function name="fn_Verify_VehicleHotspotInfoPage_Complimentary">
+              <description> fn_Verify_VehicleHotspotComplimentaryData Plan - Function to Verify the Complimentary data Plan for VIN</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>               
+              
+        <step type="CLICK" name="btn_VehicleHotspot" page="pge_VehicleInfo" wait="10">
+              
+              <step type="EXISTS" name="lbl_VehicleHotspot_Complimentary" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_VehicleHotspot_Complimentary" value="TVehicleHotspot_Complimentary" />
+              
+           <step type="EXISTS" name="lbl_VehicleHotspot_Complimentary_Text" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_VehicleHotspot_Complimentary_Text" value="TVehicleHotspot_Complimentary_Text" />
+                           
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Complimentary Plan Header and Text verified" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Text and Header Missing- Error Page Seen" />
+                     </step>
+              </step>      
+                </step>
+</step>
+
+  </step>
+
+
+
+</function> 
+                     
+                     
+
+     <function name="fn_Verify_VehicleHotspotInfoPage_LearnMore_No">
+              <description> fn_Verify_VehicleHotspot_LearnMore Button - Function to Verify the Complimentary data Plan for VIN- Learn More</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>               
+              
+        <step type="CLICK" name="btn_VehicleHotspot_LearnMore" page="pge_VehicleInfo" wait="10">
+        <token type="CONTENT" name="token_btn_VehicleHotspot_LearnMore" value="TVehicleHotspot_LearnMore" />
+              
+              <step type="EXISTS" name="lbl_VehicleHotspot_ModalHeader" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_VehicleHotspot_ModalHeader" value="TVehicleHotspot_ModalHeader" />
+              
+           <step type="EXISTS" name="lbl_VehicleHotspot_ModalText" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_VehicleHotspot_ModalText" value="TVehicleHotspot_ModalText" />
+                           
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Complimentary Plan Header and Text verified" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="Text and Header Missing- Error Page Seen" />
+                     </step>
+              </step>      
+                </step>
+                
+                 <step type="CLICK" name="lnk_VehicleHotspot_Modal_No" page="pge_VehicleInfo" >
+           <token type="CONTENT" name="token_lnk_VehicleHotspot_Modal_No" value="TVehicleHotspot_Modal_No" />
+           
+           
+            <step type="CLICK" name="btn_BackfromVehicleHotspotInfo" page="pge_VehicleInfo" >
+          
+                
+ </step>
+  </step> 
+  </step>
+   </step>
+                     </function> 
+
+
+<!-- ############################################################################################################# -->
+<!-- SSHOBHIT - This function is to verify the FOTA banner on the Vehicle Details Screen                                                             -->
+<!-- ############################################################################################################# -->        
+       
+         <function name="fn_Verify_FOTA_Message_LandingPage">
+              <description> fn_Verify_FOTA_Message - Function to Verify the FOTA Banner on the landing</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+              
+        <step type="EXISTS" name="lbl_FOTABanner_VehicleLanding" page="pge_VehicleInfo">
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner'  is displayed in the Vehicle landing Page" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA' is not displayed on the vehicle landing page" />
+                     </step>
+              </step>      
+              
+                </step>
+                     </function> 
+        
+        
+        
+        <function name="fn_Verify_FOTA_Message">
+              <description> fn_Verify_FOTA_Message - Function to Verify the Deep Sleep Banner</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>
+              
+        <step type="EXISTS" name="lbl_FOTABanner" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_FOTABanner" value="TFOTABanner" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner' content is displayed" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner' is not displayed" />
+                     </step>
+              </step>      
+              
+                </step>
+                     </function> 
+              
+          <function name="fn_Verify_FOTA_Message_Close">
+       
+              <description> fn_Verify_FOTA_Message_Close - Function to Verify if the FOTA Banner closes</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>     
+                           
+              <step type="CLICK" name="lbl_FOTABanner_Close" page="pge_VehicleInfo">
+              </step>
+                     
+                      <step type="EXISTS" name="lbl_FOTABanner" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_FOTABanner" value="TFOTABanner" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner' content is displayed" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner' is not displayed" />
+                     </step>
+              </step>      
+              
+       </step>      
+              </function>  
+       
+       
+       <function name="fn_Verify_FOTA_Message_ON_Click_PressToRefresh">
+       
+              <description> fn_Verify_FOTA_Message_Close - Function to Verify if the FOTA Banner closes</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                     <parameter type="STATIC" value="Function's XML file name: pge_VehicleInfo" />
+              </step>     
+                           
+              <step type="CLICK" name="lbl_PresstoRefresh" page="pge_AuthorizedTCUVIN_VehicleInfo" wait="5">
+              <token type="CONTENT" name="token_lbl_PresstoRefresh" value="TVehicleDetailsAuthTCUVIN15" />
+              </step>
+                     
+                      <step type="EXISTS" name="lbl_FOTABanner" page="pge_VehicleInfo">
+              <token type="CONTENT" name="token_lbl_FOTABanner" value="TFOTABanner" />
+                           <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner' content is displayed" />
+              </step>
+              
+              <step type="ELSE" name="elseCondition" page="pge_VehicleInfo">
+                     <step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+                           <parameter type="STATIC" value="'FOTA Banner' is not displayed" />
+                     </step>
+              </step>      
+              
+       </step>      
+              </function> 
+              
+
+	
+ 
+</suite>

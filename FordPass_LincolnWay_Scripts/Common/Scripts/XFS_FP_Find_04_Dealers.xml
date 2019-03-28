@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID : -->
+<!-- Author Name : ESURESH8 -->
+<!-- Created Date : 09-Apr-2018 -->
+<!-- Updated Date : 18-Apr-2018 -->
+<!-- Pre-Requisite :  Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc.-->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_04_Dealers" dataProvider="TestData.XFS_FP_Find_001" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> FIND >> DEALERS Page Verification and Validations</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		
+		
+		<step type="CALL2" name="fn_Launch_FindCategories" page="pge_FindCommon"/>
+
+<!-- 		Select the 'CATEGEORY-DEALERS'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory3_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory3_AND" />
+		</step>
+				
+		<!-- Clicking the 'CATEGEORY-DEALERS'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory3_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory3_AND" />
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> DEALERS >> VERIFY LANDING PAGE -->
+<!-- ############################################################################################################# -->
+
+		<!-- Verifying the 'DEALERS' title on FIND>>DEALERS Page -->
+		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_PageTitle_IOS" value="TFindPageTitle3_IOS" />
+			<parameter type="CONTENT" name="param_PageTitle_AND" value="TFindPageTitle3_AND" />
+		</step>
+		
+		<!-- Verifying the 'FILTER' Button on DEALERS Page -->
+		<step type="CALL2" name="fn_Verify_Button_Filters" page="pge_FindFilters" />
+		
+		<!-- Verifying the 'SEARCH FIELD & ICON' edit field on DEALERS Page -->
+		<step type="CALL2" name="fn_Verify_SearchBar" page="pge_FindCommon" />
+		
+		<!-- Verifying the 'CATEGORY TRAY ICON' on DEALERS Page -->
+		<step type="CALL2" name="fn_Verify_CategoryTrayBar" page="pge_FindCategoryApplet" />
+		
+		<!-- Verifying the 'MENU BAR - FORD PASS' tabs on DEALERS Page -->
+		<step type="CALL2" name="fn_ValidateMenuBar_FordPass" page="pge_FPCommon" />
+		
+				
+<!-- ##################################################################################################### -->
+<!-- ESURESH8 - FIND >> DEALERS >> LIST VIEW -->
+<!-- ##################################################################################################### -->	
+
+		<!-- Verifying the 'MAP IS LOADED WITH DATA' on Page -->
+		<step type="CALL2" name="fn_Verify_NoRecordsOnMap" page="pge_FindCommon" failureMode="IGNORE" os="ANDROID"/>
+		
+		<!-- Verifying the 'LIST VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Verify_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Clicking the 'LIST VIEW BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<!-- Verifying the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Verify_ViewList" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+		<!-- Verifying and Fetching the 'VIEW LIST GET DIRECTION LINK' Text Elements on Page -->	
+		<step type="CALL2" name="fn_Verify_ViewListGetDirection" page="pge_FindCommon" >
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+			<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+		</step>			
+		
+		<!-- CLICKING the 'VIEW LIST TAB' Elements on Page -->
+		<step type="CALL2" name="fn_Click_Tab_ViewListDetails" page="pge_FindCommon">		
+			<parameter type="STATIC" name="param_List_Index" value="1" />
+		</step>
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> DEALERS >> LIST VIEW >> DEALERS DETAILS SCRIPTS -->
+<!-- ############################################################################################################# -->
+
+		<step type="CALL2" name="fn_Verify_PriceHeader" page="pge_FindDEALERSBankDetails" />
+		
+		<step type="CALL2" name="fn_Validate_MapDirection" page="pge_FindFuelBankDetails">
+			<step type="CALL2" name="fn_Validate_Maps" page="pge_FindCommon" />
+		</step>
+		
+<!-- 		<step type="CALL2" name="fn_Validate_FuelCall_CN" page="pge_FindFuelBankDetails" failureMode="IGNORE"> -->
+<!-- 			<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonReusable" /> -->
+<!-- 		</step>	 -->
+		
+		<step type="CALL2" name="fn_Verify_Button_ViewServices" page="pge_FindDealersDetails" />
+		
+		<step type="CALL2" name="fn_Click_Button_ViewServices" page="pge_FindDealersDetails" />
+		
+		<!-- Verifying the 'DEALERS >> SERVICES' title on Dealers Page -->
+		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindCommon" failureMode="IGNORE">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TFindDealersServicesTitle1" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<!-- Verifying the 'SERVICE HOURS' title on Dealers Page -->
+		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindCommon" failureMode="IGNORE">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TFindDealersSection1" />
+<!-- 			Verifying the 'SERVICE HOURS' on Dealers Details Page (Sunday - Saturday List) -->
+			<step type="CALL2" name="fn_Verify_DealersDayTimeList" page="pge_FindDealersDetails"/>
+		</step>
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> DEALERS >> FILTER SCRIPTS -->
+<!-- ############################################################################################################# -->
+
+		<step type="CALL2" name="fn_Click_Button_FiltersOpen" page="pge_FindFilters" />
+		
+		<step type="CALL2" name="fn_Verify_FiltersPage" page="pge_FindFilters" />
+				
+		<!-- ##################################################################################################### -->
+		<!-- ESURESH8 - FIND >> DEALERS >> FILTER >> SERVICES -->
+		<!-- ##################################################################################################### -->
+		
+		<!-- Verifying the 'SERVICES' title on Dealers Filter Page -->
+		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TDealersFilterSection1" />
+		</step>
+
+		<!-- Verifying the 'SERVICES' title on Dealers Filter Page -->
+<!-- 		<step type="CALL2" name="fn_Verify_SectionTitle" page="pge_FindFilters"> -->
+<!-- 			<parameter type="CONTENT" name="param_SectionTitle" value="TDealersFilterSection_CN1" /> -->
+<!-- 		</step> -->
+		<!-- Verifying & Validating the 'ONLINE SERVICES >> Check Box' on Dealers Filter Page -->
+		<step type="CALL2" name="fn_Verify_CbxBtnWithLabel_Dealers" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_SectionTitle" value="TDealersFilterSection1" />
+			<parameter type="STATIC" name="param_cbxIndex" value='1' />
+		</step>
+		
+	<!-- Verifying & Validating the 'FILTERS APPLY >> Filters Count' on Dealers Filter Page -->
+		<step type="CALL2" name="fn_Click_Button_FiltersApply" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_ApplyFilter_IOS" value="TFiltersApply_IOS" />
+			<parameter type="CONTENT" name="param_ApplyFilter_AND" value="TFiltersApply_AND" />
+		</step>
+		
+		<step type="CALL2" name="fn_Verify_AppliedFilters_Count" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_FilterCountApplied" value="TDealersFilterSection1" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_Button_FiltersOpen" page="pge_FindFilters" />
+		
+		<!-- Verifying the 'CLEAR FILTER' on DEALERS Filter Page for Android -->
+		<step type="CALL2" name="fn_ClickLink_Filters_Clear" page="pge_FindFilters" />
+		
+		<!-- Verifying & Validating the 'FILTERS APPLY >> Filters Count' on DEALERS Filter Page -->
+		<step type="CALL2" name="fn_Click_Button_FiltersApply" page="pge_FindFilters">
+			<parameter type="CONTENT" name="param_ApplyFilter_IOS" value="TFiltersApplyDone_IOS" />
+			<parameter type="CONTENT" name="param_ApplyFilter_AND" value="TFiltersApplyDone_AND" />
+		</step>
+		
+		<!-- Clicking the 'LIST MAP BUTTON' on Page -->
+		<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+	</test>
+</suite>

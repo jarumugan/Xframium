@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Reservations">
+		<description> fn_VerifyPageOpened_Reservations - Function to verify user landed on the 'Reservation' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_Reservations">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TReservation1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="User successfully landed on 'Reservations' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Reservation' page is not displayed or page title is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateAllLinks_Reservations">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Parking" page="pge_Reservations">
+			<token type="CONTENT" name="token_lnk_Parking" value="TReservation2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Parking' link is available on Reservations page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Parking' link is not available on Reservations page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Link_Parking">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_Parking" page="pge_Reservations">
+			<token type="CONTENT" name="token_lnk_Parking" value="TReservation2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Warning' Popup' displayed in Reservations page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Warning' Popup' not displayed in Reservations page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateAllField_Warningpopup">
+		<description>fn_ValidateAllField_Warningpopup- Function to Validate all fields are displayed on Warning popup message</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		<step type="EXISTS" name="Lbl_Note" page="pge_Reservations">
+			<token type="CONTENT" name="token_Lbl_Note" value="TReservation3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Note Header is displayed in the Warningpop Up message" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Note Header is displayed in the Warningpop Up message" />
+				</step>
+			</step>
+			
+			<step type="EXISTS" name="Lbl_NoteInfo" page="pge_Reservations">
+			<token type="CONTENT" name="token_Lbl_NoteInfo" value="TReservation4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Above Contents are displayed in the Warningpop Up message" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Above Contents are not displayed in the Warningpop Up message" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Cancel" page="pge_Reservations">
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TReservation5_AND" />
+			<token type="CONTENT" name="token_btn_Cancel_IOS" value="TReservation5_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Cancel' button is displayed in the Warningpop Up message" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Cancel' button is displayed in the Warningpop Up message" />
+				</step>
+			</step>
+		</step>
+		
+			<step type="EXISTS" name="btn_Confirm" page="pge_Reservations">
+				<token type="CONTENT" name="token_btn_Confirm_AND" value="TReservation6_AND" />
+				<token type="CONTENT" name="token_btn_Confirm_IOS" value="TReservation6_IOS" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Confirm' button is displayed in the Warningpop Up message" />
+				</step>
+			
+				<step type="ELSE" name="elseCondition" page="pge_Reservations">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Confirm' button is displayed in the Warningpop Up message" />
+				 	 </step>
+			 	 </step>
+		 	 </step>	
+		  </step>
+ 	 </function>
+ 	 
+ 	 <function name="fn_Click_Cancel_Button">
+		<description> fn_Click_Cancel - Function to validate whether User able to navigate to Reservation Page</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="CLICK" name="btn_Cancel" page="pge_Reservations">
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TReservation5_AND" />
+			<token type="CONTENT" name="token_btn_Cancel_IOS" value="TReservation5_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'User able to navigate to Reservation Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'User not able to navigate to Reservation Page" />
+				</step>
+			</step>
+		</step>
+	</function>
+  
+  <function name="fn_Click_Confirm_Button">
+		<description> fn_Click_Cancel - Function to validate whether User able to navigate to Parking Page</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="CLICK" name="btn_Confirm" page="pge_Reservations">
+			<token type="CONTENT" name="token_btn_Confirm_AND" value="TReservation6_AND" />
+			<token type="CONTENT" name="token_btn_Confirm_IOS" value="TReservation6_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'User able to navigate to Parking Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'User not able to navigate to Parking Page" />
+				</step>
+			</step>
+		</step>
+	</function>
+        
+ <function name="fn_Validate_HourlyVanHire_Link_Reservations">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_HarlyVanHire" page="pge_Reservations">
+			<token type="CONTENT" name="token_lnk_HarlyVanHire" value="TReservation7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Hourly Van Hire' link is available on Reservations page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Hourly Van Hire' link is available on Reservations page" />
+				</step>
+			</step>
+		</step>
+	</function>      
+     
+     <function name="fn_Validate_OSB_Link_Reservations">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_OSB" page="pge_Reservations">
+			<token type="CONTENT" name="token_lnk_OSB" value="TReservation8" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Online Service Booking' link is available on Reservations page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="Online Service Booking' link is available on Reservations page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	  
+     <function name="fn_Click_Link_HourlyVanHire">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_Parking" page="pge_Reservations">
+			<token type="CONTENT" name="token_lnk_HarlyVanHire" value="TReservation7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Hourly Van Hire' Page displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Hourly Van Hire' Page displayed" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	 <function name="fn_Click_Link_OSB">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_OSB" page="pge_Reservations">
+			<token type="CONTENT" name="token_lnk_OSB" value="TReservation8" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+				<parameter type="STATIC" value="'Online Service Booking' Page displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Reservations">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+					<parameter type="STATIC" value="'Online Service Booking' Page displayed" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+</suite>

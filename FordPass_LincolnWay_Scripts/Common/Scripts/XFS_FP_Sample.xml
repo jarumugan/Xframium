@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID : -->
+<!-- Author Name : ESURESH8 -->
+<!-- Created Date : 23-Mar-2018 -->
+<!-- Updated Date : 18-Apr-2018 -->
+<!-- Pre-Requisite :  Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc.-->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_03_Parking" dataProvider="TestData.XFS_FP_Find_001" contentKeys="EU_UK_EN" timed="false" threshold="0" active="true">
+		<description> FIND >> PARKING Page Verification and Validations</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		<step name="OPEN" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		<step type="COMMAND" name="mobile:location:set" page="pge_Login">
+    		<parameter type="STATIC" name="address" value="1 World Way, Los Angeles, CA 90045, USA" />
+		</step>
+		<step type="STATE" name="Location Set" page="pge_FindCommon" failureMode="IGNORE" />
+			<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+	
+<!-- 		<step type="CALL2" name="fn_Launch_FindCategories" page="pge_FindCommon"/> -->
+		
+		<!-- Clicking the 'CATEGEORY-FUEL' --> 
+<!-- 		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" > -->
+<!-- 			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory1_IOS" /> -->
+<!-- 			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory1_AND" /> -->
+<!-- 		</step> -->
+		
+		
+	</test>
+</suite>

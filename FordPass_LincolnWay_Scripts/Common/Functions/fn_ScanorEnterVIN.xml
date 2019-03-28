@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ScanorEnterVIN">
+		<description> fn_VerifyPageOpened_ScanorEnterVIN - Function to verify user landed on the 'Scan or EnterVIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ScanorEnterVIN.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ScanorEnterVIN">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TScanorEnterVIN1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+				<parameter type="STATIC" value="User successfully landed on 'Scan or Enter VIN' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ScanorEnterVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+					<parameter type="STATIC" value="'Scan or Enter VIN' page is not displayed or page header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_ScanorEnterVIN">
+		<description> fn_ValidatePage_ScanorEnterVIN - Function to validate the 'Scan or Enter VIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ScanorEnterVIN.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ScanorEnterVIN">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TScanorEnterVIN2" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+				<parameter type="CONTENT" value="TScanorEnterVIN2" />
+				<parameter type="STATIC" value="Given above page information is displayed on 'Scan or Enter VIN' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ScanorEnterVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+					<parameter type="CONTENT" value="TScanorEnterVIN2" />
+					<parameter type="STATIC" value="Given above page information is not displayed on 'Scan or Enter VIN' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_SkipForNow" page="pge_ScanorEnterVIN" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lnk_SkipForNow_AND" value="TScanorEnterVIN3_AND" />
+			<token type="CONTENT" name="token_lnk_SkipForNow_IOS" value="TScanorEnterVIN3_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+				<parameter type="STATIC" value="'Skip for Now' link is available on 'Scan or Enter VIN' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ScanorEnterVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+					<parameter type="STATIC" value="'Skip for Now' link is not available or label is not expected on 'Scan or Enter VIN' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ScanorEnterVIN_SkipForNow">
+		<description> fn_Click_ScanorEnterVIN_SkipForNow - Function to click 'Skip for Now' link on the 'Scan or Enter VIN' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ScanorEnterVIN.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_SkipForNow" page="pge_ScanorEnterVIN">
+			<token type="CONTENT" name="token_lnk_SkipForNow_AND" value="TScanorEnterVIN3_AND" />
+			<token type="CONTENT" name="token_lnk_SkipForNow_IOS" value="TScanorEnterVIN3_IOS" />
+			
+			<step type="CLICK" name="lnk_SkipForNow" page="pge_ScanorEnterVIN">
+				<token type="CONTENT" name="token_lnk_SkipForNow_AND" value="TScanorEnterVIN3_AND" />
+				<token type="CONTENT" name="token_lnk_SkipForNow_IOS" value="TScanorEnterVIN3_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+				<parameter type="STATIC" value="'Skip For Now' link is available and clicked on 'Scan or Enter VIN' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ScanorEnterVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScanorEnterVIN">
+					<parameter type="STATIC" value="'Skip For Now' link is not available on 'Scan or Enter VIN' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

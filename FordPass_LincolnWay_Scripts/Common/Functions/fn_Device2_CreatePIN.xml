@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_CreatePIN_D2">
+		<description> fn_VerifyPageOpened_CreatePIN - Function to verify user landed on the Create PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreatePIN_D2.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" failureMode="IGNORE" os="IOS"/>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_CreatePIN">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TCreatePIN1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+				<parameter type="STATIC" value="User successfully landed on Create PIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+					<parameter type="STATIC" value="Create PIN page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_CreatePIN_D2">
+		<description> fn_ValidatePage_CreatePIN - Function to validate the Create PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreatePIN_D2.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_CreatePIN">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TCreatePIN2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+				<parameter type="CONTENT" value="TCreatePIN2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on Create PIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+					<parameter type="CONTENT" value="TCreatePIN2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on Create PIN page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputAll_CreatePIN_D2">
+		<description> fn_InputAll_CreatePIN - Function to Input all the four PIN on Create PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreatePIN_D2.xml" />
+		</step>
+		
+		<!-- Click PIN1 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_CreatePIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN1" />
+		</step>
+		
+		<!-- Click PIN2 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_CreatePIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN2" />
+		</step>
+
+		<!-- Click PIN3 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_CreatePIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN3" />
+		</step>
+		
+		<!-- Click PIN4 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_CreatePIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN4" />
+		</step>
+	</function>
+		
+	<function name="fn_ClickSpecific_PIN_D2">
+		<description> fn_ClickSpecific_PIN - Function to click on the user given PIN on Create PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreatePIN_D2.xml" />
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_CreatePIN" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" name="Value One" value="param_PINNumber" />
+			<parameter type="STATIC" name="Value Two" value="0" />
+			<parameter type="STATIC" name="Operator" value="EQUALS" />
+			
+			<step type="EXISTS" name="btn_NumberPad" page="pge_CreatePIN">
+				<token type="STATIC" name="token_btn_NumberPad" value="11" />
+				
+				<step type="CLICK" name="btn_NumberPad" page="pge_CreatePIN">
+					<token type="STATIC" name="token_btn_NumberPad" value="11" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreatePIN">
+				<step type="EXISTS" name="btn_NumberPad" page="pge_CreatePIN">
+					<token type="CONTEXT" name="token_btn_NumberPad" value="param_PINNumber" />
+					
+					<step type="CLICK" name="btn_NumberPad" page="pge_CreatePIN">
+						<token type="CONTEXT" name="token_btn_NumberPad" value="param_PINNumber" />
+					</step>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+						<parameter type="CONTEXT" value="param_PINNumber" />
+						<parameter type="STATIC" value="Above user given PIN is available and clicked on Create PIN page" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_CreatePIN">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+							<parameter type="CONTEXT" value="param_PINNumber" />
+							<parameter type="STATIC" value="Above user given PIN is not available on Create PIN page" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_NumberPad" page="pge_CreatePIN" os="ANDROID">
+			<token type="CONTEXT" name="token_btn_NumberPad" value="param_PINNumber" />
+			
+			<step type="CLICK" name="btn_NumberPad" page="pge_CreatePIN">
+				<token type="CONTEXT" name="token_btn_NumberPad" value="param_PINNumber" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+				<parameter type="CONTEXT" value="param_PINNumber" />
+				<parameter type="STATIC" value="Above user given PIN is available and clicked on Create PIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_CreatePIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_CreatePIN">
+					<parameter type="CONTEXT" value="param_PINNumber" />
+					<parameter type="STATIC" value="Above user given PIN is not available on Create PIN page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindDealersDetails" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_ParkHoursAND" value="//*[@text='{token_ParkHours}']/following::android.widget.TextView[{token_ParkHoursIndex}]" descriptor="XPATH" />
+			<element name="lbl_ParkDaysIOS" value="//*[@label='{token_ParkHours}']/following::UIATableCell[{token_ParkHoursIndex}]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_ParkHoursIOS" value="//*[@label='{token_ParkHours}']/following::UIATableCell[{token_ParkHoursIndex}]/UIAStaticText[2]" descriptor="XPATH" />
+			
+			<element name="btn_Services" value="//*[contains(@text,'{token_tabbtn_Services}')]/parent::android.view.ViewGroup|//*[contains(@label,'{token_tabbtn_Services}')]/parent::UIATableCell" descriptor="XPATH" />
+			<element name="btn_PreferredDealer" value="//*[contains(@text,'{token_tabbtn_PreferredDealer}')]/parent::android.view.ViewGroup|//*[contains(@label,'{token_tabbtn_PreferredDealer}')]/parent::UIATableCell" descriptor="XPATH" />
+			
+			<element name="lbl_DWPreferredDealers_Title" value="//*[@label='{token_lbl_DWPreferredDealers_Title_IOS}' and @visible='true']|//*[@text='{token_lbl_DWPreferredDealers_Title_AND}']" descriptor="XPATH" />
+			<element name="read_DWPreferredDealers_Content" value="//*[@label='{token_lbl_DWPreferredDealers_Title_IOS}' and @visible='true']/following-sibling::UIAStaticText|//*[@text='{token_lbl_DWPreferredDealers_Title_AND}']/following::android.widget.TextView[1]" descriptor="XPATH" />
+			<element name="btn_DWPreferredDealers_Yes" value="//*[@label='{token_btn_DWPreferredDealers_Yes_IOS}' and @visible='true']/self::UIAButton|//*[@text='{token_btn_DWPreferredDealers_Yes_AND}']" descriptor="XPATH" />
+			<element name="btn_DWPreferredDealers_No" value="//*[@label='{token_btn_DWPreferredDealers_No_IOS}' and @visible='true']/self::UIAButton|//*[@text='{token_btn_DWPreferredDealers_No_AND}']" descriptor="XPATH" />
+			
+			<element name="btn_PreferredDealersVehicleList_Save" value="//*[@text='{token_btn_PreferredDealersVehicleList_Save}']" descriptor="XPATH" />
+			<element name="btn_rdb_VehicleList" value="//*[contains(@resource-id,'item_radio_button')][1]" descriptor="XPATH" />
+			<element name="btn_back_DealerDetails" value="//*[contains(@resource-id,'item_radio_button')][1]" descriptor="XPATH" />		
+		</page>
+	</site>
+</elementDefinition>

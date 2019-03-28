@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : ESURESH8 -->
+<!-- Created Date : 22-Mar-2018 -->
+<!-- Updated Date : 12-Apr-2018 -->
+<!-- Pre-Requisite : Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc. -->
+
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_01_Find" dataProvider="TestData.XFS_FP_Find_001"
+		contentKeys="EU_UK_EN" timed="false" threshold="0" active="true">
+		
+		<description> FIND Search script </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step name="OPEN" page="pge_FindCommon" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_Login" />
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" failureMode="IGNORE" />
+		
+		<step type="ELSE" name="elseCondition" page="pge_Login">
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+				<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+				<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+				<parameter type="DATA" name="param_Password" value="TestData.Password" />
+			</step>
+		</step>
+		<step type="CALL2" name="fn_Accept_SafetyCheck" page="pge_FindCommon" failureMode="IGNORE" />
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+			<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+			<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+			<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+			<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />  
+		
+
+		
+	
+		
+		<!-- Clicking the 'MENU- FIND'  -->		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_Find_Permissions" page="pge_FindLanding" failureMode="IGNORE" /> 
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> VERIFY LANDING PAGE -->
+<!-- ############################################################################################################# -->
+
+		<!-- Verifying the 'FIND' title on FIND Page -->
+		<step type="CALL2" name="fn_Verify_PageTitle" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_PageTitle_IOS" value="TFindMenu" />
+			<parameter type="CONTENT" name="param_PageTitle_AND" value="TFindMenu" />
+		</step>
+		
+		<!-- Verifying the 'SEARCH FIELD & ICON' edit field on Parking Page -->
+		<step type="CALL2" name="fn_Verify_SearchBar" page="pge_FindCommon" />
+		
+		<!-- Clicking on  'CategoryTrayBar' button in Find Page -->
+		<step type="CALL2" name="fn_Click_CategoryTrayBar" page="pge_FindCategoryApplet" failureMode="IGNORE" />
+		
+		<!-- Verifying the 'ALL CATEGEORIES' existence by SWIPE on Find Page -->
+		<step type="CALL2" name="fn_Validate_Categories" page="pge_FindCategoryApplet" />
+		
+		<!-- Verifying the 'MENU BAR - FORD PASS' tabs on FIND Page -->
+		<step type="CALL2" name="fn_ValidateMenuBar_FordPass" page="pge_FPCommon" />
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> MAP SEARCH FEATURES USING VALID/INVALID KEYWORDS -->
+<!-- ############################################################################################################# -->	
+		
+		<step type="CALL2" name="fn_Search_NoResults" page="pge_FindCommon"/>	
+			
+		<!-- Validating the 'SEARCH' by Passing Keyword -->
+		<step type="CALL2" name="fn_SearchBar_Parameterized" page="pge_FindCommon" >
+			<parameter type="DATA" name="param_SearchKeyword" value="TestData.FindSearchKey" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_SearchResultList" page="pge_FindCommon" >
+			<parameter type="DATA" name="param_lbl_SearchResultList" value="TestData.FindSelectSearchListItem" />
+		</step>
+		
+			<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+
+	</test>
+</suite>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_SmartTip" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageTitle" value="//*[@text='{token_lbl_PageTitle}']|//*[@label='{token_lbl_PageTitle}']" descriptor="XPATH" />
+			<element name="lbl_TileContent" value="//*[contains(@text,&quot;{token_lbl_TileContent}&quot;)]|//*[contains(@label,&quot;{token_lbl_TileContent}&quot;)]" descriptor="XPATH" />
+			<element name="lbl_SmartTipDescription" value="//*[@text='{token_lbl_SmartTipDescription}']|//*[@label='{token_lbl_SmartTipDescription}']" descriptor="XPATH" />
+			<element name="btn_SmartTip_OK" value="//*[@text='{token_btn_SmartTip_OK}']|//*[@label='{token_btn_SmartTip_OK}']" descriptor="XPATH" />
+			<element name="btn_SmartTip_Back" value="(//UIAButton)[1]" descriptor="XPATH" />
+			<element name="btn_Show_Me_FordCredit" value="//*[@text='{token_btn_Show_Me_FordCredit_AND}']|//*[@text='{token_btn_Show_Me_FordCredit_IOS}']|//*[@label='{token_btn_Show_Me_FordCredit_IOS}']" descriptor="XPATH" />
+			<element name="btn_Explore_Find" value="//*[@text='{token_btn_Explore_Find_AND}']|//*[@text='{token_btn_Explore_Find_IOS}']|//*[@label='{token_btn_Explore_Find_IOS}']" descriptor="XPATH" />
+			<element name="lbl_SafetyCheck" value="//*[@text='{token_lbl_SafetyCheck}']|//*[@label='{token_lbl_SafetyCheck}']" descriptor="XPATH" />
+			<element name="btn_ImNotDriving" value="//*[translate(@text,&quot;{token_btn_ImNotDriving_L}&quot;,&quot;{token_btn_ImNotDriving_U}&quot;)=&quot;{token_btn_ImNotDriving_U}&quot;]|//*[translate(@label,&quot;{token_btn_ImNotDriving_L}&quot;,&quot;{token_btn_ImNotDriving_U}&quot;)=&quot;{token_btn_ImNotDriving_U}&quot;]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

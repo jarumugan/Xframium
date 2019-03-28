@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_029" dataProvider="TestData.XFS_FP_Accounts_029,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Wallet_Withdraw Consent </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+
+
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_Click_ECM" page="pge_Settings" /> 
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ECM" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_validate_ECM" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_Click_WithdrawConsent" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_VerifyWarningWindow_OpenedECM" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_Click_WarningWindow_Cancel" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ECM" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_Click_WithdrawConsent" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_Click_WarningWindow_ConfirmECM" page="pge_ECM" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+	 	<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" /> 
+	 	
+			<step type="CALL2" name="fn_Click_Wallet" page="pge_Account" />
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_Wallet" page="pge_Wallet" />  
+				
+			<step type="CALL2" name="fn_Click_AddPaymentMethod" page="pge_Wallet" /> 
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_ECM" page="pge_ECM" />
+			
+			<step type="CALL2" name="fn_Click_ECM_IAccept" page="pge_ECM" />
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_WalletTermsandConditions" page="pge_Wallet" />
+			
+			<step type="CALL2" name="fn_Click_Wallet_TermsIAccept" page="pge_Wallet" />
+			
+			<step type="CALL2" name="fn_VerifyPageOpened_AddCard" page="pge_AddCard" /> 
+			
+			 <step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />  
+			 
+			 <step type="CALL2" name="fn_VerifyPageOpened_Wallet" page="pge_Wallet" /> 
+			 
+			 <step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+			 	 
+			 <step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+			<step type="CALL2" name="fn_Click_ECM" page="pge_Settings" /> 
+		
+			<step type="CALL2" name="fn_VerifyPageOpened_ECM" page="pge_ECM" />
+			
+			<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+			<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		
+		
+	
+
+		
+
+	</test>
+</suite>

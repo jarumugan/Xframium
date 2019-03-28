@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_OnlineServiceBooking" class="org.xframium.page.keyWord.KeyWordPage">
+			
+			<element name="btn_ViewVehicleDetails1" value="//*[@text='{token_btn_ViewVehicleDetails1}']|//*[@label='{token_btn_ViewVehicleDetails1}']" descriptor="XPATH" />
+			<element name="btn_Scheduleservice" value="//*[contains(@resource-id,'preferred_dealer_schedule_service')]|//*[@label='{token_btn_Scheduleservice}']" descriptor="XPATH" />
+			<element name="lbl_ScheduleServicetitle" value="//*[contains(@resource-id,'schedule_service_header')]|//*[@label='{token_lbl_ScheduleServicetitle}']" descriptor="XPATH" />
+			<element name="lbl_VehicleName" value="//*[contains(@resource-id,'vehicle_details_title')]|//*[@label='{token_lbl_VehicleName}']" descriptor="XPATH" />
+			<element name="lbl_VehicleType" value="//*[contains(@resource-id,'vehicle_details_description')]|//*[@label='{token_lbl_VehicleType}']" descriptor="XPATH" />
+			<element name="lbl_VehiclePreferredDealertitle" value="//*[contains(@resource-id,'preferred_dealer_title')]|//*[@label='{token_lbl_VehiclePreferredDealertitle}']" descriptor="XPATH" />
+			<element name="lbl_VehiclePreferredDealerinfo" value="//*[contains(@resource-id,'preferred_dealer_name')]|//*[@label='{token_lbl_VehiclePreferredDealerinfo}']" descriptor="XPATH" />
+			<element name="lbl_VehiclePreferredDealerinfo1" value="//*[contains(@resource-id,'preferred_dealer_address')]|//*[@label='{token_lbl_VehiclePreferredDealerinfo1}']" descriptor="XPATH" />
+			<element name="lbl_VehiclePreferredDealerinfo2" value="//*[contains(@resource-id,'preferred_dealer_number')]|//*[@label='{token_lbl_VehiclePreferredDealerinfo2}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServicetype" value="//*[contains(@resource-id,'service_type_title')]|//*[@label='{token_lbl_VehicleServicetype}']" descriptor="XPATH" />
+			<element name="lbl_VehicleService" value="//*[@text='{token_lbl_VehicleService}']|//*[@label='{token_lbl_VehicleService}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServiceType" value="//*[@text='{token_lbl_VehicleServiceType}']|//*[@label='{token_lbl_VehicleServiceType}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServicetype1" value="//*[@text='{token_lbl_VehicleServicetype1}']|//*[@label='{token_lbl_VehicleServicetype1}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServicetype2" value="//*[@text='{token_lbl_VehicleServicetype2}']|//*[@label='{token_lbl_VehicleServicetype2}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServicetype3" value="//*[@text='{token_lbl_VehicleServicetype3}']|//*[@label='{token_lbl_VehicleServicetype3}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServicetype4" value="//*[@text='{token_lbl_VehicleServicetype4}']|//*[@label='{token_lbl_VehicleServicetype4}']" descriptor="XPATH" />
+			<element name="btn_Next" value="//*[contains(@resource-id,'next_button')]|//*[@label='{token_btn_Next}']" descriptor="XPATH" />
+			<element name="lbl_Selectmileagetitle" value="//*[contains(@resource-id,'mileage_selector_title')]|//*[@label='{token_lbl_Selectmileagetitle}']" descriptor="XPATH" />
+			<element name="btn_MileageNext" value="//*[contains(@resource-id,'mileage_selector_save_button')]|//*[@label='{token_btn_MileageNext}']" descriptor="XPATH" />
+			<element name="lbl_Availableservicetitle" value="//*[contains(@resource-id,'osb_available_service_header')]|//*[@label='{token_lbl_Availableservicetitle}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage" value="//*[@text='{token_lbl_Servicepage}']|//*[@label='{token_lbl_Servicepage}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage1" value="//*[@text='{token_lbl_Servicepage1}']|//*[@label='{token_lbl_Servicepage1}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage2" value="//*[@text='{token_lbl_Servicepage2}']|//*[@label='{token_lbl_Servicepage2}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage3" value="//*[@text='{token_lbl_Servicepage3}']|//*[@label='{token_lbl_Servicepage3}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage4" value="//*[contains(@resource-id,'osb_main_service_miles')]|//*[@label='{token_lbl_Servicepage4}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage5" value="//*[@text='{token_lbl_Servicepage5}']|//*[@label='{token_lbl_Servicepage5}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage6" value="//*[@text='{token_lbl_Servicepage6}']|//*[@label='{token_lbl_Servicepage6}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage7" value="//*[@text='{token_lbl_Servicepage7}']|//*[@label='{token_lbl_Servicepage7}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage8" value="//*[contains(@resource-id,'osb_quote_total_title')]|//*[@label='{token_lbl_Servicepage8}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage9" value="//*[contains(@resource-id,'osb_quote_total_disclaimer')]|//*[@label='{token_lbl_Servicepage9}']" descriptor="XPATH" />
+			<element name="btn_NextAvailablepge" value="//*[contains(@resource-id,'osb_quote_total_next_button')]|//*[@label='{token_btn_NextAvailablepge}']" descriptor="XPATH" />
+			<element name="lbl_AddSertitle" value="//*[@text='{token_lbl_AddSertitle}']|//*[@label='{token_lbl_AddSertitle}']" descriptor="XPATH" />
+			<element name="lbl_AddSertitle" value="//*[@text='{token_lbl_AddSertitle}']|//*[@label='{token_lbl_AddSertitle}']" descriptor="XPATH" />
+			<element name="lbl_AddSer1" value="//*[@text='{token_lbl_AddSer1}']|//*[@label='{token_lbl_AddSer1}']" descriptor="XPATH" />
+			<element name="lbl_AddSer2" value="//*[@text='{token_lbl_AddSer2}']|//*[@label='{token_lbl_AddSer2}']" descriptor="XPATH" />
+			<element name="lbl_AddSer3" value="//*[@text='{token_lbl_AddSer3}']|//*[@label='{token_lbl_AddSer3}']" descriptor="XPATH" />
+			<element name="lbl_AddSer4" value="//*[@text='{token_lbl_AddSer4}']|//*[@label='{token_lbl_AddSer4}']" descriptor="XPATH" />
+			<element name="lbl_AddSer5" value="//*[@text='{token_lbl_AddSer5}']|//*[@label='{token_lbl_AddSer5}']" descriptor="XPATH" />
+			<element name="lbl_AddSer6" value="//*[@text='{token_lbl_AddSer6}']|//*[@label='{token_lbl_AddSer6}']" descriptor="XPATH" />
+			<element name="lbl_AddSer7" value="//*[@text='{token_lbl_AddSer7}']|//*[@label='{token_lbl_AddSer7}']" descriptor="XPATH" />
+			<element name="lbl_AddSer8" value="//*[@text='{token_lbl_AddSer8}']|//*[@label='{token_lbl_AddSer8}']" descriptor="XPATH" />
+			<element name="btn_AvaSerDialog" value="//*[contains(@resource-id,'osb_available_service_info_icon')]|//*[@label='{token_lbl_AvaSerDialog}']" descriptor="XPATH" />
+			<element name="lbl_AvaSerDialogtitle" value="//*[contains(@resource-id,'common_dialog_title')]|//*[@label='{token_lbl_AvaSerDialogtitle}']" descriptor="XPATH" />
+			<element name="lbl_AvaSerDialogContent" value="//*[contains(@resource-id,'common_dialog_content')]|//*[@label='{token_lbl_AvaSerDialogContent}']" descriptor="XPATH" />
+			<element name="btn_AvaSerDialogOK" value="//*[@text='{token_btn_AvaSerDialogOK}']|//*[@label='{token_btn_AvaSerDialogOK}']" descriptor="XPATH" />
+			<element name="btn_NextAddSerpge" value="//*[@text='{token_btn_NextAddSerpge}']|//*[@label='{token_btn_NextAddSerpge}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCartitle" value="//*[@text='{token_lbl_CourtesyCartitle}']|//*[@label='{token_lbl_CourtesyCartitle}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCardet1" value="//*[@text='{token_lbl_CourtesyCardet1}']|//*[@label='{token_lbl_CourtesyCardet1}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCardet2" value="//*[@text='{token_lbl_CourtesyCardet2}']|//*[@label='{token_lbl_CourtesyCardet2}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCardet3" value="//*[@text='{token_lbl_CourtesyCardet3}']|//*[@label='{token_lbl_CourtesyCardet3}']" descriptor="XPATH" />
+			<element name="btn_NextCourtesypge" value="//*[@text='{token_btn_NextCourtesypge}']|//*[@label='{token_btn_NextCourtesypge}']" descriptor="XPATH" />
+			<element name="lbl_Dateandtimetitle" value="//*[@text='{token_lbl_Dateandtimetitle}']|//*[@label='{token_lbl_Dateandtimetitle}']" descriptor="XPATH" />
+			<element name="btn_Timepkr" value="//*[@text='{token_btn_Timepkr}']|//UIAApplication/UIAWindow[1]/UIAImage[2]}']" descriptor="XPATH" />
+			<element name="btn_TimeSave" value="//*[@text='{token_btn_TimeSave}']|//*[@label='{token_btn_TimeSave}']" descriptor="XPATH" />
+			<element name="lbl_BookDealerVisitTitle" value="//*[contains(@resource-id,'additional_services_header')]|//*[@label='{token_lbl_BookDealerVisitTitle}']" descriptor="XPATH" />
+			<element name="lbl_BookDealerAddSertitle" value="//*[contains(@resource-id,'additional_service_title')]|//*[@label='{token_lbl_BookDealerAddSertitle}']" descriptor="XPATH" />
+			<element name="lbl_BookDealerotherreqtitle" value="//*[contains(@resource-id,'other_requirements_title')]|//*[@label='{token_lbl_BookDealerotherreqtitle}']" descriptor="XPATH" />
+			<element name="lbl_BookDealerOtherReq" value="//*[contains(@resource-id,'other_requirements_description')]|//*[@label='{token_lbl_BookDealerOtherReq}']" descriptor="XPATH" />
+			<element name="lbl_Bookotherreqmaxchara" value="//*[contains(@resource-id,'other_requirements_max_characters_text')]|//*[@label='{token_lbl_Bookotherreqmaxchara}']" descriptor="XPATH" />
+			<element name="lbl_BookDealertotaltitle" value="//*[contains(@resource-id,'osb_quote_total_title')]|//*[@label='{token_lbl_BookDealertotaltitle}']" descriptor="XPATH" />
+			<element name="lbl_BookDealertotaltitledes" value="//*[contains(@resource-id,'osb_quote_total_disclaimer')]|//*[@label='{token_lbl_BookDealertotaltitledes}']" descriptor="XPATH" />
+			<element name="btn_BookDealerVisitNext" value="//*[contains(@resource-id,'osb_quote_total_next_button')]|//*[@label='{token_btn_BookDealerVisitNext}']" descriptor="XPATH" />
+			<element name="btn_OSBKeyboard_Done" value="//*[@text='{token_btn_Keyboard_Done}']|//*[@label='{token_btn_OSBKeyboard_Done}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCartitle" value="//*[contains(@resource-id,'osb_courtesy_title')]|//*[@label='{token_lbl_CourtesyCartitle}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCarSubtitle" value="//*[contains(@resource-id,'osb_courtesy_note_subtitle')]|//*[@label='{token_lbl_CourtesyCarSubtitle}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCardes" value="//*[contains(@resource-id,'osb_courtesy_description')]|//*[@label='{token_lbl_CourtesyCardes}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyCarReq" value="//*[contains(@resource-id,'osb_courtesy_require')]|//*[@label='{token_lbl_CourtesyCarReq}']" descriptor="XPATH" />
+			<element name="btn_CourtesyCarNext" value="//*[contains(@resource-id,'osb_courtesy_next_button')]|//*[@label='{token_btn_CourtesyCarNext}']" descriptor="XPATH" />
+			<element name="lbl_OSB_Datetimetitle" value="//*[contains(@resource-id,'osb_date_time_selector_header')]|//*[@label='{token_lbl_OSB_Datetimetitle}']" descriptor="XPATH" />
+			<element name="btn_OSB_Datetpkr" value="//*[contains(@resource-id,'osb_date_picker')]|//*[@label='{token_btn_OSB_Datetpkr}']" descriptor="XPATH" />
+			<element name="btn_OSB_DatePicked" value="//*[@text='{token_btn_OSB_DatePicked}']|//*[@label='{token_btn_OSB_DatePicked}']" descriptor="XPATH" />
+			<element name="btn_OSB_TimePicked" value="//*[@text='{token_btn_OSB_TimePicked}']|//*[@label='{token_btn_OSB_TimePicked}']" descriptor="XPATH" />
+			<element name="btn_MOTOption" value="//*[@resource-id='com.ford.torqueeu:id/services_list_recycler_view']/android.view.ViewGroup[2]/android.widget.RadioButton[1]|//*[@label='{token_btn_MOTOption}']" descriptor="XPATH" />
+			<element name="btn_MOTSelectMillage" value="//android.view.ViewGroup[2]/android.widget.RadioButton[1]|//*[@label='{token_btn_MOTSelectMillage}']" descriptor="XPATH" />
+			<element name="lbl_MOTAddSerpge" value="//*[@text='{token_lbl_MOTAddSerpge}']|//*[@label='{token_lbl_MOTAddSerpge}']" descriptor="XPATH" />
+			<element name="btn_VehicelandMOTService" value="//android.view.ViewGroup[3]/android.widget.RadioButton[1]|//*[@label='{token_btn_VehicelandMOTService}']" descriptor="XPATH" />
+			<element name="btn_VehicelandMOTAddSer" value="//android.view.ViewGroup[1]/android.widget.Switch[1]|//*[@label='{token_btn_NextAddSerpge}']" descriptor="XPATH" />
+			<element name="btn_VehicelandMOTSertotalamt" value="//*[contains(@resource-id,'osb_quote_total_amount')]|//*[@label='{token_btn_VehicelandMOTSertotalamt}']" descriptor="XPATH" />
+			<element name="btn_CourtesyCardadded" value="//*[contains(@resource-id,'toggle_button')]|//*[@label='{token_btn_CourtesyCardadded}']" descriptor="XPATH" />
+			<element name="lbl_CourtesyAddnotetitle" value="//*[contains(@resource-id,'osb_courtesy_add_note')]|//*[@label='{token_lbl_CourtesyAddnotetitle}']" descriptor="XPATH" />
+			<element name="edt_CourtesyAddnoteedit" value="//*[@resource-id='com.ford.torqueeu:id/osb_courtesy_note']|//*[@value='{token_edt_CourtesyAddnoteedit}']" descriptor="XPATH" />
+			<element name="btn_VehicelcareandRepair" value="//android.view.ViewGroup[4]/android.widget.RadioButton[1]|//*[@label='{token_btn_VehicleServiceandRepair}']" descriptor="XPATH" />
+			
+			
+		</page>
+	</site>
+</elementDefinition>

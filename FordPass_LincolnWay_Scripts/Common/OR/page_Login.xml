@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Login" class="org.xframium.page.keyWord.KeyWordPage">
+			
+			<!--  Lincoln Username and Password added -->
+			
+			
+			<!-- <element name="edt_UserName" value="//*[contains(@resource-id,'login_username_text')]|//UIATextField|(//*[@text='{token_edt_UserName}']//android.widget.EditText)[1]|(//*[@value='{token_edt_UserName}']/following::UIATextField)[1]|(//*[@value='{token_edt_UserName}']/preceding::UIATextField)[1]" descriptor="XPATH" /> -->
+			
+			<element name="edt_UserName" value="//*[contains(@resource-id,'login_username_text')]|//UIATextField|(//*[@text='{token_edt_UserName}']//android.widget.EditText)[1]|(//*[@value='{token_edt_UserName}']/following::UIATextField)[1]|(//*[@value='{token_edt_UserName}']/preceding::UIATextField)[1]" descriptor="XPATH" />
+			
+			<element name="edt_Password" value="(//*[@text='{token_edt_Password}']//android.widget.EditText)[1]|//XCUIElementTypeSecureTextField|(//*[@value='{token_edt_Password}']/following::UIASecureTextField)[1]|(//*[@value='{token_edt_Password}']/preceding::UIASecureTextField)[1]|//UIASecureTextField" descriptor="XPATH" />
+			
+			<!-- <element name="edt_LWPassword" value="(//*[contains(@resource-id,'login_password_text')]//android.widget.EditText)|//*[@label='{token_edt_LWPassword}]" descriptor="XPATH" /> -->
+			
+<!-- 			<element name="edt_LWPassword" value="//*[contains(@resource-id,'login_password_text')]//android.widget.EditText[1]|//*[@text='{token_edt_Password}']|//*[@label='{token_edt_Password}]|//*[@class='UIASecureTextField'])" descriptor="XPATH" /> -->
+			<element name="img_PasswordMask" value="//*[@content-desc='Toggle password visibility']|//UIASecureTextField/UIAButton[1]|//UIATextField/UIAButton[1]|//UIASecureTextField" descriptor="XPATH" />
+			<element name="edt_PasswordWithoutMask" value="(//*[@text='{token_edt_MaskPassword}']//android.widget.EditText)[1]|(//*[@value='{token_edt_MaskPassword}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="lnk_ForgotPassword" value="//*[@text='{token_lnk_ForgotPassword}']|//*[@label='{token_lnk_ForgotPassword}']" descriptor="XPATH" />
+			<element name="btn_Login_Disabled" value="//*[@text='{token_btn_Login_AND}' and @enabled='false']|//*[@text='{token_btn_Login_IOS}' and @enabled='false']|//*[@label='{token_btn_Login_IOS}' and @enabled='false']|//*[@label='{token_btn_Login_AND}' and @enabled='false']" descriptor="XPATH" />
+			<element name="btn_Login_Enabled" value="//*[@text='{token_btn_Login_AND}' and @enabled='true']|//*[@text='{token_btn_Login_IOS}' and @enabled='true']|//*[@label='{token_btn_Login_IOS}' and @enabled='true']|//*[@label='{token_btn_Login_AND}' and @enabled='true']" descriptor="XPATH" />
+			<element name="btn_Login" value="//*[@text='{token_btn_Login_AND}']|//*[@text='{token_btn_Login_IOS}']|//*[@label='{token_btn_Login_IOS}']|//*[@label='{token_btn_Login_AND}']" descriptor="XPATH" />
+			<element name="btn_CreateAccount" value="//*[@text='{token_btn_CreateAccount_AND}']|//*[@text='{token_btn_CreateAccount_IOS}']|//*[@label='{token_btn_CreateAccount_IOS}']" descriptor="XPATH" />
+			<element name="lbl_PageInfo" value="//*[@text='{token_lbl_PageInfo}']|//*[@value='{token_lbl_PageInfo}']" descriptor="XPATH" />
+			<element name="lnk_ContactGuides" value="//*[contains(@text,'{token_lnk_ContactGuides}')]|//*[contains(@value,'{token_lnk_ContactGuides}')]" descriptor="XPATH" />
+			<element name="lbl_ErrorBanner" value="//*[contains(@text,&quot;{token_lbl_ErrorBanner}&quot;)]|//*[contains(@label,&quot;{token_lbl_ErrorBanner}&quot;)]" descriptor="XPATH" />
+			<element name="lnk_TemporaryPwd_Banner" value="//*[@text='{token_lnk_TemporaryPwd_Banner}']|//*[@label='{token_lnk_TemporaryPwd_Banner}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

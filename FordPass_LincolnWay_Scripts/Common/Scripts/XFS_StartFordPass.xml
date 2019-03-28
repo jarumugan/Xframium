@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 19-Mar-2018 -->
+<!-- Updated Date : 19-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_StartFordPass" dataProvider="Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Script to Install the fordpass app into the device</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" name="Add to Report" value="Scripts to Install the fordpass app at first before starting the execution" />
+		</step>
+
+		<step type="CALL2" name="fn_Install_FordPassApp" page="pge_FPCommon" />
+	</test>
+</suite>

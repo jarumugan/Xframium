@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cloudRegistry xmlns="http://www.xframium.org/cloudRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/cloudRegistry http://www.xframium.org/xsd/deviceManagement/cloudRegistry.xsd">
+
+
+	<cloud name="Ford-NA" hostName="ford.perfectomobile.com" userName="ksivanan@ford.com" password="abcd10" providerType="PERFECTO" >
+
+	</cloud>
+
+	<!-- <cloud name="Ford-NA" hostName="ford.perfectomobile.com" userName="vagasthi@ford.com" password="Password73$" providerType="PERFECTO" >
+
+		<keepAlive implementation="org.xframium.device.keepAlive.SnapshotKeepAlive" pollTime="10" quietTime="60"/>
+	</cloud>
+ -->	
+<!-- 		<keepAlive implementation="org.xframium.device.keepAlive.SnapshotKeepAlive" pollTime="10" quietTime="60"/>
+	</cloud>
+-->
+	<cloud name="Ford-EU" hostName="ford-eu.perfectomobile.com" userName="ksivanan@ford.com" password="abcd10" providerType="PERFECTO" >
+		<keepAlive implementation="org.xframium.device.keepAlive.SnapshotKeepAlive" pollTime="10" quietTime="60"/>
+	</cloud>
+
+	<cloud name="Ford-CH" hostName="ford-ch.perfectomobile.com" userName="ksivanan@ford.com" password="abcd10" providerType="PERFECTO" >
+		<keepAlive implementation="org.xframium.device.keepAlive.SnapshotKeepAlive" pollTime="10" quietTime="60"/>
+	</cloud>
+	
+</cloudRegistry>

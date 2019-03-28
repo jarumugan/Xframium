@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_EnableSyncAppLink" class="org.xframium.page.keyWord.KeyWordPage">
+		
+			<!-- <element name="lbl_FordPassSyncApplink_Title1" value="//*[@text='{token_lbl_FordPassSyncApplink_Title1}']|//*[@label='{token_lbl_FordPassSyncApplink_Title1}']" descriptor="XPATH" /> -->
+			<element name="lbl_FordPassSyncApplink_Content" value="//*[@text='{token_lbl_Applink_Content_AND}']|//*[@label=&quot;{token_lbl_Applink_Content_IOS}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content1" value="//*[@text='{token_lbl_FordPassSyncApplink_Content1}']|//*[contains(@label,'{token_lbl_FordPassSyncApplink_Content1}')]" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content2" value="//*[@text='{token_lbl_FordPassSyncApplink_Content2_AND}']|//*[contains(@label,'{token_lbl_FordPassSyncApplink_Content2_IOS}')]" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Title2" value="//*[@text='{token_lbl_FordPassSyncApplink_Title2_AND}']|//*[@label='{token_lbl_FordPassSyncApplink_Title2_IOS}']" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content3" value="//*[@text='{token_lbl_FordPassSyncApplink_Content3}']|//*[@label='{token_lbl_FordPassSyncApplink_Content3}']" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content4" value="//*[@text='{token_lbl_FordPassSyncApplink_Content4}']|//*[@label='{token_lbl_FordPassSyncApplink_Content4}']" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content5" value="//*[@text='{token_lbl_FordPassSyncApplink_Content5}']|//*[@label='{token_lbl_FordPassSyncApplink_Content5}']" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content6" value="//*[@text='{token_lbl_FordPassSyncApplink_Content6}']|//*[@label='{token_lbl_FordPassSyncApplink_Content6}']" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Title3" value="//*[@text='{token_lbl_FordPassSyncApplink_Title3}']|//*[@label='{token_lbl_FordPassSyncApplink_Title3}']" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Title4" value="//*[@text=&quot;{token_lbl_FordPassSyncApplink_Title4}&quot;]|//*[@label=&quot;{token_lbl_FordPassSyncApplink_Title4}&quot;]" descriptor="XPATH" />
+			<element name="lbl_FordPassSyncApplink_Content7" value="//*[contains(@text,'{token_lbl_FordPassSyncApplink_Content7_AND}')]|//*[contains(@label,'{token_lbl_FordPassSyncApplink_Content7_IOS}')]" descriptor="XPATH" />
+			<element name="img_FordPassSyncApplink_image1" value="//*[contains(@resource-id,'parked_car_image')]|//UIAScrollView/UIAImage[1]|//*[@name='move/vhasetup/parkedIcon']" descriptor="XPATH" />
+			<element name="img_FordPassSyncApplink_image2" value="//*[contains(@resource-id,'bluetooth_image')]|//UIAScrollView/UIAImage[2]|//*[@name='move/vhasetup/usbIcon']" descriptor="XPATH" />
+			<element name="img_FordPassSyncApplink_image3" value="//*[contains(@resource-id,'touchscreen_image')]|//UIAScrollView/UIAImage[3]|//*[@name='move/vhasetup/appsIcon']" descriptor="XPATH" />
+			<element name="img_FordPassSyncApplink_image4" value="//*[contains(@resource-id,'brand_logo_image')]|//UIAScrollView/UIAImage[4]|//*[@name='move/vhasetup/circleIcon']" descriptor="XPATH" />
+			<element name="img_FordPassSyncApplink_image5" value="//*[contains(@resource-id,'bluetooth_off_image')]|//UIAScrollView/UIAImage[5]|//*[@name='move/vhasetup/adapterIconOne']" descriptor="XPATH" />
+			<element name="img_FordPassSyncApplink_image6" value="//*[contains(@resource-id,'bluetooth_on_image')]|//UIAScrollView/UIAImage[6]|//*[@name='move/vhasetup/adapterIconTwo']" descriptor="XPATH" />
+			<element name="btn_Back_EnableSyncApplink" value="//*[@class='android.widget.ImageButton']|//*[@label='backWhite']" descriptor="XPATH" />
+			<element name="btn_ALLOW" value="//*[@text='Allow']|//*[@label='Allow']" descriptor="XPATH" />
+			<element name="btn_IamNotDriving" value="//*[contains(@text, 'not driving')]|//*[contains(@label,'not driving')]" descriptor="XPATH" />
+		
+		</page>
+	</site>
+</elementDefinition>

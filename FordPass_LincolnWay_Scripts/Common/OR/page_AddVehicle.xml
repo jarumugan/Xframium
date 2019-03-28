@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_AddVIN" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lnk_AddVehicle" value="//*[@text='{token_lnk_AddVehicle}']|//*[@label='{token_lnk_AddVehicle}']" descriptor="XPATH" />
+			<element name="lbl_AddVehicleHeader" value="//*[@text='{token_lbl_AddVehicleHeader}']|//*[@label='{token_lbl_AddVehicleHeader}']" descriptor="XPATH" />
+			<element name="lbl_AddVehicleDesc" value="//*[@text='{token_lbl_AddVehicleDesc}']|//*[@label='{token_lbl_AddVehicleDesc}']" descriptor="XPATH" />
+			<element name="edt_VIN" value="//android.widget.EditText|//UIATextField" descriptor="XPATH" />
+			<element name="img_Camera" value="//android.widget.EditText/following::android.widget.ImageButton|//UIATextField/UIAButton" descriptor="XPATH" />
+			<!-- KSARAV53 - Updated as suggested by SAUDI -->
+			<element name="lnk_WhereIsMyVin" value="//*[@text='{token_lnk_WhereIsMyVin}']|//*[@label='{token_lnk_WhereIsMyVin}']" descriptor="XPATH" />
+            <!-- ### -->
+            <element name="btn_Next_Disabled" value="//*[@text='{token_btn_Next_Disabled}'][@enabled='false']|//*[@text='{token_btn_Next_Disabled_LowerCase}'][@enabled='false']|//*[@label='{token_btn_Next_Disabled}'][@enabled='false']|//*[@label='{token_btn_Next_Disabled_IOS}'][@enabled='false']|//*[@text='Next'][@enabled='false']|//*[@label='Next'][@enabled='false']" descriptor="XPATH" />
+			<element name="btn_Next_Enabled" value="//*[@text='{token_btn_Next_Enabled}'][@enabled='true']|//*[@text='{token_btn_Next_Disabled_LowerCase}'][@enabled='true']|//*[@label='{token_btn_Next_Enabled}'][@enabled='true']|//*[@label='{token_btn_Next_Enabled_IOS}'][@enabled='true']" descriptor="XPATH" />
+			<element name="btn_Back" value="//*[@content-desc='{token_btn_Back}']|//*[@name='MobilityCommon.AddVehicleVinView']//UIAButton" descriptor="XPATH" />
+			<element name="lbl_FindVinTitle" value="//*[@text='{token_lbl_FindVinTitle}']|//*[@label='{token_lbl_FindVinTitle}']" descriptor="XPATH" />
+			<element name="img_FindVinDoorFrame" value="(//*[@text=&quot;{token_lbl_FindVinDoorFrame}&quot;]/preceding-sibling::android.widget.ImageView)[1]|(//*[@label=&quot;{token_lbl_FindVinDoorFrame}&quot;]/preceding-sibling::UIAImage)[1]" descriptor="XPATH" />
+			<element name="lbl_FindVinDoorFrame" value="//*[@text=&quot;{token_lbl_FindVinDoorFrame}&quot;]|//*[@label=&quot;{token_lbl_FindVinDoorFrame}&quot;]" descriptor="XPATH" />
+			<element name="img_FindVinDashboard" value="(//*[@text=&quot;{token_lbl_FindVinDashboard}&quot;]/preceding-sibling::android.widget.ImageView)[1]|(//*[@label=&quot;{token_lbl_FindVinDashboard}&quot;]/preceding-sibling::UIAImage)[1]" descriptor="XPATH" />
+			<element name="lbl_FindVinDashboard" value="//*[@text=&quot;{token_lbl_FindVinDashboard}&quot;]|//*[@label=&quot;{token_lbl_FindVinDashboard}&quot;]" descriptor="XPATH" />
+			<element name="img_FindVinDocument" value="(//*[contains(@text,'{token_lbl_FindVinDocument}')]/preceding-sibling::android.widget.ImageView)[1]|(//*[contains(@label,'{token_lbl_FindVinDocument}')]/preceding-sibling::UIAImage)[1]" descriptor="XPATH" />
+			<element name="lbl_FindVinDocument" value="//*[contains(@text,'{token_lbl_FindVinDocument}')]|//*[contains(@label,'{token_lbl_FindVinDocument}')]" descriptor="XPATH" />
+			<element name="btn_FindVinBack" value="//*[@content-desc='{token_btn_Back}']|//UIAButton" descriptor="XPATH" />
+			<element name="lbl_VehicleFound" value="//*[@text='{token_lbl_VehicleFound}']|//*[@label='{token_lbl_VehicleFound}']" descriptor="XPATH" />
+			<element name="lbl_VehicleMakeModel" value="//*[matches(@text,'{token_lbl_VehicleMakeModel}','i')]|//*[matches(@label,'{token_lbl_VehicleMakeModel}','i')]" descriptor="XPATH" />
+			<element name="edt_Nickname" value="//*[@text='{token_edt_Nickname}']|//UIATextField[@value='{token_edt_Nickname}']" descriptor="XPATH" />
+			<element name="btn_GetStarted" value="//*[@text='{token_btn_GetStarted}']|//UIAButton[@label='{token_btn_GetStarted}']|//*[@label='Get Started']|//*[@text='GET STARTED']" descriptor="XPATH" />
+			<element name="lbl_VehicleNickname" value="//*[matches(@text,'{token_lbl_VehicleNickname_AND}','i')]|//*[matches(@label,'{token_lbl_VehicleNickname_IOS}','i')]" descriptor="XPATH" />
+			<element name="lbl_VehicleMakeModel" value="//*[@text='{token_lbl_VehicleMakeModel}']|//*[@label='{token_lbl_VehicleMakeModel}']" descriptor="XPATH" />
+			<element name="img_AddVehicleError" value="//*[contains(@resource-id, 'add_vehicle_error_image')]|//UIAImage" descriptor="XPATH" />
+			<element name="lbl_AddVehicleError_Oops" value="//*[@text='{token_lbl_AddVehicleError_Oops}']|//*[@label='{token_lbl_AddVehicleError_Oops}']" descriptor="XPATH" />
+			<element name="lbl_VehicleAlreadyExists" value="//*[@text='{token_lbl_VehicleAlreadyExists}']|//*[@label='{token_lbl_VehicleAlreadyExists}']" descriptor="XPATH" />
+			<element name="lbl_VIN" value="//*[@text='{token_lbl_VIN}']|//*[@label='{token_lbl_VIN}']" descriptor="XPATH" />
+			<element name="btn_OK" value="//*[@text='{token_btn_OK}']|//*[@label='{token_btn_OK}']" descriptor="XPATH" />
+			<element name="btn_Back_VehicleAlreadyExists" value="//*[@content-desc='{token_btn_Back}']|//*[@name='MobilityCommon.AddVehicleStateView']//UIAButton" descriptor="XPATH" />
+			<element name="lnk_PrivacyPolicy" value="//*[@text='{token_lnk_PrivacyPolicy}']|//*[@label='{token_lnk_PrivacyPolicy}']" descriptor="XPATH" />
+			<element name="lbl_PrivacyPolicyHeader" value="//*[@text='{token_lbl_PrivacyPolicyHeader}']|//*[@label='{token_lbl_PrivacyPolicyHeader}']" descriptor="XPATH" />
+			<element name="lbl_PrivacyPolicyContent" value="(//*[contains(@content-desc,'{token_lbl_PrivacyPolicyContent}')])[1]|(//*[contains(@label,'{token_lbl_PrivacyPolicyContent}')])[1]" descriptor="XPATH" />
+			<element name="btn_BackInPrivacyPolicy" value="//*[@class='android.widget.ImageButton']|//UIAButton" descriptor="XPATH" />
+						
+			<element name="btn_Move" value="//*[@text='{token_btn_Move}']|//UIATabBar/UIAButton[@label='{token_btn_Move}']" descriptor="XPATH" />
+			<element name="btn_Find" value="//*[@text='{token_btn_Find}']|//UIATabBar/UIAButton[@label='{token_btn_Find}']" descriptor="XPATH" />
+			<element name="btn_Guides" value="//*[@text='{token_btn_Guides}']|//UIATabBar/UIAButton[@label='{token_btn_Guides}']" descriptor="XPATH" />
+			<element name="btn_Account" value="//*[@text='{token_btn_Account}']|//UIATabBar/UIAButton[@label='{token_btn_Account}']" descriptor="XPATH" />			
+			<element name="btn_Done_kboard" value="//UIAKeyboard/UIAButton[@label='{token_btn_Done_kboard}']" descriptor="XPATH" />
+			<element name="btn_Next_kboard" value="//UIAKeyboard/UIAButton[@label='{token_btn_Next_kboard}']" descriptor="XPATH" />
+			<element name="btn_Return_kboard" value="//UIAKeyboard/UIAButton[@label='{token_btn_Return_kboard}']|//XCUIElementTypeButton[@label='return']" descriptor="XPATH" />					
+			
+			<element name="lbl_InvalidVinError_1" value="//*[@text=&quot;{token_lbl_InvalidVinError_1}&quot;]|//*[@label=&quot;{token_lbl_InvalidVinError_1}&quot;]" descriptor="XPATH" />
+			<element name="lbl_InvalidVinError_2" value="//*[contains(@text,&quot;{token_lbl_InvalidVinError_2}&quot;)]|//*[contains(@label,&quot;{token_lbl_InvalidVinError_2}&quot;)]" descriptor="XPATH" />
+			<element name="btn_TryAgain" value="//android.widget.Button[@text='{token_btn_TryAgain}']|//UIAButton[@label='{token_btn_TryAgain}']" descriptor="XPATH" />
+			<element name="lbl_LWVinError_1" value="//*[@text=&quot;{token_lbl_LWVinError_1}&quot;]|//*[@label=&quot;{token_lbl_LWVinError_1}&quot;]" descriptor="XPATH" />
+			<element name="lbl_LWVinError_2" value="//*[@text=&quot;{token_lbl_LWVinError_2}&quot;]|//*[@label=&quot;{token_lbl_LWVinError_2}&quot;]" descriptor="XPATH" />
+			
+			<!-- find no of vehicles in dashboard -->
+			<element name="btn_NoOfTabs_IOS" value="//UIACollectionView[1][contains(@value,'page')]" descriptor="XPATH" />
+			<element name="btn_NoOfTabs_AND" value="//*[@text='ADD VEHICLE']" descriptor="XPATH" />			
+			
+			<!-- SmartLink -->
+			<element name="lbl_AccessFordPass_Smartlink" value="//*[@text='{token_lbl_AccessFordPass_Smartlink}']|(//*[@label='{token_lbl_AccessFordPass_Smartlink}'])[1]" descriptor="XPATH" />
+			<element name="lbl_AccessFordPass_Smartlink_InfoIcon" value="//*[@resource-id='com.ford.oa:id/enter_nickname_vehicle_info_icon']|//*[@label='infoIcon']" descriptor="XPATH" />
+			<element name="lbl_AccessFordPass_Smartlink_Content" value="//*[@text='{token_lbl_AccessFordPass_Smartlink_Content}']|//*[@label='{token_lbl_AccessFordPass_Smartlink_Content}']" descriptor="XPATH" />
+			<element name="btn_AccessFordPass_Smartlink_CheckBox" value="//*[@resource-id='com.ford.oa:id/enter_nickname_vehicle_smartlink_checkbox'][@checked='false']|//*[@label='uncheck box']" descriptor="XPATH" />
+			<element name="btn_AccessFordPass_Smartlink_CheckBox_Checked" value="//*[@resource-id='com.ford.oa:id/enter_nickname_vehicle_smartlink_checkbox'][@checked='true']|//*[@label='check box']" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Title" value="//*[@text='{token_lbl_Smartlink_Info_Title}']|//*[@label='{token_lbl_Smartlink_Info_Title}']" descriptor="XPATH" />
+			<!-- <element name="lbl_Smartlink_Info_Dialog_Image" value="//*[@resource-id='com.ford.oa:id/common_dialog_image']|//UIAApplication/UIAWindow[1]/UIAImage[1]" descriptor="XPATH" /> -->
+			<element name="lbl_Smartlink_Info_Dialog_Content1" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content1}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content1}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content1}')]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Dialog_Content2" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content2}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content2}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content2}')]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Dialog_Content3" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content3}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content3}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content3}')]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Dialog_Content4" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content4}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content4}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content4}')]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Dialog_Content5" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content5}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content5}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content5}')]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Dialog_Content6" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content6}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content6}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content6}')]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Info_Dialog_Content7" value="//*[contains(@text,'{token_lbl_Smartlink_Info_Dialog_Content7}')]|//*[contains(@label,'{token_lbl_Smartlink_Info_Dialog_Content7}')]|//*[contains(@value,'{token_lbl_Smartlink_Info_Dialog_Content7}')]" descriptor="XPATH" />
+			<element name="btn_Close_Smartlink_Info_Dialog" value="//*[@text='{token_btn_Close_Smartlink_Info_Dialog}']|//*[@label='{token_btn_Close_Smartlink_Info_Dialog}']|//*[@text='Close']|//*[@label='Close']" descriptor="XPATH" />
+			
+		
+			<element name="lnk_VehicleModel" value="//*[@text='{token_lnk_VehicleModel}']|//*[@label='{token_lnk_VehicleModel}']" descriptor="XPATH" />
+<!-- 			<element name="lnk_ViewVehicleDetails" value="//*[contains(@text,'{token_lnk_ViewVehicleDetails_AND}')]|//*[contains(@label,'{token_lnk_ViewVehicleDetails_IOS}')]|//UIACollectionView[2]/UIACollectionCell[7]/UIAButton[1]" descriptor="XPATH" /> -->
+
+			<element name="lnk_VehicleModel" value="//*[@text='{token_lnk_VehicleModel}']|//*[@label='{token_lnk_VehicleModel}']" descriptor="XPATH" />			
+
+
+		</page>
+	</site>
+</elementDefinition>

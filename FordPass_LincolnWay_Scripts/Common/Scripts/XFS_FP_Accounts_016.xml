@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 25-Jan-2018 -->
+<!-- Updated Date : 25-Jan-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_016" dataProvider="TestData.XFS_FP_Accounts_007_AND,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Edit Profile page error message validation  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_ViewEditProfile" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_ClickYourInformation_Edit" page="pge_ViewProfile" />
+		
+<!--  		not implemented in iOS  --> 
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_InputUserGiven_EnterPIN" page="pge_EnterPIN">
+			<parameter type="STATIC" name="param_PIN1" value="9" />
+			<parameter type="STATIC" name="param_PIN2" value="8" />
+			<parameter type="STATIC" name="param_PIN3" value="9" />
+			<parameter type="STATIC" name="param_PIN4" value="8" />
+		</step>
+		
+		<step type="CALL2" name="fn_CheckErrorExists_AnyPINpage" page="pge_FPCommon">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TEnterPIN4" />
+		</step>
+		
+<!-- 		Valid PIN  -->
+
+		<step type="CALL2" name="fn_InputAll_EnterPIN" page="pge_EnterPIN" wait="5" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EditProfile" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_Validate_CPF_EditProfile" page="pge_EditProfile" tagNames="FP-SA"/>
+			
+		<!-- Validate the First name field with Null value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile">	
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile5" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile5" />
+			<parameter type="STATIC" name="param_DataValue" value="CLEAR" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_EditProfile" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEditProfile20" />
+		</step>
+		
+		<!-- Validate the first name field with valid value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile5" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile5" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.FirstName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_EditProfile" page="pge_EditProfile" >
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEditProfile20" />
+ 		</step>
+		
+		<!-- Validate the Middle name field with valid value -->
+<!-- 		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile"> -->
+<!-- 			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile6" /> -->
+<!-- 			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile6" /> -->
+<!-- 			<parameter type="DATA" name="param_DataValue" value="TestData.MiddleName" /> -->
+<!-- 		</step> -->
+	
+		<!-- Validate the Last name field with Null value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile7" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile7" />
+			<parameter type="STATIC" name="param_DataValue" value="CLEAR" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_EditProfile" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEditProfile21" />
+		</step>
+		
+		<!-- Validate the Last name field with valid value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile7" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile7" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.LastName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_EditProfile" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEditProfile21" />
+		</step>
+		
+		<!-- Validate the Phonenumber field with valid value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile10" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile10" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.PhoneNumber" />
+<!-- 		</step> -->
+		
+		<!-- Validate the CEP field with invalid value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile12" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile12" />
+			<parameter type="STATIC" name="param_DataValue" value="11" />
+		</step>
+		
+		<!-- Validate the StreetName with valid value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile13" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile13" />
+			<parameter type="STATIC" name="param_DataValue" value="TestData.StreetName" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_EditProfile" page="pge_EditProfile" tagNames="FP-SA" >
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEditProfile22" />
+		</step>
+		
+		<!-- Validate the CEP field with valid value -->
+		<step type="CALL2" name="fn_InputWithNext_EP_Fields" page="pge_EditProfile" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEditProfile12" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEditProfile12" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.CEP" />
+		</step>
+
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_EditProfile" page="pge_EditProfile" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TEditProfile22" />
+		</step>
+
+<!-- 		<step type="CALL2" name="fn_ClickEditProfile_Save" page="pge_EditProfile" /> -->
+
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		</step>
+	</test>
+</suite>

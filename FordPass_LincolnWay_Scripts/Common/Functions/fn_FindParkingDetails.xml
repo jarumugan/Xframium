@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8: LIST OF FUNCTIONS in fn_FindParkingDetails.xml-->	
+<!-- fn_Verify_ParkingDayTimeList -->
+<!-- fn_Verify_ParkingDayTime -->
+<!-- fn_Verify_Reviews -->
+<!-- fn_Click_Reviews -->
+<!-- fn_Verify_Amenities -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_ParkingDayTimeList">
+		<description> fn_Verify_FuelPriceValues - Function to verify the 'Fuel Pricing Values' in Fuel Bank Details page </description>
+			
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="1" />
+		</step>
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="2" />
+		</step>
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="3" />
+		</step>
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="4" />
+		</step>
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="5" />
+		</step>
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="6" />
+		</step>
+		<step type="CALL2" name="fn_Verify_ParkingDayTime" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" name="param_ParkHoursIndex" value="7" />
+		</step>
+	</function>
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - This function to verify the 'HOURS' Presence -->
+<!-- ############################################################################################################# -->		
+	<function name="fn_Verify_ParkingDayTime">
+		<description> fn_Verify_FuelPriceValues - Function to verify the 'Fuel Pricing Values' in Fuel Bank Details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+			<parameter type="STATIC" value="Function's XML file name: fn_FindParkingDetails.xml" />
+		</step>	
+			
+		<step type="VISIBLE" name="lbl_ParkHoursAND" page="pge_FindParkingDetails" os="ANDROID">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_ParkHours" value="TFindParkSection1" />			
+			<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />			
+				<step type="GET" name="lbl_ParkHoursAND" page="pge_FindParkingDetails" context="str_ParkingDateTime">
+				<token type="CONTENT" name="token_ParkHours" value="TFindParkSection1" />			
+				<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Availability Days and Hours'" />
+						<parameter type="CONTEXT" name="Parking Availability Days and Hours" value="str_ParkingDateTime" />
+					</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindParkingDetails">						
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Details NOT EXISTS" />
+					</step>
+				</step>
+				</step>	
+		</step>	
+		<step type="VISIBLE" name="lbl_ParkDaysIOS" page="pge_FindParkingDetails" os="IOS">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_ParkHours" value="TFindParkSection1" />			
+			<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />			
+				<step type="GET" name="lbl_ParkDaysIOS" page="pge_FindParkingDetails" context="str_ParkingDays">
+				<token type="CONTENT" name="token_ParkHours" value="TFindParkSection1" />			
+				<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />
+				<step type="GET" name="lbl_ParkHoursIOS" page="pge_FindParkingDetails" context="str_ParkingTime">
+				<token type="CONTENT" name="token_ParkHours" value="TFindParkSection1" />			
+				<token type="CONTEXT" name="token_ParkHoursIndex" value="param_ParkHoursIndex" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Availability Days and Hours'" />
+						<parameter type="CONTEXT" name="Parking Availability Day" value="str_ParkingDays" />
+						<parameter type="CONTEXT" name="Parking Availability Hours" value="str_ParkingTime" />
+					</step>
+				<step type="ELSE" name="elseCondition" page="pge_FindParkingDetails">						
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+						<parameter type="STATIC" value="'FIND-PARKING HOURS >> Parking Details NOT EXISTS" />
+					</step>
+				</step>
+				</step>
+				</step>	
+		</step>	
+		
+	</function>
+	
+	<!-- ############################################################################################################# -->
+	<!-- ESURESH8 - This function verify the 'REVIEWS'  -->
+	<!-- ############################################################################################################# -->
+	<function name="fn_Verify_Reviews">
+	<description> fn_Verify_Reviews: To verify the 'RATING REVIEWS' by receiving it as a Parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindParkingDetails.xml" />
+		</step>		
+		<step type="VISIBLE" name="lnk_review" page="pge_FindParkingDetails">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_lnk_review" value="param_lnk_review" />
+			<step type="GET" name="lnk_review" page="pge_FindParkingDetails" context="str_lnk_review">
+			<token type="CONTEXT" name="token_lnk_review" value="param_lnk_review" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+				<parameter type="STATIC" value="'REVIEW LINK' is EXISTS" />
+				<parameter type="CONTEXT" name="REVIEW LINK" value="str_lnk_review" />
+			</step>
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindParkingDetails">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+				<parameter type="STATIC" value="'REVIEW LINK' is NOT EXISTS" />
+			</step>
+		</step>
+		</step>	
+	</function>
+	<function name="fn_Click_Reviews">
+	<description> fn_Verify_Reviews: To verify the 'RATING REVIEWS' by receiving it as a Parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindParkingDetails.xml" />
+		</step>		
+		<step type="CLICK" name="lnk_review" page="pge_FindParkingDetails" wait="2">
+			<token type="CONTEXT" name="token_lnk_review" value="param_lnk_review" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+				<parameter type="STATIC" value="'REVIEW LINK' is CLICKED" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindParkingDetails">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+				<parameter type="STATIC" value="'REVIEW LINK' is NOT CLICKED" />
+			</step>
+		</step>
+		</step>	
+	</function>
+	
+	<function name="fn_Verify_Amenities">
+	<description> fn_Verify_Amenities: To verify the 'AMENTIES' by receiving it as a Parameter </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails" >
+			<parameter type="STATIC" value="Function's XML file name: fn_FindParkingDetails.xml" />
+		</step>		
+		<step type="VISIBLE" name="lbl_Amenities" page="pge_FindParkingDetails">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTEXT" name="token_lbl_Amenities" value="param_lbl_Amenities" />
+			<token type="CONTEXT" name="token_lbl_Amenities_Index" value="param_lbl_Amenities_Index" />
+				<step type="GET" name="lbl_Amenities" page="pge_FindParkingDetails" context="str_lbl_Amenities">
+				<token type="CONTEXT" name="token_lbl_Amenities" value="param_lbl_Amenities" />
+				<token type="CONTEXT" name="token_lbl_Amenities_Index" value="param_lbl_Amenities_Index" />
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+					<parameter type="STATIC" value="'AMENITIES' is EXISTS" />
+					<parameter type="CONTEXT" name="AMENITIES" value="str_lbl_Amenities" />
+					</step>
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_FindParkingDetails">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FindParkingDetails">
+				<parameter type="STATIC" value="'AMENITIES' is NOT EXISTS" />
+			</step>
+		</step>
+		</step>	
+	</function>
+	
+</suite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Logout" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_DialogHeader" value="//*[@text='{token_lbl_DialogHeader}']|//*[@label='{token_lbl_DialogHeader}']" descriptor="XPATH" />
+			<element name="lbl_DialogInfo" value="//*[@text='{token_lbl_DialogInfo}']|//*[@label='{token_lbl_DialogInfo}']" descriptor="XPATH" />
+			<element name="lbl_BulletPoints1" value="//*[contains(@text,'{token_lbl_BulletPoints1}')]|//*[contains(@label,'{token_lbl_BulletPoints1}')]" descriptor="XPATH" />
+			<element name="lbl_BulletPoints2" value="//*[contains(@text,'{token_lbl_BulletPoints2}')]|//*[contains(@label,'{token_lbl_BulletPoints2}')]" descriptor="XPATH" />
+			<element name="lbl_BulletPoints3" value="//*[contains(@text,'{token_lbl_BulletPoints3}')]|//*[contains(@label,'{token_lbl_BulletPoints3}')]" descriptor="XPATH" />
+		<!-- KSARAV53 - Updated XPATH for Log Out button since three variations of the element text appears in iOS/Android devices -->
+			<element name="btn_Logout" value="//*[@text='{token_btn_Logout_AND}']|//*[@text='{token_btn_Logout_AND_UpperCase}']|//*[@label='{token_btn_Logout_IOS}']|//*[@text='Log out']" descriptor="XPATH" />
+			<element name="btn_Cancel" value="//*[matches(@text,'{token_btn_Cancel_AND}','i')]|//*[matches(@label,'{token_btn_Cancel_IOS}','i')]|//*[@text='Cancel']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

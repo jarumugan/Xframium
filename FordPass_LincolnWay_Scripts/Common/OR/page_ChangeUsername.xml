@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_ChangeUsername" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lbl_CurrentUsername" value="//*[@text='{token_lbl_CurrentUsername}']|//*[@label='{token_lbl_CurrentUsername}']|//*[@text='Current Username (email)']" descriptor="XPATH" />
+<!-- 			<element name="lbl_UserName" value="//*[@text='{token_lbl_UserName}']|//*[@label='{token_lbl_UserName}']" descriptor="XPATH" /> -->
+						
+			<element name="edt_CurrentUsername" value="//*[@text='{token_edt_CurrentUsername}']/following::android.widget.TextView[1]|//*[@label='{token_edt_CurrentUsername}']/following::UIATextField[1]" descriptor="XPATH" />
+						
+			<element name="lbl_NewUsername" value="//*[@text='{token_lbl_NewUsername}']|//*[@label='{token_lbl_NewUsername}']" descriptor="XPATH" />	
+					
+			<element name="edt_NewUsername" value="(//*[@text='{token_edt_NewUsername_AND}']//following::android.widget.EditText)[1]|//*[@label='{token_edt_NewUsername_IOS}']/following::UIATextField[1]" descriptor="XPATH" />
+<!-- 			<element name="lbl_ConfirmUsername" value="//*[@text='{token_lbl_ConfirmUsername}']|//*[@label='{token_lbl_ConfirmUsername}']" descriptor="XPATH" />	 -->
+			<element name="edt_ConfirmUsername" value="(//*[@text='{token_edt_ConfirmUsername}']//following::android.widget.EditText)[1]|//*[@label='{token_edt_ConfirmUsername}']/following::UIATextField[1]" descriptor="XPATH" />
+			
+<!-- 			Need to Add Confirm UserName Properties -->
+
+			<element name="lbl_SetAsPreferredContactEmail" value="//*[@text='{token_lbl_SetAsPreferredContactEmail}']|//*[@value='{token_lbl_SetAsPreferredContactEmail}']/preceding-sibling::UIAButton" descriptor="XPATH" />
+			<element name="lnk_SetAsPreferredContactEmail" value="//*[@label='{token_lnk_SetAsPreferredContactEmail}']/preceding::UIAButton[1]|//android.widget.CheckBox[@text='{token_lnk_SetAsPreferredContactEmail}' and @checked='true']" descriptor="XPATH" />
+			<element name="lbl_ChangeUsernameMessage" value="//*[@text='{token_lbl_ChangeUsernameMessage}']|//*[@label='{token_lbl_ChangeUsernameMessage}']" descriptor="XPATH" />
+			<element name="btn_Save_Disabled" value="//*[@text='{token_btn_Save_AND}' and @enabled='false']|//*[@label='{token_btn_Save_IOS}' and @enabled='false']" descriptor="XPATH" />
+			<element name="btn_Save_Enabled" value="//*[@text='{token_btn_Save_AND}' and @enabled='true']|//*[@label='{token_btn_Save_IOS}' and @enabled='true']" descriptor="XPATH" />
+			<element name="btn_Cancel" value="//*[@text='{token_btn_Cancel}']|//*[@label='{token_btn_Cancel}']" descriptor="XPATH" />
+			<element name="lbl_InlineErrorMsg" value="//*[@text=&quot;{token_lbl_InlineErrorMsg}&quot;]|//*[@label=&quot;{token_lbl_InlineErrorMsg}&quot;]|//*[@label=&quot;Please enter a valid email&quot;]" descriptor="XPATH" />
+<!-- 			<element name="lbl_ErrorBanner" value="//*[@text=&quot;{token_lbl_ErrorBanner}&quot;]|//*[@label=&quot;{token_lbl_ErrorBanner}&quot;]" descriptor="XPATH" /> -->
+		</page>
+	</site>
+</elementDefinition>

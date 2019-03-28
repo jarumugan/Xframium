@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_FordCredit">
+		<description> fn_VerifyPageOpened_FordCredit - Function to verify user landed on the FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TFordCredit1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully landed on FordCredit Login page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordCredit Login page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit Login page is not opened " />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidatePage_FordCredit">
+		<description> fn_ValidatePage_FordCredit - Function to validate the FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TFordCredit2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="CONTENT" value="TFordCredit2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on FordCredit Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="CONTENT" value="TFordCredit2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on Login page" />
+				</step>
+			</step>
+		</step>
+		
+<!-- 		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" /> -->
+		
+		<step type="STATE" name="Screenshot - FordCredit Login page taken for validation" page="pge_FordCredit" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="edt_FordCredit_UserName" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'FordCredit Username' field is available on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'FordCredit Username' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="edt_FordCredit_password" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'FordCredit Password' field is available on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'FordCredit Password ' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FordpassPin" page="pge_FordCredit" tagNames="FP-EU,FP-NA">
+		<token type="CONTENT" name="token_edt_FordpassPin" value="TFordCredit5"/>
+		
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="Checkbox Fordpass PIN is available on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Checkbox Fordpass PIN is not available on FordCredit page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_TroubleLogging" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lnk_TroubleLogging_AND" value="TFordCredit7_AND" />
+			<token type="CONTENT" name="token_lnk_TroubleLogging_IOS" value="TFordCredit7_IOS" />
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Forgot password?/Trouble logging' link is available on 'Login' field" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Forgot  password?/Trouble logging' link is not available on 'Password' field" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Login_Disabled" page="pge_FordCredit" >
+			<token type="CONTENT" name="token_btn_Login_AND" value="TFordCredit6_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TFordCredit6_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Login' button is available/disabled on the FordCredit Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Login' button is not available/disabled on the FordCredit Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_NewToAccount" page="pge_FordCredit" tagNames="FP-EU,FP-NA">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_NewToAccount" value="TFordCredit8"/>
+
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'New to Account Manager ' label is available on FordCredit Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'New to Account Manager ' label is not available on FordCredit Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_FirstRegister" page="pge_FordCredit">
+		<token type="CONTENT" name="token_lbl_FirstRegister" value="TFordCredit9"/>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'First Register label' is available on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'First Register label' is not available on FordCredit page" />
+				</step>
+			</step>
+		</step>
+		
+			<step type="EXISTS" name="lnk_RegisterNow" page="pge_FordCredit">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+		<token type="CONTENT" name="token_lnk_RegisterNow_AND" value="TFordCredit10_AND"/>
+		<token type="CONTENT" name="token_lnk_RegisterNow_IOS" value="TFordCredit10_IOS"/>
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Register Now Link' is available on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Register Now Link' is not available on FordCredit page" />
+				</step>
+			</step>
+		</step>
+		
+			<step type="EXISTS" name="lnk_Guides" page="pge_FordCredit">
+		
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Guides Link' is available on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Guides' is not available on FordCredit page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Cancel" page="pge_FordCredit">
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Cancel Link' is available on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Cancel' is not available on FordCredit page" />
+				</step>
+			</step>
+		</step>	
+	</function>
+	
+	<function name="fn_Click_Guides">
+		<description> fn_VerifyPageOpened_Guides - Function to verify user selected Guides link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		
+		
+		<step type="CLICK" name="lnk_Guides" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_Guides" value="TFordCredit2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully selected Guides page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Guide Link page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Guides Page is not opened " />
+				</step>
+			</step>
+	
+	</function>
+	
+	<function name="fn_VerifyPageOpened_Guides">
+		<description> fn_VerifyPageOpened_Guides - Function to verify user landed on the Guides page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_GuidesOpen" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lnk_GuidesOpen" value="TFordCredit13"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully landed on Guides page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Guide page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Guides page is not opened " />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Cancel">
+		<description> fn_VerifyFordCredit page gets closed  - Function to verify user selected cancel link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_Cancel" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_Cancel" value="TFordCredit2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully Closed FordCredit page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Cancel Link page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit page still opened " />
+				</step>
+			</step>
+	</function>
+	
+	<function name="fn_Click_Cancel_FordCredit">
+		<description> fn_VerifyFordCredit page gets closed  - Function to verify user selected cancel link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_CancelFordCredit" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_CancelFordCredit" value="TFordCredit24" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully Closed FordCredit page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Cancel Link page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit page still opened " />
+				</step>
+			</step>
+	</function>
+	
+	
+	
+	<function name="fn_Click_RegsiterNow">
+		<description> fn_VerifyFordCredit RegisterNow Page opened  - Function to verify RegisterNow Link</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+			<step type="VISIBLE" name="lnk_RegisterNow" page="pge_FordCredit" wait="3" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+		<token type="CONTENT" name="token_lnk_RegisterNow_AND" value="TFordCredit10_AND"/>
+		<token type="CONTENT" name="token_lnk_RegisterNow_IOS" value="TFordCredit10_IOS"/>
+		
+		<step type="CLICK" name="lnk_RegisterNow" page="pge_FordCredit" wait="3">
+			<token type="CONTENT" name="token_lnk_RegisterNow_AND" value="TFordCredit10_AND" />
+			<token type="CONTENT" name="token_lnk_RegisterNow_IOS" value="TFordCredit10_IOS" />
+		</step>
+			
+				
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="FordCredit RegisterNow page as opened" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - RegisterNow Link page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit RegisterNow page as not Opened " />
+				</step>
+			</step>
+			</step>
+	</function>
+	
+	
+	<function name="fn_VerifyPageOpened_RegisterNowFordCredit">
+		<description> fn_VerifyPageOpened_RegisterNowFordCredit - Function to verify user landed on the RegisterNow FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_RegisterNowOpen" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lnk_RegisterNowOpen_AND" value="TFordCredit14_AND"/>
+			<token type="CONTENT" name="token_lnk_RegisterNowOpen_IOS" value="TFordCredit14_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully landed on RegisterNow FordCredit Login page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordCredit Login page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="RegisterNow FordCredit Login page is not opened " />
+				</step>
+			</step>
+		</step>	
+	</function>
+	
+	
+	<function name="fn_Cancel_RegisterNowFordCredit">
+		<description> fn_Cancel_RegisterNowFordCredit - Function to verify user landed on the RegisterNow FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_RegisterNowCancel" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lnk_RegisterNowCancel_AND" value="TFordCredit14_AND"/>
+			<token type="CONTENT" name="token_lnk_RegisterNowCancel_IOS" value="TFordCredit14_IOS"/>
+			
+			
+			<step type="CLICK" name="lnk_RegisterNowCancel" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_RegisterNowCancel_AND" value="TFordCredit14_AND"/>
+				<token type="CONTENT" name="token_lnk_RegisterNowCancel_IOS" value="TFordCredit14_IOS"/>
+			
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully Cancelled  RegisterNow FordCredit Login page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Cancel RegisterNow Login page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="RegisterNow FordCredit Login page is not Cancelled " />
+				</step>
+			</step>
+		</step>	
+	</function>
+	
+	<function name="fn_VerifyWarningWindow_Opened">
+		<description> fn_VerifyWarningWindow_Opened - Function to verify warning window opened up upon clicking cancel in RegisterNow Ford Credit page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_Warning" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lbl_Warning" value="TFordCredit15"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Warning window' field is available on the RegisterNow Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Warning window ' field is not available on the RegisterNow page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_WarningMsg" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lbl_WarningMsg" value="TFordCredit16"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Warning window message' field is available on the RegisterNow Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Warning window message ' field is not available on the RegisterNow page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningConfirm" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lnk_WarningConfirm_AND" value="TFordCredit17_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningConfirm_IOS" value="TFordCredit17_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Confirm ' field is available on the RegisterNow Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Confirm ' field is not available on the RegisterNow page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningCancel" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lnk_WarningCancel_AND" value="TFordCredit18_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningCancel_IOS" value="TFordCredit18_IOS"/>
+		
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Cancel ' field is available on the RegisterNow Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Cancel ' field is not available on the RegisterNow page" />
+				</step>
+			</step>
+		</step>	
+		
+	</function>
+	
+	
+	<function name="fn_Click_WarningWindow_Cancel">
+		<description> fn_VerifyFordCredit page gets closed  - Function to verify user selected cancel link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningCancel" page="pge_FordCredit" wait="3" >
+				<token type="CONTENT" name="token_lnk_WarningCancel_AND" value="TFordCredit18_AND" />
+				<token type="CONTENT" name="token_lnk_WarningCancel_IOS" value="TFordCredit18_IOS" />
+			</step>
+		
+		<step type="CLICK" name="lnk_WarningCancel" page="pge_FordCredit" wait="3">
+				<token type="CONTENT" name="token_lnk_WarningCancel_AND" value="TFordCredit18_AND" />
+				<token type="CONTENT" name="token_lnk_WarningCancel_IOS" value="TFordCredit18_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully Cancelled warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Cancel WarningWindow page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+	
+	<function name="fn_Click_WarningWindow_Confirm">
+		<description> fn_ClickWarningWindow page gets opened  - Function to verify user selected confirm link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningConfirm" page="pge_FordCredit" wait="3">
+				<token type="CONTENT" name="token_lnk_WarningConfirm_AND" value="TFordCredit17_AND" />
+				<token type="CONTENT" name="token_lnk_WarningConfirm_IOS" value="TFordCredit17_IOS" />
+			</step>
+		
+		<step type="CLICK" name="lnk_WarningConfirm" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_WarningConfirm_AND" value="TFordCredit17_AND" />
+				<token type="CONTENT" name="token_lnk_WarningConfirm_IOS" value="TFordCredit17_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully cliked confirm in warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - Confirm WarningWindow page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+	
+	
+	<function name="fn_VerifyWarningWindow_TroubleLogging_Opened">
+		<description> fn_VerifyWarningWindow_Opened - Function to verify warning window opened up upon clicking cancel in Trouble Logging page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_WarningTroubleLogging" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lbl_WarningTroubleLogging" value="TFordCredit19"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Warning window' field is available on the TroubleLogging Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Warning window ' field is not available on the TroubleLogging page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_WarningTroubleLoggingMsg" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lbl_WarningTroubleLoggingMsg" value="TFordCredit20"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'TroubleLogging Warning window message' field is available on the TroubleLogging Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'TroubleLogging Warning window message ' field is not available on the RegisterNow page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningForgotUsername" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lnk_WarningForgotUsername_AND" value="TFordCredit21_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningForgotUsername_IOS" value="TFordCredit21_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'ForgotUsername ' field is available on the TroubleLogging Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'ForgotPassword ' field is not available on the TroubleLogging page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_WarningForgotPassword" page="pge_FordCredit">
+			<token type="CONTENT" name="token_lnk_WarningForgotPassword_AND" value="TFordCredit22_AND"/>
+			<token type="CONTENT" name="token_lnk_WarningForgotPassword_IOS" value="TFordCredit22_IOS"/>
+		
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'ForgotPassword ' field is available on the TroubleLogging Page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'ForgotPassword ' field is not available on TroubleLogging page" />
+				</step>
+			</step>
+		</step>	
+		
+	</function>
+	
+	<function name="fn_Click_WarningWindow_ForgotUsername">
+		<description> fn_ClickWarningWindow_ForgotUsername page gets opened  - Function to verify user selected forgotusername link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_WarningForgotUsername" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_WarningForgotUsername_AND" value="TFordCredit21_AND" />
+				<token type="CONTENT" name="token_lnk_WarningForgotUsername_IOS" value="TFordCredit21_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully cliked ForgotUsername in warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - ForgotUsername WarningWindow page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+	
+	<function name="fn_Click_WarningWindow_ForgotPassword">
+		<description> fn_ClickWarningWindow_ForgotPassword page gets opened  - Function to verify user selected forgotPassword link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_WarningForgotPassword" page="pge_FordCredit">
+				<token type="CONTENT" name="token_lnk_WarningForgotPassword_AND" value="TFordCredit22_AND" />
+				<token type="CONTENT" name="token_lnk_WarningForgotPassword_IOS" value="TFordCredit22_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully cliked ForgotPassword in warningwindow " />
+			</step>
+			
+			<step type="STATE" name="Screenshot - ForgotPassword WarningWindow page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="Warning window still opened " />
+				</step>
+			</step>
+	</function>
+<!-- 	17th April -->
+
+	<function name="fn_FordCreditLogin_Parameterized_WithFordPassPIN">
+		<description> fn_FordCreditLogin_Parameterized - Enter the user name, password ,select the fordpass PIN --> Click Login --> Verify Create PIN screen is displayed </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FordCredit.xml ***" />
+		</step>
+		
+		<step type="VISIBLE" name="edt_FordCredit_UserName" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+			
+			<step type="CLICK" name="edt_FordCredit_UserName" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+			
+			<step type="SET" name="edt_FordCredit_UserName" page="pge_FordCredit" wait="2">
+				<parameter type="CONTEXT" name="value to set" value="param_FordCreditUsername" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'FordCreditUserName' field inputted with the user given value" />
+				</step>
+				
+				<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" />
+			</step>
+		</step>		
+		
+		
+		<step type="VISIBLE" name="edt_FordCredit_password" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+			
+			<step type="CLICK" name="edt_FordCredit_password" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+		
+		<step type="SET" name="edt_FordCredit_password" page="pge_FordCredit" wait="2">
+				<parameter type="CONTEXT" name="value to set" value="param_FordCreditPassword" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'FordCreditPassword' field inputted with the user given value" />
+			</step>
+				<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" />
+		</step>
+		</step>
+		</step>
+		
+		
+		
+		
+
+<!-- 		<step type="GESTURE" name="PRESS.btn_Login_Enabled" page="pge_FordCredit" wait="5"> -->
+<!-- 			<parameter type="STATIC" value="50,50" /> -->
+
+			<step type="STATE" name="Dummy State - After entering username and password" page="pge_FordCredit" failureMode="IGNORE" />
+
+		<step type="CLICK" name="lbl_FordpassPin" page="pge_FordCredit" wait="5">
+			<token type="CONTENT" name="token_edt_FordpassPin" value="TFordCredit5"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Checkbox' is available/enabled and clicked on the FordCreditLogin page" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - After clicking FordpassPin checkbox" page="pge_FordCredit" failureMode="IGNORE" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'FordPassPIN' checkbox is not available/enabled on the FordCreditLogin page" />
+				</step>
+			</step>
+		</step>
+		<step type="CLICK" name="btn_Login_Enabled" page="pge_FordCredit" wait="5">
+			<token type="CONTENT" name="token_btn_Login_AND" value="TFordCredit6_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TFordCredit6_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Login' button is available/enabled and clicked on the FordCredit Login page" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - After clicking login button" page="pge_FordCredit" failureMode="IGNORE" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Login' button is not available/enabled on the FordCredit Login page" />
+				</step>
+			</step>
+		</step>
+		</step>
+		
+	</function>
+	
+	
+	<function name="fn_FordCreditLogin_Parameterized_WithoutFordPassPIN">
+		<description> fn_FordCreditLogin_Parameterized - Enter the user name, password ,select the fordpass PIN --> Click Login --> Verify Create PIN screen is displayed </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_FordCredit.xml ***" />
+		</step>
+		
+		<step type="VISIBLE" name="edt_FordCredit_UserName" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+			
+			<step type="CLICK" name="edt_FordCredit_UserName" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+			
+			<step type="SET" name="edt_FordCredit_UserName" page="pge_FordCredit" wait="2">
+					<parameter type="CONTEXT" name="value to set" value="param_FordCreditUsername" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_FordCreditUserName" value="TFordCredit3"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'FordCreditUserName' field inputted with the user given value" />
+				</step>
+				
+					<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" />
+			</step>
+		</step>
+		</step>		
+		
+		<step type="VISIBLE" name="edt_FordCredit_password" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+			
+			<step type="CLICK" name="edt_FordCredit_password" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+		
+		<step type="SET" name="edt_FordCredit_password" page="pge_FordCredit" wait="2">
+				<parameter type="CONTEXT" name="value to set" value="param_FordCreditPassword" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+			<token type="CONTENT" name="token_edt_FordCreditPassword" value="TFordCredit4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'FordCreditPassword' field inputted with the user given value" />
+			</step>
+				<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" />
+		</step>
+		</step>
+		</step>
+		
+
+<!-- 		<step type="GESTURE" name="PRESS.btn_Login_Enabled" page="pge_FordCredit" wait="5"> -->
+<!-- 			<parameter type="STATIC" value="50,50" /> -->
+
+			<step type="STATE" name="Dummy State - After entering username and password" page="pge_FordCredit" failureMode="IGNORE" />
+			
+		<step type="CLICK" name="btn_Login_Enabled" page="pge_FordCredit" wait="5">
+			<token type="CONTENT" name="token_btn_Login_AND" value="TFordCredit6_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TFordCredit6_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Login' button is available/enabled and clicked on the FordCredit Login page" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - After clicking login button" page="pge_FordCredit" failureMode="IGNORE" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Login' button is not available/enabled on the FordCredit Login page" />
+				</step>
+			</step>
+		</step>
+		
+	</function>
+	
+	
+	
+	
+	<function name="fn_Click_TroubleLogging">
+		<description> fn_Click_ForgotPassword /TroubleLogging- Function to click Forgot Password link on FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+	
+		
+		<step type="EXISTS" name="lnk_TroubleLogging" page="pge_FordCredit" wait="3">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_TroubleLogging_AND" value="TFordCredit7_AND"/>
+			<token type="CONTENT" name="token_lnk_TroubleLogging_IOS" value="TFordCredit7_IOS"/>
+			
+			<step type="CLICK" name="lnk_TroubleLogging" page="pge_FordCredit" wait="5">
+				<token type="CONTENT" name="token_lnk_TroubleLogging_AND" value="TFordCredit7_AND"/>
+				<token type="CONTENT" name="token_lnk_TroubleLogging_IOS" value="TFordCredit7_IOS"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Forgot Password/Trouble logging in' link is available and clicked on FordCredit Login page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Forgot Password/Trouble Logging in' link is not available on Ford Credit Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ForgotUsername">
+		<description> fn_Click_ForgotUsername - Function to click Forgot Username link on FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ForgotUsername" page="pge_FordCredit" wait="3">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_ForgotUsername" value="TFordCredit11"/>
+			
+			
+			<step type="CLICK" name="lnk_ForgotUsername" page="pge_FordCredit" wait="5">
+				<token type="CONTENT" name="token_lnk_ForgotUsername" value="TFordCredit11"/>
+
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Forgot Username' link is available and clicked on FordCredit Login page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Forgot Username' link is not available on Ford Credit Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+
+	<function name="fn_CheckFor_ExpectedError">
+		<description> fn_CheckFor_ExpectedError - Function to check whether the expected error message is displayed on FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_ErrorBanner" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTEXT" name="token_lbl_ErrorBanner" value="param_ErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="CONTEXT" name="token_lbl_ErrorBanner" value="param_ErrorMessage" />
+				<parameter type="STATIC" value="Above expected error message is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="CONTEXT" name="token_lbl_ErrorBanner" value="param_ErrorMessage" />
+					<parameter type="STATIC" value="Above expected error message is not displayed" />
+				</step>
+			</step>
+		</step>
+		</function>
+		
+		<function name="fn_FordCredit_LoginSuccess">
+		<description> fn_VerifyPageOpened_FordCredit - Function to verify user landed on the FordCredit page after successfull login </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_FordCreditSuccess" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_FordCreditSuccess_AND" value="TFordCredit14_AND"/>
+			<token type="CONTENT" name="token_lbl_FordCreditSuccess_IOS" value="TFordCredit14_IOS"/>
+			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully logged into FordCredit  page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordCredit  page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit page is not opened " />
+				</step>
+			</step>
+		</step>
+		</function>
+		
+			<function name="fn_Click_FordCredit_Cancel">
+		<description> fn_FordCredit - Function to verify user cancelled from FordCredit page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FordCreditCancel" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lnk_FordCreditCancel_AND" value="TFordCredit14_AND"/>
+			<token type="CONTENT" name="token_lnk_FordCreditCancel_IOS" value="TFordCredit14_IOS"/>
+			
+		<step type="CLICK" name="lbl_FordCreditCancel" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lnk_FordCreditCancel_AND" value="TFordCredit14_AND"/>
+			<token type="CONTENT" name="token_lnk_FordCreditCancel_IOS" value="TFordCredit14_IOS"/>
+			
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully cancelled from FordCredit  page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordCredit  page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit page is not closed " />
+				</step>
+			</step>
+		</step>
+		</step>
+		</function>
+		
+		
+		
+		<function name="fn_VerifyPageOpened_FordCreditSettingsWithoutPin">
+		<description> fn_VerifyPageOpened_FordCreditSettings - Function to verify user landed on the FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FordCreditSettings" page="pge_FordCredit">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_FordCreditSettings" value="TFordCredit24"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="User successfully landed on FordCredit  page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordCredit  page" page="pge_FordCredit" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="FordCredit page is not opened " />
+				</step>
+			</step>
+		</step>
+		</function>
+		
+		<function name="fn_ValidatePage_FordCreditSettingsWithoutPin">
+		<description> fn_ValidatePage_FordCreditSettings - Function to validate the FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_FordpassPinMsg" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordpassPinMsg" value="TFordCredit25" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="CONTENT" value="TFordCredit2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="CONTENT" value="TFordCredit2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on FordCredit page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="STATE" name="Screenshot - FordCredit  page taken for validation" page="pge_FordCredit" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="btn_Login_EnabledFordCredit" page="pge_FordCredit">
+			<token type="CONTENT" name="token_btn_LoginFordCredit_AND" value="TFordCredit26_AND"/>
+			<token type="CONTENT" name="token_btn_LoginFordCredit_IOS" value="TFordCredit26_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Login to FordCredit' field is available on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Login to FordCredit' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+	
+	</function>
+	
+	<function name="fn_ValidatePage_FordCreditSettingsWithPin">
+		<description> fn_ValidatePage_FordCreditSettings - Function to validate the FordCredit Login page With PIN </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_FordpassPinMsg" page="pge_FordCredit">
+			<token type="CONTENT" name="token_edt_FordpassPinMsg" value="TFordCredit27" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="CONTENT" value="TFordCredit2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on FordCredit page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="CONTENT" value="TFordCredit2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on FordCredit page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="STATE" name="Screenshot - FordCredit  page taken for validation" page="pge_FordCredit" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="btn_Deactivate" page="pge_FordCredit">
+			<token type="CONTENT" name="token_btn_Deactivate" value="TFordCredit28"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+				<parameter type="STATIC" value="'Deactivate FordPass PIN' field is available on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Deactivate FordPass PIN' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+	
+	</function>
+	
+	<function name="fn_Click_LoginToFordCredit">
+		<description> fn_Click_LoginToFordCredit- Function to click Login to FordCredit link on FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+			
+			<step type="CLICK" name="btn_Login_EnabledFordCredit" page="pge_FordCredit" wait="5">
+				<token type="CONTENT" name="token_btn_LoginFordCredit_AND" value="TFordCredit26_AND"/>
+					<token type="CONTENT" name="token_btn_LoginFordCredit_IOS" value="TFordCredit26_IOS"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Login to FordCredit' link is available and clicked on FordCredit Login page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Login to FordCredit' link is not available on Ford Credit Login page" />
+				</step>
+			</step>
+	
+	</function>
+	
+	<function name="fn_Click_DeactivateFordpassPin">
+		<description> fn_Click_DeactivateFordpassPin- Function to click Login to FordCredit link on FordCredit Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+			<parameter type="STATIC" value="Function's XML file name: fn_FordCredit.xml" />
+		</step>
+			
+			<step type="CLICK" name="btn_Deactivate" page="pge_FordCredit" wait="5">
+				<token type="CONTENT" name="token_btn_Deactivate" value="TFordCredit28"/>
+						
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Deactivate FordpassPIN' link is available and clicked on FordCredit Login page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_FordCredit">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_FordCredit">
+					<parameter type="STATIC" value="'Deactivate FordpassPIN' link is not available on Ford Credit Login page" />
+				</step>
+			</step>
+	
+	</function>
+	
+</suite>

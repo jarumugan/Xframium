@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_EditProfile" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//android.widget.TextView[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lnk_Cancel" value="//*[@text='{token_lnk_Cancel}']|//*[@label='{token_lnk_Cancel}']" descriptor="XPATH" />
+			
+			<element name="lbl_UserInfo" value="//*[@text='{token_lbl_UserInfo}']|//*[@label='{token_lbl_UserInfo}']" descriptor="XPATH" />
+			<element name="lbl_YourPhoneNumber" value="//*[@text='{token_lbl_YourPhoneNumber}']|//*[@label='{token_lbl_YourPhoneNumber}']" descriptor="XPATH" />
+			<element name="lbl_YourAddress" value="//*[@text='{token_lbl_YourAddress}']|//*[@label='{token_lbl_YourAddress}']" descriptor="XPATH" />
+			
+			<element name="edt_Title" value="(//*[@text='{token_edt_Title}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_Title}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="lst_Title" value="//*[@text='{token_lst_Title_Android}']|//UIAPickerWheel[1]" descriptor="XPATH" />
+			
+			<element name="edt_State" value="(//*[@text='{token_edt_State}']//following::android.widget.TextView)[1]|(//*[@label='{token_edt_State}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="lst_State" value="//*[@text='{token_lst_State}']|//UIAPickerWheel[1]" descriptor="XPATH" />
+			
+			<element name="lnk_Next_Pickerwheel" value="//UIAToolbar/*[@label='Next']" descriptor="XPATH" />			
+			<element name="edt_EditProfileField" value="(//*[@text='{token_edt_EditProfileField_AND}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_EditProfileField_IOS}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="edt_CPF" value="(//*[@text='{token_edt_CPF}']//following::android.widget.EditText)[1]|(//*[@label='{token_edt_CPF}']/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="edt_FirstName" value="(//*[@text='{token_edt_FirstName}']//following::android.widget.EditText)[1]|//*[@label='{token_edt_FirstName}']/preceding::UIATextField[1]" descriptor="XPATH" />
+			<element name="lbl_InlineErrorMsg" value="//*[@text=&quot;{token_lbl_InlineErrorMsg}&quot;]|//*[@label=&quot;{token_lbl_InlineErrorMsg}&quot;]" descriptor="XPATH" />
+			
+			<element name="btn_Save" value="//*[@text='{token_btn_Save_AND}']|//*[@label='{token_btn_Save_IOS}']|//*[@text='Save']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

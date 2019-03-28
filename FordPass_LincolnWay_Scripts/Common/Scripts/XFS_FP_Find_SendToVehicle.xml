@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ############################################################################################################# -->
+<!-- TestCase Name/ID : -->
+<!-- Author Name : ESURESH8 -->
+<!-- Created Date : 08-May-2018 -->
+<!-- Updated Date : 16-May-2018 -->
+<!-- Pre-Requisite : VIN Should be there with the user account and Pre-Requisite : Device location set to specific location for example 'wuhan' for china and 'Chicago for USA etc.-->
+<!-- ############################################################################################################# -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Find_UnitTest" dataProvider="TestData.XFS_FP_Find_001"
+		contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> FIND >> SEND TO VEHICLE Feature Verification and Validations</description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Launch_FindCategories" page="pge_FindCommon"/>
+		
+		<!-- Select the 'CATEGEORY-FUEL'  -->
+		<step type="CALL2" name="fn_Find_Category_Lookup" page="pge_FindCommon" >
+			<parameter type="CONTENT" name="param_Categories_IOS_value" value="TFindCategory1_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND_value" value="TFindCategory1_AND" />
+		</step>
+				
+		<!-- Clicking the 'CATEGEORY-FUEL'  -->
+		<step type="CALL2" name="fn_Click_Categories" page="pge_FindCategoryApplet" >
+			<parameter type="CONTENT" name="param_Categories_IOS" value="TFindCategory1_IOS" />
+			<parameter type="CONTENT" name="param_Categories_AND" value="TFindCategory1_AND" />
+		</step>
+		
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> FUEL >> SEND TO VEHICLE -->
+<!-- ############################################################################################################# -->
+
+			<!--Click for Zero Result Page -->
+			<step type="CALL2" name="fn_Click_ZeroSearch" page="pge_FindLocationSearch" />
+			<step type="CALL2" name="fn_Click_SearchSendToVehicle" page="pge_FindSendToVehicle" />
+			<!--Verify Zero Result Page -->
+			<step type="CALL2" name="fn_Verify_SendToVehicle_ZeroResults" page="pge_FindSendToVehicle" failureMode="IGNORE">
+				<step type="CALL2" name="fn_Click_Btnback_SendToVehicle_ZeroResults" page="pge_FindSendToVehicle" />
+			<step type="ELSE" name="elseCondition" page="pge_FindSendToVehicle">
+			
+			<!-- LocationOpted_SendToVehicle: Cancel Dialog Window >> Back Click -->
+				<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+					<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Cancel" />
+					<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Cancel" />
+				</step>		
+				<step type="CALL2" name="fn_Verify_DW_CancelStoV" page="pge_FindSendToVehicle" />
+				<step type="CALL2" name="fn_Click_BtnBack_DWCancelStoV" page="pge_FindSendToVehicle" />
+				
+			<!-- LocationOpted_SendToVehicle: Cancel Dialog Window >> Cancel Click-->
+				<step type="CALL2" name="fn_Click_Common_BtnSelfTxt" page="pge_FindSendToVehicle" >
+					<parameter type="CONTENT" name="param_btn_CommonSelfTxt_IOS" value="TFindTxtBtn_Cancel" />
+					<parameter type="CONTENT" name="param_btn_CommonSelfTxt_AND" value="TFindTxtBtn_Cancel" />
+				</step>		
+				<step type="CALL2" name="fn_Click_BtnYesCancel_DWCancelStoV" page="pge_FindSendToVehicle" />
+				<step type="CALL2" name="fn_Verify_SendToVehicle_ZeroResults" page="pge_FindSendToVehicle"/>
+				<step type="CALL2" name="fn_Click_Btnback_SendToVehicle_ZeroResults" page="pge_FindSendToVehicle" />				
+			</step>
+			</step>
+			
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> FUEL >> SELECTING THE 'GET DIRECTION' FROM LIST VIEW -->
+<!-- ############################################################################################################# -->
+			
+			<!-- Clicking the 'LIST VIEW BUTTON' on Page -->
+			<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+		
+			<!-- Verifying and Fetching the 'VIEW LIST TITLE' Text Elements on Fuel Page -->		
+			<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="1" />
+				<parameter type="STATIC" name="param_List_Txt_Index_AND" value="1" />
+				<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="1" />
+			</step>
+			
+			<!-- Verifying and Fetching the 'VIEW LIST GET DIRECTION LINK' Text Elements on Page -->	
+			<step type="CALL2" name="fn_Click_ViewListGetDirection" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="1" />
+				<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+			</step>
+			
+			<step type="CALL2" name="fn_Click_MapSendToVehicle" page="pge_FindSendToVehicle" />
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> FUEL >> 'DISABLING' DIALOG WINDOW -->
+<!-- ############################################################################################################# -->
+			
+			<!-- Disable CarPlay DialogWindow Handling -->
+			<step type="CALL2" name="fn_Verify_DW_DisableCarPlay" page="pge_FindSendToVehicle" failureMode="IGNORE">
+				<step type="CALL2" name="fn_Click_Lnk_HowDoIDisableCarPlay" page="pge_FindSendToVehicle" />
+				<step type="CALL2" name="fn_Verify_Page_HowDoDisableCarPlay" page="pge_FindSendToVehicle" />
+				<step type="CALL2" name="fn_Click_Btnback_HowDoDisableCarPlay" page="pge_FindSendToVehicle" />
+			</step>
+
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> FUEL >> USB ALERT PAGE VERIFICATION -->
+<!-- ############################################################################################################# -->			
+			<!-- USB Connection Alert Page Handling -->
+			<step type="CALL2" name="fn_Verify_USBConnectionAlert" page="pge_FindSendToVehicle" failureMode="IGNORE">
+				<step type="CALL2" name="fn_Click_LnkNeedMoreHelp_USBConnAlert" page="pge_FindSendToVehicle"/>
+				<step type="CALL2" name="fn_Verify_Page_HowDoDisableCarPlay" page="pge_FindSendToVehicle"/>
+				<step type="CALL2" name="fn_Click_Btnback_HowDoDisableCarPlay" page="pge_FindSendToVehicle"/>
+				<step type="CALL2" name="fn_Click_BtnOk_USBConnectionAlert" page="pge_FindSendToVehicle" failureMode="IGNORE"/>	
+			</step>
+			
+			<step type="CALL2" name="fn_Click_ZeroSearch" page="pge_FindLocationSearch" />
+			<step type="CALL2" name="fn_Click_SearchSendToVehicle" page="pge_FindSendToVehicle" />
+			<!-- Send to Vehicle Page: Back Button -->
+			<step type="CALL2" name="fn_Click_Common_Btnback_PrecedingTxtLabel" page="pge_FindSendToVehicle" >
+				<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_IOS" value="TFindSTVNoDetails_T1" />
+				<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_AND" value="TFindSTVNoDetails_T1" />
+			</step>	
+	
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> FUEL >> SELECTING THE 'GET DIRECTION' FROM LIST VIEW TO 'CHANGE THE PLAN'-->
+<!-- ############################################################################################################# -->
+			
+			<!-- Verifying and Fetching the 'VIEW LIST TITLE' Text Elements on Fuel Page -->		
+			<step type="CALL2" name="fn_Read_ViewList_Txt" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="2" />
+				<parameter type="STATIC" name="param_List_Txt_Index_AND" value="1" />
+				<parameter type="STATIC" name="param_List_Txt_Index_IOS" value="1" />
+			</step>
+			
+			<!-- Verifying and Fetching the 'VIEW LIST GET DIRECTION LINK' Text Elements on Page -->	
+			<step type="CALL2" name="fn_Click_ViewListGetDirection" page="pge_FindCommon" >
+				<parameter type="STATIC" name="param_List_Index" value="2" />
+				<parameter type="CONTENT" name="param_GetDirection_AND" value="TFindGetDirection" />
+			</step>
+			<step type="CALL2" name="fn_Click_MapSendToVehicle" page="pge_FindSendToVehicle" />
+			<!-- Disable CarPlay DialogWindow Handling -->
+			<step type="CALL2" name="fn_Verify_DW_DisableCarPlay" page="pge_FindSendToVehicle" failureMode="IGNORE">
+<!-- 				<step type="CALL2" name="fn_Click_Lnk_HowDoIDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+<!-- 				<step type="CALL2" name="fn_Verify_Page_HowDoDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+<!-- 				<step type="CALL2" name="fn_Click_Btnback_HowDoDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+			</step>
+			<step type="CALL2" name="fn_Verify_DW_ChangeInPlans" page="pge_FindSendToVehicle" />
+			<step type="CALL2" name="fn_Click_BtnYesReplace_DWChangeInPlans" page="pge_FindSendToVehicle" />
+				
+			<step type="CALL2" name="fn_Verify_DW_DisableCarPlay" page="pge_FindSendToVehicle" failureMode="IGNORE" >
+<!-- 				<step type="CALL2" name="fn_Click_Lnk_HowDoIDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+<!-- 				<step type="CALL2" name="fn_Verify_Page_HowDoDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+<!-- 				<step type="CALL2" name="fn_Click_Btnback_HowDoDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+					<step type="CALL2" name="fn_Click_BtnOk_DWDisableCarPlay" page="pge_FindSendToVehicle" />
+			</step>
+			<step type="CALL2" name="fn_Verify_USBConnectionAlert" page="pge_FindSendToVehicle" failureMode="IGNORE">
+<!-- 			<step type="CALL2" name="fn_Click_LnkNeedMoreHelp_USBConnAlert" page="pge_FindSendToVehicle"/> -->
+<!-- 			<step type="CALL2" name="fn_Verify_Page_HowDoDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+<!-- 			<step type="CALL2" name="fn_Click_Btnback_HowDoDisableCarPlay" page="pge_FindSendToVehicle" /> -->
+				<step type="CALL2" name="fn_Click_BtnOk_USBConnectionAlert" page="pge_FindSendToVehicle" />	
+			</step>
+			<step type="CALL2" name="fn_Click_ZeroSearch" page="pge_FindLocationSearch" />
+			<step type="CALL2" name="fn_Click_SearchSendToVehicle" page="pge_FindSendToVehicle" />
+			<!-- Send to Vehicle Page: Back Button -->
+			<step type="CALL2" name="fn_Click_Common_Btnback_PrecedingTxtLabel" page="pge_FindSendToVehicle" >
+				<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_IOS" value="TFindSTVNoDetails_T1" />
+				<parameter type="CONTENT" name="param_btn_back_PrecedingTxtLabel_AND" value="TFindSTVNoDetails_T1" />
+			</step>	
+			
+<!-- ############################################################################################################# -->
+<!-- ESURESH8 - FIND >> FUEL >> VERIFTING THE FOOTER NOTE FEATURES-->
+<!-- ############################################################################################################# -->			
+			<step type="CALL2" name="fn_Click_Lnk_USBAlertFooterNoteHELP" page="pge_FindCommon" />
+			<step type="CALL2" name="fn_Verify_Page_HowDoDisableCarPlay" page="pge_FindSendToVehicle" />
+			<step type="CALL2" name="fn_Click_Btnback_HowDoDisableCarPlay" page="pge_FindSendToVehicle" />
+			<step type="CALL2" name="fn_Click_Lnk_USBAlertFooterNote" page="pge_FindCommon" />
+			<step type="CALL2" name="fn_Verify_USBConnectionAlert" page="pge_FindSendToVehicle"/>
+			<step type="CALL2" name="fn_Click_BtnCancelDestination_USBConnectionAlert" page="pge_FindSendToVehicle" />	
+			<step type="CALL2" name="fn_Verify_DW_CancelStoV" page="pge_FindSendToVehicle" />
+			<step type="CALL2" name="fn_Click_BtnYesCancel_DWCancelStoV" page="pge_FindSendToVehicle" />
+			
+			<!-- Clicking the 'MAP VIEW BUTTON' on Page -->
+			<step type="CALL2" name="fn_Click_Button_ListMapView_Common" page="pge_FindCommon" />
+	</test>
+</suite>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_Success">
+		<description> fn_VerifyPageOpened_Success - Function to verify user landed on the Success page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+			<parameter type="STATIC" value="Function's XML file name: fn_Success.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_Success">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TSuccess1"/>
+
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+				<parameter type="STATIC" value="User successfully landed on Success page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Success page" page="pge_Success" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Success">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="Success page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+			</function>
+	
+	<!-- Validate Confirmation message -->
+	
+	<function name="fn_ValidateSection_ConfirmMessage">
+		<description> fn_ValidateSection_ConfirmMessage - Function to validate Confirmation Message </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+			<parameter type="STATIC" value="Function's XML file name: fn_Success.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ConfirmMessage1" page="pge_Success">
+			<token type="CONTENT" name="token_lbl_ConfirmMessage1_AND" value="TSuccess2_AND"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+				<parameter type="STATIC" value="'Confirmation Message' is available on the Success page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Success">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="'Confirmation Message ' is not available on the Success page" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="lbl_ConfirmMessage2" page="pge_Success">
+			<token type="CONTENT" name="token_lbl_ConfirmMessage2_AND" value="TSuccess3_AND"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+				<parameter type="STATIC" value="'Confirmation Message2' is available on the Success page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Success">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="'Confirmation Message2 ' is not available on the Success page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_ConfirmMessage3" page="pge_Success">
+			<token type="CONTENT" name="token_lbl_ConfirmMessage3_AND" value="TSuccess4_AND"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+				<parameter type="STATIC" value="'Confirmation Message3' is available on the Success page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Success">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="'Confirmation Message3 ' is not available on the Success page" />
+				</step>
+			</step>
+		</step>
+		
+</function>	
+
+
+<function name="fn_ValidateSection_ConfirmMessage_IOS">
+		<description> fn_ValidateSection_ConfirmMessage - Function to validate Confirmation Message for IOS </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+			<parameter type="STATIC" value="Function's XML file name: fn_Success.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ConfirmMessage1" page="pge_Success">
+			<token type="CONTENT" name="token_lbl_ConfirmMessage1_IOS" value="TSuccess2_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+				<parameter type="STATIC" value="'Confirmation Message' is available on the Success page for IOS" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Success">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="'Confirmation Message ' is not available on the Success page for IOS" />
+				</step>
+			</step>
+		</step>
+</function>
+<function name="fn_Click_ReturnToLogin">
+		<description> fn_Click_ReturnToLogin- Function to click 'Return To Login' button on Success page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+			<parameter type="STATIC" value="Function's XML file name: fn_Success.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_ReturnToLogin" page="pge_Success">
+			<token type="CONTENT" name="token_btn_ReturnToLogin" value="TSuccess5" />
+		
+			<step type="CLICK" name="btn_ReturnToLogin" page="pge_Success" wait="3">
+				<token type="CONTENT" name="token_btn_ReturnToLogin" value="TSuccess5" />
+			
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="'Retun to Login' button is available and clicked on Success page" />
+				</step>
+			</step>
+				
+			<step type="ELSE" name="elseCondition" page="pge_Success">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Success">
+					<parameter type="STATIC" value="'Return to Login' button is not available on Success page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

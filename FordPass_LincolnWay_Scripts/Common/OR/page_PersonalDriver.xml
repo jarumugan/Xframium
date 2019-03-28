@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_PersonalDriver" class="org.xframium.page.keyWord.KeyWordPage">
+
+			<!-- Personal Driver Landing Page KSIVANAN-->
+			<element name="btn_PDDashboardtab" value= "//*[@resource-id='com.lincoln.clutchna:id/pd_image_view']|(//*[contains(@label,'{token_btn_PDDashboardtab}')])" descriptor="XPATH" />
+			<element name="lbl_PDTtitle" value= "//*[@resource-id='com.lincoln.clutchna:id/pd_image_view']" descriptor="XPATH" />
+			<element name= "lbl_PDDescription" value= "//*[@resource-id='com.lincoln.clutchna:id/pd_description']|(//*[contains(@label,'{token_lbl_PDDescription}')])" descriptor="XPATH" />
+<!-- 		<element name="lbl_PDDescription" value="//*[contains(@label,'{token_lbl_PDDescription}')]" descriptor="XPATH" /> -->
+
+<!-- 			<element name= "lbl_PDDescription" value="//*[@label='{token_lbl_PDDescription}']" descriptor="XPATH" /> -->
+
+			<element name= "btn_PDViewReservation" value="//*[contains(@resource-id,'pd_view_reservations')]|//*[@text='{token_btn_PDViewReservation}']|//UIACollectionView[2]/UIACollectionCell[3]/UIAButton[1]"  descriptor="XPATH" />
+			<element name= "btn_PDReservationNow" value= "//*[@resource-id='com.lincoln.clutchna:id/pd_reserve_now_button']|//*[@text='{token_btn_PDReservationNow}']|//*[@label='{token_btn_PDReservationNow}']|//UIACollectionCell[3]/UIAButton[2]"  descriptor="XPATH" />
+			<element name= "btn_PDPersonalDriverpage" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_image']|(//[@label='{token_btn_PDPersonalDriverpage}'])" descriptor="XPATH" />
+
+			<!-- Personal Driver Create Reservations KSIVANAN-->																	
+																															
+			<element name= "lbl_PDSchePDtitle" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_schedule_title']|//*[@text='{token_btn_PDPersonalDriverpage}']|//UIAScrollView|//*[@label='{token_btn_PDPersonalDriverpage}']" descriptor="XPATH" />
+			<element name= "lbl_PDSdescription" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_schedule_description']|(//*[contains(@text,'{token_lbl_PDSdescription}')])|(//*[contains(@label,'{token_lbl_PDSdescription}')])" descriptor="XPATH" />
+			<element name= "btn_PDSroundtrip" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_round_trip']|(//*[contains(@text,'{token_btn_PDSroundtrip}')])|(//*[contains(@label,'{token_btn_PDSroundtrip}')])|//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]" descriptor="XPATH" />
+			<element name= "btn_PDSOnetrip" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_one_way']|//*[@text='{token_btn_PDSOnetrip}']|//*[@label='{token_btn_PDSOnetrip}']|//XCUIElementTypeOther[1]/XCUIElementTypeButton[2]" descriptor="XPATH" />
+			<element name= "lbl_PDdisclimer" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_disclaimer']|(//*[contains(@text,'{token_lbl_PDdisclimer}')])|(//*[contains(@label,'{token_lbl_PDdisclimer}')])" descriptor="XPATH" />
+			<element name= "lbl_Reservationtitle" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_reservation_title']|//*[@text='{token_lbl_Reservationtitle}']|//*[@label='{token_lbl_Reservationtitle}']" descriptor="XPATH" />
+			<element name= "lbl_Reservationdetails" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_reservation_text']|//*[@text='{token_lbl_Reservationdetails}']|//*[@label='{token_lbl_Reservationdetails}']" descriptor="XPATH" />	
+			<element name= "btn_PDViewRervations" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_view_reservations_action_link']|//*[@label='{token_btn_PDViewRervations}']" descriptor="XPATH" />	
+			
+			
+			<!-- Personal Driver OneWay trip KSIVANAN-->
+			
+	
+			<element name="lbl_OnewaySchedule" value="//*[@resource-id='com.lincoln.clutchna:id/personal_driver_schedule_title']|//*[@text='{token_lbl_OnewaySchedule}']|//*[@value='{token_lbl_OnewaySchedule}']|//UIATableCell[2]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_OnewayScheduledesc" value="//*[@resource-id='com.lincoln.clutchna:id/personal_driver_schedule_description']|//*[@text='{token_lbl_OnewayScheduledesc}']|//*[@label='{token_lbl_OnewayScheduledesc}']|//UIATableCell[2]/UIAStaticText[2]" descriptor="XPATH" />
+			<element name="lbl_SchedulePkdatetimetitle" value="//*[@resource-id='com.lincoln.clutchna:id/picker_header']|//*[@text='{token_lbl_SchedulePkdatetimetitle}']|//*[@label='{token_lbl_SchedulePkdatetimetitle}']" descriptor="XPATH" />
+			<element name="lbl_SchedulePkSelect" value="//*[@label='{token_lbl_SchedulePkSelect}']" descriptor="XPATH" />	
+			<element name="lbl_SchedulePkSelect_AND" value="//*[@resource-id='com.lincoln.clutchna:id/picker_calender_image']|//*[@text='{token_lbl_SchedulePkSelect_AND}']|//*[@label='{token_lbl_SchedulePkSelect}']" descriptor="XPATH" />	
+			<element name="lbl_ScheduleDatePkr" value="//UIAPicker[@value='{token_lbl_SchedulePickedCancle}']" descriptor="XPATH" />	
+			<element name="lbl_ScheduleDatePkr_AND" value="//*[@resource-id='com.lincoln.clutchna:id/picker_sub_text']|//android.view.ViewGroup[8]|//*[@text='{token_lbl_ScheduleDatePkr_AND}']" descriptor="XPATH" />	
+			<element name="lbl_ScheduleTimePkr_AND" value="//*[@resource-id='com.lincoln.clutchna:id/personal_driver_schedule_title']|//android.view.ViewGroup[8]|//*[@text='{token_lbl_ScheduleTimePkr_AND}']" descriptor="XPATH" />	
+			
+			<element name="btn_SchedulePickedCancle" value="//*[@label='{token_btn_SchedulePickedCancle}']" descriptor="XPATH" />	
+			<element name="btn_SchedulePickedSave" value="//*[@label='{token_btn_SchedulePickedSave}']" descriptor="XPATH" />	
+			<element name="lbl_SchedulePickuptime" value="//*[@label='{token_lbl_SchedulePickuptime}']" descriptor="XPATH" />	
+			<element name="lbl_Pickuptimeunavaconmsg" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@text='{token_lbl_Pickuptimeunavaconmsg}']|//*[@label='{token_lbl_Pickuptimeunavaconmsg}']|//XCUIElementTypeCell[3]/XCUIElementTypeStaticText[1]" descriptor="XPATH" />	
+			<element name="lbl_Pickuplocationtitle" value="//*[@resource-id='com.lincoln.clutchna:id/select_location_pick_up_location_title']|//*[@text='{token_lbl_Pickuplocationtitle}']|//[@label='{token_lbl_Pickuplocationtitle}']" descriptor="XPATH" />	
+			<element name="btn_AddLocationbtn" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//UIATableCell[4]/UIAButton[1]"  descriptor="XPATH" />	
+			<element name="btn_AddDropoffLocationbtn" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@label='{token_btn_AddDropoffLocationbtn}']"  descriptor="XPATH" />	
+			<element name="lbl_Onewaytripctinfotitle" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_info_title']|//*[@text='{token_lbl_Onewaytripctinfotitle}']|//*[@label='{token_lbl_Onewaytripctinfotitle}']" descriptor="XPATH" />		
+			<element name="btn_Onewaytripctinfoedit" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_info_edit_button']|//*[@text='{token_btn_Onewaytripctinfoedit}']|//UIATableView[1]/UIATableCell[6]" descriptor="XPATH" />		
+			<element name="lbl_Onewaytripctinfo1" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_name']|//*[@text='{token_lbl_Onewaytripctinfo1}']|//*[@label='{token_lbl_Onewaytripctinfo1}']" descriptor="XPATH" />		
+			<element name="lbl_Onewaytripctemailinfo2" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_email']|//*[@text='{token_lbl_Onewaytripctemailinfo2}']|//*[@label='{token_lbl_Onewaytripctemailinfo2}']" descriptor="XPATH" />		
+			<element name="lbl_Onewaytripctnoinfo3" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_mobile_number']|//*[@text='{token_lbl_Onewaytripctnoinfo3}']|//*[@label='{token_lbl_Onewaytripctnoinfo3}']" descriptor="XPATH" />		
+			<element name="lbl_Onewaytrippdinst" value="//*[@resource-id='com.lincoln.clutchna:id/driver_instructions_title']|//*[@text='{token_lbl_Onewaytrippdinst}']|//*[@label='{token_lbl_Onewaytrippdinst}']" descriptor="XPATH" />		
+			<element name="lbl_OnewaytripPeropt" value="//*[@resource-id='com.lincoln.clutchna:id/driver_instructions_edit_text']|//*[@text='{token_lbl_OnewaytripPeropt}']|//UIATableCell[7]/UIATextView[1]" descriptor="XPATH" />		
+			<element name="lbl_Onewaytrippergatecode" value="//*[@resource-id='com.lincoln.clutchna:id/driver_instructions_footer']|//*[@text='{token_lbl_Onewaytrippergatecode}']|//*[@label='{token_lbl_Onewaytrippergatecode}']"  descriptor="XPATH" />		
+			<element name="lbl_OnewaytripEstcost" value="//*[@resource-id='com.lincoln.clutchna:id/estimated_cost_title']|//*[@text='{token_lbl_OnewaytripEstcost}']|//*[@label='{token_lbl_OnewaytripEstcost}']"  descriptor="XPATH" />		
+			<element name="lbl_OnewaytripEstcostdet" value="//*[@resource-id='com.lincoln.clutchna:id/estimated_cost_description']|//*[@text='{token_lbl_OnewaytripEstcostdet}']|//*[@label='{token_lbl_OnewaytripEstcostdet}']"  descriptor="XPATH" />		
+			<element name="btn_OnewaytripPmtmetedit" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//UIATableView[1]/UIATableCell[9]"  descriptor="XPATH" />		
+			<element name="lbl_OnewaytripPmtmet" value="//*[@resource-id='com.lincoln.clutchna:id/payment_method_title']|//*[@text='{token_lbl_OnewaytripPmtmet}']|//*[@label='{token_lbl_OnewaytripPmtmet}']"  descriptor="XPATH" />		
+			<element name="lbl_OnewaytripaddPmtmetdet" value="//*[@resource-id='com.lincoln.clutchna:id/payment_method_card_info']|//*[@label='{token_lbl_OnewaytripaddPmtmetdet}']"  descriptor="XPATH" />		
+			<element name="lbl_Onewaytripridescandet" value="//*[@resource-id='com.lincoln.clutchna:id/submit_request_disclaimer']|//*[@label='{token_lbl_Onewaytripridescandet}']"  descriptor="XPATH" />		
+			<element name="btn_Onewaytripritabsubmit" value="//*[@resource-id='com.lincoln.clutchna:id/submit_request_terms_and_conditions']|//*[@text='{token_btn_Onewaytripritabsubmit}']|//*[@label='{token_btn_Onewaytripritabsubmit}']"  descriptor="XPATH" />		
+			<element name="edt_AddDropoffLocationbtn" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//UIATableCell[4]/UIAButton[1]"  descriptor="XPATH" />	
+			
+						
+			<!-- Personal Driver One way trip Add Location KSIVANAN-->
+			
+			<element name="edt_PDPickuplocation" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@value='{token_edt_PDPickuplocation}']" descriptor="XPATH" />		
+			<element name="btn_PDPickupSelectlocation" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@label='{token_btn_PDPickupSelectlocation}']"  descriptor="XPATH" />		
+<!-- 			<element name="edt_PDDropuplocation" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@value='{token_edt_PDPickuplocation}']" descriptor="XPATH" />		 -->
+			<element name="btn_PDDropupSelectlocation" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@label='{token_btn_PDPickupSelectlocation}']"  descriptor="XPATH" />		
+			<element name="lbl_PDDropofflocationtitle" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@label='{token_lbl_PDDropofflocationtitle}']"  descriptor="XPATH" />		
+			<element name="btn_PDDropoffSelectlocation" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@label='{token_btn_PDDropoffSelectlocation}']"  descriptor="XPATH" />		
+						
+			<!-- Personal Driver Add a Payment type KSIVANAN-->
+			
+			<element name="btn_PDRequestSubmit" value="//*[@resource-id='com.lincoln.clutchna:id/osb_quote_total_next_button']|//*[@text='{token_btn_PDRequestSubmit}']|//*[@label='{token_btn_PDRequestSubmit}']|//UIATableCell[11]/UIAButton[1]"  descriptor="XPATH" />		
+			<element name="lbl_PDRervationSuccessmsg" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']|//*[@label='{token_lbl_PDRervationSuccessmsg}']|//XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeOther[3]/XCUIElementTypeStaticText[1]"  descriptor="XPATH" />		
+			
+			
+			<!-- Personal Driver Round trip KSIVANAN-->
+				
+			<element name="lbl_ReturnDatetimetitle" value="//*[@text='{token_lbl_ReturnDatetime}']|//*[@label='{token_lbl_ReturnDatetimetitle}']" descriptor="XPATH" />	
+			<element name="lbl_ReturnDateSelect" value="//*[@resource-id='com.lincoln.clutchna:id/pd_time_picker/picker_sub_text']|//UIATableCell[3]/UIAStaticText[5]" descriptor="XPATH" />		
+			<element name="lbl_ReturnChoosedate" value="//*[@resource-id='com.lincoln.clutchna:id/pd_time_picker/picker_calender_image']" descriptor="XPATH" />	
+			<element name="lbl_ReturnChoosedate" value="//*[@resource-id='com.lincoln.clutchna:id/pd_time_picker/picker_calender_image']" descriptor="XPATH" />	
+			<element name="lbl_Rounttripaddlocationtitle" value="//*[@resource-id='com.lincoln.clutchna:id/pd_time_picker/picker_calender_image']|//*[@label='{token_lbl_Rounttripaddlocationtitle}']" descriptor="XPATH" />
+			
+			
+			<element name="lbl_Dateunavailableinfo" value="//*[@resource-id='com.lincoln.clutchna:id/pd_unavailable_info']" descriptor="XPATH" />	
+			<element name="lbl_Pickupreturnloctitle" value="//*[@resource-id='com.lincoln.clutchna:id/select_location_pick_up_location_title']" descriptor="XPATH" />	
+			<element name="btn_Pickupreturnaddloc" value="//*[@resource-id='com.lincoln.clutchna:id/select_location_pick_up_button']" descriptor="XPATH" />	
+		 	<element name="btn_EditContactInfo" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_info_edit_button']" descriptor="XPATH" />	
+			<element name="lbl_EmailPdImp" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_email']" descriptor="XPATH" />	
+			<element name="btn_ContactphonelPdImp" value="//*[@resource-id='com.lincoln.clutchna:id/pdl_schedule_contact_mobile_number']" descriptor="XPATH" />
+			<element name="lbl_PDinstructiontitle" value="//*[@resource-id='com.lincoln.clutchna:id/driver_instructions_title']" descriptor="XPATH" />
+			<element name="lbl_PDeditinstruction" value="//*[@resource-id='com.lincoln.clutchna:id/driver_instructions_edit_text']" descriptor="XPATH" />
+			<element name="lbl_PDfooter" value="//*[@resource-id='com.lincoln.clutchna:id/driver_instructions_footer']" descriptor="XPATH" />
+			<element name="lbl_Estimatecosttitle" value="//*[@resource-id='com.lincoln.clutchna:id/estimated_cost_title']" descriptor="XPATH" />
+			<element name="lbl_Estimatecostdes" value="//*[@resource-id='com.lincoln.clutchna:id/estimated_cost_description']" descriptor="XPATH" />
+			<element name="btn_EditPaymentmethod" value="//*[@resource-id='com.lincoln.clutchna:id/payment_method_edit']" descriptor="XPATH" />
+			<element name="lbl_PaymentmethodInfo" value="//*[@resource-id='com.lincoln.clutchna:id/payment_method_card_info']" descriptor="XPATH" />
+			<element name="lbl_PaymentmethodDesc" value="//*[@resource-id='com.lincoln.clutchna:id/submit_request_disclaimer']" descriptor="XPATH" />
+			<element name="lbl_PaymenTermsandcond" value="//*[@resource-id='com.lincoln.clutchna:id/submit_request_terms_and_conditions']" descriptor="XPATH" />
+			<element name="btn_PaymenSubmit" value="//*[@resource-id='com.lincoln.clutchna:id/osb_quote_total_next_button']" descriptor="XPATH" />
+			<element name="lbl_Successsubmitsms" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_Successsubmitsms}']" descriptor="XPATH" />
+		
+			<!-- Personal Driver Round View Reservation KSIVANAN-->
+		
+			<element name="lbl_PDViewRestitle" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[contains(@name,&quot;{token_lbl_PDViewRestitle}&quot;)]" descriptor="XPATH" />
+			<element name="lbl_PDConfirmationSMSViewRes" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDConfirmationSMSViewRes}']" descriptor="XPATH" />
+			<element name="lbl_PDPickupviewloc" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDPickupviewloc}']" descriptor="XPATH" />
+			<element name="lbl_PDDropoffviewloc" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDDropoffviewloc}']" descriptor="XPATH" />
+			<element name="lbl_PDEstimatedCost" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDEstimatedCost}']" descriptor="XPATH" />
+			<element name="lbl_PDEstimatedCostamt" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDEstimatedCostamt}']" descriptor="XPATH" />
+			<element name="lbl_PDPaymentmethod" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDPaymentmethod}']" descriptor="XPATH" />
+			<element name="lbl_PDViewreservation" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDViewreservation}']" descriptor="XPATH" />
+			<element name="lbl_PDViewreservationContactinfo" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDViewreservationContactinfo}']" descriptor="XPATH" />
+		
+			<!-- Personal Driver Upcoming View Reservation  KSIVANAN-->
+			
+			<element name="lbl_PDUpcomingtitle" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDUpcomingtitle}']" descriptor="XPATH" />
+			<element name="lbl_PDUpcomingTab" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDUpcomingTab}']" descriptor="XPATH" />
+			<element name="lbl_PDUpcomingViewreservation" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIATableCell[15]/UIAStaticText[1]" descriptor="XPATH" />
+		
+			<!-- Personal Driver View No Reservation  KSIVANAN-->
+			<element name="lbl_PDViewNoReservations" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDViewNoReservations}']" descriptor="XPATH" />
+			<element name="lbl_PDViewNoResDetails" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDViewNoResDetails}']" descriptor="XPATH" />
+		
+			<!-- Personal Driver Edit trip Reservation  KSIVANAN-->
+			
+			<element name="lbl_PDSelectResforEdit" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIATableCell[12]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="btn_PDEditOneWaytripRes" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDEditOneWaytripRes}']" descriptor="XPATH" />
+			<element name="lbl_PDEditUnSavedtitle" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@value='Unsaved Changes']" descriptor="XPATH" />
+			<element name="lbl_PDEditUnSavedmsg" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDEditUnSavedmsg}']" descriptor="XPATH" />
+			<element name="btn_PDEditUnSavedDiscard" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDEditUnSavedDiscard}']" descriptor="XPATH" />
+			<element name="btn_PDUnSavedEditAgain" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDUnSavedEditAgain}']" descriptor="XPATH" />
+			<element name="btn_EditErrormsg" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIAApplication/UIAWindow[1]/UIAButton[3]" descriptor="XPATH" />
+			<element name="lbl_EditErrorCont" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_EditErrorCont}']" descriptor="XPATH" />
+			<element name="btn_PDBackButton" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIAButton[1]" descriptor="XPATH" />
+			<element name="btn_PDEditbutton" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDEditbutton}']" descriptor="XPATH" />
+			
+			<!-- Personal Driver Cancel PD Reservation  KSIVANAN-->
+			
+			<element name="lbl_PDSelectRideToCancel" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIATableCell[3]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="btn_PDCancelRide" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDCancelRide}']" descriptor="XPATH" />
+			<element name="lbl_PDCancelRideAlertIcon" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIAImage" descriptor="XPATH" />
+			<element name="lbl_PDCancelRideAlertTitle" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDCancelRideAlertTitle}']" descriptor="XPATH" />
+			<element name="lbl_PDCancelRideAlertMsg" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDCancelRideAlertMsg}']" descriptor="XPATH" />
+			<element name="btn_PDCancelRideAlertCancled" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDCancelRideAlertCancled}']" descriptor="XPATH" />
+			<element name="btn_PDCancelRideConfirmToCancelled" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDCancelRideConfirmToCancelled}']" descriptor="XPATH" />
+			
+			<!-- Personal Driver Canceled Status in View  KSIVANAN-->
+			<element name="lbl_PDCanceledStatusinView" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIATableCell[3]/UIAStaticText[1]" descriptor="XPATH" />
+			
+			<!-- Personal Driver Completed Status in View  KSIVANAN-->
+			<element name="lbl_PDCanceledStatusinView" value="//*[@text='{token_lbl_Successsubmitsms}']|//UIATableCell[3]/UIAStaticText[1]" descriptor="XPATH" />
+			
+			<!-- Personal Driver Round Trip  KSIVANAN-->
+			<element name="lbl_PDPickUpandReturnLocTitle" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_PDPickUpandReturnLocTitle}']" descriptor="XPATH" />
+			<element name="btn_PDSubmitRoundTrip" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_btn_PDSubmitRoundTrip}']" descriptor="XPATH" />
+			
+			
+			
+
+			<element name= "btn_PDViewReservation" value= "//*[@resource-id='com.lincoln.clutchna:id/pd_view_reservations']|//UIACollectionView[2]/UIACollectionCell[3]/UIAButton[1]"  descriptor="XPATH" />
+			<element name= "btn_PDReservationNow" value= "//*[@resource-id='com.lincoln.clutchna:id/pd_reserve_now_button']|//UIACollectionCell[3]/UIAButton[2]"  descriptor="XPATH" />
+			<element name= "btn_PDPersonalDriverpage" value= "//*[@resource-id='com.lincoln.clutchna:id/personal_driver_landing_image']|(//[@label='{token_btn_PDPersonalDriverpage}'])" descriptor="XPATH" />
+
+			<!-- Personal Driver Create Reservations KSIVANAN-->																	
+																															
+			<element name= "lbl_PDSchePDtitle" value= "//*[@resource-id='{token_ResourceId}/personal_driver_schedule_title']|//UIAScrollView|//*[@label='{token_btn_PDPersonalDriverpage}']" descriptor="XPATH" />
+			<element name= "lbl_PDSdescription" value= "//*[@resource-id='{token_ResourceId}/personal_driver_schedule_description']|(//*[contains(@label,'{token_lbl_PDSdescription}')])" descriptor="XPATH" />
+			<element name= "btn_PDSroundtrip" value= "//*[@resource-id='{token_ResourceId}/personal_driver_landing_round_trip']|//*[@label='{token_btn_PDSroundtrip}']" descriptor="XPATH" />
+			<element name= "btn_PDSOnetrip" value= "//*[@resource-id='{token_ResourceId}/personal_driver_landing_one_way']|//*[@label='{token_btn_PDSOnetrip}']" descriptor="XPATH" />
+			<element name= "lbl_PDdisclimer" value= "//*[@resource-id='{token_ResourceId}/personal_driver_landing_disclaimer']|//*[@label='{token_lbl_PDdisclimer}']" descriptor="XPATH" />
+			<element name= "lbl_Reservationtitle" value= "//*[@resource-id='{token_ResourceId}/personal_driver_landing_reservation_title']|//*[@label='{token_lbl_Reservationtitle}']" descriptor="XPATH" />
+			<element name= "lbl_Reservationdetails" value= "//*[@resource-id='{token_ResourceId}/personal_driver_landing_reservation_text']|//*[@label='{token_lbl_Reservationdetails}']" descriptor="XPATH" />	
+			<element name= "btn_PDViewRervations" value= "//*[@resource-id='{token_ResourceId}/personal_driver_landing_reservation_text']|//*[@label='{token_btn_PDViewRervations}']" descriptor="XPATH" />	
+			
+			
+			<!-- Personal Driver One Way and Round trip KSIVANAN-->
+			
+	
+			<element name="lbl_OnewaySchedule" value="//*[@text='{token_lbl_OnewaySchedule}']|//UIATableCell[2]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_OnewayScheduledesc" value="//*[@text='{token_lbl_OnewayScheduledesc}']|//*[@label='{token_lbl_OnewayScheduledesc}']" descriptor="XPATH" />
+			<element name="lbl_SchedulePkdatetimetitle" value="//*[@text='{token_lbl_SchedulePkdatetimetitle}']|//*[@label='{token_lbl_SchedulePkdatetimetitle}']" descriptor="XPATH" />
+			<element name="lbl_SchedulePkSelect" value="//*[@resource-id='{token_ResourceId}/pd_date_picker/picker_sub_text']|//*[@label='{token_lbl_SchedulePkSelect}']" descriptor="XPATH" />	
+			<element name="lbl_ScheduleDatePkr" value="//*[@resource-id='{token_ResourceId}/pd_time_picker/picker_calender_image']|//UIAPicker[@value='{token_lbl_ScheduleDatePkr}']" descriptor="XPATH" />	
+			<element name="lbl_SchedulePicked" value="//*[@resource-id='{token_ResourceId}/pd_unavailable_info']" descriptor="XPATH" />		
+			<element name="lbl_ReturnDatetime" value="//*[@text='{token_lbl_ReturnDatetime}']|//*[@label='{token_lbl_ReturnDatetime}']" descriptor="XPATH" />	
+			<element name="lbl_ReturnDateSelect" value="//*[@resource-id='{token_ResourceId}/pd_time_picker/picker_sub_text']" descriptor="XPATH" />		
+			<element name="lbl_ReturnChoosedate" value="//*[@resource-id='{token_ResourceId}/pd_time_picker/picker_calender_image']" descriptor="XPATH" />	
+			<element name="lbl_Dateunavailableinfo" value="//*[@resource-id='{token_ResourceId}/pd_unavailable_info']" descriptor="XPATH" />	
+			<element name="lbl_Pickupreturnloctitle" value="//*[@resource-id='{token_ResourceId}/select_location_pick_up_location_title']" descriptor="XPATH" />	
+			<element name="btn_Pickupreturnaddloc" value="//*[@resource-id='{token_ResourceId}/select_location_pick_up_button']" descriptor="XPATH" />	
+		 	<element name="lbl_ContactInfo" value="//*[@resource-id='{token_ResourceId}/pdl_schedule_contact_info_title']" descriptor="XPATH" />	
+			<element name="btn_EditContactInfo" value="//*[@resource-id='{token_ResourceId}/pdl_schedule_contact_info_edit_button']" descriptor="XPATH" />	
+			<element name="btn_PdImpname" value="//*[@resource-id='{token_ResourceId}/pdl_schedule_contact_name']" descriptor="XPATH" />	
+			<element name="lbl_EmailPdImp" value="//*[@resource-id='{token_ResourceId}/pdl_schedule_contact_email']" descriptor="XPATH" />	
+			<element name="btn_ContactphonelPdImp" value="//*[@resource-id='{token_ResourceId}/pdl_schedule_contact_mobile_number']" descriptor="XPATH" />
+			<element name="lbl_PDinstructiontitle" value="//*[@resource-id='{token_ResourceId}/driver_instructions_title']" descriptor="XPATH" />
+			<element name="lbl_PDeditinstruction" value="//*[@resource-id='{token_ResourceId}/driver_instructions_edit_text']" descriptor="XPATH" />
+			<element name="lbl_PDfooter" value="//*[@resource-id='{token_ResourceId}/driver_instructions_footer']" descriptor="XPATH" />
+			<element name="lbl_Estimatecosttitle" value="//*[@resource-id='{token_ResourceId}/estimated_cost_title']" descriptor="XPATH" />
+			<element name="lbl_Estimatecostdes" value="//*[@resource-id='{token_ResourceId}/estimated_cost_description']" descriptor="XPATH" />
+			<element name="btn_EditPaymentmethod" value="//*[@resource-id='{token_ResourceId}/payment_method_edit']" descriptor="XPATH" />
+			<element name="lbl_PaymentmethodInfo" value="//*[@resource-id='{token_ResourceId}/payment_method_card_info']" descriptor="XPATH" />
+			<element name="lbl_PaymentmethodDesc" value="//*[@resource-id='{token_ResourceId}/submit_request_disclaimer']" descriptor="XPATH" />
+			<element name="lbl_PaymenTermsandcond" value="//*[@resource-id='{token_ResourceId}/submit_request_terms_and_conditions']" descriptor="XPATH" />
+			<element name="btn_PaymenSubmit" value="//*[@resource-id='{token_ResourceId}/osb_quote_total_next_button']" descriptor="XPATH" />
+			<element name="lbl_Successsubmitsms" value="//*[@text='{token_lbl_Successsubmitsms}']|//*[@label='{token_lbl_Successsubmitsms}']" descriptor="XPATH" />
+		
+
+
+
+
+<!-- 			<element name="btn_3234" value="//*[@class='android.widget.ImageButton']|//android.widget.ImageButton[1]|//group[1]/group[1]/button[1]" descriptor="XPATH" />
+			<element name="lbl_Glovebox" value="//*[@text='{token_lbl_Glovebox}']|//*[@label='{token_lbl_Glovebox}']" descriptor="XPATH" />
+ -->			
+<!-- 		    <element name="lbl_VehicleAlertsGuide" value="(//*[contains(@text,'{token_lbl_VehicleAlertsGuide}')])|(//*[contains(@label,'{token_lbl_VehicleAlertsGuide}')])" descriptor="XPATH" /> -->
+		    
+		</page>
+	</site>
+</elementDefinition>

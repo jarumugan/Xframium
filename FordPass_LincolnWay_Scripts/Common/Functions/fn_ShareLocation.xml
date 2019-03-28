@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ShareLocation">
+		<description> fn_VerifyPageOpened_ShareLocation - Function to verify user landed on the 'Share Location' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+			<parameter type="STATIC" value="Function's XML file name: fn_ShareLocation.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ShareLocation">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TShareLocation1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="STATIC" value="User successfully landed on 'Share Location' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="STATIC" value="'Share Location' page is not displayed or page title is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_ShareLocation">
+		<description> fn_ValidatePage_ShareLocation - Function to validate the 'Share Location' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+			<parameter type="STATIC" value="Function's XML file name: fn_ShareLocation.xml" />
+		</step>
+		
+		<!-- Page information is split into three on android -->
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ShareLocation" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TShareLocation2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="CONTENT" value="TShareLocation2" />
+				<parameter type="STATIC" value="Above page information is displayed on 'Share Location' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="CONTENT" value="TShareLocation2" />
+					<parameter type="STATIC" value="Above page information is not displayed on 'Share Location' page" />
+				</step>
+			</step>
+			
+			<step type="EXISTS" name="lbl_PageInfo" page="pge_ShareLocation">
+				<token type="CONTENT" name="token_lbl_PageInfo" value="TShareLocation4" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="CONTENT" value="TShareLocation4" />
+					<parameter type="STATIC" value="Above page information is displayed on 'Share Location' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+						<parameter type="CONTENT" value="TShareLocation4" />
+						<parameter type="STATIC" value="Above page information is not displayed on 'Share Location' page" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="EXISTS" name="lbl_PageInfo" page="pge_ShareLocation">
+				<token type="CONTENT" name="token_lbl_PageInfo" value="TShareLocation5" />
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="CONTENT" value="TShareLocation5" />
+					<parameter type="STATIC" value="Above page information is displayed on 'Share Location' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+						<parameter type="CONTENT" value="TShareLocation5" />
+						<parameter type="STATIC" value="Above page information is not displayed on 'Share Location' page" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ShareLocation" os="IOS">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TShareLocation3" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="CONTENT" value="TShareLocation3" />
+				<parameter type="STATIC" value="Above page information is displayed on 'Share Location' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="CONTENT" value="TShareLocation3" />
+					<parameter type="STATIC" value="Above page information is not displayed on 'Share Location' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Allow" page="pge_ShareLocation">
+			<token type="CONTENT" name="token_btn_Allow_AND" value="TShareLocation6_AND" />
+			<token type="CONTENT" name="token_btn_Allow_IOS" value="TShareLocation6_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="STATIC" value="'ALLOW' button is available on 'Share Location' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="STATIC" value="'ALLOW' button is not available on 'Share Location' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_DontAllow" page="pge_ShareLocation">
+			<token type="CONTENT" name="token_btn_DontAllow_AND" value="TShareLocation7_AND" />
+			<token type="CONTENT" name="token_btn_DontAllow_IOS" value="TShareLocation7_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="STATIC" value="'DON'T ALLOW' button is available on 'Share Location' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="STATIC" value="'DON'T ALLOW' button is not available on 'Share Location' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Allow_ShareLocation">
+		<description> fn_Click_Allow_ShareLocation - Function to click 'Allow' button on the 'Share Location' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+			<parameter type="STATIC" value="Function's XML file name: fn_ShareLocation.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Allow" page="pge_ShareLocation">
+			<token type="CONTENT" name="token_btn_Allow_AND" value="TShareLocation6_AND" />
+			<token type="CONTENT" name="token_btn_Allow_IOS" value="TShareLocation6_IOS" />
+			
+			<step type="CLICK" name="btn_Allow" page="pge_ShareLocation" wait="3">
+				<token type="CONTENT" name="token_btn_Allow_AND" value="TShareLocation6_AND" />
+				<token type="CONTENT" name="token_btn_Allow_IOS" value="TShareLocation6_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="STATIC" value="'ALLOW' button is available and clicked on 'Share Location' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="STATIC" value="'ALLOW' button is not available on 'Share Location' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_DontAllow_ShareLocation">
+		<description> fn_Click_DontAllow_ShareLocation - Function to click 'Don't Allow' button on the 'Share Location' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+			<parameter type="STATIC" value="Function's XML file name: fn_ShareLocation.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_DontAllow" page="pge_ShareLocation">
+			<token type="CONTENT" name="token_btn_DontAllow_AND" value="TShareLocation7_AND" />
+			<token type="CONTENT" name="token_btn_DontAllow_IOS" value="TShareLocation7_IOS" />
+			
+			<step type="CLICK" name="btn_DontAllow" page="pge_ShareLocation" wait="3">
+				<token type="CONTENT" name="token_btn_DontAllow_AND" value="TShareLocation7_AND" />
+				<token type="CONTENT" name="token_btn_DontAllow_IOS" value="TShareLocation7_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+				<parameter type="STATIC" value="'DON'T ALLOW' button is available on 'Share Location' page as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ShareLocation">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+					<parameter type="STATIC" value="'DON'T ALLOW' button is not available on 'Share Location' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_AcceptShareLocation">
+		<description> fn_AcceptShareLocation - Function to handles 'Share Location' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ShareLocation">
+			<parameter type="STATIC" value="Function's XML file name: fn_ShareLocation.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ShareLocation" page="pge_ShareLocation" />
+		
+		<step type="COMPARE2" name="STRING" page="pge_ShareLocation" failureMode="IGNORE">
+			<parameter type="DATA" name="Value One" value="TestData.ShareLocation" />
+			<parameter type="STATIC" name="Value Two" value="true" />
+			<parameter type="STATIC" name="Operator" value="EQUALS" />
+			
+			<step type="CALL2" name="fn_Click_Allow_ShareLocation" page="pge_ShareLocation" />
+			
+			<step type="ELSE" name="elseConditions" page="pge_ShareLocation">
+				<step type="CALL2" name="fn_Click_DontAllow_ShareLocation" page="pge_ShareLocation" />
+			</step>
+		</step>	
+	</function>
+</suite>

@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyMaintenanceScheduleLink">
+		<description>fn_VerifyMaintenanceScheduleLink to verify Maintenance Schedule link .  </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_VerifyMaintenanceScheduleLink.xml ***" />
+			<parameter type="CONTENT" value="TMaintenanceSchedule1" />
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_ServiceListDetails" >
+			<parameter type="STATIC" value="50,30" />
+			<parameter type="STATIC" value="50,10" />
+		</step> 
+							
+		<step type="WAIT_FOR" name="lnk_MaintenanceSchedule.VISIBLE" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="10"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND" value="TMaintenanceSchedule2"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_IOS" value="TMaintenanceSchedule1"/>					
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND01" value="TMaintenanceSchedule1"/>
+		</step>
+		
+
+	</function>
+	
+	
+	
+	
+	
+	<function name="fn_ClickMaintenanceScheduleLink">
+		<description>fn_ClickMaintenanceScheduleLink to click on  Maintenance Schedule link .  </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_ClickMaintenanceScheduleLink.xml ***" />
+			<parameter type="CONTENT" value="TMaintenanceSchedule1" />
+		</step>
+	
+		<step type="CLICK" name="lnk_MaintenanceSchedule" page="pge_MaintenanceSchedule">
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND" value="TMaintenanceSchedule2"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_IOS" value="TMaintenanceSchedule1"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND01" value="TMaintenanceSchedule1"/>							
+		</step>
+
+		  <step type="WAIT_FOR" name="lbl_MaintenanceSchedule" page="pge_MaintenanceSchedule">
+					<parameter type="STATIC" value="10"/>  
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND" value="TMaintenanceSchedule2"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_IOS" value="TMaintenanceSchedule1"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND01" value="TMaintenanceSchedule1"/>				
+		</step>	
+	</function>
+
+	<function name="fn_VerifyMaintenanceScheduleTitle">
+		<description>fn_VerifyMaintenanceScheduleTitle - Validate whether maintenance schedule page header is displayed or not </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_MaintenanceSchedule.xml ***" />
+			<parameter type="CONTENT" value="TMaintenanceSchedule2" />
+		</step>
+
+		 <step type="VISIBLE" name="lbl_MaintenanceSchedule" page="pge_MaintenanceSchedule">
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND" value="TMaintenanceSchedule2"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_IOS" value="TMaintenanceSchedule1"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND01" value="TMaintenanceSchedule1"/>		
+			
+		</step>	
+	</function>
+
+	<function name="fn_VerifyMaintenanceSchedule_UpcomingService">
+				<description> fn_VerifyMaintenanceSchedule_UpcomingService --> Verify the details of Maintenance Schedule Page </description>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule" >
+					<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_VerifyMaintenanceSchedule_UpcomingService.xml ***" />
+				</step>		
+
+		   <step type="VISIBLE" name="lbl_UpcomingService" page="pge_MaintenanceSchedule" >
+			<parameter type="STATIC" name="maxScroll" value="10"/>
+			<parameter type="STATIC" name="direction" value="DOWN"/>		
+			<token type="CONTENT" name="token_lbl_UpcomingService" value="TMaintenanceSchedule_UpcomingServices"/>
+			<token type="CONTENT" name="token_lbl_UpcomingService_AND" value="TMaintenanceSchedule_UpcomingServices_AND"/>
+		</step>   
+	</function>
+
+	<function name="fn_Navigate_From_MaintenanceSchedule_To_VehicleDetails">
+		<description> fn_Navigate_From_MaintenanceSchedule_To_VehicleDetails --> Verify one step back navigation to Vehicle Details screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_Navigate_From_MaintenanceSchedule_To_VehicleDetails.xml ***" />
+		</step>	
+			
+		<step type="CLICK" name="btn_Back_ServiceList" page="pge_MaintenanceSchedule">
+			<token type="CONTENT" name="token_btn_Back_ServiceList" value="TAddVinBack_AND"/>
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_MaintenanceSchedule.VISIBLE" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="10"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND" value="TMaintenanceSchedule2"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_IOS" value="TMaintenanceSchedule1"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND01" value="TMaintenanceSchedule1"/>								
+		</step>
+				
+	</function>
+	
+	<function name="fn_Navigate_From_VehicleDetails_To_DashBoard">
+		<description> fn_Navigate_From_VehicleDetails_To_DashBoard --> Verify one step back navigation to DashBoard screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_Navigate_From_VehicleDetails_To_DashBoard.xml ***" />
+		</step>		
+		<step type="CLICK" name="btn_BackFromVehiclesToDasboard" page="pge_MaintenanceSchedule">
+		
+		 <step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+				<parameter type="STATIC" value="20" />
+				<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="User successfully landed on dashboard page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>				
+	</function>
+	
+	<function name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule">
+		<description> fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule --> Navigate_From_ServiceListDetail_To_MaintenanceSchedule </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_MaintenanceSchedule.xml ***" />
+		</step>	
+		
+		<step type="CLICK" name="btn_Back_ServiceList" page="pge_MaintenanceSchedule">
+			<token type="CONTENT" name="token_btn_Back_ServiceList" value="TAddVinBack_AND"/>
+		</step>
+		
+		 <step type="WAIT_FOR" name="lbl_MaintenanceSchedule" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="10"/>  
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND" value="TMaintenanceSchedule2"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_IOS" value="TMaintenanceSchedule1"/>
+			<token type="CONTENT" name="token_lnk_MaintenanceSchedule_AND01" value="TMaintenanceSchedule1"/>			
+		</step> 
+		
+		<step type="WAIT" name="hard wait for 5 sec" page="pge_MaintenanceSchedule">
+			<parameter type="STATIC" value="5" />
+		</step>
+		
+	</function>
+
+	<function name="fn_ValidateMaintenanceSchedulePage">
+		<description> fn_ValidateMaintenanceSchedulePage --> Verify the details of Maintenance Schedule Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_MaintenanceSchedule.xml ***" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+				<parameter type="STATIC" value="50,10" />
+				<parameter type="STATIC" value= "50,30"/>
+		</step>	
+		
+		<!-- ### The following steps will verify the 5000 miles service Service Package and also verify the check up details for this milestone ### -->
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-CN-EN,FP-SA">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage00"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage00"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage00"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />		
+			</step>	
+			
+	<!-- ### The following steps will verify the 10000 miles service Service Package and also verify the check up details for this milestone ### -->
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage01"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage01"/>
+				</step>
+				<step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage01"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			</step>	
+		<!-- ### The following steps will verify the 20000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage02"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage02"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage02"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+
+		<!-- ### The following steps will verify the 30000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage03"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage03"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage03"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			
+		<!-- ### The following steps will verify the 40000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage04"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage04"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage04"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+				
+		<!-- ### The following steps will verify the 50000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage05"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage05"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage05"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			
+		<!-- ### The following steps will verify the 60000 miles service Service Package and also verify the check up details for this milestone ### -->
+			  <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage06"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage06"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage06"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			
+		<!-- ### The following steps will verify the 70000 miles service Service Package and also verify the check up details for this milestone ### -->
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage07"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage07"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage07"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />						
+			</step>				
+		<!-- ### The following steps will verify the 80000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage08"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage08"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage08"/>
+			</step>	
+					
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			
+		<!-- ### The following steps will verify the 90000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage09"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage09"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage09"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+		 	
+			
+		<!-- ### The following steps will verify the 100000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage10"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage10"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage10"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+		 	
+			
+		<!-- ### The following steps will verify the 110000 miles service Service Package and also verify the check up details for this milestone ### -->
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage11"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage11"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage11"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step>			 	
+		 	
+
+		<!-- ### The following steps will verify the 120000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage12"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage12"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage12"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+		 	
+			
+		<!-- ### The following steps will verify the 130000 miles service Service Package and also verify the check up details for this milestone ### -->
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage13"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage13"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage13"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step>			 		
+						
+		<!-- ### The following steps will verify the 140000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage14"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage14"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage14"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+		 	
+		
+		
+		<!-- ### The following steps will verify the 150000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage15"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage15"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage15"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+		 		
+			
+		<!-- ### The following steps will verify the 160000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage16"/>
+		
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage16"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage16"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step> 	
+			
+		<!-- ### The following steps will verify the 170000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage17"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage17"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage17"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step>	
+		 		
+			
+		<!-- ### The following steps will verify the 180000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage18"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage18"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage18"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step>	
+		
+		<!-- ### The following steps will verify the 190000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage19"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage19"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage19"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step>			 				
+		<!-- ### The following steps will verify the 200000 miles service Service Package and also verify the check up details for this milestone ### -->
+			 <step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" tagNames="FP-SA">
+			 	 <parameter type="STATIC" name="maxScroll" value="2" />
+				 <parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage20"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage20"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage20"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />					
+			</step>		 																									
+	</function>
+	
+
+
+	<!-- ############################################################################################################# -->
+			<!-- SAUDI - This function to Verify the 'Maintanace Serviece Package details -->
+	<!-- ############################################################################################################# -->	
+	
+	<function name="fn_ValidateMaintenanceSchedulePage_China">
+		<description> fn_ValidateMaintenanceSchedulePage --> Verify the details of Maintenance Schedule Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_MaintenanceSchedule" >
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_MaintenanceSchedule.xml ***" />
+		</step>
+        
+<!-- 		<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" os="IOS">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage00"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage00"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage00"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			</step>	 -->
+
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage01"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage01"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage01"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+								
+
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage02"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage02"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage02"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+					
+					
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage03"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage03"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage03"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage04"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage04"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage04"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage05"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage05"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage05"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+	         	<parameter type="STATIC" name="From Position" value="50,70" />
+	            <parameter type="STATIC" name="To Position" value="50,10" />                        
+	        </step>
+		
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3" >
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage06"/>
+				<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" failureMode="IGNORE">
+					<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage06"/>
+				</step>
+				 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule" failureMode="IGNORE">
+					<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage06"/>
+				</step>	
+				<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+			</step>	
+
+          	
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage07"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage07"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage07"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+	
+							
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage08"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage08"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage08"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage09"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage09"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage09"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+	         	<parameter type="STATIC" name="From Position" value="50,70" />
+	            <parameter type="STATIC" name="To Position" value="50,10" />                        
+	        </step>						
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage10"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage10"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage10"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+				
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage11"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage11"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage11"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+
+				
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage12"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage12"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage12"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			<step name="SWIPE" page="pge_MaintenanceSchedule" type="GESTURE">
+			  <parameter type="STATIC" name="Direction" value="UP"/>
+			</step>			
+	        
+	        		
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage13"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage13"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage13"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />		
+			<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+	         	<parameter type="STATIC" name="From Position" value="50,70" />
+	            <parameter type="STATIC" name="To Position" value="50,10" />                        
+	        </step>
+	        									
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage14"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage14"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage14"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" /> 				
+			<step name="SWIPE" page="pge_MaintenanceSchedule" type="GESTURE">
+			  <parameter type="STATIC" name="Direction" value="UP"/>
+			</step>
+			
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage15"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage15"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage15"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+	 
+		 				
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage16"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage16"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage16"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage17"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage17"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage17"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+	         	<parameter type="STATIC" name="From Position" value="50,70" />
+	            <parameter type="STATIC" name="To Position" value="50,10" />                        
+	        </step>	
+	        			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage18"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage18"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage18"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+						
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage19"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage19"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage19"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage20"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage20"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage20"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+	
+        
+	        
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage21"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage21"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage21"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+	         	<parameter type="STATIC" name="From Position" value="50,70" />
+	            <parameter type="STATIC" name="To Position" value="50,10" />                        
+	        </step>	
+	        
+	        			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage22"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage22"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage22"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage23"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage23"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage23"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+	
+					
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage24"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage24"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage24"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage25"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage25"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage25"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+				<step type="GESTURE" name="SWIPE" page="pge_MaintenanceSchedule">
+	         	<parameter type="STATIC" name="From Position" value="50,70" />
+	            <parameter type="STATIC" name="To Position" value="50,10" />                        
+	        </step>							
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage26"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage26"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage26"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+						
+			
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage27"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage27"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage27"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+			<step name="SWIPE" page="pge_MaintenanceSchedule" type="GESTURE">
+			  <parameter type="STATIC" name="Direction" value="UP"/>
+			</step>	
+									
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage28"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage28"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage28"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />	
+
+
+			<step type="VISIBLE" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule" wait="3">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage29"/>
+			</step>	
+			<step type="CLICK" name="lnk_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lnk_ServicePackage1" value="TMaintenanceSchedule_ServicePackage29"/>
+			</step>
+			 <step type="VISIBLE" name="lbl_ServicePackage1" page="pge_MaintenanceSchedule">
+				<token type="CONTENT" name="token_lbl_ServicePackage1" value="TMaintenanceSchedule_ServicePackage29"/>
+			</step>	
+			<step type="CALL2" name="fn_Navigate_From_ServiceListDetail_To_MaintenanceSchedule" page="pge_MaintenanceSchedule" />
+
+			
+																						
+	</function>	
+	
+<!-- ///////////////////////////////End Seshu//////////////////////////////////////////////////// -->
+
+
+
+	
+</suite>

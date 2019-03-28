@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_AddCard">
+		<description>fn_VerifyPageOpened_AddCard - Function to verify user landed on the 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageTitle" page="pge_AddCard" >
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageTitle" value="TAddCard1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="User successfully landed on 'Addcard Info' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'AddCard Info' page is not displayed or page header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_AddCard">
+		<description> fn_ValidatePage_AddCard - Function to validate 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_CardInfo" page="pge_AddCard" tagNames="FP-NA">
+			<token type="CONTENT" name="token_lbl_CardInfo_AND" value="TAddCard2_AND" />
+			<token type="CONTENT" name="token_lbl_CardInfo_IOS" value="TAddCard2_IOS" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard2_AND" />
+				<parameter type="CONTENT" value="TAddCard2_IOS" />
+				<parameter type="STATIC" value="Above text is displayed as page information on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard2_AND" />
+					<parameter type="CONTENT" value="TAddCard2_IOS" />
+					<parameter type="STATIC" value="Above text is not displayed as page information on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_BillingInfo" page="pge_AddCard" tagNames="FP-NA">
+			<token type="CONTENT" name="token_lbl_BillingInfo" value="TAddCard7" />
+	
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard7" />
+				<parameter type="STATIC" value="Above text is displayed as page information on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard7" />
+					<parameter type="STATIC" value="Above text is not displayed as page information on 'Enter Address' page" />
+				</step>
+			</step>
+			</step>
+	
+
+		<step type="EXISTS" name="lbl_PrimaryAddress" page="pge_AddCard" tagNames="FP-NA" >
+			<token type="CONTENT" name="token_lbl_PrimaryAddress" value="TAddCard8" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Primary Address' section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Primary Address' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Use" page="pge_AddCard" tagNames="FP-NA">
+		<token type="CONTENT" name="token_lnk_Use" value="TAddCard9" />
+		
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Use Link'section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Use Link' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_DefaultPayment" page="pge_AddCard" tagNames="FP-NA">
+			<parameter type="STATIC" name="maxScroll" value="5" /> 
+			<parameter type="STATIC" name="direction" value="UP" /> 
+		<token type="CONTENT" name="token_lbl_DefaultPayment" value="TAddCard17" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Default Payment 'section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Default Payment' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+<!-- 		<step type="CALL2" name="fn_ValidateAddCard_SaveButtonStatus" page="pge_AddCard"> -->
+<!-- 			<parameter type="STATIC" name="param_ExpectedStatus" value="false" /> -->
+<!-- 		</step> -->
+		
+
+		
+		<step type="EXISTS" name="lbl_Note" page="pge_AddCard" tagNames="FP-NA">
+<!-- 			<parameter type="STATIC" name="maxScroll" value="2" />  -->
+<!-- 			<parameter type="STATIC" name="direction" value="UP" />  -->
+			<token type="CONTENT" name="token_lbl_Note" value="TAddCard18" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Note' section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Note' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_NoteDesc" page="pge_AddCard" tagNames="FP-NA">
+			<token type="CONTENT" name="token_lbl_NoteDesc" value="TAddCard19" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard19" />
+				<parameter type="STATIC" value="Above description text displayed on Note section as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard19" />
+					<parameter type="STATIC" value="Above description text is not displayed on Note section on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Activate" page="pge_AddCard" tagNames="FP-CN">
+			<token type="CONTENT" name="token_btn_Activate" value="TAddCard20" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard20" />
+				<parameter type="STATIC" value="Activate button displayed on Add Card page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard20" />
+					<parameter type="STATIC" value="Activate button not displayed on Add Card page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_DirectPayment" page="pge_AddCard" tagNames="FP-CN">
+			<token type="CONTENT" name="token_lbl_DirectPayment" value="TAddCard21" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard21" />
+				<parameter type="STATIC" value="Direct Payment label displayed on Add Card page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard21" />
+					<parameter type="STATIC" value="Direct Payment label not displayed on Add Card page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_AvailableBanks" page="pge_AddCard" tagNames="FP-CN">
+			<token type="CONTENT" name="token_lnk_AvailableBanks" value="TAddCard22" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard22" />
+				<parameter type="STATIC" value="Available banks link displayed on Add Card page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard22" />
+					<parameter type="STATIC" value="Available banks link not displayed on Add Card page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_CardNumber" page="pge_AddCard" tagNames="FP-CN">
+			<token type="CONTENT" name="token_lbl_CardNumber" value="TAddCard23" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard23" />
+				<parameter type="STATIC" value="Card Number label is displayed on Add Card page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard23" />
+					<parameter type="STATIC" value="Card Number label  not displayed on Add Card page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_AddCard" tagNames="FP-CN">
+			<token type="CONTENT" name="token_btn_Next" value="TAddCard24" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTENT" value="TAddCard24" />
+				<parameter type="STATIC" value="Next button is displayed on Add Card page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTENT" value="TAddCard24" />
+					<parameter type="STATIC" value="Next Button is  not displayed on Add Card page" />
+				</step>
+			</step>
+		</step>
+		
+		
+		
+</function>	
+	
+	
+	<function name="fn_InputAllFields_AddCard">
+		<description> fn_InputAllFields_AddCard - Function to input value to all fields in AddCard page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+<!-- 		<step type="VISIBLE" name="lbl_PageTitle" page="pge_AddCard" > -->
+<!-- 			<parameter type="STATIC" name="maxScroll" value="5" />  -->
+<!-- 			<parameter type="STATIC" name="direction" value="DOWN" />  -->
+<!-- 			<token type="CONTENT" name="token_lbl_PageTitle" value="TAddCard1" /> -->
+<!-- 		</step> -->
+					
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" tagNames="FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard3" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard3" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.CardholderName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" tagNames="FP-NA,FP-CN" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard4" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard4" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.CreditcardNumber" />
+		</step>
+		
+			<step type="CALL2" name="fn_ClickNext_Keyboard" page="pge_CommonReusable" tagNames="FP-CN" />
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" os="IOS" tagNames="FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard5" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard5" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.ExpirationDateIOS" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Date" page="pge_AddCard" os="ANDROID" tagNames="FP-NA">
+			<parameter type="DATA" name="param_DataValue" value="TestData.ExpirationDateAND" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" os="IOS" tagNames="FP-CN">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard5" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard5" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.ExpirationDate" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" tagNames="FP-NA,FP-CN" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard6" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard6" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.CVN" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" tagNames="FP-CN" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard24" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard24" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.MobileNo" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_AddCard_Fields" page="pge_AddCard" tagNames="FP-CN" >
+			<parameter type="CONTENT" name="param_AndroidToken" value="TAddCard25" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TAddCard25" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.SmsCode" />
+		</step>
+		
+		
+		
+		
+		
+			
+	</function>
+	
+	<function name="fn_ValidateInput_AddCard_Fields">
+		<description> fn_ValidateInput_AddCard_Fields - Function to validate and input/set the fields with user given value on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_AddCard" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_AddCard" />
+		</step>
+		
+		<!-- below lines are commented because not used for editing/inputting -->
+<!-- 		<step type="STRING2" name="upper" page="pge_AddCard" context="str_UpperCaseConverted"> -->
+<!-- 			<parameter type="CONTEXT" name="Original Value" value="param_DataValue" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="COMPARE2" name="STRING" page="pge_AddCard" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!-- 			<parameter type="STATIC" name="Value Two" value="" /> -->
+<!-- 			<parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard"> -->
+<!-- 				<parameter type="CONTEXT" value="param_AndroidToken" /> -->
+<!-- 				<parameter type="STATIC" value="No changes made to the above Enter Address page field" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_AddCard"> -->
+				<step type="SET" name="edt_AddCardField" page="pge_AddCard" wait="3">
+					<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+					<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+					<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+					<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+					<parameter type="STATIC" value="Above Enter Address page field is inputted with the below value" />
+					<parameter type="CONTEXT" value="param_DataValue" />
+				</step>
+<!-- 			</step> -->
+<!-- 		</step>		 -->
+	</function>
+
+	<function name="fn_MoveTo_SpecificField_AddCard">
+		<description> fn_MoveTo_SpecificField_AddCard - Function to move to specific field on Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="DEVICE" name="HIDE_KEYBOARD" site="FordPass" page="pge_CommonReusable" os="ANDROID" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="edt_AddCardField" page="pge_AddCard" failureMode="IGNORE" os="ANDROID">
+			<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="Above field is available on Enter Address page along with its expected label and Textfield" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - Object appears" page="pge_AddCard" failureMode="IGNORE" />
+			
+			<step type="BREAK" name="Object appears successfully" page="pge_AddCard" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+					<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="edt_AddCardField.VISIBLE" page="pge_AddCard" failureMode="IGNORE" os="IOS">
+			<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="Above field is available on Enter Address page along with its expected label and Textfield" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - Object appears" page="pge_AddCard" failureMode="IGNORE" />
+			
+			<step type="BREAK" name="Object appears successfully" page="pge_AddCard" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+					<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidateAddCard_SaveButtonStatus">
+		<description> fn_ValidateAddCard_SaveButtonStatus - Function to validate/check the status of Save button on 'AddCard' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID" />		
+		
+		<step type="VISIBLE" name="btn_Save" page="pge_AddCard" failureMode="IGNORE" >
+			<parameter type="STATIC" name="maxScroll" value="6" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Save_AND" value="TAddCard19_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TAddCard19_IOS" />
+		</step>
+			
+			<step type="ATTRIBUTE" name="btn_Save" page="pge_AddCard">
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				<parameter type="STATIC" value="enabled" />
+				<token type="CONTENT" name="token_btn_Save_AND" value="TAddCard19_AND" />
+				<token type="CONTENT" name="token_btn_Save_IOS" value="TAddCard19_IOS" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+					<parameter type="STATIC" value="'Save' button's enabled property value as expected on 'Enter Address' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_AddCard">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+						<parameter type="CONTEXT" value="param_ExpectedStatus" />
+						<parameter type="STATIC" value="'Save' button's enabled property value not as expected on 'Enter Address' page" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Save' button is not available on 'Enter Address' page" />
+				</step>
+			</step>
+	
+	</function>
+
+	<function name="fn_ClickAddCard_Next">
+		<description> fn_ClickAddCard_Next - Function to click Next button on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateAddCard_NextButtonStatus" page="pge_AddCard">
+			<parameter type="STATIC" name="param_ExpectedStatus" value="true" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_AddCard">
+			<token type="CONTENT" name="token_btn_Next_AND" value="TAddCard12_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TAddCard12_IOS" />
+			
+			<step type="CLICK" name="btn_Next" page="pge_AddCard" wait="3">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TAddCard12_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TAddCard12_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Next' button is available and clicked on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Next' button is not available on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckforInlineError_AddCard">
+		<description> fn_CheckforInlineError_AddCard - Function to validate for Inline error message displayed next to field in Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID"/>
+		
+		<step type="STATE" name="Dummy State - Check for Inline error" page="pge_AddCard" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_AddCard">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message displayed bottom of the field as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed botton of the field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckNotExist_InlineError_AddCard">
+		<description> fn_CheckNotExist_InlineError_AddCard - Function to validate for Inline error message is not displayed next to field in Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID"/>
+		
+		<step type="STATE" name="Dummy State - Check for Inline error not exists" page="pge_AddCard" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_AddCard" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message is displayed bottom to the field but it should not" />
+			</step>
+			
+			<!-- stop the execution -->
+			<step type="FLOW" name="END_FAILURE" page="pge_AddCard" failureMode="ERROR"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateFieldsWithExpectedValue_AddCard">
+		<description> fn_ValidateFieldsWithExpectedValue_AddCard - Function to validate whether expected values are pre-filled on the Enter Address page fields </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_AddCard" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_AddCard" />
+		</step>
+		
+		<step type="EXISTS" name="edt_AddCardField" page="pge_AddCard">
+			<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+			
+			<step type="ATTRIBUTE" name="edt_AddCardField" page="pge_AddCard">
+				<parameter type="CONTEXT" value="param_ExpectedValue" />
+				<parameter type="STATIC" value="text" />
+				<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+				<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_ExpectedValue" />
+					<parameter type="STATIC" value="Above expected value is available on the below field" />
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_AddCard">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+						<parameter type="CONTEXT" value="param_ExpectedValue" />
+						<parameter type="STATIC" value="Above expected value is not available on the below field" />
+						<parameter type="CONTEXT" value="param_AndroidToken" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+					<parameter type="STATIC" value="Above mentioned field is not available on the Enter Address field" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	<function name="fn_FieldLevelValidate_AddCard">
+		<description> fn_FieldLevelValidate_AddCard - Function to validate and input/set the fields with user given value on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_AddCard" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_AddCard" />
+		</step>
+		
+		<!-- below lines are commented because not used for editing/inputting -->
+<!-- 		<step type="STRING2" name="upper" page="pge_AddCard" context="str_UpperCaseConverted"> -->
+<!-- 			<parameter type="CONTEXT" name="Original Value" value="param_DataValue" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="COMPARE2" name="STRING" page="pge_AddCard" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!-- 			<parameter type="STATIC" name="Value Two" value="" /> -->
+<!-- 			<parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard"> -->
+<!-- 				<parameter type="CONTEXT" value="param_AndroidToken" /> -->
+<!-- 				<parameter type="STATIC" value="No changes made to the above Enter Address page field" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_AddCard"> -->
+				<step type="CLICK" name="edt_AddCardField" page="pge_AddCard" wait="3">
+					<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+					<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+				</step>
+				
+				<step type="SET" name="edt_AddCardField" page="pge_AddCard" wait="3">
+					<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+					<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+					<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+					<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+					<parameter type="STATIC" value="Above Enter Address page field is inputted with the below value" />
+					<parameter type="CONTEXT" value="param_DataValue" />
+				</step>
+<!-- 			</step> -->
+<!-- 		</step>		 -->
+	</function>
+	
+	<function name="fn_Click_PreviousTextField">
+		<description> fn_Click_PreviousTextField - Function to click on previous text field when the current field having only Number keyboard on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+	
+		<step type="EXISTS" name="edt_PreviousTextField" page="pge_AddCard">
+			<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+			
+			<step type="CLICK" name="edt_PreviousTextField" page="pge_AddCard">
+				<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/>
+				<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/>
+			</step>
+		</step>		
+	</function>
+	
+	<function name="fn_ClickAddCard_Save">
+		<description> fn_ClickAddCard_Save - Function to click Save button on 'AddCard' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+				
+			
+			<step type="CLICK" name="btn_Save" page="pge_AddCard" wait="3">
+				<token type="CONTENT" name="token_btn_Save_AND" value="TAddCard19_AND" />
+				<token type="CONTENT" name="token_btn_Save_IOS" value="TAddCard19_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Save' button is available and clicked on 'AddCard' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Save' button is not available on 'AddCard' page" />
+				</step>
+			</step>
+	</function>
+	
+
+	
+	<function name="fn_ValidateInput_AddCard_Fields_Date">
+		<description> fn_ValidateInput_AddCard_Fields_Date - Function to validate and input/set the fields with user given value on 'AddCard' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_AddCard" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_AddCard" />
+		</step>
+		
+		<step type="CALL2" name="fn_Verify_CalendarImage" page="pge_AddCard">
+		
+			</step>
+		
+<!-- 		<step type="SET" name="edt_AddCardField" page="pge_AddCard" wait="3"> -->
+<!-- 					<parameter type="CONTEXT" name="value to set" value="param_DataValue" /> -->
+<!-- 					<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" /> -->
+<!-- 					<token type="CONTEXT" name="token_edt_AddCardField_AND" value="param_AndroidToken"/> -->
+<!-- 					<token type="CONTEXT" name="token_edt_AddCardField_IOS" value="param_iOSToken"/> -->
+<!-- 				</step> -->
+				
+<!-- 				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard"> -->
+<!-- 					<parameter type="CONTEXT" value="param_AndroidToken" /> -->
+<!-- 					<parameter type="STATIC" value="Above Enter Address page field is inputted with the below value" /> -->
+<!-- 					<parameter type="CONTEXT" value="param_DataValue" /> -->
+<!-- 				</step> -->
+		
+		
+		<!-- To set the Listbox/Dropdown value by CLICK method in ANDROID -->
+				<step type="VISIBLE" name="lst_date" page="pge_AddCard" os="ANDROID" >
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Date' is EXISTS on the Page" />
+					</step>
+				</step>
+					
+				<step type="EXISTS" name="lst_date" page="pge_AddCard"  >
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Date' is EXISTS on the Page" />
+				</step>
+				
+				
+					<step type="STATE" name="Dummy State - Date validation" page="pge_AddCard" failureMode="IGNORE" />
+					
+					<step type="CLICK" name="lst_date" page="pge_AddCard">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+						<parameter type="STATIC" value="'Date' is EXISTS on the Page" />
+				</step>
+				
+					<step type="STATE" name="Dummy State - Date validation" page="pge_AddCard" failureMode="IGNORE" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+						<parameter type="STATIC" value="Above value is available and selected in 'date' dropdown/listbox field on Edit Profile page" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_AddCard">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+							<parameter type="STATIC" value="Above value is not available on 'date' dropdown/listbox field on AddCard page" />
+						</step>
+					</step>
+					
+					
+				</step>
+		</step>
+	</function>
+	
+	<function name="fn_Verify_CalendarImage">
+	<description> fn_Verify_CalendarImage: To verify the 'CalendarImage' Presence  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard" >
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>		
+		<step type="EXISTS" name="img_Calendar" page="pge_AddCard">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar image' is EXISTS on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AddCard">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar image' is NOT EXISTS on the Page" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Calendar" page="pge_AddCard">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar button' is EXISTS on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AddCard">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar button' is NOT EXISTS on the Page" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="CLICK" name="btn_Calendar" page="pge_AddCard">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar button' is clicked on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AddCard">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar image' is NOT clicked on the Page" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateInput_AddCard_Date">
+		<description> fn_ValidateInput_AddCard_Date - Function to validate and set the value to Date field on AddCard page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+<!-- 		<step type="COMPARE2" name="STRING" page="pge_EditProfile" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!-- 			<parameter type="STATIC" name="Value Two" value="" /> -->
+<!-- 			<parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+		
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EditProfile"> -->
+<!-- 				<parameter type="STATIC" value="No changed made to the 'State' field on Edit Profile page" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_EditProfile"> -->
+				<step type="EXISTS" name="edt_date" page="pge_AddCard">
+					<token type="CONTENT" name="token_edt_date" value="TAddCard5" />
+					
+					<step type="CLICK" name="edt_date" page="pge_AddCard" wait="5">
+						<token type="CONTENT" name="token_edt_date" value="TAddCard5" />
+					</step>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+						<parameter type="STATIC" value="'date' field is available and clicked on AddCard page" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_AddCard">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+							<parameter type="STATIC" value="'date' field is available and clicked on AddCard page" />
+						</step>
+						
+						<step type="FLOW" name="END_FAILURE" page="pge_AddCard" failureMode="ERROR" />
+					</step>
+				</step>
+				
+				<step type="EXISTS" name="img_Calendar" page="pge_AddCard">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar image' is EXISTS on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AddCard">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar image' is NOT EXISTS on the Page" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Calendar" page="pge_AddCard">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar button' is EXISTS on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AddCard">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar button' is NOT EXISTS on the Page" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="CLICK" name="btn_Calendar" page="pge_AddCard">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar button' is clicked on the Page" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_AddCard">						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Calendar image' is NOT clicked on the Page" />
+			</step>
+		</step>
+		</step>
+				
+<!-- 				To set the pickerwheel value by SET method  -->
+<!-- 				<step type="SET" name="lst_date" page="pge_AddCard" wait="2"> -->
+<!-- 					<parameter type="DATA" name="Value to Set" value="TestData.ExpirationDateAND" /> -->
+<!-- 					<token type="DATA" name="token_lst_date" value="TestData.ExpirationDateAND" /> -->
+					
+<!-- 					<step type="ATTRIBUTE" name="lst_date" page="pge_AddCard"> -->
+<!-- 						<parameter type="DATA" value="TestData.ExpirationDateAND" /> -->
+<!-- 						<parameter type="STATIC" value="value" /> -->
+<!-- 						<token type="DATA" name="lst_date" value="TestData.ExpirationDateAND" /> -->
+						
+<!-- 						<step type="STATE" name="Dummy State - date validation" page="pge_AddCard" failureMode="IGNORE" />  -->
+						
+<!-- 						<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard"> -->
+<!-- 							<parameter type="DATA" value="TestData.ExpirationDateAND" /> -->
+<!-- 							<parameter type="STATIC" value="Above value is available and selected successfully in 'date' dropdown/listbox field on AddCard page" /> -->
+<!-- 						</step> -->
+						
+<!-- 						To click on Ok link on top of Pickerwheel (iOS) -->
+<!-- 						<step type="CLICK" name="lnk_OK" page="pge_AddCard"  wait="5"/> -->
+<!-- 					</step> -->
+					
+<!-- 					<step type="ELSE" name="elseCondition" page="pge_AddCard"> -->
+<!-- 						<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard"> -->
+<!-- 							<parameter type="DATA" value="TestData.ExpirationDateAND" /> -->
+<!-- 							<parameter type="STATIC" value="Above value is not available on 'date' dropdown/listbox field on AddCard page" /> -->
+<!-- 						</step> -->
+						
+<!-- 						<step type="FLOW" name="END_FAILURE" page="pge_AddCard" failureMode="ERROR" /> -->
+<!-- 					</step> -->
+<!-- 				</step> -->
+					
+				<!-- To set the Listbox/Dropdown value by CLICK method in ANDROID -->
+<!-- 				<step type="VISIBLE" name="lst_date" page="pge_AddCard" os="ANDROID" failureMode="IGNORE"> -->
+<!-- 					<token type="DATA" name="lst_date" value="TestData.ExpirationDateAND" /> -->
+<!-- 				</step> -->
+					
+				<step type="EXISTS" name="lst_date" page="pge_AddCard" os="ANDROID" >
+					<token type="DATA" name="lst_date" value="TestData.ExpirationDateAND" />
+				
+					<step type="STATE" name="Dummy State - date validation" page="pge_AddCard" failureMode="IGNORE" />
+					
+					<step type="CLICK" name="lst_date" page="pge_AddCard">
+						<token type="DATA" name="lst_date" value="TestData.ExpirationDateAND" />
+					</step>
+					
+					<step type="STATE" name="Dummy State - date validation" page="pge_AddCard" failureMode="IGNORE" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+						<parameter type="DATA" value="TestData.ExpirationDateAND" />
+						<parameter type="STATIC" value="Above value is available and selected in 'date' dropdown/listbox field on AddCard page" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_AddCard">
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+							<parameter type="DATA" value="TestData.ExpirationDateAND" />
+							<parameter type="STATIC" value="Above value is not available on 'date' dropdown/listbox field on AddCard page" />
+						</step>
+					</step>
+				</step>
+				
+				<step type="CLICK" name="lnk_OK" page="pge_AddCard"  wait="5"/> 
+					
+	</function>
+	
+	<function name="fn_ClickAddCard_Use">
+		<description> fn_ClickAddCard_Use - Function to click Use link on 'AddCard' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddCard.xml" />
+		</step>
+		
+			
+			<step type="CLICK" name="lnk_Use" page="pge_AddCard" wait="3">
+				<token type="CONTENT" name="token_lnk_Use" value="TAddCard9" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+				<parameter type="STATIC" value="'Use' link is available and clicked on 'AddCard' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddCard">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+					<parameter type="STATIC" value="'Use' link is not available on 'AddCard' page" />
+				</step>
+			</step>
+		
+	</function>
+	
+	
+	
+	
+	
+</suite>

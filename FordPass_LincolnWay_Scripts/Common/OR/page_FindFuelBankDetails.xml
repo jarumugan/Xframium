@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindFuelBankDetails" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lbl_FuelDirections" value="//*[@text='{token_lbl_FuelDirections}']/parent::android.view.ViewGroup|//*[@label='{token_lbl_FuelDirections}']/parent::UIATableCell" descriptor="XPATH" />
+			<element name="lbl_FuelCall" value="//*[contains(@text,'{token_lbl_FuelCall}')]/parent::android.view.ViewGroup|//*[contains(@label,'{token_lbl_FuelCall}')]/parent::UIATableCell" descriptor="XPATH" />
+			<element name="lbl_FuelPricing" value="//*[@text='{token_lbl_FuelPricing}']|//*[@label='{token_lbl_FuelPricing}']" descriptor="XPATH" />
+			<element name="lbl_FuelTypeDetails" value="//*[@text='{token_lbl_FuelType}']/following-sibling::*[contains(@text,'{token_lbl_FuelCurrency}')]|//*[@label='{token_lbl_FuelType}']/following-sibling::*[contains(@label,'{token_lbl_FuelCurrency}')]" descriptor="XPATH" />
+						
+			<element name="lbl_FuelType" value="//*[@text='Fuel Pricing']/following::android.view.ViewGroup[{token_FuelPriceIndex}]/android.widget.TextView[1]|//*[@label='Fuel Pricing']/following::UIATableCell[{token_FuelPriceIndex}]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_FuelPriceDate" value="//*[@text='{token_lbl_FuelType}']/following-sibling::android.widget.TextView[1]|//*[@label='{token_lbl_FuelType}']/following-sibling::UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_FuelPrice" value="//*[@text='{token_lbl_FuelType}']/following-sibling::android.widget.TextView[2]|//*[@label='{token_lbl_FuelType}']/following-sibling::UIAStaticText[2]" descriptor="XPATH" />
+			<element name="lbl_PriceHeader" value="//*[contains(@resource-id,'toolbar')]/preceding::android.widget.ImageView[1]/preceding-sibling::android.widget.TextView|//*[contains(@name,'Mobility')]/following::UIAStaticText[1]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

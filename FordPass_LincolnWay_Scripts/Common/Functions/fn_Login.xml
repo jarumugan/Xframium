@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_Login">
+		<description> fn_VerifyPageOpened_Login - Function to verify user landed on the Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_Login.xml" />
+		</step>
+		
+		<step type="STATE" name="Screenshot - FordPass Login page" page="pge_Login" failureMode="IGNORE"/>
+		
+		<step type="WAIT_FOR" name="btn_Login" page="pge_Login">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_btn_Login_AND" value="TLogin3_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TLogin3_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="User successfully landed on Login page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Login page" page="pge_Login" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="Login page is not opened or Login button is not as disabled" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_Login">
+		<description> fn_ValidatePage_Login - Function to validate the Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_Login.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_Login">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TLogin5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="CONTENT" value="TLogin5" />
+				<parameter type="STATIC" value="Above text is displayed as page info on Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="CONTENT" value="TLogin5" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" />
+		
+		<step type="STATE" name="Screenshot - Login page taken for validation" page="pge_Login" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="edt_UserName" page="pge_Login">
+			<token type="CONTENT" name="token_edt_UserName" value="TLogin1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Username' field is available on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Username' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="edt_Password" page="pge_Login">
+			<token type="CONTENT" name="token_edt_Password" value="TLogin2"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Password' field is available on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Password' field is not available on the Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="img_PasswordMask" page="pge_Login" os="ANDROID">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="Eye icon is available on 'Password' field" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="Eye icon is not available on 'Password' field" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_ForgotPassword" page="pge_Login">
+			<token type="CONTENT" name="token_lnk_ForgotPassword" value="TLogin6" />
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Forgot?' link is available on 'Password' field" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Forgot?' link is not available on 'Password' field" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Login_Disabled" page="pge_Login" >
+			<token type="CONTENT" name="token_btn_Login_AND" value="TLogin3_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TLogin3_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Login' button is available/disabled on the Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Login' button is not available/disabled on the Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="btn_CreateAccount" page="pge_Login">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_CreateAccount_AND" value="TLogin4_AND"/>
+			<token type="CONTENT" name="token_btn_CreateAccount_IOS" value="TLogin4_IOS"/>
+
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Create Account' button is available on Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Create Account' button is not available on Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Login_Parameterized">
+		<description> fn_Login_Parameterized - Enter the user name, password --> Click Login --> Verify Create PIN screen is displayed </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_Login.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="edt_UserName" page="pge_Login">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_edt_UserName" value="TLogin1"/>
+				
+			
+			<step type="CLICK" name="edt_UserName" page="pge_Login">
+				<token type="CONTENT" name="token_edt_UserName" value="TLogin1"/>
+				
+			</step>
+			
+			<step type="WAIT" name="hard wait for 5 sec" page="pge_Login">
+				<parameter type="STATIC" value="5"/>
+			</step>
+			
+			<step type="SET" name="edt_UserName" page="pge_Login" wait="5" trace="true">
+				<parameter type="CONTEXT" name="value to set" value="param_Username" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_UserName" value="TLogin1"/>
+				
+	
+							
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'UserName' field inputted with the user given value" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" os="ANDROID" /> 
+		
+		
+		
+			<step type="SET" name="edt_Password" page="pge_Login">
+			<parameter type="CONTEXT" name="value to set" value="param_Password" />
+			<token type="CONTENT" name="token_edt_Password" value="TLogin2"/>
+			
+			
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Password' field inputted with the user given value" />
+			</step>
+		</step>
+		
+		<!-- KSARAV53 - 06-Feb-2018 - Added the below step to hide keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE" os="ANDROID" /> 
+
+<!-- 		<step type="GESTURE" name="PRESS.btn_Login_Enabled" page="pge_Login" wait="5"> -->
+<!-- 			<parameter type="STATIC" value="50,50" /> -->
+		
+		<!-- aparthi3: Hide keyword not working in android add below step -->		
+		<!-- start	 -->		
+		<!-- <step type="CLICK" name="lnk_ForgotPassword" page="pge_Login" os="ANDROID">
+				<token type="CONTENT" name="token_lnk_ForgotPassword" value="TLogin6" />
+				
+				<step type="WAIT_FOR" name="lnk_Close_AND" page="pge_ForgotPassword" os="ANDROID" >
+					<parameter type="STATIC" value="10" />
+					<step type="CLICK" name="lnk_Close_AND" page="pge_ForgotPassword" os="ANDROID" />
+				</step>
+		</step>	 -->	
+	<!-- 	end -->		
+	
+		<step type="VISIBLE" name="btn_Login_Enabled" page="pge_Login">
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Login_AND" value="TLogin3_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TLogin3_IOS"/>
+		</step>		
+			
+		
+		<step type="CLICK" name="btn_Login_Enabled" page="pge_Login" wait="5">
+			<token type="CONTENT" name="token_btn_Login_AND" value="TLogin3_AND"/>
+			<token type="CONTENT" name="token_btn_Login_IOS" value="TLogin3_IOS"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Login' button is available/enabled and clicked on the Login page" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - After clicking login button" page="pge_Login" failureMode="IGNORE" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Login' button is not available/enabled on the Login page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="WAIT" name="hard wait for 5 sec" page="pge_Login">
+				<parameter type="STATIC" value="5"/>
+			</step>
+
+	</function>
+	
+	 <function name="fn_Validate_PasswordMask">
+		<description> fn_Validate_PasswordMask - Function to validate the Password field masking functionality in Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_Login.xml" />
+		</step>
+		
+<!-- 		Input the Password field with ford@1 -->
+		<step type="EXISTS" name="edt_LoginPassword" page="pge_Login">
+			<token type="CONTENT" name="token_edt_LWPassword" value="TLogin2"/>
+		
+			<step type="SET" name="edt_LWPassword" page="pge_Login" wait="2">
+				<parameter type="STATIC" name="value to set" value="ford@1" />
+				<token type="CONTENT" name="token_edt_LWPassword" value="TLogin2"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Password' field inputted with the 'ford@1" />
+				</step>
+			</step>
+		</step>
+		
+<!-- 		By default password field values should be masked -->
+		<step type="GET" name="edt_LoginPassword" page="pge_Login" context="str_PasswordFieldValue">
+			<token type="CONTENT" name="token_edt_LoginPassword" value="TLogin2"/>
+			
+			<step type="COMPARE2" name="STRING" page="pge_Login">
+				<parameter type="CONTEXT" name="Value One" value="str_PasswordFieldValue" />
+				
+<!-- 				now the field is changed to Null instead of ..... -->
+				<parameter type="STATIC" name="Value Two" value="••••••" />
+				
+				<parameter type="STATIC" name="Value Two" value="" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="STATE" name="Screenshot - Password field value is masked by default" page="pge_Login" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="By default - 'Password' field value is displayed as masked" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_Login">
+					<step type="STATE" name="Screenshot - Password field value is not masked by default" page="pge_Login" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+						<parameter type="STATIC" value="By default - 'Password' field value is not masked" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+<!-- 		clicking on the Password Mask Eye image -->
+		<step type="EXISTS" name="img_PasswordMask" page="pge_Login">
+			<step type="CLICK" name="img_PasswordMask" page="pge_Login" wait="5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Eye icon' on password field is available and clicked on Login page" />
+			</step>
+		</step>
+		
+<!-- 		Check whether password field value is unmasked -->
+		<step type="GET" name="edt_PasswordWithoutMask" page="pge_Login" context="str_PasswordFieldValue">
+			<token type="CONTENT" name="token_edt_LoginPassword" value="TLogin2"/>
+				
+			<step type="COMPARE2" name="STRING" page="pge_Login">
+				<parameter type="CONTEXT" name="Value One" value="str_PasswordFieldValue" />
+				<parameter type="STATIC" name="Value Two" value="ford@1" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="STATE" name="Screenshot - Password field value is unmasked" page="pge_Login" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Password' field value is unmasked as expected" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_Login">
+					<step type="STATE" name="Screenshot - Password field value is not unmasked" page="pge_Login" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+						<parameter type="STATIC" value="'Password' field value is not unmasked" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+<!-- 		clicking on the Password Mask Eye image -->
+		<step type="EXISTS" name="img_PasswordMask" page="pge_Login">
+			<step type="CLICK" name="img_PasswordMask" page="pge_Login" wait="5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Eye icon' on password field is available and clicked on Login page" />
+			</step>
+		</step>
+		
+<!-- 		Check whether password field value masked once again -->
+		<step type="GET" name="edt_LoginPassword" page="pge_Login" context="str_PasswordFieldValue">
+			<token type="CONTENT" name="token_edt_LoginPassword" value="TLogin2"/>
+			
+			<step type="COMPARE2" name="STRING" page="pge_Login">
+				<parameter type="CONTEXT" name="Value One" value="str_PasswordFieldValue" />
+				<parameter type="STATIC" name="Value Two" value="" />
+				<parameter type="STATIC" name="Value Two" value="••••••" />
+				<parameter type="STATIC" name="Operator" value="EQUALS" />
+				
+				<step type="STATE" name="Screenshot - Password field value is masked" page="pge_Login" failureMode="IGNORE"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Password' field value is masked again as expected after clicking Eye icon" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_Login">
+					<step type="STATE" name="Screenshot - Password field value is not masked" page="pge_Login" failureMode="IGNORE"/>
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+						<parameter type="STATIC" value="'Password' field value is not masked as expected" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+<!-- 		Clear the text -->
+		<step type="SET" name="edt_LoginPassword" page="pge_Login" wait="2">
+			<parameter type="STATIC" name="value to set" value="" />
+			<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+			<token type="CONTENT" name="token_edt_LoginPassword" value="TLogin2"/>
+		</step>
+		
+<!-- 		To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" />
+	</function>
+	
+	<function name="fn_Click_CreateAccount">
+		<description> fn_Click_CreateAccount - Function to click Create Account link on Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+<!-- 		To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" wait="2"/>
+		
+		<step type="VISIBLE" name="btn_CreateAccount" page="pge_Login">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_CreateAccount_AND" value="TLogin4_AND"/>
+			<token type="CONTENT" name="token_btn_CreateAccount_IOS" value="TLogin4_IOS"/>
+			
+			<step type="CLICK" name="btn_CreateAccount" page="pge_Login" wait="5">
+				<token type="CONTENT" name="token_btn_CreateAccount_AND" value="TLogin4_AND"/>
+				<token type="CONTENT" name="token_btn_CreateAccount_IOS" value="TLogin4_IOS"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Create Account' link is available and clicked on Login page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Create Account' link is not available on Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckFor_ExpectedError">
+		<description> fn_CheckFor_ExpectedError - Function to check whether the expected error message is displayed on Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_CreateAccount.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_ErrorBanner" page="pge_Login">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTEXT" name="token_lbl_ErrorBanner" value="param_ErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="CONTEXT" name="token_lbl_ErrorBanner" value="param_ErrorMessage" />
+				<parameter type="STATIC" value="Above expected error message is displayed" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="CONTEXT" name="token_lbl_ErrorBanner" value="param_ErrorMessage" />
+					<parameter type="STATIC" value="Above expected error message is not displayed" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Login_ContactGuides">
+		<description>fn_Click_Login_ContactGuides - function to click Contact Guides on Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_Login.xml" />
+		</step>
+		
+		<step type="VISUAL" name="BUTTON" page="pge_Login" wait="10" os="ANDROID">
+		<step type="VISUAL" name="BUTTON" page="pge_Login" wait="10" tagNames="FP-NA,FP-CA">
+			<parameter type="STATIC" value="label={token_ContactGuides}">
+				<token type="CONTENT" name="token_ContactGuides" value="TLogin7" />
+			</parameter>
+ 			<parameter type="STATIC" name="new parameter" value="screen.top=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.height=80%" />
+			<parameter type="STATIC" name="new parameter" value="screen.left=0%" />
+			<parameter type="STATIC" name="new parameter" value="screen.width=100%" />
+			<parameter type="STATIC" value="threshold=90" />
+		</step>
+		
+		<step type="VISUAL" name="BUTTON" page="pge_Login" wait="10" tagNames="FP-CN">
+		   <parameter type="STATIC" value="label={token_StartStop}">
+		   		<token type="CONTENT" name="token_StartStop" value="TLogin7" />
+		   </parameter>
+		   <parameter type="STATIC" value="language={token_CurrentLanguage}">
+		   		<token type="CONTENT" name="token_CurrentLanguage" value="TLanguage" />
+		   </parameter>
+		   <parameter type="STATIC" value="operation=long" />
+		   <parameter type="STATIC" value="threshold=90" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ContactGuides" page="pge_Login" os="IOS">
+			<token type="CONTENT" name="token_lnk_ContactGuides" value="TLogin7" />
+			
+			<step type="CLICK" name="lnk_ContactGuides" page="pge_Login" wait="2">
+				<token type="CONTENT" name="token_lnk_ContactGuides" value="TLogin7" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Contact Guides' link is available and clicked on Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Contact Guides' link is available and clicked on Login page" />
+				</step>
+			</step>
+		</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Login_ForgotPassword">
+		<description>fn_Click_Login_ForgotPassword - function to click 'Forgot?' on Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_Login.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ForgotPassword" page="pge_Login">
+			<token type="CONTENT" name="token_lnk_ForgotPassword" value="TLogin6" />
+			
+			<step type="CLICK" name="lnk_ForgotPassword" page="pge_Login" wait="3">
+				<token type="CONTENT" name="token_lnk_ForgotPassword" value="TLogin6" />
+			</step>
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Forgot?' link is available and clicked on Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Forgot?' link is not available on Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateClick_TemporaryPwdBanner">
+		<description>fn_ValidateClick_TemporaryPwdBanner - function to validate and click Temporary Password banner on Login page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="STATIC" value="Function's XML file name: fn_Login.xml" />
+		</step>
+		
+		<step type="STATE" name="Dummy State - Temporary password banner" page="pge_Login" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lnk_TemporaryPwd_Banner" page="pge_Login">
+			<token type="CONTENT" name="token_lnk_TemporaryPwd_Banner" value="TLogin9" />
+			
+			<step type="CLICK" name="lnk_TemporaryPwd_Banner" page="pge_Login" wait="3">
+				<token type="CONTENT" name="token_lnk_TemporaryPwd_Banner" value="TLogin9" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" value="'Have Temporary Password' banner is available and clicked on Login page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="STATIC" value="'Have Temporary Password' banner is not available on Login page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

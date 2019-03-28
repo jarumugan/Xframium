@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Smartlink">
+		<description> fn_VerifyPageOpened_Smartlink - Function to verify user landed on the Smartlink page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+				
+		<step type="WAIT_FOR" name="lbl_Smartlink" page="pge_Smartlink">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_Smartlink" value="TSmartlink1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="STATIC" value="User successfully landed on 'Smartlink' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="STATIC" value="'Smartlink' page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_Smartlink">
+		<description> fn_ValidatePage_Smartlink - Function to validate the Smartlink page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+				
+		<step type="EXISTS" name="lbl_PageInfo1" page="pge_Smartlink">
+			<token type="CONTENT" name="token_lbl_PageInfo1" value="TSmartlink3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTENT" value="TSmartlink3" />
+				<parameter type="STATIC" value="Above page information is displayed in 'Smartlink' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTENT" value="TSmartlink3" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'Smartlink' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo2" page="pge_Smartlink">
+			<token type="CONTENT" name="token_lbl_PageInfo2" value="TSmartlink4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTENT" value="TSmartlink4" />
+				<parameter type="STATIC" value="Above page information is displayed in 'Smartlink' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTENT" value="TSmartlink4" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'Smartlink' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_ContactGuide" page="pge_Smartlink">
+			<token type="CONTENT" name="token_btn_ContactGuide_AND" value="TSmartlink5_AND" />
+			<token type="CONTENT" name="token_btn_ContactGuide_IOS" value="TSmartlink5_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTENT" value="TSmartlink5_AND" />
+				<parameter type="CONTENT" value="TSmartlink5_IOS" />
+				<parameter type="STATIC" value="Above page information is displayed in 'Smartlink' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTENT" value="TSmartlink5_AND" />
+					<parameter type="CONTENT" value="TSmartlink5_IOS" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'Smartlink' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ClickContactGuide">
+		<description>fn_ClickContactGuide - Function to Click the Contact Guide button in Smartlink page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+		
+			<step type="CLICK" name="btn_ContactGuide" page="pge_Smartlink">
+			<token type="CONTENT" name="token_btn_ContactGuide_AND" value="TSmartlink5_AND" />
+			<token type="CONTENT" name="token_btn_ContactGuide_IOS" value="TSmartlink5_IOS" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTENT" value="TSmartlink5_AND" />
+				<parameter type="CONTENT" value="TSmartlink5_IOS" />
+				<parameter type="STATIC" value="Above page information is displayed in 'Smartlink' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTENT" value="TSmartlink5_AND" />
+					<parameter type="CONTENT" value="TSmartlink5_IOS" />
+					<parameter type="STATIC" value="Above page information is not displayed in 'Smartlink' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	
+	<function name="fn_VerifyOptionStatus_WithExpected">
+		<description>fn_VerifyOptionStatus_WithExpected - Function to check whether the options are in expected/given status on Smartlink page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+		
+		<step type="ATTRIBUTE" name="rad_Smartlink" page="pge_Smartlink" os="ANDROID">
+			<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			<parameter type="STATIC" value="text" />
+			<token type="CONTEXT" name="token_rad_Smartlink" value="param_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTEXT" value="param_OptionName" />
+				<parameter type="STATIC" value="Above options displayed on 'Smartlink' page with the below expected status" />
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTEXT" value="param_OptionName" />
+					<parameter type="STATIC" value="Above option's is not in the below expected status on 'Smartlink' page" />
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				</step>
+			</step>
+		</step>	
+	<step type="ATTRIBUTE" name="rad_Smartlink" page="pge_Smartlink" os="IOS">
+			<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTEXT" name="token_rad_Smartlink" value="param_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTEXT" value="param_OptionName" />
+				<parameter type="STATIC" value="Above options displayed on 'Smartlink page with the below expected status" />
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTEXT" value="param_OptionName" />
+					<parameter type="STATIC" value="Above option's is not in the below expected status on 'Smartlink' page" />
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetAll_Smartlink">
+		<description>fn_SetAll_Smartlink - Function to set all the Smartlink based on User input in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+		
+		
+		<!-- ACCESS FORDPASS SMARTLINK-->
+		<step type="CALL2" name="fn_SetSmartlinkToExpectedStatus" page="pge_Smartlink">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TSmartlink2" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.ACCESSFORDPASSSMARTLINK" />
+		</step>
+	</function>
+	
+	<function name="fn_ClickGivenSmartlink">
+		<description>fn_ClickGivenSmartlink - Function to check whether the options are in expected/given status on Smartlink page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_Smartlink" page="pge_Smartlink">
+			<token type="CONTEXT" name="token_rad_Smartlink" value="param_Click_OptionName" />
+			
+			<step type="CLICK" name="rad_Smartlink" page="pge_Smartlink">
+				<token type="CONTEXT" name="token_rad_Smartlink" value="param_Click_OptionName" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTEXT" value="param_Click_OptionName" />
+				<parameter type="STATIC" value="Above options displayed and clicked on 'Smartlink' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTEXT" value="param_Click_OptionName" />
+					<parameter type="STATIC" value="Above option's is not displayed on 'Smartlink' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_SetSmartlinkToExpectedStatus">
+		<description>fn_SetSmartlinkToExpectedStatus - Function to set the Smartlink to user given status on Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+		
+		<step type="EXISTS" name="rad_Smartlink" page="pge_Smartlink">
+			<token type="CONTEXT" name="token_rad_Smartlink" value="param_Set_OptionName" />
+			
+			<step type="ATTRIBUTE" name="rad_Smartlink" page="pge_Smartlink" failureMode="IGNORE" os="ANDROID" >
+				<parameter type="CONTEXT" value="param_SetToStatus" />
+				<parameter type="STATIC" value="text" />
+				<token type="CONTEXT" name="token_rad_Smartlink" value="param_Set_OptionName" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+					<parameter type="CONTEXT" value="param_Set_OptionName" />
+					<parameter type="STATIC" value="Above Smartlink was already in the below expected state" />
+					<parameter type="CONTEXT" value="param_SetToStatus" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+					<step type="CALL2" name="fn_ClickGivenSmartlink" page="pge_Smartlink">
+						<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+					</step>
+					
+					<step type="ATTRIBUTE" name="rad_Smartlink" page="pge_Smartlink" failureMode="IGNORE" os="IOS">
+						<parameter type="CONTEXT" value="param_SetToStatus" />
+						<parameter type="STATIC" value="value" />
+						<token type="CONTEXT" name="token_rad_Smartlink" value="param_Set_OptionName" />
+						
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above Smartlinkis set to the below expected state" />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+						
+						<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+							<step type="CALL2" name="fn_ClickGivenSmartlink" page="pge_Smartlink">
+								<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+							</step>
+						
+							<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+								<parameter type="CONTEXT" value="param_Set_OptionName" />
+								<parameter type="STATIC" value="Above Smartlink is set to the below expected state" />
+								<parameter type="CONTEXT" value="param_SetToStatus" />
+							</step>
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="COMPARE2" name="STRING" page="pge_Smartlink" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" name="Value One" value="param_SetToStatus" />
+			<parameter type="STATIC" name="Value Two" value="ON" />
+			<parameter type="STATIC" name="Operator" value="EQUALS" />
+		
+			<step type="CONTEXT" name="SET" page="pge_Smartlink">
+				<parameter type="STATIC" name="Name" value="param_SetToStatus" />
+				<parameter type="STATIC" name="Value" value="1" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="CONTEXT" name="SET" page="pge_Smartlink">
+					<parameter type="STATIC" name="Name" value="param_SetToStatus" />
+					<parameter type="STATIC" name="Value" value="0" />
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above value is SET " />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+			</step>
+		</step>
+		
+		<step type="ATTRIBUTE" name="rad_Smartlink" page="pge_Smartlink" failureMode="IGNORE" os="IOS">
+			<parameter type="CONTEXT" value="param_SetToStatus" />
+			<parameter type="STATIC" value="value" />
+			<token type="CONTEXT" name="token_rad_Smartlink" value="param_Set_OptionName" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+				<parameter type="CONTEXT" value="param_Set_OptionName" />
+				<parameter type="STATIC" value="Above Marketing Options was already in the below expected state" />
+				<parameter type="CONTEXT" value="param_SetToStatus" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+				<step type="CALL2" name="fn_ClickGivenSmartlink" page="pge_Smartlink">
+					<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+				</step>
+				
+				<step type="ATTRIBUTE" name="rad_Smartlink" page="pge_Smartlink" failureMode="IGNORE" os="IOS" >
+					<parameter type="CONTEXT" value="param_SetToStatus" />
+					<parameter type="STATIC" value="value" />
+					<token type="CONTEXT" name="token_rad_Smartlink" value="param_Set_OptionName" />
+					
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+						<parameter type="CONTEXT" value="param_Set_OptionName" />
+						<parameter type="STATIC" value="Above Smartlink is set to the below expected state" />
+						<parameter type="CONTEXT" value="param_SetToStatus" />
+					</step>
+					
+					<step type="ELSE" name="elseCondition" page="pge_Smartlink">
+						<step type="CALL2" name="fn_ClickGivenSmartlink" page="pge_Smartlink">
+							<parameter type="CONTEXT" name="param_Click_OptionName" value="param_Set_OptionName" />
+						</step>
+					
+						<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+							<parameter type="CONTEXT" value="param_Set_OptionName" />
+							<parameter type="STATIC" value="Above Smartlink is set to the below expected state" />
+							<parameter type="CONTEXT" value="param_SetToStatus" />
+						</step>
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>
+<function name="fn_SetAll_SmartlinkRevert">
+		<description>fn_SetAll_SmartlinkRevert - Function to set all the Smartlink Revert based on User input in Marketing Options page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Smartlink">
+			<parameter type="STATIC" value="Function's XML file name: fn_Smartlink.xml" />
+		</step>
+		
+		
+		<!-- ACCESS FORDPASS SMARTLINK-->
+		<step type="CALL2" name="fn_SetSmartlinkToExpectedStatus" page="pge_Smartlink">
+			<parameter type="CONTENT" name="param_Set_OptionName" value="TSmartlink2" />
+			<parameter type="DATA" name="param_SetToStatus" value="TestData.ACCESSFORDPASSSMARTLINK1" />
+		</step>
+	</function>
+</suite>

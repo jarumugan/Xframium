@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Recall" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_RecallTitle" value="(//*[@text='{token_lbl_RecallTitle}'])[1]|(//*[@label='{token_lbl_RecallTitle}'])[1]|//*[@text='Notices']|//*[@label='Notices']" descriptor="XPATH" />
+			<!-- <element name="btn_Recall_Back" value="(//*[@text='{token_btn_Recall_Back}'])[1]|//*[@content-desc='Navigate up']|(//UIAButton[@label='{token_btn_Recall_Back}'])[1]|//UIANavigationBar/UIAButton[1]" descriptor="XPATH" /> -->
+			<element name="btn_Recall_Back" value="(//*[@text='{token_btn_Recall_Back}'])[1]|//*[@content-desc='{token_btn_Navigate_Up}']|(//UIAButton[@label='{token_btn_Recall_Back}'])[1]|//UIANavigationBar/UIAButton[1]" descriptor="XPATH" />
+			<element name="lbl_RecallType" value="//*[@text='{token_lbl_RecallType}']|//*[@text='{token_lbl_RecallType_AND}']|//*[@label='{token_lbl_RecallType}']" descriptor="XPATH" />
+			
+			<!-- APARTHI3: Recall -->
+			<element name="lbl_RecallNotifiInGreeting" value="//*[contains(@resource-id,'recall_pill')]|//*[@label='{token_lbl_RecallNotifiInGreeting}']" descriptor="XPATH" />
+			<element name="lnk_RecallNotifi_Alert" value="//*[@text='{token_lnk_RecallNotifi}']|//*[@label='{token_lnk_RecallNotifi}']" descriptor="XPATH" />
+			<element name="img_RecallNotifiInVehicleDetail" value="//*[@text='{token_lnk_RecallNotifi}']/preceding-sibling::android.widget.ImageView[1]|//*[@label='{token_lnk_RecallNotifi}']/preceding-sibling::UIAImage[1]" descriptor="XPATH" />
+			<element name="lbl_Notices" value="//*[@text='{token_lbl_Notices}']|//*[@label='{token_lbl_Notices}']" descriptor="XPATH" />
+			<element name="lbl_Recalls" value="//*[@text='{token_lbl_Recalls_AND}']|//*[@label='{token_lbl_Recalls}']" descriptor="XPATH" />
+			<element name="lnk_RecallName" value="//*[@text='{token_lnk_RecallName}']|//*[@label='{token_lnk_RecallName}']" descriptor="XPATH" />
+			<element name="lbl_RecallCode" value="//*[@text='{token_lbl_RecallCode}']|//*[@label='{token_lbl_RecallCode}']" descriptor="XPATH" />
+			<element name="lbl_RecallInfoTitle" value="//*[@text='{token_lbl_RecallInfoTitle}']|//*[@label='{token_lbl_RecallInfoTitle}']" descriptor="XPATH" />
+			<element name="btn_RecallBack" value="//*[@class='android.widget.ImageButton']|//*[@content-desc='{token_btn_Back}']|//UIANavigationBar[1]/UIAButton[1]" descriptor="XPATH" />
+			<element name="lbl_VIN" value="//*[@text='{token_lbl_VIN}']|//*[@label='{token_lbl_VIN}']" descriptor="XPATH" />
+			<element name="lbl_VinID" value="//*[@text='{token_lbl_VinID}']|//*[@label='{token_lbl_VinID}']" descriptor="XPATH" />
+			<element name="lbl_RecallInfo" value="//*[matches(@text,'{token_lbl_RecallInfo_and}','i')]|(//*[@label='{token_lbl_RecallInfo}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallNameInfo" value="//*[@text='{token_lbl_RecallInfo_and}']/following-sibling::*[@text='{token_lnk_RecallName}']|(//UIATableCell[@name='{token_lbl_RecallInfo}']//*[@label='{token_lnk_RecallName}'])[1]" descriptor="XPATH" />
+			<element name="lbl_FordRecallNo" value="//*[matches(@text,'{token_lbl_FordRecallNo}','i')]|(//*[@label='{token_lbl_FordRecallNo_IOS}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallDesc" value="//*[contains(@text,'{token_lbl_RecallDesc}')]|(//*[contains(@label,'{token_lbl_RecallDesc}')])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallNameDesc" value="//*[contains(@text,'{token_lbl_RecallDesc}')]/following-sibling::*[@text='{token_lnk_RecallName}']|(//UIATableCell[contains(@name,'{token_lbl_RecallDesc}')]//*[@label='{token_lnk_RecallName}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallDetailDesc" value="//*[contains(@text,'{token_lbl_RecallDetailDesc_AND}')]|(//*[contains(@label,'{token_lbl_RecallDetailDesc}')])[1]" descriptor="XPATH" />
+			<element name="btn_ScheduleService" value="//*[matches(@text,'{token_btn_ScheduleService}','i')]|//*[@label='{token_btn_ScheduleService}']" descriptor="XPATH" />
+			<element name="btn_BackFromVehiclesToDasboard" value="//*[@class='android.widget.ImageButton']|//UIANavigationBar[1]/UIAButton[1]" descriptor="XPATH" />
+			<element name="btn_FindADealer" value="//android.widget.Button[@text='{token_btn_FindADealer}']|//UIAButton[@label='{token_btn_FindADealer}']" descriptor="XPATH" />
+			<!-- APARTHI3: Recall -->
+			<element name="lbl_RecallDate" value="//*[@text='{token_lbl_RecallDate}']|(//*[@label='{token_lbl_RecallDate}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallDateValue" value="//*[@text='{token_lbl_RecallDate}']/following-sibling::android.widget.TextView|(//*[@label='{token_lbl_RecallDate}']/following-sibling::UIAStaticText)[1]" descriptor="XPATH" />
+			<element name="lbl_RecallNo" value="//*[translate(@text,'{token_lbl_RecallNo_L}','{token_lbl_RecallNo_U}')='{token_lbl_RecallNo_U}']|(//*[translate(@label,'{token_lbl_RecallNo_L}','{token_lbl_RecallNo_U}')='{token_lbl_RecallNo_U}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallNoValue" value="//*[@text='{token_lbl_RecallNoValue}']|(//*[@label='{token_lbl_RecallNoValue}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallRiskSafe" value="//*[translate(@text,'{token_lbl_RecallRiskSafe_L}','{token_lbl_RecallRiskSafe_U}')='{token_lbl_RecallRiskSafe_U}']|(//*[translate(@label,'{token_lbl_RecallRiskSafe_L}','{token_lbl_RecallRiskSafe_U}')='{token_lbl_RecallRiskSafe_U}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallRiskSafeValue" value="//*[contains(@text,'{token_lbl_RecallRiskSafeValue}')]|(//*[contains(@label,'{token_lbl_RecallRiskSafeValue}')])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallRemedyPro" value="//*[translate(@text,'{token_lbl_RecallRemedyPro_L}','{token_lbl_RecallRemedyPro_U}')='{token_lbl_RecallRemedyPro_U}']|(//*[translate(@label,'{token_lbl_RecallRemedyPro_L}','{token_lbl_RecallRemedyPro_U}')='{token_lbl_RecallRemedyPro_U}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallRemedyProValue" value="//*[contains(@text,'{token_lbl_RecallRemedyProValue}')]|(//*[contains(@label,'{token_lbl_RecallRemedyProValue}')])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallStatus" value="//*[translate(@text,'{token_lbl_RecallStatus_L}','{token_lbl_RecallStatus_U}')='{token_lbl_RecallStatus_U}']|(//*[translate(@label,'{token_lbl_RecallStatus_L}','{token_lbl_RecallStatus_U}')='{token_lbl_RecallStatus_U}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallStatusValue" value="//*[contains(@text,'{token_lbl_RecallStatusValue}')]|(//*[contains(@label,'{token_lbl_RecallStatusValue}')])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallManuNote" value="//*[translate(@text,'{token_lbl_RecallManuNote_L}','{token_lbl_RecallManuNote_U}')='{token_lbl_RecallManuNote_U}']|(//*[translate(@label,'{token_lbl_RecallManuNote_L}','{token_lbl_RecallManuNote_U}')='{token_lbl_RecallManuNote_U}'])[1]" descriptor="XPATH" />
+			<element name="lbl_RecallManuNoteValue" value="//*[contains(@text,'{token_lbl_RecallManuNoteValue}')]|(//*[contains(@label,'{token_lbl_RecallManuNoteValue}')])[1]" descriptor="XPATH" />
+		
+		
+		
+		
+		</page>
+	</site>
+</elementDefinition>

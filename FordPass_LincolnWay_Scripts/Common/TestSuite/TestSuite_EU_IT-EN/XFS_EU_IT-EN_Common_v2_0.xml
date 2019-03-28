@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<!-- ../../ -> denotes two levels up in the folder hierarchy -->
+	<import fileName="../../../Common/Functions/XFS_Functions.xml" />
+	
+	<!-- Script to execute first always while scheduling -->
+<!-- 	<import fileName="../../../Common/Scripts/XFS_StartFordPass.xml" /> -->
+
+
+	<!-- Lists of scripts in the test suite-->
+<!-- 		<import fileName="../../../Common/Scripts/XFS_FP_Accounts_001_AND.xml" /> -->
+<!-- 		<import fileName="../../../Common/Scripts/XFS_FP_Accounts_001_IOS.xml" /> -->
+
+	 	<import fileName="../../../Common/Scripts/XFS_FP_EnableSyncAppLink.xml" />
+ 
+
+<!-- 	 	<import fileName="../../../Common/Scripts/XFS_FP_Move_003.xml" />
+	 	<import fileName="../../../Common/Scripts/XFS_FP_Move_005.xml" /> -->
+<!-- 	 	<import fileName="../../../Common/Scripts/XFS_FP_Move_010.xml" />
+	 	<import fileName="../../../Common/Scripts/XFS_FP_Move_009.xml" />  --> 
+	 	
+	<!-- <import fileName="../../../Common/Scripts/XFS_FP_Move_AddRemoveVehicle_ExistingUser_AND.xml" />
+	  <import fileName="../../../Common/Scripts/XFS_FP_Move_AddRemoveVehicle_ExistingUser_IOS.xml" />   -->
+	<!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_AddVehicle_InvalidVIN.xml" />  -->
+<!-- 	 <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_SingleFSA.xml" />  -->
+		<!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_MultiFSA.xml" /> --> 
+		 
+
+	
+</suite>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 17-Jan-2018 -->
+<!-- Updated Date : 06-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_004" dataProvider="TestData.XFS_FP_Accounts_004,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Create Account page validation script </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="APPLICATION" name="OPEN" page="pge_Login" wait="3">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+		<step type="EXISTS" name="btn_ImNotDriving" page="pge_FPCommon" failureMode="IGNORE">
+			<step type="CLICK" name="btn_ImNotDriving" page="pge_FPCommon" />
+		</step>
+
+<!-- 		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" /> -->
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Click_CreateAccount" page="pge_Login" wait="10"/>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreateAccount" page="pge_CreateAccount" />
+		
+		<step type="CALL2" name="fn_ValidateCA_PasswordMask" page="pge_CreateAccount" />
+		
+		<step type="CALL2" name="fn_DefaultStatus_NextButton" page="pge_CreateAccount" />
+		
+		<step type="CALL2" name="fn_DefaultStatusCheck_Checkbox" page="pge_CreateAccount" />
+		
+		<step type="CALL2" name="fn_SwipeToTop_Parameterized" page="pge_CommonReusable">
+			<parameter type="STATIC" name="param_NoOfSwipe" value="3" />
+		</step>
+		
+		<!-- Validate by input special characters on CPF -->
+		<step type="CALL2" name="fn_ValidateInput_CPF" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="STATIC" name="param_DataValue" value="g@#$%^k" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateCPF_WithExpected" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="STATIC" name="param_ExpValue" value="" />
+		</step>
+		
+		<!-- Validate by input with only number CPF (invalid) -->
+		<step type="CALL2" name="fn_ValidateInput_CPF" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="STATIC" name="param_DataValue" value="147258369" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateCPF_WithExpected" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="STATIC" name="param_ExpValue" value="147258369" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_CreateAccount" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount31" />
+		</step>
+		
+		<!-- Validate by input valid CPF -->
+		<step type="CALL2" name="fn_ValidateInput_CPF" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="DATA" name="param_DataValue" value="TestData.CPF" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_CreateAccount" page="pge_CreateAccount" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount31" />
+		</step>
+
+		<!-- Validate the First name field with Null value -->
+		<step type="CALL2" name="fn_ValidateInput_Firstname" page="pge_CreateAccount">
+			<parameter type="STATIC" name="param_DataValue" value="" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_CreateAccount" page="pge_CreateAccount">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount33" />
+		</step>
+		
+		<!-- Validate the first name field with valid value -->
+		<step type="CALL2" name="fn_ValidateInput_Firstname" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.FirstName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_CreateAccount" page="pge_CreateAccount">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount33" />
+		</step>
+		
+		<!-- Validate the Last name field with Null value -->
+		<step type="CALL2" name="fn_ValidateInput_Lastname" page="pge_CreateAccount">
+			<parameter type="STATIC" name="param_DataValue" value="" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_CreateAccount" page="pge_CreateAccount">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount34" />
+		</step>
+		
+		<!-- Validate the first name field with valid value -->
+		<step type="CALL2" name="fn_ValidateInput_Lastname" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.LastName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_CreateAccount" page="pge_CreateAccount">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount34" />
+		</step>
+		
+		<!-- Validate by input invalid Username -->
+		<step type="CALL2" name="fn_ValidateInput_GivenUsername" page="pge_CreateAccount">
+			<parameter type="STATIC" name="param_DataValue" value="ford@123" />
+		</step>
+		
+		<!-- Check whether inline error message appears -->
+		<step type="CALL2" name="fn_CheckforInlineError_CreateAccount" page="pge_CreateAccount">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount32" />
+		</step>
+		
+		<!-- Validate by input valid Username -->
+		<step type="CALL2" name="fn_ValidateInput_GivenUsername" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.UserName" />
+		</step>
+		
+		<!-- Check whether inline error message disappears -->
+		<step type="CALL2" name="fn_CheckNotExist_InlineError_CreateAccount" page="pge_CreateAccount">
+			<parameter type="CONTENT" name="param_InlineErrorMessage" value="TCreateAccount32" />
+		</step>
+		
+		<!-- Input the password -->
+		<step type="CALL2" name="fn_Input_Password" page="pge_CreateAccount">
+			<parameter type="DATA" name="param_DataValue" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_Validate_PasswordRules" page="pge_CreateAccount" />
+		
+<!-- 		<step type="CALL2" name="fn_Click_CA_PrivacyPolicy" page="pge_CreateAccount" os="IOS"> -->
+<!-- 			<step type="CALL2" name="fn_VerifyPageOpened_TermsandPrivacy" page="pge_PrivacyPolicy">		 -->
+<!-- 				<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="STATE" name="BACK button check" page="pge_CreateAccount" failureMode="IGNORE" /> -->
+<!-- 		</step> -->
+	
+<!-- 		<step type="CALL2" name="fn_Click_CA_TermsandConditions" page="pge_CreateAccount" os="IOS"> -->
+<!-- 			<step type="CALL2" name="fn_VerifyPageOpened_TermsandCondition" page="pge_CreateAccount"> -->
+<!-- 				<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="STATE" name="BACK button check" page="pge_CreateAccount" failureMode="IGNORE" /> -->
+<!-- 		</step> -->
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+	</test>
+</suite>

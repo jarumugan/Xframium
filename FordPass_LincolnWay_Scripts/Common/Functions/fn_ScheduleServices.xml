@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	 <function name="fn_Check_Link_OSB">
+		<description> fn_Check_Link_OSB - Function to validate whether link on OSB link on DashBoard. </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_Link_OSB" />
+		</step>
+		<step type="EXISTS" name="lnk_OSB" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lnk_OSB" value="TReservation8" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Online Service Booking'  displayed" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Online Service Booking' not displayed" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	 <function name="fn_Click_Link_OSB">
+		<description> fn_ValidateAllLinks_Reservations - Function to validate whether all links are displayed on Reservation page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Reservations">
+			<parameter type="STATIC" value="Function's XML file name: fn_Reservations.xml" />
+		</step>
+
+		<step type="CLICK" name="lnk_OSB" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lnk_OSB" value="TReservation8" />
+		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Online Service Booking' Page displayed" />
+			</step>
+
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Online Service Booking' Page displayed" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Verify_ScheduleService">
+		<description>fn_Verify_VehicleInfo - function to the vehicle info page contents and links </description>
+		<step type="EXISTS" name="lbl_ScheduleServicetitle" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_ScheduleServicetitle" value="TOSBScheduleServicebutton" />
+		</step>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="'Vehicle Schedule Service title is found" />
+		</step>
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Vehicle Schedule Service title is not available" />
+			</step>
+		</step>	
+	</function>
+
+
+	<function name="fn_VerifyElements_ScheduleService">
+		<description>fn_Verify_Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ScheduleServicetitle" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_ScheduleServicetitle" value="TOSBScheduleServicebutton" />
+
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Vehicle Schedule Service title is found" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Vehicle Schedule Service title is not available" />
+				</step>
+			</step>	
+ 		</step>
+ 		
+		
+<!-- 		<step type="EXISTS" name="btn_Back_SchServ" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'BACK' button is available" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'BACK' button is not available" />
+				</step>
+			</step>	
+ 		</step>  -->		
+ 
+ 		
+ 		<step type="EXISTS" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName01_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName01_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_VehicleInfo">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>
+			     
+  		<step type="EXISTS" name="lbl_PrefferedDealer" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_PrefferedDealer" value="TOSBPreferredDealertitle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Add Dealer displayed in  Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+					<parameter type="STATIC" value="Add Dealer NOT displayed in  Service Page" />
+				</step>
+			</step>		
+		</step>      
+        
+	
+		<step type="EXISTS" name="lbl_VehicleServicetype" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_VehicleServicetype" value="TOSBServiceType" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Dealer Service Type is found" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Dealer Service type is not available" />
+				</step>
+			</step>		
+		</step>
+
+		<step type="EXISTS" name="lbl_Servicepage1" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage1" value="TOSBServiceType1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Available Ford Service Page" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Available Ford Service Page is not available" />
+				</step>
+			</step>		
+		</step>
+	
+		<step type="EXISTS" name="lbl_Servicepage2" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage2" value="TOSBServiceType2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Available Ford Engine Service Page" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Available Ford Engine Service Page is not available" />
+				</step>
+			</step>		
+		</step>
+	
+		<step type="EXISTS" name="lbl_Servicepage3" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_Servicepage3" value="TOSBServiceType3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Available Ford Equipement Service Page" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Available Ford Equipment Service Page is not available" />
+				</step>
+			</step>		
+		</step>		
+		
+		<step type="EXISTS" name="lbl_Servicepage4" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_Servicepage4" value="TOSBServiceType4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Available Miles Service Page" />
+				</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Available Miles Service Page is not available" />
+				</step>
+			</step>		
+		</step>
+
+		<step type="CALL2" name="fn_Check_NextbtnScheduleSrvpge" page="pge_ScheduleServices" />	
+	</function>
+			
+
+	<function name="fn_Click_AddDealer_ScheduleServices">
+		<description>fn_Click_AddDealer_ScheduleServices - function to click ADD DEALER IN 'Schedule Service' Screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_AddDealer_ScheduleServices.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_AddDealer" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_AddDealer" value="TAddDeaker" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Add Dealer displayed in  Service Page." />
+			</step>
+			<step type="CLICK" name="lbl_AddDealer" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_AddDealer" value="TAddDeaker" />
+			
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Schedule Service' button is not available" />
+					</step>
+				</step>			
+			</step>  
+		</step> 
+		<step type="EXISTS" name="lbl_AddDealer" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_AddDealer" value="TAddDeaker" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Add Dealer displayed in  Service Page." />
+			</step>
+			<step type="CLICK" name="lbl_AddDealer" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_AddDealer" value="TAddDeaker" />
+			
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Schedule Service' button is not available" />
+					</step>
+				</step>			
+			</step>  
+		</step> 		
+	</function>
+
+
+			
+	<function name="fn_Check_NextbtnScheduleSrvpge">
+		<description>fn_Click_Next - Select a mileage is selected and proceed with next page' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="btn_Next" page="pge_ScheduleServices" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next_And" value="TOSBAddSerNext" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TOSBNextbutton" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+			<step type="ELSE" name="If_Next_button_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Next button is not found" />
+				</step>
+			</step>
+		</step>
+	</function>		
+	
+	<function name="fn_CheckNextbtn_Enabled_ScheduleSrvpge">
+		<description>fn_Click_Next - Select a mileage is selected and proceed with next page' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+			<parameter type="STATIC" value="Function's XML file name: fn_CheckNextbtn_Enabled_ScheduleSrvpge.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="btnNext_Enabled" page="pge_ScheduleServices" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btnNext_Enabled_And" value="TOSBAddSerNext" />
+			<token type="CONTENT" name="token_btnNext_Enabled_IOS" value="TOSBNextbutton" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Next button is found" />
+			</step>	
+			<step type="ELSE" name="If_Next_button_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Next button is not found" />
+				</step>
+			</step>
+		</step>
+	</function>		
+
+	<function name="fn_ClickNextbtn_ScheduleSrvpge">
+			<description>fn_Click_Next - Select a mileage is selected and proceed with next page' link </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_OnlineServiceBooking">
+				<parameter type="STATIC" value="Function's XML file name: fn_CheckNextbtn_Enabled_ScheduleSrvpge.xml" />
+			</step>
+		
+			<step type="CLICK" name="btnNext_Enabled" page="pge_ScheduleServices" >
+<!-- 				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" /> -->
+				<token type="CONTENT" name="token_btnNext_Enabled_And" value="TOSBAddSerNext" />
+				<token type="CONTENT" name="token_btnNext_Enabled_IOS" value="TOSBNextbutton" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Next button is Clicked On" />
+				</step>	
+				<step type="ELSE" name="If_Next_button_Not_Available" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="Next button is NOT Clicked On" />
+					</step>
+				</step>
+			</step>
+	</function>
+		
+			
+		
+	<function name="fn_SelectMaintanance_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_Servicepage1" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage1" value="TOSBServiceType1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Maintanance displayed in Ford Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Maintanance NOT displayed in Ford Service Page." />
+				</step>
+			</step>		
+		</step>
+	</function>
+	
+	<function name="fn_SelectRepair_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_Servicepage2" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage2" value="TOSBServiceType2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Repair displayed in Ford Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Repair Not displayed in Ford Service Page." />
+				</step>
+			</step>		
+		</step>
+	</function>
+
+	<function name="fn_SelectInspection_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_Servicepage3" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage3" value="TOSBServiceType3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Repair displayed in Ford Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Repair not displayed in Ford Service Page." />
+				</step>
+			</step>		
+		</step>
+	</function>	
+	
+	<function name="fn_SelectOthers_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_Servicepage4" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage4" value="TOSBServiceType4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Repair displayed in Ford Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Repair not displayed in Ford Service Page." />
+				</step>
+			</step>		
+		</step>
+	</function>		
+
+	<function name="fn_Click_FirstVIN_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+
+ 		<step type="EXISTS" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName01_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName01_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>	
+
+ 		<step type="CLICK" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName01_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName01_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>	
+	</function>
+		
+	<function name="fn_Select_SecondVIN_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+
+ 		<step type="EXISTS" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName02_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName02_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>	
+
+ 		<step type="CLICK" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName02_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName02_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>	
+	</function>
+
+	<function name="fn_Check_SecondVIN_ScheduleService">
+			<description>fn_Verify_Android Available- The page shows available services details' </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+			</step>
+	
+	 		<step type="EXISTS" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+				<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName02_IOS" />
+				<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName02_AND" />			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is found" />
+				</step>	
+				<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="VIN Nickname is not found" />
+					</step>
+				</step>
+			</step>	
+	</function>
+							
+	<function name="fn_Click_CHANGE_ScheduleServices">
+		<description>fn_Click_AddDealer_ScheduleServices - function to click ADD DEALER IN 'Schedule Service' Screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_CHANGE_ScheduleServices.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_CHANGE" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_CHANGE_And" value="TGuides6" />
+			<token type="CONTENT" name="token_lbl_CHANGE_IOS" value="TGuides6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="change displayed in  Service Page." />
+			</step>
+			<step type="CLICK" name="lbl_CHANGE" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_CHANGE_And" value="TGuides6" />
+				<token type="CONTENT" name="token_lbl_CHANGE_And" value="TGuides6" />
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="change displayed in  Service Page." />
+					</step>
+				</step>			
+			</step>  
+		</step> 
+		<step type="EXISTS" name="lbl_ChangeDealer" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_CHANGE_And" value="TGuides6" />
+			<token type="CONTENT" name="token_lbl_CHANGE_IOS" value="TGuides6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="change Dealer displayed in  Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="change Dealer NOT displayed in  Service Page." />
+				</step>
+			</step>			
+		</step> 
+	</function>
+
+	<function name="fn_Check_ChangeDealer_ScheduleServices">
+		<description>fn_Click_AddDealer_ScheduleServices - function to click ADD DEALER IN 'Schedule Service' Screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_CHANGE_ScheduleServices.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_ChangeDealer" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_CHANGE_And" value="TGuides6" />
+			<token type="CONTENT" name="token_lbl_CHANGE_IOS" value="TGuides6" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="change Dealer displayed in  Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="change Dealer NOT displayed in  Service Page." />
+				</step>
+			</step>			
+		</step> 
+	</function>	
+
+	<function name="fn_Park_Enter_SearchData">
+		<description> Entering the Search Data To find Parking Location </description>
+	    <step type="REPORT" name="ADD_TO_REPORT" page="pge_Park">
+			<parameter type="STATIC"
+			value="Entering the Search Data To find Parking Location" />
+		</step>
+		<step type="EXISTS" name="edt_SearchField" page="pge_FindCommon">
+			<token type="CONTENT" name="token_edt_SearchField" value="TFindPageSearch" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'SEARCH BAR' is EXISTS" />
+			</step>
+			 <step type="CLICK" name="lbl_edt_SearchField" page="pge_Park">
+				<token type="CONTENT" name="token_edt_SearchField" value="TFindPageSearch" />
+			</step>
+			<step name="lbl_edt_SearchField" type="SET" page="pge_Park">
+				<parameter type="DATA" value="TestData.SearchLoc" />
+				<token type="CONTENT" name="token_edt_SearchField" value="TFindPageSearch" />
+			</step>
+			<step type="WAIT" name="Hard_Wait" page="pge_Park">
+				<parameter type="STATIC" value="20" />
+			</step>
+		</step>
+		<step type="CLICK" name="btn_KeyBoard_Done" page="pge_OnlineServiceBooking">
+			<token type="CONTENT" name="token_btn_KeyBoard_Done" value="TOSB_KeyboardDone" />
+		</step>
+			
+	</function>
+	
+	<function name="fn_Check_DateAndTimePickerScreen_ScheduleServices">
+		<description>fn_Check_DateAndTimePickerScreen_ScheduleServices - function to check Date and Time Picker screen displayed . </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_CHANGE_ScheduleServices.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_OSB_Datetimetitle" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_OSB_Datetimetitle" value="TOSBDateAndtimeTitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Schedule Service data and time selection is availble" />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Schedule Service data and time selection is not available" />
+			</step>
+		</step>	
+	</function>	
+		
+	<function name="fn_ClickAndEnter_ServiceDate">
+		<description>fn_Click_Select Service date and time - function to Select 'Service date and Time' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_ClickAndEnter_ServiceDate.xml" />
+		</step>
+		<step type="CLICK" name="lbl_ServiceDate" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_ServiceDate" value="TServiceDate_IOS" />		
+			<step type="EXISTS" name="lbl_ServiceDate" page="pge_ScheduleServices" >
+				<token type="CONTENT" name="token_lbl_ServiceDate" value="TServiceDate_IOS" />		
+			</step>		
+		</step>
+
+		<step type="VISUAL" name="BUTTON" page="pge_ScheduleServices" os="IOS" wait="25">
+			<parameter type="STATIC" value="label=SAVE" />
+		</step>	 
+	</function>	
+	
+	<function name="fn_ClickAndEnter_ServiceTime">
+		<description>fn_Click_Select Service date and time - function to Select 'Service date and Time' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_ClickAndEnter_ServiceTime.xml" />
+		</step>
+		<step type="CLICK" name="lbl_ServiceTime" page="pge_ScheduleServices" >
+				<token type="CONTENT" name="token_lbl_ServiceTime" value="TServiceTime_IOS" />		
+		</step>		
+		<step type="VISUAL" name="BUTTON" page="pge_ScheduleServices" os="IOS" wait="25">
+			<parameter type="STATIC" value="label=SAVE" />
+		</step>	
+		
+	</function>
+	
+	<function name="fn_Click_Confirm_ServiceDate">
+		<description>fn_Click_Confirm_ServiceDate Confirm - function to Select 'Confirm ' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_OnlineServiceBooking.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_Confirm" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Confirm" value="TFordCredit17_IOS" />
+			<token type="CONTENT" name="token_lbl_Confirm_AND" value="TFordCredit17_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Confirm' button is found and clicked" />
+			</step>
+			<step type="CLICK" name="lbl_Confirm" page="pge_ScheduleServices" >
+				<token type="CONTENT" name="token_lbl_Confirm" value="TFordCredit17_IOS" />
+				<token type="CONTENT" name="token_lbl_Confirm_AND" value="TFordCredit17_AND" />
+			</step>		
+		</step>
+
+	</function>	
+
+	<function name="fn_Check_PreviewServiceSummarry">
+		<description>fn_Check_PreviewServiceSummarry check  - fn_Check_PreviewServiceSummarry </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_PreviewServiceSummarry.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_PreviewService" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_PreviewService" value="TPreviewService" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Preview Service Summary displayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Preview Service Summary NOT displayed." />
+				</step>
+			</step>			
+		</step>  
+	</function>	
+	
+	<function name="fn_Sumit_PreviewServiceSummarry">
+		<description>Checking Submit button  - fn_Sumit_PreviewServiceSummarry </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Sumit_PreviewServiceSummarry.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_Submit" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_Submit" value="TPreviewService" />
+			<step type="CLICK" name="lbl_Submit" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_Submit" value="TResetPassword7_IOS" />		
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Preview Service Summary displayed." />
+			</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Preview Service Summary NOT displayed." />
+			</step>
+		</step>			
+		</step>  
+	</function>	
+	
+	
+
+	<function name="fn_SelectInspection_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_Servicepage3" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage3" value="TOSBServiceType3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Repair displayed in Ford Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Repair not displayed in Ford Service Page." />
+				</step>
+			</step>		
+		</step>
+	</function>	
+	
+	<function name="fn_SelectOthers_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+		
+		<step type="CLICK" name="lbl_Servicepage4" page="pge_ScheduleServices" >
+			<token type="CONTENT" name="token_lbl_Servicepage4" value="TOSBServiceType4" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Repair displayed in Ford Service Page." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="Repair not displayed in Ford Service Page." />
+				</step>
+			</step>		
+		</step>
+	</function>		
+
+		
+	<function name="fn_Select_SecondVIN_ScheduleService">
+		<description>fn_Verify_Android Available- The page shows available services details' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: pge_ScheduleServices.xml" />
+		</step>
+
+ 		<step type="EXISTS" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName02_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName02_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>	
+
+ 		<step type="CLICK" name="lbl_VehicleNickName" page="pge_ScheduleServices">
+			<token type="DATA" name="token_lbl_VehicleNickName_ios" value="TestData.VehicleNickName02_IOS" />
+			<token type="DATA" name="token_lbl_VehicleNickName_And" value="TestData.VehicleNickName02_AND" />			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="VIN Nickname is found" />
+			</step>	
+			<step type="ELSE" name="If_VINnumber_Not_Available" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="VIN Nickname is not found" />
+				</step>
+			</step>
+		</step>	
+	</function>
+
+	<function name="fn_Check_Elements_RequestConfirm">
+		<description>Checking all object in Request Confirmation page.' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_Elements_RequestConfirm.xml" />
+		</step>
+		<step type="EXISTS" name="lbl_RequestConfirm" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_RequestConfirm" value="TRequestConfirmed" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Service Request Comfirmed message dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Service Request Comfirmed message NOT dispayed." />
+				</step>
+			</step>			
+		</step>                                                                   
+		<step type="EXISTS" name="lbl_ServiceDetails" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_ServiceDetails" value="TServiceDetails" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Service Details lable dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Service Details lable Not dispayed." />
+				</step>
+			</step>			
+		</step>   
+	</function>
+
+	<function name="fn_Check_ServiceDetails">
+		<description>Checking all object in Request Confirmation page.' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_Elements_RequestConfirm.xml" />
+		</step>
+
+		<step type="CLICK" name="lbl_ServiceDetails" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_ServiceDetails" value="TServiceDetails" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Service Details lable dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Service Details lable Not dispayed." />
+			</step>
+		</step>	
+		</step>	
+	</function>	
+	
+	
+	<function name="fn_Click_ServiceDetails">
+		<description>fn_Click_ScheduleService - function to click 'Schedule Service' link  </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_Elements_RequestConfirm.xml" />
+		</step>
+				
+		<step type="CLICK" name="lbl_ServiceDetails" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_ServiceDetails" value="TServiceDetails" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Service Details lable dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Service Details lable Not dispayed." />
+				</step>
+			</step>	
+		</step>	
+	</function>
+
+	<function name="fn_Check_CancelAppointment">
+		<description>Checking Cancel Appointment in Service Detail page .' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_CancelAppointment.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_CancelAppointment" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_CancelAppointment" value="TServiceRequestCancel" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Cancel Appointment lable dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Cancel Appointment lable NOT dispayed." />
+			</step>
+		</step>	
+		</step>	
+	</function>	
+	
+	
+	<function name="fn_Click_CancelAppointment">
+		<description>Checking Cancel Appointment in Service Detail page .' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_CancelAppointment.xml" />
+		</step>
+
+		<step type="CLICK" name="lbl_CancelAppointment" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_CancelAppointment" value="TServiceRequestCancel" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Cancel Appointment lable dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Cancel Appointment lable NOT dispayed." />
+			</step>
+		</step>	
+		</step>	
+	</function>	
+
+	<function name="fn_Check_CancelReason">
+		<description>Checking Cancel Appointment in Service Detail page .' </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_CancelReason.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_CancelReason" page="pge_ScheduleServices">
+			<token type="CONTENT" name="token_lbl_CancelReason" value="TCancelReason" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="'Cancel Reason lable dispayed." />
+			</step>
+			<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Cancel Reason lable NOT dispayed." />
+				</step>
+			</step>	
+		</step>	
+	</function>	
+
+	<function name="fn_Click_Yes_CancelScheduleService">
+			<description>Checking Cancel Appointment in Service Detail page .' </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Function's XML file name: fn_Check_CancelReason.xml" />
+			</step>
+			<step type="CLICK" name="lbl_Yes_CancelScheduleService" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_Yes_CancelScheduleService" value="TFindTxtBtn_Yes" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Cancel Reason lable dispayed." />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Cancel Reason lable NOT dispayed." />
+					</step>
+				</step>	
+			</step>	
+		</function>
+		
+
+	<function name="fn_Check_OrderCanceled">
+			<description>Checking Cancel Appointment in Service Detail page .' </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Function's XML file name: fn_Check_OrderCanceled.xml" />
+			</step>
+	
+			<step type="EXISTS" name="lbl_OrderCancelled" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_OrderCancelled" value="TOrderCancel" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Cancel Reason lable dispayed." />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Cancel Reason lable NOT dispayed." />
+					</step>
+				</step>	
+			</step>	
+		</function>	
+
+	<function name="fn_Check_OrderCanceled_Message">
+			<description>Checking Cancel Appointment in Service Detail page .' </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Function's XML file name: fn_Check_OrderCanceled_Message.xml" />
+			</step>
+	
+			<step type="EXISTS" name="lbl_OrderCancel_Msg" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_OrderCancel_Msg" value="TOrderCancelledMessage" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Cancel Reason lable dispayed." />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Cancel Reason lable NOT dispayed." />
+					</step>
+				</step>	
+			</step>	
+		</function>	
+
+	<function name="fn_Click_RescheduleRequest">
+			<description>Checking Cancel Appointment in Service Detail page .' </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Function's XML file name: fn_Click_RescheduleRequest.xml" />
+			</step>
+	
+			<step type="EXISTS" name="lbl_Reschedule_Request" page="pge_ScheduleServices">
+				<token type="CONTENT" name="token_lbl_Reschedule_Request" value="TRescheduleServices" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Cancel Reason lable dispayed." />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Cancel Reason lable NOT dispayed." />
+					</step>
+				</step>	
+			</step>	
+			<step type="CALL2" name="fn_Verify_ScheduleService" page="pge_ScheduleServices" />
+		</function>
+
+
+	<function name="fn_Click_Close_OrderCancelled">
+		<description>Checking Cancel Appointment in Service Detail page .' </description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+				<parameter type="STATIC" value="Function's XML file name: fn_Click_Close_OrderCancelled.xml" />
+			</step>	
+			<step type="CLICK" name="lbl_Close_CancelledSchedule" page="pge_ScheduleServices">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+					<parameter type="STATIC" value="'Cancel Reason lable dispayed." />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_ScheduleServices">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_ScheduleServices">
+						<parameter type="STATIC" value="'Cancel Reason lable NOT dispayed." />
+					</step>
+				</step>	
+			</step>	
+		</function>
+
+</suite>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 11-May-2018 -->
+<!-- Updated Date : 01-May-2018 -->
+<!-- Pre-Requisite : App should be installed previously on the device -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_LoginCheck_AND" dataProvider="TestData.XFS_FP_Accounts_LoginCheck_AND,Setup.XFS_StartFordPass" os="ANDROID" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> All Region Login page validation script </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<!-- Validate the first Country -->
+		<!-- <step type="CALL2" name="fn_Clean_FordPassApp" page="pge_FPCommon" />		
+		
+		<step type="CALL2" name="fn_Select_FP_Country_Parameterized" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU">
+			<parameter type="DATA" name="param_CountryToSelect" value="TestData.Country1" />
+		</step>
+		
+		<step type="CALL2" name="fn_AcceptCookies" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU" />
+		 -->
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" /> -->
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName1" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" trace="true">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="DATA" name="Add to Report" value="TestData.Country1" />
+				<parameter type="STATIC" name="Add to Report" value="Login works fine on the above market/region" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="DATA" name="Add to Report" value="TestData.Country1" />
+					<parameter type="STATIC" name="Add to Report" value="Login is not works fine on the above market/region" />
+				</step>
+			</step>
+		</step>
+
+		<!-- Validate the second Country -->
+		<step type="CALL2" name="fn_Clean_FordPassApp" page="pge_FPCommon" />		
+		
+		<step type="CALL2" name="fn_Select_FP_Country_Parameterized" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU">
+			<parameter type="DATA" name="param_CountryToSelect" value="TestData.Country2" />
+		</step>
+		
+		<step type="CALL2" name="fn_AcceptCookies" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName2" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" trace="true">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="DATA" name="Add to Report" value="TestData.Country2" />
+				<parameter type="STATIC" name="Add to Report" value="Login works fine on the above market/region" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="DATA" name="Add to Report" value="TestData.Country2" />
+					<parameter type="STATIC" name="Add to Report" value="Login is not works fine on the above market/region" />
+				</step>
+			</step>
+		</step>
+
+		<!-- Validate the Third Country -->
+		<step type="CALL2" name="fn_Clean_FordPassApp" page="pge_FPCommon" />		
+		
+		<step type="CALL2" name="fn_Select_FP_Country_Parameterized" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU">
+			<parameter type="DATA" name="param_CountryToSelect" value="TestData.Country3" />
+		</step>
+		
+		<step type="CALL2" name="fn_AcceptCookies" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName3" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" trace="true">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="DATA" name="Add to Report" value="TestData.Country3" />
+				<parameter type="STATIC" name="Add to Report" value="Login works fine on the above market/region" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="DATA" name="Add to Report" value="TestData.Country3" />
+					<parameter type="STATIC" name="Add to Report" value="Login is not works fine on the above market/region" />
+				</step>
+			</step>
+		</step>
+
+		<!-- Validate the four Country -->
+		<step type="CALL2" name="fn_Clean_FordPassApp" page="pge_FPCommon" />		
+		
+		<step type="CALL2" name="fn_Select_FP_Country_Parameterized" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU">
+			<parameter type="DATA" name="param_CountryToSelect" value="TestData.Country4" />
+		</step>
+		
+		<step type="CALL2" name="fn_AcceptCookies" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName4" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" trace="true">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="DATA" name="Add to Report" value="TestData.Country4" />
+				<parameter type="STATIC" name="Add to Report" value="Login works fine on the above market/region" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="DATA" name="Add to Report" value="TestData.Country4" />
+					<parameter type="STATIC" name="Add to Report" value="Login is not works fine on the above market/region" />
+				</step>
+			</step>
+		</step>
+		
+		<!-- Validate the five Country -->
+		<step type="CALL2" name="fn_Clean_FordPassApp" page="pge_FPCommon" />		
+		
+		<step type="CALL2" name="fn_Select_FP_Country_Parameterized" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU">
+			<parameter type="DATA" name="param_CountryToSelect" value="TestData.Country5" />
+		</step>
+		
+		<step type="CALL2" name="fn_AcceptCookies" page="pge_SelectCountry" tagNames="FP-NA,FP-CA,FP-EU" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName5" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" trace="true">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="DATA" name="Add to Report" value="TestData.Country5" />
+				<parameter type="STATIC" name="Add to Report" value="Login works fine on the above market/region" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Login">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+					<parameter type="DATA" name="Add to Report" value="TestData.Country5" />
+					<parameter type="STATIC" name="Add to Report" value="Login is not works fine on the above market/region" />
+				</step>
+			</step>
+		</step>
+	</test>
+</suite>

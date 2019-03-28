@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_Select_FP_Country">
+		<description>fn_Select_FP_Country - function to select the user given country on the 'Select Your Country' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+			<parameter type="STATIC" value="Function's XML file name: fn_SelectCountry.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_SelectCountry" page="pge_SelectCountry">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_SelectCountry" value="TSelectCountry1" />
+
+			<step type="EXISTS" name="btn_Next_Disabled" page="pge_SelectCountry" os="IOS">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TSelectCountry2_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TSelectCountry2_IOS" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+					<parameter type="STATIC" value="'Next' button is available in disabled form as expected on 'Select Your Country' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_SelectCountry">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+						<parameter type="STATIC" value="'Next' button is available but not in disabled form on 'Select Your Country' page" />
+					</step>
+				</step>
+			</step>
+		
+			<step type="VISIBLE" name="rdb_Country" page="pge_SelectCountry">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="DATA" name="token_rdb_Country_AND" value="TestData.Country" />
+				<token type="DATA" name="token_rdb_Country_IOS" value="TestData.Country" />
+				
+				<step type="CLICK" name="rdb_Country" page="pge_SelectCountry" wait="3">
+					<token type="DATA" name="token_rdb_Country_AND" value="TestData.Country" />
+					<token type="DATA" name="token_rdb_Country_IOS" value="TestData.Country" />
+				</step>
+				
+				<step type="STATE" name="Dummy State - Country Selection" page="pge_SelectCountry" failureMode="IGNORE" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+					<parameter type="DATA" value="TestData.Country" />
+					<parameter type="STATIC" value="Above Country is selected on 'Select Your Country' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_SelectCountry">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+						<parameter type="DATA" value="TestData.Country" />
+						<parameter type="STATIC" value="Above country is not avaialable/displayed on 'Select Your Country' page" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_SelectCountry">
+			<token type="CONTENT" name="token_btn_Next_AND" value="TSelectCountry2_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TSelectCountry2_IOS" />
+			
+			<step type="CLICK" name="btn_Next" page="pge_SelectCountry" wait="3">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TSelectCountry2_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TSelectCountry2_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+				<parameter type="STATIC" value="'Next' button is available in enabled form on 'Select Your Country' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_SelectCountry">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+					<parameter type="STATIC" value="'Next' button is not available or not enabled on 'Select Your Country' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Select_FP_Country_Parameterized">
+		<description>fn_Select_FP_Country_Parameterized - function to select the user given country on the 'Select Your Country' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+			<parameter type="STATIC" value="Function's XML file name: fn_SelectCountry.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_SelectCountry" page="pge_SelectCountry">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_SelectCountry" value="TSelectCountry1" />
+
+			<step type="EXISTS" name="btn_Next_Disabled" page="pge_SelectCountry" os="IOS">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TSelectCountry2_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TSelectCountry2_IOS" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+					<parameter type="STATIC" value="'Next' button is available in disabled form as expected on 'Select Your Country' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_SelectCountry">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+						<parameter type="STATIC" value="'Next' button is available but not in disabled form on 'Select Your Country' page" />
+					</step>
+				</step>
+			</step>
+		
+			<step type="VISIBLE" name="rdb_Country" page="pge_SelectCountry">
+				<parameter type="STATIC" name="maxScroll" value="2" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_rdb_Country_AND" value="param_CountryToSelect" />
+				<token type="CONTEXT" name="token_rdb_Country_IOS" value="param_CountryToSelect" />
+				
+				<step type="CLICK" name="rdb_Country" page="pge_SelectCountry" wait="3">
+					<token type="CONTEXT" name="token_rdb_Country_AND" value="param_CountryToSelect" />
+					<token type="CONTEXT" name="token_rdb_Country_IOS" value="param_CountryToSelect" />
+				</step>
+				
+				<step type="STATE" name="Dummy State - Country Selection" page="pge_SelectCountry" failureMode="IGNORE" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+					<parameter type="CONTEXT" value="param_CountryToSelect" />
+					<parameter type="STATIC" value="Above Country is selected on 'Select Your Country' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_SelectCountry">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+						<parameter type="CONTEXT" value="param_CountryToSelect" />
+						<parameter type="STATIC" value="Above country is not avaialable/displayed on 'Select Your Country' page" />
+					</step>
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_SelectCountry">
+			<token type="CONTENT" name="token_btn_Next_AND" value="TSelectCountry2_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TSelectCountry2_IOS" />
+			
+			<step type="CLICK" name="btn_Next" page="pge_SelectCountry" wait="3">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TSelectCountry2_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TSelectCountry2_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+				<parameter type="STATIC" value="'Next' button is available in enabled form on 'Select Your Country' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_SelectCountry">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_SelectCountry">
+					<parameter type="STATIC" value="'Next' button is not available or not enabled on 'Select Your Country' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+</suite>

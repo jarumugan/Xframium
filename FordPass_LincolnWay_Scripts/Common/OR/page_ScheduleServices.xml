@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_ScheduleServices" class="org.xframium.page.keyWord.KeyWordPage">
+
+
+			<element name="lnk_OSB" value="//*[@text='{token_lnk_OSB}']|//*[@label='{token_lnk_OSB}']|//*[@value='{token_lnk_OSB}']" descriptor="XPATH" />
+			<element name="lbl_ScheduleServicetitle" value="//*[@text='{token_lbl_ScheduleServicetitle}']|//*[@label='{token_lbl_ScheduleServicetitle}']" descriptor="XPATH" />
+			<element name="btn_Back_SchServ" value="//*[@class='android.widget.ImageButton']|(//*[@originClass='UIAButton'])[1]" descriptor="XPATH" />			
+			<element name="lbl_VehicleNickName" value="//*[@text='{token_lbl_VehicleNickName_And}']|//*[@label='{token_lbl_VehicleNickName_ios}']" descriptor="XPATH" />
+			<element name="lbl_PrefferedDealer" value="//*[@text='{token_lbl_PrefferedDealer}']|//*[@label='{token_lbl_PrefferedDealer}']" descriptor="XPATH" />
+			<element name="lbl_VehicleServicetype" value="//*[contains(@resource-id,'schedule_service_service_type_title')]|((//*[@name='{token_lbl_VehicleServicetype}'])[2])[1]" descriptor="XPATH" />
+			<element name="btn_MaintananceOption" value="//*[@resource-id='com.ford.torqueeu:id/services_list_recycler_view']/android.view.ViewGroup[2]/android.widget.RadioButton[1]|//*[@label='{token_btn_MOTOption}']" descriptor="XPATH" />
+
+			<element name="lbl_Servicepage1" value="//*[@text='{token_lbl_Servicepage1}']|(//*[@name='{token_lbl_Servicepage1}'])[2]" descriptor="XPATH" />
+			<element name="lbl_Servicepage2" value="//*[@text='{token_lbl_Servicepage2}']|//*[@label='{token_lbl_Servicepage2}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage3" value="//*[@text='{token_lbl_Servicepage3}']|//*[@label='{token_lbl_Servicepage3}']" descriptor="XPATH" />
+			<element name="lbl_Servicepage4" value="//*[@text='{token_lbl_Servicepage4}']|//*[@label='{token_lbl_Servicepage4}']" descriptor="XPATH" />
+
+			<element name="btn_Next" value="//*[@text='{token_btn_Next_And}']|//*[@label='{token_btn_Next_IOS}']" descriptor="XPATH" />
+			<element name="btnNext_Enabled" value="//*[@text='{token_btnNext_Enabled_And}' and @enabled='true']|//*[@label='{token_btnNext_Enabled_IOS}' and @enabled='true']" descriptor="XPATH" />
+			<element name="token_lbl_OSB_Datetimetitle" value="//*[@text='{token_lbl_OSB_Datetimetitle}']|//*[@label='{token_lbl_OSB_Datetimetitle}']" descriptor="XPATH" />
+			<element name="lbl_OSB_Datetimetitle" value="//*[contains(@resource-id,'osb_date_time_selector_header')]|//*[@label='{token_lbl_OSB_Datetimetitle}']" descriptor="XPATH" />
+
+			<element name="lbl_CHANGE" value="//*[@text='{token_lbl_CHANGE_And}']|//*[@label='{token_lbl_CHANGE_IOS}']" descriptor="XPATH" />
+			<element name="lbl_ChangeDealer" value="//*[@text='{token_lbl_ChangeDealer_And}']|//*[@label='{token_lbl_ChangeDealer_IOS}']" descriptor="XPATH" />  
+			<element name="lbl_SAVE_ScheduleServiceDate" value="//*[@text='{token_lbl_SAVE_ScheduleServiceDate}']|//AppiumAUT/UIAApplication[1]/UIAWindow[5]/UIAPicker[1]/UIAPickerWheel[1]|//UIAPickerWheel[contains(@value,'{token_lbl_SAVE_ScheduleServiceDate}')]" descriptor="XPATH" />  
+			<element name="lbl_ServiceDate" value="//*[@text='{token_lbl_ServiceDate}']|//*[@label='{token_lbl_ServiceDate}']" descriptor="XPATH" />
+			<element name="lbl_ServiceTime" value="//*[@text='{token_lbl_ServiceTime}']|//*[@label='{token_lbl_ServiceTime}']" descriptor="XPATH" />  
+
+			<element name="lbl_Confirm" value="//*[@text='{token_lbl_Confirm}']|//*[@label='{token_lbl_Confirm}']|//*[@text='{token_lbl_Confirm_AND}']|//*[@label='{token_lbl_Confirm_AND}']" descriptor="XPATH" />  
+			<element name="lbl_PreviewService" value="//*[@text='{token_lbl_PreviewService}']|//*[@label='{token_lbl_PreviewService}']" descriptor="XPATH" />  
+			<element name="lbl_Submit" value="//*[@text='{token_lbl_Submit}']|//*[@label='{token_lbl_Submit}']" descriptor="XPATH" />  
+			<element name="lbl_CancelAppointment" value="//*[@text='{token_lbl_CancelAppointment}']|(//*[@name='{token_lbl_CancelAppointment}'])[2]" descriptor="XPATH" />  
+			<element name="lbl_RequestConfirm" value="//*[@text='{token_lbl_RequestConfirm}']|//*[@label='{token_lbl_RequestConfirm}']" descriptor="XPATH" />  
+			<element name="lbl_ServiceDetails" value="//*[@text='{token_lbl_ServiceDetails}']|//*[@label='{token_lbl_ServiceDetails}']" descriptor="XPATH" />  
+			<element name="lbl_CancelReason" value="//*[@text='{token_lbl_CancelReason}']|(//*[@name='{token_lbl_CancelReason}'])[2]" descriptor="XPATH" />  
+			<element name="lbl_Yes_CancelScheduleService" value="//*[@text='{token_lbl_Yes_CancelScheduleService}']|//*[@label='{token_lbl_Yes_CancelScheduleService}']" descriptor="XPATH" />  
+			<element name="lbl_OrderCancelled" value="//*[@text='{token_lbl_OrderCancelled}']|//*[@name='{token_lbl_OrderCancelled}']" descriptor="XPATH" />  
+			<element name="lbl_OrderCancel_Msg" value="//*[contains(@text,'{token_lbl_OrderCancel_Msg}')]|//*[contains(@name,'{token_lbl_OrderCancel_Msg}')]" descriptor="XPATH" />  
+			<element name="lbl_Reschedule_Request" value="//*[contains(@text,'{token_lbl_OrderCancel_Msg}')]|//*[contains(@name,'{token_lbl_OrderCancel_Msg}')]" descriptor="XPATH" />  
+			<element name="lbl_Close_CancelledSchedule" value="//*[@name='MobilityCommon.InfoPageView']//UIAButton" descriptor="XPATH" />
+
+
+<!-- //Sujath OR -Start -->
+			<element name="lbl_PageHeader" value="//*[@text='{token_lbl_PageHeader}']|//*[@label='{token_lbl_PageHeader}']" descriptor="XPATH" />
+			<element name="lbl_Note" value="//*[@text='{token_lbl_Note}']|//*[@label='{token_lbl_Note}']" descriptor="XPATH" />
+			<element name="Sub_PageHeader" value="//*[@text='{token_Sub_PageHeader}']|//*[@label='{token_Sub_PageHeader}']" descriptor="XPATH" />
+			<element name="Cancel_Option1" value="//*[@text='{token_Sub_Cancel_Option1}']/following::android.widget.RadioButton[1]|//*[@label='{token_Cancel_Option1}']/following::UIAButton[1]" descriptor="XPATH" />
+			<element name="Cancel_Option2" value="//*[@text='{token_Sub_Cancel_Option2}']/following::android.widget.RadioButton[2]|//*[@label='{token_Cancel_Option2}']/following::UIAButton[2]" descriptor="XPATH" />
+			<element name="Cancel_Option3" value="//*[@text='{token_Sub_Cancel_Option3}']/following::android.widget.RadioButton[3]|//*[@label='{token_Cancel_Option3}']/following::UIAButton[3]" descriptor="XPATH" />
+			<element name="Cancel_Option4" value="//*[@text='{token_Sub_Cancel_Option4}']/following::android.widget.RadioButton[4]|//*[@label='{token_Cancel_Option4}']/following::UIAButton[4]" descriptor="XPATH" />
+			<element name="btn_Yes" value="//*[@text='{token_btn_Yes}']|//*[@label='{token_btn_Yes}']" descriptor="XPATH" />
+			<element name="btn_No" value="//*[@text='{token_btn_No}']|//*[@label='{token_btn_No}']" descriptor="XPATH" />
+
+
+<!-- //Sujath OR -End -->
+
+	
+			
+		</page>
+	</site>
+</elementDefinition>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_ForgotPIN" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_DialogHeader" value="//*[@text='{token_lbl_DialogHeader_AND}']|//*[@label='{token_lbl_DialogHeader_IOS}']" descriptor="XPATH" />
+			<element name="lbl_DialogInfo" value="//*[@text='{token_lbl_DialogInfo_AND}']|//*[contains(@label,'{token_lbl_DialogInfo_IOS}')]" descriptor="XPATH" />
+			<element name="btn_Logout" value="//*[@text='{token_btn_Logout_AND}']|//*[@label='{token_btn_Logout_IOS}']|//*[@text='Log out']" descriptor="XPATH" />
+			<element name="btn_Cancel" value="//*[@text='{token_btn_Cancel_AND}']|//*[@label='{token_btn_Cancel_IOS}']|//*[@text='Cancel']" descriptor="XPATH" />
+			<element name="lbl_DialogBulletPoints1" value="//*[@text='{token_lbl_DialogBulletPoints1}']" descriptor="XPATH" />
+			<element name="lbl_DialogBulletPoints2" value="//*[@text='{token_lbl_DialogBulletPoints2}']" descriptor="XPATH" />
+			<element name="lbl_DialogBulletPoints3" value="//*[@text='{token_lbl_DialogBulletPoints3}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

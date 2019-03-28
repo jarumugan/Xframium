@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_EnterAddress">
+		<description> fn_VerifyPageOpened_EnterAddress - Function to verify user landed on the 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_PageTitle" page="pge_EnterAddress" wait="3">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="DOWN" />
+			<token type="CONTENT" name="token_lbl_PageTitle" value="TEnterAddress1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="STATIC" value="User successfully landed on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Enter Address' page is not displayed or page header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_EnterAddress">
+		<description> fn_ValidatePage_EnterAddress - Function to validate 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_lbl_PageInfo_AND" value="TEnterAddress2" />
+			<token type="CONTENT" name="token_lbl_PageInfo_IOS" value="TEnterAddress2_IOS" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="CONTENT" value="TEnterAddress2" />
+				<parameter type="STATIC" value="Above text is displayed as page information on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTENT" value="TEnterAddress2" />
+					<parameter type="STATIC" value="Above text is not displayed as page information on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+
+		<step type="EXISTS" name="lbl_PrimaryAddress" page="pge_EnterAddress" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_PrimaryAddress" value="TEnterAddress3" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="STATIC" value="'Primary Address' section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Primary Address' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateEnterAddress_NextButtonStatus" page="pge_EnterAddress">
+			<parameter type="STATIC" name="param_ExpectedStatus" value="false" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PhoneNumber" page="pge_EnterAddress" tagNames="FP-EU" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_PhoneNumber" value="TEnterAddress16" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="STATIC" value="'Phone Number' section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Phone Number' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_Note" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_lbl_Note" value="TEnterAddress10" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="STATIC" value="'Note' section header displayed as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Note' section header is not displayed on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_NoteDesc" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_lbl_NoteDesc" value="TEnterAddress11" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="CONTENT" value="TEnterAddress11" />
+				<parameter type="STATIC" value="Above description text displayed on Note section as expected on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTENT" value="TEnterAddress11" />
+					<parameter type="STATIC" value="Above description text is not displayed on Note section on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputAllFields_EnterAddress">
+		<description> fn_InputAllFields_EnterAddress - Function to input value to all fields in Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+				
+		<step type="CALL2" name="fn_Input_EnterAddress_CEP" page="pge_EnterAddress" tagNames="FP-SA">
+			<parameter type="DATA" name="param_DataValue" value="TestData.ZipcodeCEP" />	
+
+			<step type="LOOP" name="WaitTillLoadingCompletes" page="pge_EnterAddress" failureMode="IGNORE">
+				<parameter type="STATIC" value="5" />
+				<parameter type="STATIC" value="fn_WaitTillLoadingCompletes" />
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress5" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress5" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Street" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-EU,FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress14" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress14" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Address1" />
+		</step>
+		
+		<!-- Address 2 field is not applicable for SA, Germany -->
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-ES,FP-EU-UK,FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress15" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress15" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Address2" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress6" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress6" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Number" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-SA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress7" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress7" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.Complement" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress8" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress8" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.City" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress9" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress9" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.State" />
+		</step>
+	
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-EU,FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress4" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress4" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.ZipcodeCEP" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateInput_EnterAddress_Fields" page="pge_EnterAddress" tagNames="FP-EU,FP-NA">
+			<parameter type="CONTENT" name="param_AndroidToken" value="TEnterAddress17" />
+			<parameter type="CONTENT" name="param_iOSToken" value="TEnterAddress17" />
+			<parameter type="DATA" name="param_DataValue" value="TestData.PhoneNumber" />
+		</step>
+	</function>
+	
+	<function name="fn_ValidateInput_EnterAddress_Fields">
+		<description> fn_ValidateInput_EnterAddress_Fields - Function to validate and input/set the fields with user given value on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_EnterAddress" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_EnterAddress" />
+		</step>
+		
+		<!-- below lines are commented because not used for editing/inputting -->
+<!-- 		<step type="STRING2" name="upper" page="pge_EnterAddress" context="str_UpperCaseConverted"> -->
+<!-- 			<parameter type="CONTEXT" name="Original Value" value="param_DataValue" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="COMPARE2" name="STRING" page="pge_EnterAddress" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!-- 			<parameter type="STATIC" name="Value Two" value="" /> -->
+<!-- 			<parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress"> -->
+<!-- 				<parameter type="CONTEXT" value="param_AndroidToken" /> -->
+<!-- 				<parameter type="STATIC" value="No changes made to the above Enter Address page field" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_EnterAddress"> -->
+				<step type="SET" name="edt_EnterAddressField" page="pge_EnterAddress" wait="3">
+					<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+					<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+					<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+					<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+					<parameter type="STATIC" value="Above Enter Address page field is inputted with the below value" />
+					<parameter type="CONTEXT" value="param_DataValue" />
+				</step>
+<!-- 			</step> -->
+<!-- 		</step>		 -->
+	</function>
+
+	<function name="fn_MoveTo_SpecificField_EnterAddress">
+		<description> fn_MoveTo_SpecificField_EnterAddress - Function to move to specific field on Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="DEVICE" name="HIDE_KEYBOARD" site="FordPass" page="pge_CommonReusable" os="ANDROID" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="edt_EnterAddressField" page="pge_EnterAddress" failureMode="IGNORE" os="ANDROID">
+			<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="Above field is available on Enter Address page along with its expected label and Textfield" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - Object appears" page="pge_EnterAddress" failureMode="IGNORE" />
+			
+			<step type="BREAK" name="Object appears successfully" page="pge_EnterAddress" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+					<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="edt_EnterAddressField.VISIBLE" page="pge_EnterAddress" failureMode="IGNORE" os="IOS">
+			<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="CONTEXT" value="param_AndroidToken" />
+				<parameter type="STATIC" value="Above field is available on Enter Address page along with its expected label and Textfield" />
+			</step>
+			
+			<step type="STATE" name="Dummy State - Object appears" page="pge_EnterAddress" failureMode="IGNORE" />
+			
+			<step type="BREAK" name="Object appears successfully" page="pge_EnterAddress" />
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="CALL2" name="fn_SwipeToBottom_Parameterized" page="pge_CommonReusable">
+					<parameter type="STATIC" name="param_NoOfSwipe" value="1" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ValidateEnterAddress_NextButtonStatus">
+		<description> fn_ValidateEnterAddress_NextButtonStatus - Function to validate/check the status of Next button on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID" />		
+		
+		<step type="VISIBLE" name="btn_Next" page="pge_EnterAddress" failureMode="IGNORE" >
+			<parameter type="STATIC" name="maxScroll" value="6" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Next_AND" value="TEnterAddress12_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TEnterAddress12_IOS" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_btn_Next_AND" value="TEnterAddress12_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TEnterAddress12_IOS" />
+			
+			<step type="ATTRIBUTE" name="btn_Next" page="pge_EnterAddress">
+				<parameter type="CONTEXT" value="param_ExpectedStatus" />
+				<parameter type="STATIC" value="enabled" />
+				<token type="CONTENT" name="token_btn_Next_AND" value="TEnterAddress12_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TEnterAddress12_IOS" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_ExpectedStatus" />
+					<parameter type="STATIC" value="'Next' button's enabled property value as expected on 'Enter Address' page" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+						<parameter type="CONTEXT" value="param_ExpectedStatus" />
+						<parameter type="STATIC" value="'Next' button's enabled property value not as expected on 'Enter Address' page" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Next' button is not available on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_ClickEnterAddress_Next">
+		<description> fn_ClickEnterAddress_Next - Function to click Next button on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidateEnterAddress_NextButtonStatus" page="pge_EnterAddress">
+			<parameter type="STATIC" name="param_ExpectedStatus" value="true" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Next" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_btn_Next_AND" value="TEnterAddress12_AND" />
+			<token type="CONTENT" name="token_btn_Next_IOS" value="TEnterAddress12_IOS" />
+			
+			<step type="CLICK" name="btn_Next" page="pge_EnterAddress" wait="3">
+				<token type="CONTENT" name="token_btn_Next_AND" value="TEnterAddress12_AND" />
+				<token type="CONTENT" name="token_btn_Next_IOS" value="TEnterAddress12_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="STATIC" value="'Next' button is available and clicked on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Next' button is not available on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckforInlineError_EnterAddress">
+		<description> fn_CheckforInlineError_EnterAddress - Function to validate for Inline error message displayed next to field in Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID"/>
+		
+		<step type="STATE" name="Dummy State - Check for Inline error" page="pge_EnterAddress" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_EnterAddress">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message displayed bottom of the field as expected" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed botton of the field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_CheckNotExist_InlineError_EnterAddress">
+		<description> fn_CheckNotExist_InlineError_EnterAddress - Function to validate for Inline error message is not displayed next to field in Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+				
+		<!-- To Hide the Keyboard -->
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" os="ANDROID"/>
+		
+		<step type="STATE" name="Dummy State - Check for Inline error not exists" page="pge_EnterAddress" failureMode="IGNORE" />
+		
+		<step type="EXISTS" name="lbl_InlineErrorMsg" page="pge_EnterAddress" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_InlineErrorMsg" value="param_InlineErrorMessage" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+				<parameter type="STATIC" value="Above inline error message is displayed bottom to the field but it should not" />
+			</step>
+			
+			<!-- stop the execution -->
+			<step type="FLOW" name="END_FAILURE" page="pge_EnterAddress" failureMode="ERROR"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_InlineErrorMessage" />
+					<parameter type="STATIC" value="Above inline error message displayed bottom to the above field as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateFieldsWithExpectedValue_EnterAddress">
+		<description> fn_ValidateFieldsWithExpectedValue_EnterAddress - Function to validate whether expected values are pre-filled on the Enter Address page fields </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_EnterAddress" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_EnterAddress" />
+		</step>
+		
+		<step type="EXISTS" name="edt_EnterAddressField" page="pge_EnterAddress">
+			<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+			
+			<step type="ATTRIBUTE" name="edt_EnterAddressField" page="pge_EnterAddress">
+				<parameter type="CONTEXT" value="param_ExpectedValue" />
+				<parameter type="STATIC" value="text" />
+				<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+				<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_ExpectedValue" />
+					<parameter type="STATIC" value="Above expected value is available on the below field" />
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+				</step>
+				
+				<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+						<parameter type="CONTEXT" value="param_ExpectedValue" />
+						<parameter type="STATIC" value="Above expected value is not available on the below field" />
+						<parameter type="CONTEXT" value="param_AndroidToken" />
+					</step>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+					<parameter type="STATIC" value="Above mentioned field is not available on the Enter Address field" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Input_EnterAddress_CEP">
+		<description> fn_Input_EnterAddress_CEP - Function to input user given value to CEP field in Enter Address page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="EXISTS" name="edt_EnterAddressField" page="pge_EnterAddress" tagNames="FP-SA">
+			<token type="CONTENT" name="token_edt_EnterAddressField_AND" value="TEnterAddress4"/>
+			<token type="CONTENT" name="token_edt_EnterAddressField_IOS" value="TEnterAddress4"/>
+			
+			<step type="CLICK" name="edt_EnterAddressField" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_edt_EnterAddressField_AND" value="TEnterAddress4"/>
+			<token type="CONTENT" name="token_edt_EnterAddressField_IOS" value="TEnterAddress4"/>
+			</step>
+			
+			<step type="SET" name="edt_EnterAddressField" page="pge_EnterAddress" wait="3">				
+				<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+				<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+				<token type="CONTENT" name="token_edt_EnterAddressField_AND" value="TEnterAddress4"/>
+				<token type="CONTENT" name="token_edt_EnterAddressField_IOS" value="TEnterAddress4"/>
+			</step>
+			
+			<step type="STATE" name="Dummy state - to validate whether data inputted on CEP field" page="pge_EnterAddress" failureMode="IGNORE" /> 
+			
+			<!-- to make the lost focus from CEP field clicking on the Street name field -->
+			<!--  Because next button is not available on Numeric keyboard -->
+			<step type="EXISTS" name="edt_EnterAddressField" page="pge_EnterAddress">
+				<token type="CONTENT" name="token_edt_EnterAddressField_AND" value="TEnterAddress5"/>
+				<token type="CONTENT" name="token_edt_EnterAddressField_IOS" value="TEnterAddress5"/>
+				
+				<step type="CLICK" name="edt_EnterAddressField" page="pge_EnterAddress" wait="3">
+					<token type="CONTENT" name="token_edt_EnterAddressField_AND" value="TEnterAddress5"/>
+					<token type="CONTENT" name="token_edt_EnterAddressField_IOS" value="TEnterAddress5"/>
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="CEP field is not available on the Enter Address page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_FieldLevelValidate_EnterAddress">
+		<description> fn_FieldLevelValidate_EnterAddress - Function to validate and input/set the fields with user given value on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+		
+		<step type="LOOP" name="WaitTillObjectAppears" page="pge_EnterAddress" failureMode="IGNORE">
+			<parameter type="STATIC" value="3" />
+			<parameter type="STATIC" value="fn_MoveTo_SpecificField_EnterAddress" />
+		</step>
+		
+		<!-- below lines are commented because not used for editing/inputting -->
+<!-- 		<step type="STRING2" name="upper" page="pge_EnterAddress" context="str_UpperCaseConverted"> -->
+<!-- 			<parameter type="CONTEXT" name="Original Value" value="param_DataValue" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="COMPARE2" name="STRING" page="pge_EnterAddress" failureMode="IGNORE"> -->
+<!-- 			<parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!-- 			<parameter type="STATIC" name="Value Two" value="" /> -->
+<!-- 			<parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress"> -->
+<!-- 				<parameter type="CONTEXT" value="param_AndroidToken" /> -->
+<!-- 				<parameter type="STATIC" value="No changes made to the above Enter Address page field" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="ELSE" name="elseCondition" page="pge_EnterAddress"> -->
+				<step type="CLICK" name="edt_EnterAddressField" page="pge_EnterAddress" wait="3">
+					<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+					<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+				</step>
+				
+				<step type="SET" name="edt_EnterAddressField" page="pge_EnterAddress" wait="3">
+					<parameter type="CONTEXT" name="value to set" value="param_DataValue" />
+					<parameter type="STATIC" name="Clear the text box and enter" value="DEFAULT" />
+					<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+					<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+				</step>
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="CONTEXT" value="param_AndroidToken" />
+					<parameter type="STATIC" value="Above Enter Address page field is inputted with the below value" />
+					<parameter type="CONTEXT" value="param_DataValue" />
+				</step>
+<!-- 			</step> -->
+<!-- 		</step>		 -->
+	</function>
+	
+	<function name="fn_Click_PreviousTextField">
+		<description> fn_Click_PreviousTextField - Function to click on previous text field when the current field having only Number keyboard on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+	
+		<step type="EXISTS" name="edt_PreviousTextField" page="pge_EnterAddress">
+			<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+			<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+			
+			<step type="CLICK" name="edt_PreviousTextField" page="pge_EnterAddress">
+				<token type="CONTEXT" name="token_edt_EnterAddressField_AND" value="param_AndroidToken"/>
+				<token type="CONTEXT" name="token_edt_EnterAddressField_IOS" value="param_iOSToken"/>
+			</step>
+		</step>		
+	</function>
+	
+	<function name="fn_ClickEnterAddress_Save">
+		<description> fn_ClickEnterAddress_Save - Function to click Save button on 'Enter Address' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+			<parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+		</step>
+				
+		<step type="VISIBLE" name="btn_Save" page="pge_EnterAddress">
+			<parameter type="STATIC" name="maxScroll" value="6" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_Save_AND" value="TEnterAddress13_AND" />
+			<token type="CONTENT" name="token_btn_Save_IOS" value="TEnterAddress13_IOS" />
+			
+			<step type="CLICK" name="btn_Save" page="pge_EnterAddress" wait="3">
+				<token type="CONTENT" name="token_btn_Save_AND" value="TEnterAddress13_AND" />
+				<token type="CONTENT" name="token_btn_Save_IOS" value="TEnterAddress13_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+				<parameter type="STATIC" value="'Save' button is available and clicked on 'Enter Address' page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Save' button is not available on 'Enter Address' page" />
+				</step>
+			</step>
+		</step>
+	</function>
+		<function name="fn_Click_EnterAddr_SkipForNow">
+		<description> fn_Click_EnterAddr_SkipForNow - Function to click on Skip for Now button (to avoid entering the address ) </description>
+	
+		
+		<step type="EXISTS" name="btn_Skip" page="pge_EnterAddress">
+			<token type="CONTENT" name="token_btn_Skip_AND" value="TEnterAddress21_AND"/>
+			<token type="CONTENT" name="token_btn_Skip_IOS" value="TEnterAddress21_IOS"/>
+			
+			<step type="CLICK" name="btn_Skip" page="pge_EnterAddress">
+				<token type="CONTENT" name="token_btn_Skip_AND" value="TEnterAddress21_AND"/>
+			    <token type="CONTENT" name="token_btn_Skip_IOS" value="TEnterAddress21_IOS"/>
+			
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Skip Button'  is available and clicked on the Enter Address page" />
+				</step>
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+					<parameter type="STATIC" value="'Skip button' is not available on the Enter Address page" />
+				</step>
+			</step>
+		</step>	
+	</function>
+	
+	<function name="fn_EnterAddr_State">
+            <description> ffn_EnterAddr_State - Function to validate and set the value to State dropdown field on Enter Address page </description>
+            <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                  <parameter type="STATIC" value="Function's XML file name: fn_EnterAddress.xml" />
+            </step>
+            
+<!--        <step type="COMPARE2" name="STRING" page="pge_EnterAddress" failureMode="IGNORE"> -->
+<!--              <parameter type="CONTEXT" name="Value One" value="param_DataValue" /> -->
+<!--              <parameter type="STATIC" name="Value Two" value="" /> -->
+<!--              <parameter type="STATIC" name="Operator" value="EQUALS"/> -->
+            
+<!--              <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress"> -->
+<!--                    <parameter type="STATIC" value="No changed made to the 'State' field on Edit Profile page" /> -->
+<!--              </step> -->
+                  
+<!--              <step type="ELSE" name="elseCondition" page="pge_EnterAddress"> -->
+                        <step type="EXISTS" name="edt_State" page="pge_EnterAddress">
+                              <token type="CONTENT" name="token_edt_State" value="TEnterAddress9" />
+                              
+                              <step type="CLICK" name="edt_State" page="pge_EnterAddress" wait="5">
+                                    <token type="CONTENT" name="token_edt_State" value="TEnterAddress9" />
+                              </step>
+                              
+                              <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                                    <parameter type="STATIC" value="'State' field is available and clicked on Enter Address page" />
+                              </step>
+                              
+                              <step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+                                    <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                                          <parameter type="STATIC" value="'State' field is available and clicked on Enter Address page" />
+                                    </step>
+                                    
+                                    <step type="FLOW" name="END_FAILURE" page="pge_EnterAddress" failureMode="ERROR" />
+                              </step>
+                        </step>
+                        
+                        <!-- To set the pickerwheel value by SET method in IOS -->
+                        <step type="SET" name="lst_State" page="pge_EnterAddress" os="IOS" wait="2">
+                              <parameter type="DATA" name="Value to Set" value="TestData.State" />
+                              <token type="DATA" name="token_lst_State" value="TestData.State" />
+                              
+                              <step type="ATTRIBUTE" name="lst_State" page="pge_EnterAddress">
+                                    <parameter type="DATA" value="TestData.State" />
+                                    <parameter type="STATIC" value="value" />
+                                    <token type="DATA" name="token_lst_State" value="TestData.State" />
+                                    
+                                    <step type="STATE" name="Dummy State - State validation" page="pge_EnterAddress" failureMode="IGNORE" /> 
+                                    
+                                    <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                                          <parameter type="DATA" value="TestData.State" />
+                                          <parameter type="STATIC" value="Above value is available and selected successfully in 'State' dropdown/listbox field on Enter Address page" />
+                                    </step>
+                                    
+                                    <!-- to click on Next link on top of Pickerwheel (iOS)-->
+                                    <step type="CLICK" name="lnk_Next_Pickerwheel" page="pge_EnterAddress"  wait="5"/>
+                              </step>
+                              
+                              <step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+                                    <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                                          <parameter type="DATA" value="TestData.State" />
+                                          <parameter type="STATIC" value="Above value is not available on 'State' dropdown/listbox field on Enter Address page" />
+                                    </step>
+                                    
+                                    <step type="FLOW" name="END_FAILURE" page="pge_EnterAddress" failureMode="ERROR" />
+                              </step>
+                        </step>
+                              
+                        <!-- To set the Listbox/Dropdown value by CLICK method in ANDROID -->
+                        <step type="VISIBLE" name="lst_State" page="pge_EnterAddress" os="ANDROID" failureMode="IGNORE">
+                              <parameter type="STATIC" name="maxScroll" value="6" />
+                              <parameter type="STATIC" name="direction" value="UP" />
+                              <token type="DATA" name="token_lst_State" value="TestData.State" />
+                        </step>
+                              
+                        <step type="EXISTS" name="lst_State" page="pge_EnterAddress" os="ANDROID" >
+                              <token type="DATA" name="token_lst_State" value="TestData.State" />
+                        
+                              <step type="STATE" name="Dummy State - State validation" page="pge_EnterAddress" failureMode="IGNORE" />
+                              
+                              <step type="CLICK" name="lst_State" page="pge_EnterAddress">
+                                    <token type="DATA" name="token_lst_State" value="TestData.State" />
+                              </step>
+                              
+                              <step type="STATE" name="Dummy State - State validation" page="pge_EnterAddress" failureMode="IGNORE" />
+                              
+                              <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                                    <parameter type="DATA" value="TestData.State" />
+                                    <parameter type="STATIC" value="Above value is available and selected in 'State' dropdown/listbox field on Enter Address page" />
+                              </step>
+                              
+                              <step type="ELSE" name="elseCondition" page="pge_EnterAddress">
+                                    <step type="REPORT" name="ADD_TO_REPORT" page="pge_EnterAddress">
+                                          <parameter type="DATA" value="TestData.State" />
+                                          <parameter type="STATIC" value="Above value is not available on 'State' dropdown/listbox field on Enter Address page" />
+                                    </step>
+                              </step>
+                        </step>
+      </function>
+
+	
+	
+</suite>

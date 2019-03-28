@@ -1,0 +1,2321 @@
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether 'ADD VEHICLE' link is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- KSARAV53 - If it is not available, another function fn_SwipeToSelectAddVehicle will be called in a loop of 5 iterations -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Find_AddVehicle">
+		<description>fn_Find_AddVehicle - function to find the Add vehicle link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_AddVehicle" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lnk_AddVehicle" value="TMove1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle Link is found" />
+			</step>	
+		<step type="ELSE" name="If_Add_Vehicle_Link_Not_Available" page="pge_Move">
+			<step name="FIND_ADDVEHICLE" type="LOOP" page="pge_Move" >
+			  <parameter type="STATIC" value="5" />
+			  <parameter type="STATIC" value="fn_SwipeToSelectAddVehicle" />
+			</step>
+		</step>
+		</step>
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function swipes horizontally and check for the 'ADD VEHICLE' link -->
+<!-- KSARAV53 - If it is available, it will break the loop -->
+<!-- KSARAV53 - If it is not available, then the loop will be continued till max number is reached -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeToSelectAddVehicle">
+		<description>fn_SwipeToSelectVehicle - function to swipe horizontally from right to left for selecting or adding a new vehicle </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="90,50" />
+			<parameter type="STATIC" value="20,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+		
+		<step type="EXISTS" name="lnk_AddVehicle" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lnk_AddVehicle" value="TMove1" />
+		    <step name="BREAK" type="BREAK" page="pge_Move" />
+		<step type="ELSE" name="If_Add_Vehicle_Link_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Continue swiping..." />
+			</step>		
+		</step>
+		</step>
+				
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the expected vehicle nick name link is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- KSARAV53 - If it is not available, another function fn_SwipeToSelectExpectedVehicle will be called in a loop of 5 iterations -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Find_ExpectedVehicle">
+		<description>fn_FindVehicle - function to find the expected vehicle link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lnk_VehicleNickName" page="pge_Move" >
+			<token type="DATA" name="token_lnk_VehicleNickName_IOS" value="TestData.VehicleNickName_IOS" />
+			<token type="DATA" name="token_lnk_VehicleNickName_AND" value="TestData.VehicleNickName_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Expected Vehicle Nick Name is found" />
+			</step>	
+		<step type="ELSE" name="If_Expected_Vehicle_Link_Not_Available" page="pge_Move">
+			<step name="FIND_EXPECTED_VEHICLE" type="LOOP" page="pge_Move" >
+			  <parameter type="STATIC" value="5" />
+			  <parameter type="STATIC" value="fn_SwipeToSelectExpectedVehicle" />
+			</step>
+		</step>
+		</step>
+
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function swipes horizontally and check for the vehicle nick name link -->
+<!-- KSARAV53 - If it is available, it will break the loop -->
+<!-- KSARAV53 - If it is not available, then the loop will be continued till max number is reached -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeToSelectExpectedVehicle">
+		<description>fn_SwipeToSelectExpectedVehicle - function to swipe horizontally from right to left for selecting the expected vehicle </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="90,50" />
+			<parameter type="STATIC" value="20,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+
+		<step type="EXISTS" name="lnk_VehicleNickName" page="pge_Move" failureMode="IGNORE">
+			<token type="DATA" name="token_lnk_VehicleNickName_IOS" value="TestData.VehicleNickName_IOS" />
+			<token type="DATA" name="token_lnk_VehicleNickName_AND" value="TestData.VehicleNickName_AND" />
+		    <step name="BREAK" type="BREAK" page="pge_Move" />
+		<step type="ELSE" name="If_Expected_Vehicle_Link_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Continue swiping..." />
+			</step>		
+		</step>
+		</step>
+
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the expected vehicle link -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_ExpectedVehicle">
+		<description>fn_Click_ExpecetedVehicle - function to click the expected vehicle link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+						
+		<step type="CLICK" name="lnk_VehicleNickName" page="pge_Move">
+			<token type="DATA" name="token_lnk_VehicleNickName_IOS" value="TestData.VehicleNickName_IOS" />
+			<token type="DATA" name="token_lnk_VehicleNickName_AND" value="TestData.VehicleNickName_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Expected Vehicle has been clicked successfully" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Expected Vehicle is not clicked" />
+			</step>
+		</step>
+		</step>
+	</function>
+
+<!-- ############################################################################################################# -->
+<!--  KSARAV53 - This function verifies 'View Vehicle Details' link is available and clicks the link -->
+<!-- ############################################################################################################# -->
+	
+<function name="fn_Click_ViewVehicleDetails">
+		<description>fn_Click_ViewVehicleDetails - function to click 'View Vehicle Details' link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ViewVehicleDetails" page="pge_Move">
+			<token type="CONTENT" name="token_lnk_ViewVehicleDetails" value="TMove2_IOS" />
+			<token type="CONTENT" name="token_lnk_ViewVehicleDetails_AND" value="TMove2_AND" />
+			
+			
+			<step type="CLICK" name="lnk_ViewVehicleDetails" page="pge_Move">
+				<token type="CONTENT" name="token_lnk_ViewVehicleDetails" value="TMove2_IOS" />
+				<token type="CONTENT" name="token_lnk_ViewVehicleDetails_AND" value="TMove2_AND" />
+						
+			</step>
+			
+			<step type="WAIT_FOR" name="lbl_PresstoRefresh" page="pge_AuthorizedTCUVIN_VehicleInfo">
+			<parameter type="STATIC" value="60"/>
+			<token type="CONTENT" name="token_lbl_PresstoRefresh" value="TVehicleDetailsAuthTCUVIN15" />
+			</step>
+					
+		</step>
+	</function>
+
+	<!-- <function name="fn_Click_ViewVehicleDetails">
+	    <description>fn_Click_ViewVehicleDetails - function to click 'View Vehicle Details' link </description>
+	    
+	    <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+	    	<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+	    </step>
+	    
+	    <step type="GESTURE" name="SWIPE" page="pge_FPCommon">
+				<parameter type="STATIC" value="50,20" />
+				<parameter type="STATIC" value="50,60" />
+		</step>	
+	    
+	    <step type="WAIT_FOR" name="lnk_ViewVehicleDetails" page="pge_Move">
+	    	<parameter type="STATIC" value="10" />
+	    	<token type="CONTENT" name="token_lnk_ViewVehicleDetails_L" value="TVehicleInfo1C" />
+	        <token type="CONTENT" name="token_lnk_ViewVehicleDetails_U" value="TVehicleInfo1D" />
+	        <token type="CONTENT" name="token_lnk_ViewVehicleDetails_Final" value="TVehicleInfo1B" />
+	        <step type="CLICK" name="lnk_ViewVehicleDetails" page="pge_Move">
+		    	<token type="CONTENT" name="token_lnk_ViewVehicleDetails_L" value="TVehicleInfo1C" />
+		        <token type="CONTENT" name="token_lnk_ViewVehicleDetails_U" value="TVehicleInfo1D" />
+		        <token type="CONTENT" name="token_lnk_ViewVehicleDetails_Final" value="TVehicleInfo1B" />
+	        </step>
+	        
+	        <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+	        	<parameter type="STATIC" value="'VIEW VEHICLE DETAILS' link has been clicked successfully" />
+	        </step>              
+	    
+	    <step type="ELSE" name="elseCondition" page="pge_Move">
+	    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+	        	<parameter type="STATIC" value="'VIEW VEHICLE DETAILS' link is not available" />
+	        </step>
+	    </step>
+	    </step>	    
+	</function>
+ -->
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the expected smart card tile title is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_VerifySmartCard_TileTitle">
+		<description>fn_VerifySmartCard_TileTitle - function to verify the title of smart card tile </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_TileTitle" page="pge_Move">
+			<token type="CONTEXT" name="token_lbl_TileTitle" value="str_SmartCardTitle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile Title is found" />
+			</step>	
+		<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile Title is not found" />
+			</step>	
+		</step>
+		</step>
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the expected smart card tile content is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_VerifySmartCard_TileContent">
+		<description>fn_VerifySmartCard_TileContent - function to verify the contents of smart card tile </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_TileContent" page="pge_Move">
+			<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile Content is found" />
+			</step>	
+		<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile Content is not found" />
+			</step>	
+		</step>
+		</step>
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks on the smart card tile content is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ClickSmartCard_TileContent">
+		<description>fn_ClickSmartCard_TileContent - function to click on the content of smart card tile </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CLICK" name="lbl_TileContent" page="pge_Move">
+			<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile is clicked" />
+			</step>	
+		<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile click failed" />
+			</step>	
+		</step>
+		</step>
+	</function>		
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the empty smart card tile content is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_VerifySmartCard_EmptyTileContent">
+		<description>fn_VerifySmartCard_EmptyTileContent - function to verify the contents of empty smart card tile </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_EmptyTileContent" page="pge_Move">
+			<token type="CONTEXT" name="token_lbl_EmptyTileContent_AND" value="str_SmartCardContent_AND" />
+			<token type="CONTEXT" name="token_lbl_EmptyTileContent_IOS" value="str_SmartCardContent_IOS" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Empty Smart Card Tile Content is found" />
+			</step>	
+		<step type="ELSE" name="If_Empty_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Empty Smart Card Tile Content is not found" />
+			</step>	
+		</step>
+		</step>
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function clicks the Add vehicle Tab -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_AddVehicleTab">
+		<description>fn_Click_AddVehicleTab - function to click the Add vehicle tab </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_AddVehicle" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTENT" name="token_lnk_AddVehicle" value="TMove1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle Tab has been clicked successfully" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle Tab is not clicked" />
+			</step>
+		</step>
+		</step>
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate Move landing page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateMoveLandingPage">
+		<description>fn_ValidateMoveLandingPage - function to validate Move landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_AddVehicle" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_AddVehicle" value="TMove1" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle tab is found" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle Tab is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_EmptyGarageTitle" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_EmptyGarageTitle" value="TMoveLanding1" />
+			<token type="CONTENT" name="token_lbl_EmptyGarageTitle_AND" value="TMoveLanding1_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Empty Garage title is found" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Empty Garage title is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_EmptyGarageTitleDesc" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_EmptyGarageTitleDesc" value="TMoveLanding2" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Empty Garage Desc is found" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Empty Garage Desc is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_AddVehicleInEmptyGarage" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_AddVehicleInEmptyGarage" value="TAddVin" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle link is found" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Add Vehicle link is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Greeting" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Greeting label is found in move landing page" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Greeting label is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		 <step type="VISIBLE" name="lbl_FirstName" page="pge_Move" >
+			<token type="DATA" name="token_lbl_FirstName" value="TestData.FirstName" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="FirstName is found in move landing page" />
+			</step>	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="FirstName is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_Move" page="pge_FPCommon" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'MOVE' menu is available and selected by default" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'MOVE' menu  is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_Find" page="pge_FPCommon" >
+				<token type="CONTENT" name="token_lnk_Find" value="TCommon_Find" />
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'FIND' menu is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'FIND' menu  is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_Guides" page="pge_FPCommon" >
+				<token type="CONTENT" name="token_lnk_Guides" value="TCommon_Guides" />
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'GUIDES' menu is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'GUIDES' menu  is not displayed" />
+			</step>
+		</step>
+		</step>		
+		
+		<step type="VISIBLE" name="lnk_Account" page="pge_FPCommon" >
+				<token type="CONTENT" name="token_lnk_Account" value="TCommon_Account" />
+					
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_FPCommon">
+				<parameter type="STATIC" value="'ACCOUNT' menu is available" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'ACCOUNT' menu  is not displayed" />
+			</step>
+		</step>
+		</step>		
+		
+		 <step type="CALL2" name="fn_CheckTempWeatherDisplayed" page="pge_Move" /> 
+			
+	</function>
+	
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function to check temperature and weather in move landing page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_CheckTempWeatherDisplayed">
+		<description>fn_CheckTempWeatherDisplayed - function to check temperature and weather is displayed </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Temp_AND" page="pge_Move" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature is displayed" />
+			</step>
+			
+			<step type="ATTRIBUTE" name="lbl_Temp_AND" page="pge_Move" context="ATTR_TEMP_AND" >
+    			<parameter type="STATIC" value="text" />
+    			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="CONTEXT" value="ATTR_TEMP_AND" />
+			</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Weather_AND" page="pge_Move" os="ANDROID">
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Weather is displayed" />
+			</step>
+			
+			<step type="ATTRIBUTE" name="lbl_Weather_AND" page="pge_Move" context="ATTR_WEATHER_AND">
+    			<parameter type="STATIC" value="text" />
+    			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="CONTEXT" value="ATTR_WEATHER_AND" />
+			</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Weather is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_TempWeather_IOS" page="pge_Move" os="IOS">
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature and Weather is displayed" />
+			</step>
+			
+			<step type="ATTRIBUTE" name="lbl_TempWeather_IOS" page="pge_Move" context="ATTR_TEMPWEATHER_IOS">
+    			<parameter type="STATIC" value="value" />
+    			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="CONTEXT" value="ATTR_TEMPWEATHER_IOS" />
+			</step>
+			
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature and Weather is not displayed" />
+			</step>
+		</step>
+		</step>		
+	
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function to check temperature and weather not displayed in move landing page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_CheckTempWeatherNotDisplayed">
+		<description>fn_CheckTempWeatherNotDisplayed - function to check temperature and weather is not displayed </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Temp_AND" page="pge_Move" os="ANDROID" inverse="true">
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature is not displayed as expected" />
+			</step>		
+			
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature is displayed which should not" />
+			</step>
+			
+			<step type="ATTRIBUTE" name="lbl_Temp_AND" page="pge_Move" context="ATTR_TEMP_AND" >
+    			<parameter type="STATIC" value="text" />
+    			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="CONTEXT" value="ATTR_TEMP_AND" />
+			</step>
+			
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Weather_AND" page="pge_Move" os="ANDROID" inverse="true">
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Weather is not displayed as expected" />
+			</step>			
+			
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Weather is displayed which should not" />
+			</step>
+			
+			<step type="ATTRIBUTE" name="lbl_Weather_AND" page="pge_Move" context="ATTR_WEATHER_AND">
+    			<parameter type="STATIC" value="text" />
+    			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="CONTEXT" value="ATTR_WEATHER_AND" />
+			</step>
+			
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_TempWeatherInVisible_IOS" page="pge_Move" os="IOS">
+			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature and Weather is not displayed as expected" />
+			</step>
+						
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Temperature and Weather is displayed which should not" />
+			</step>
+			
+			<step type="ATTRIBUTE" name="lbl_TempWeatherInVisible_IOS" page="pge_Move" context="ATTR_TEMPWEATHER_IOS">
+    			<parameter type="STATIC" value="value" />
+    			<token type="CONTENT" name="token_lbl_Greeting" value="TMoveLanding3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="CONTEXT" value="ATTR_TEMPWEATHER_IOS" />
+			</step>
+			
+		</step>
+		</step>		
+	
+	</function>
+	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the expected smart card title is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- KSARAV53 - If it is not available, another function fn_SwipeToSelectSmartCard will be called in a loop of 3 iterations -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Find_SmartCard">
+		<description>fn_Find_SmartCard - function to find the expected smart card title </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_TileTitle" value="str_SmartCardTitle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile Title is found" />
+			</step>	
+		<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+			<step name="FIND_SMARTCARD" type="LOOP" page="pge_Move" >
+			  <parameter type="STATIC" value="4" />
+			  <parameter type="STATIC" value="fn_SwipeToSelectSmartCard" />
+			  <step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_TileTitle" value="str_SmartCardTitle" />
+			  <step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				 <parameter type="STATIC" value="Couldn't find the expeceted smart card tile even after swiping four times; Hence fail the test function" />
+				 <step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+				</step>		
+			  </step>
+			  </step>
+			</step>
+		</step>
+		</step>
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function swipes horizontally from right to left and check for the expected smart card title -->
+<!-- KSARAV53 - If it is available, it will break the loop -->
+<!-- KSARAV53 - If it is not available, then the loop will be continued till max number is reached -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeToSelectSmartCard">
+		<description>fn_SwipeToSelectSmartCard - function to swipe horizontally from right to left and check for the expected smart card title </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE.img_SmartCardSelectionArea" page="pge_Move" os="ANDROID">
+			<parameter type="STATIC" value="90,50" />
+			<parameter type="STATIC" value="20,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="80,80" />
+			<parameter type="STATIC" value="50,80" />
+<!-- 			<parameter type="STATIC" value="65,80" /> -->
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+		
+		<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_TileTitle" value="str_SmartCardTitle" />
+		    <step name="BREAK" type="BREAK" page="pge_Move" />
+		<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Continue swiping..." />
+			</step>		
+		</step>
+		</step>
+				
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the expected vehicle nick name link is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- KSARAV53 - If it is not available, another function fn_SwipeToSelectExpectedVehicle will be called in a loop of 5 iterations -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Find_ExpectedVehicle_Parametrized">
+		<description>fn_Find_ExpectedVehicle_Parametrized - function to find the expected vehicle link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		 <!--aparthi3: Issue in loading vehicle image so just switch between account and move tab -->
+		<!-- <step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" failureMode="IGNORE"/> 
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon" failureMode="IGNORE"/>   -->
+		
+		<step type="EXISTS" name="lnk_VehicleNickName" page="pge_Move" failureMode="IGNORE" >
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_IOS" value="str_VehicleNickName_IOS" />
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_AND" value="str_VehicleNickName_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Expected Vehicle Nick Name is found" />
+			</step>	
+		<step type="ELSE" name="If_Expected_Vehicle_Link_Not_Available" page="pge_Move">
+			<step name="FIND_EXPECTED_VEHICLE" type="LOOP" page="pge_Move" >
+			  <parameter type="STATIC" value="5" />
+			  <parameter type="STATIC" value="fn_SwipeToSelectExpectedVehicle_Parametrized" />
+			</step>
+		</step>
+		</step>
+
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function swipes horizontally and check for the vehicle nick name link -->
+<!-- KSARAV53 - If it is available, it will break the loop -->
+<!-- KSARAV53 - If it is not available, then the loop will be continued till max number is reached -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeToSelectExpectedVehicle_Parametrized">
+		<description>fn_SwipeToSelectExpectedVehicle_Parametrized - function to swipe horizontally from right to left for selecting the expected vehicle </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="90,50" />
+			<parameter type="STATIC" value="20,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+
+		<step type="EXISTS" name="lnk_VehicleNickName" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_IOS" value="str_VehicleNickName_IOS" />
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_AND" value="str_VehicleNickName_AND" />
+		    <step name="BREAK" type="BREAK" page="pge_Move" />
+		<step type="ELSE" name="If_Expected_Vehicle_Link_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Continue swiping..." />
+			</step>		
+		</step>
+		</step>
+
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks the expected vehicle link -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Click_ExpectedVehicle_Parametrized">
+		<description>fn_Click_ExpectedVehicle_Parametrized - function to click the expected vehicle link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_VehicleNickName" page="pge_Move">
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_IOS" value="str_VehicleNickName_IOS" />
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_AND" value="str_VehicleNickName_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Expected Vehicle has been clicked successfully" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Expected Vehicle is not clicked" />
+			</step>
+		</step>
+		</step>
+	</function>
+
+
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function executes fn_CheckAndDismiss_SmartTip in a loop of 5 cycles  -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_Dismiss_SmartTip_Loop">
+		
+		<description>fn_Dismiss_SmartTip_Loop - function to execute the fn_CheckAndDismiss_SmartTip in a loop of 5 cycles </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>		
+
+		<step name="DISMISS IF SMART TIP TILE" type="LOOP" page="pge_Move" >
+			<parameter type="STATIC" value="3" />
+		  	<parameter type="STATIC" value="fn_CheckAndDismiss_SmartTip" />
+		</step>
+
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function swipes horizontally from right to left and check for the expected smart card tile content -->
+<!-- KSARAV53 - If it is available, it will break the loop -->
+<!-- KSARAV53 - If it is not available, then the loop will be continued till max number is reached -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeToSelectSmartCard_ContentBased">
+		<description>fn_SwipeToSelectSmartCard_ContentBased - function to swipe horizontally from right to left and check for the expected smart card content </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<!-- To print the loop count -->
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">	
+			<parameter type="STATIC" value="Loop - Iteration count is" />
+			<parameter type="CONTEXT" value="_LOOP.INDEX" />
+		</step>
+
+		<step type="GESTURE" name="SWIPE.img_SmartCardSelectionArea" page="pge_Move" os="ANDROID">
+			<parameter type="STATIC" value="90,50" />
+			<parameter type="STATIC" value="50,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="80,80" />
+			<!-- <parameter type="STATIC" value="65,80" /> -->
+			<parameter type="STATIC" value="50,80" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+				
+		<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+			<step type="EXISTS" name="lbl_Corresponding_SmartTip_Title" page="pge_Move">
+				<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+				<token type="CONTEXT" name="token_lbl_Corresponding_SmartTip_Title" value="str_SmartCardTitle" />
+			</step>
+		    <step name="BREAK" type="BREAK" page="pge_Move" />
+		<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+	    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Continue swiping..." />
+			</step>
+		</step>
+		</step>
+				
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates whether the expected smart card content is available or not -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- KSARAV53 - If it is not available, another function fn_SwipeToSelectSmartCard_ContentBased will be called in a loop of 3 iterations -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Find_SmartCardContent">
+		<description>fn_Find_SmartCard - function to find the expected smart card content </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+			<step type="EXISTS" name="lbl_Corresponding_SmartTip_Title" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+				<token type="CONTEXT" name="token_lbl_Corresponding_SmartTip_Title" value="str_SmartCardTitle" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile Content is found" />
+			</step>	
+		<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+			<step name="FIND_SMARTCARD_BASED_ON_TILE_CONTENT" type="LOOP" page="pge_Move" >
+			  <parameter type="STATIC" value="4" />
+			  <parameter type="STATIC" value="fn_SwipeToSelectSmartCard_ContentBased" />
+			  
+			  <step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+			  	<token type="CONTEXT" name="token_lbl_TileContent" value="str_SmartCardContent" />
+			  <step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+		      	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				 <parameter type="STATIC" value="Couldn't find smart tip tile even after swiping four times; Hence fail the test function" />
+				</step>
+				<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+			</step>
+			</step>
+			
+			</step>
+		</step>
+		</step>
+	</function>		
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function clicks on the smart card tile based on the welcome tip title -->
+<!-- KSARAV53 - If it is available, no further action would be taken -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ClickSmartCard_Title">
+		<description>fn_ClickSmartCard_Title - function to click on the title of smart card tile </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CLICK" name="lbl_TileTitle" page="pge_Move">
+			<token type="CONTEXT" name="token_lbl_TileTitle" value="str_SmartCardTitle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile is clicked" />
+			</step>	
+		<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Smart Card Tile click failed" />
+			</step>	
+		</step>
+		</step>
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate Not Driving Alert screen -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateNotDrivingAlertScreen">
+		
+		<description>fn_ValidateNotDrivingAlertScreen - function to validate not driving alert screen </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>	
+		
+		<step type="WAIT_FOR" name="btn_NotDriving" page="pge_Move" >
+			<parameter type="STATIC" value="15" />
+			<token type="CONTENT" name="token_btn_NotDriving" value="TNotDrivingBtn" />
+		</step>	
+		
+		<step type="VISIBLE" name="img_DrivingAlert" page="pge_Move" />
+		
+		<step type="VISIBLE" name="lbl_DrivingAlertTitle" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_DrivingAlertTitle" value="TDrivingAlert" />
+		</step>	
+		
+		<step type="VISIBLE" name="lbl_DrivingAlertTitleContent" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_DrivingAlertTitleContent" value="TDrivingAlertDesc" />
+		</step>			
+				
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function to click Not Driving button -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ClickNotDrivingBtn">
+		
+		<description>fn_ClickNotDrivingBtn - function to click not driving button </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>	
+		
+		<step type="WAIT_FOR" name="btn_NotDriving" page="pge_Move" >
+			<parameter type="STATIC" value="15" />
+			<token type="CONTENT" name="token_btn_NotDriving" value="TNotDrivingBtn" />
+			
+			<step type="CLICK" name="btn_NotDriving" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_NotDriving" value="TNotDrivingBtn" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="I am Not Driving btn is not clicked or exists" />
+			</step>
+		</step>
+		</step>			
+		
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" failureMode="IGNORE"/>
+		
+		<!-- Added one more fn_ClickAllow, since some iOS devices show two of these pop up message - one for 'Location' and the other for 'Notifications' -->
+		<step type="WAIT" name="Wait_For_10_Seconds" page="pge_CommonReusable" >
+			<parameter type="STATIC" value="10"/>
+		</step>
+						
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" failureMode="IGNORE"/>			
+				
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate HertZ landing page. Note: Applicable only for country UK-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateHertzLandingPage">
+		<description>fn_ValidateHertzLandingPage - function to validate Hertz vehicle landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_HertzDesc" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_HertzDesc" value="THertzDesc" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Hertz Desc is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_HertzReservation" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_HertzReservation" value="THertzReservation" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="HertzReservation link is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="btn_HertzLocateVan" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_HertzLocateVan" value="THertzLocateVan" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="HertzLocateVan button is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function click on HertZ Locate Van button. Note: Applicable only for country UK--> <!-- scripting pending -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ClickHertzLocateVan">
+		<description>fn_ClickHertzLocateVan - function to click Hertz LocateVan button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+	
+		<step type="CLICK" name="btn_HertzLocateVan" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_HertzLocateVan" value="THertzLocateVan" />		
+		</step>		
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate Flinkster(car sharing) landing page. Note: Applicable only for country EU - Germany-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateFlinksterLandingPage">
+		<description>fn_ValidateFlinksterLandingPage - function to validate Flinkster(car sharing) vehicle landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_FlinksterDesc" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_FlinksterDesc" value="TFlinksterDesc" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Flinkster Desc is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_FlinksterReservation" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_FlinksterReservation" value="TFlinksterReservation" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Flinkster Reservation link is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="btn_FlinksterLocateCar" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_FlinksterLocateCar" value="TFlinksterLocateVan" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Flinkster Locate_a_Car button is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function click on Flinkster Locate Car button. Note: Applicable only for country EU-Germany --> <!-- scripting pending -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ClickFlinksterLocateCar">
+		<description>fn_ClickFlinksterLocateCar - function to click Flinkster Locate Car button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+	
+		<step type="CLICK" name="btn_FlinksterLocateCar" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_FlinksterLocateCar" value="TFlinksterLocateVan" />	
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Locate_a_Car button is not displayed" />
+			</step>
+		</step>				
+		</step>
+		
+	</function>	
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate Bike Share vehicle landing page Note: Applicable only for country EU - Germany-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateBikeSharingLandingPage">
+		<description>fn_ValidateBikeSharingLandingPage - function to validate Bike Share vehicle landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="img_BikeShare_AND" page="pge_Move" os="ANDROID">
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Bike Sharing image is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_BikeShareTitle" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_BikeShareTitle" value="TBikeShareTitle" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Bike Sharing title is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="lbl_BikeShareContent" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_BikeShareContent_AND" value="TBikeShareDesc_AND" />
+			<token type="CONTENT" name="token_lbl_BikeShareContent_IOS" value="TBikeShareDesc_IOS" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Bike Sharing desc is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="btn_FindABike" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Bike Sharing button is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+	</function>
+
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate HertZ landing page. Note: Applicable only for country UK-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateHertzReservation">
+		<description>fn_ValidateHertzReservation - function to validate Hertz reservation </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="CLICK" name="lnk_HertzReservation" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_HertzReservation" value="THertzReservation" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_HertzReservation" page="pge_Move" os="ANDROID" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lbl_HertzReservation" value="THertzReservation01" />			
+			<step type="CLICK" name="lbl_HertzReservation" page="pge_Move" os="ANDROID" >
+			<token type="CONTENT" name="token_lbl_HertzReservation" value="THertzReservation01" />
+		</step>
+		</step>		
+		
+		<step type="WAIT_FOR" name="lbl_HertzReservation" page="pge_Move" >
+			<parameter type="STATIC" value="15"/>
+			<token type="CONTENT" name="token_lbl_HertzReservation" value="THertzReservation01" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Hertz Reservation screen is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="CLICK" name="lbl_HourlyVanHire" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_HourlyVanHire" value="THertzReservation02" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_HertzHomePage" page="pge_Move" >
+			<parameter type="STATIC" value="15"/>
+			<token type="CONTENT" name="token_lbl_HertzHomePage" value="THertzReservation03" />			
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Hertz booking homepage is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="CLICK" name="btn_HertzReservationBack" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_HertzReservation" page="pge_Move" >
+			<parameter type="STATIC" value="15"/>
+			<token type="CONTENT" name="token_lbl_HertzReservation" value="THertzReservation01" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Hertz Reservation screen is not displayed" />
+			</step>
+		</step>
+		</step>
+		
+		<step type="CLICK" name="btn_HertzReservationBack" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_FordCredit" page="pge_Account">
+			<parameter type="STATIC" value="15"/>
+			<token type="CONTENT" name="token_lnk_FordCredit" value="TAccount2" />
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Account screen is not displayed" />
+			</step>
+		</step>
+		</step>		
+		
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon" />	
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function to swipe from left to right-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwiftLeftToRightInMoveLanding">
+		<description>fn_SwiftLeftToRightInMoveLanding - function to swipe from left to right </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+	<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+	<parameter type="STATIC" value="40,50" />
+			<parameter type="STATIC" value="80,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+			
+	</step>
+	
+	<step type="WAIT" name="hard wait for 5 sec" page="pge_Move">
+	<parameter type="STATIC" value="5" />
+	</step>
+	
+	<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="40,50" />
+			<parameter type="STATIC" value="80,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+	</step>
+	
+	<step type="WAIT" name="hard wait for 5 sec" page="pge_Move">
+	<parameter type="STATIC" value="5" />
+	</step>
+	
+	<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="40,50" />
+			<parameter type="STATIC" value="80,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+	</step>
+	
+	<step type="WAIT" name="hard wait for 5 sec" page="pge_Move">
+	<parameter type="STATIC" value="5" />
+	</step>
+	
+	<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+	<parameter type="STATIC" value="40,50" />
+	<parameter type="STATIC" value="80,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+			
+	</step>
+	
+	<step type="WAIT" name="hard wait for 5 sec" page="pge_Move">
+	<parameter type="STATIC" value="5" />
+	</step>
+	
+	</function>
+	
+
+	<function name="fn_Check_And_Dismiss_SingleFSA_SmartCard">
+		
+		<description>fn_Check_And_Dismiss_SingleFSA_SmartCard - function to check and dismiss the SINGLE FSA smart card (based on tile title)</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove4" />
+		</step>
+
+		<!-- DISMISSING "SINGLE FSA" SMART CARD FOR IOS -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+		</step>
+			
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="5"/>
+		</step>
+
+		<!-- DISMISSING "SINGLE FSA" SMART CARD FOR ANDROID -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="STATIC" value="24,90" />
+			<parameter type="STATIC" value="14,25" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileTitle" value="TMove4" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="STATIC" value="24,90" />
+					<parameter type="STATIC" value="14,25" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileTitle" value="TMove4" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The single FSA smart card - has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+										
+					<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+				    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="As expected, the single FSA smart card - has been dismissed" />
+						</step>
+					</step>
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, the single FSA smart card - has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move" inverse="true">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove4" />
+		</step>
+				
+	</function>
+
+	<function name="fn_Dismiss_SmartTip_SmartCards">
+		
+		<description>fn_Dismiss_SmartTip_SmartCards - function to check and dismiss all the three smart tip smart cards </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<!-- DISMISSING "New features to take you further" SMART TIP FOR IOS -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+					
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+		</step>
+
+		<!-- DISMISSING "Where is Ford Credit?" SMART TIP FOR IOS -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-NA,FP-CA,FP-CN">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+		</step>
+
+		<!-- DISMISSING "Your one stop for finding new destinations" SMART TIP FOR IOS -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+		</step>
+
+		<step type="CALL2" name="fn_GetSmartCard_Co-Ordinates" page="pge_Move" os="ANDROID"/>
+
+		<!-- DISMISSING "New features to take you further" SMART TIP FOR ANDROID -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip2" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip2" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - smart tip #1 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+										
+					<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+				    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="As expected, smart card - smart tip #1 has been dismissed" />
+						</step>
+					</step>
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - smart tip #1 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>
+
+
+		<!-- DISMISSING "Where is Ford Credit?" SMART TIP FOR ANDROID -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" tagNames="FP-SA,FP-SA-BR,FP-EU-DE,FP-EU-UK,FP-EU-FR,FP-NA,FP-CA" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip3" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip3" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - smart tip #2 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>				
+
+						<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+					    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+								<parameter type="STATIC" value="As expected, smart card - smart tip #2 has been dismissed" />
+							</step>
+						</step>
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - smart tip #2 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>			
+
+		<!-- DISMISSING "Your one stop for finding new destinations" SMART TIP FOR ANDROID -->
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip4" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileContent" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileContent" value="TSmartTip4" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - smart tip #3 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+						
+						<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+					    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+								<parameter type="STATIC" value="As expected, smart card - smart tip #3 has been dismissed" />
+							</step>
+						</step>										
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Content_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - smart tip #3 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>
+				
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move" inverse="true">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TSmartTip1" />
+		</step>
+				
+	</function>
+
+	<function name="fn_Check_And_Dismiss_WelcomeTip1_SmartCard">
+		
+		<description>fn_Check_And_Dismiss_WelcomeTip1_SmartCard - function to check and dismiss the first welcome tip smart card </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard1" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+
+			<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="5"/>
+			</step>
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard1" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard1" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - welcome tip #1 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+					
+					<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+				    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="As expected, smart card - welcome tip #1 has been dismissed" />
+						</step>
+					</step>					
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - welcome tip #1 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>					
+	
+	</function>
+
+	<function name="fn_Check_And_Dismiss_WelcomeTip2_SmartCard">
+		
+		<description>fn_Check_And_Dismiss_WelcomeTip2_SmartCard - function to check and dismiss the first welcome tip smart card </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard2" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+			
+			<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="5"/>
+			</step>			
+		</step>
+			
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard2" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard2" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - welcome tip #2 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+
+						<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+					    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+								<parameter type="STATIC" value="As expected, smart card - welcome tip #2 has been dismissed" />
+							</step>
+						</step>										
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - welcome tip #2 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>		
+			
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validate HertZ landing page. Note: Applicable only for country UK-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateFindABike">
+		<description>fn_ValidateFindABike - function to validate Find A Bike link </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="CLICK" name="btn_FindABike" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_Note" page="pge_Move" >
+			<parameter type="STATIC" value="5" />
+			<token type="CONTENT" name="token_lbl_Note" value="TBikeShareNote01" />
+				
+		<step type="EXISTS" name="lbl_NoteDesc" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_NoteDesc" value="TBikeShareNote02" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_NoteCancel" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_NoteCancel" value="TBikeShareNote03" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_NoteConfirm" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_NoteConfirm" value="TBikeShareNote04" />
+		</step>
+				
+		</step>
+		
+		<step type="CLICK" name="lnk_NoteConfirm" page="pge_Move" >
+			<token type="CONTENT" name="token_lnk_NoteConfirm" value="TBikeShareNote04" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" tagNames="FP-EU" failureMode="IGNORE"/>
+		
+		<step type="WAIT_FOR" name="lbl_BikeShareScreenTitle" page="pge_Move" >
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_BikeShareScreenTitle" value="TBikeShareScreenTitle" />
+		</step>
+		
+		<step type="CLICK" name="btn_BikeShareBack" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_BikeShareBack" value="TAddVinBack_AND" />
+		</step>	
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+				<parameter type="STATIC" value="10" />
+				<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+		</step>
+				
+	</function>
+
+	
+	<function name="fn_Check_And_Dismiss_WelcomeTip3_SmartCard">
+		
+		<description>fn_Check_And_Dismiss_WelcomeTip1_SmartCard - function to check and dismiss the first welcome tip smart card </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard3" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+
+			<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="5"/>
+			</step>			
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard3" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard3" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - welcome tip #3 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+
+						<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+					    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+								<parameter type="STATIC" value="As expected, smart card - welcome tip #3 has been dismissed" />
+							</step>
+						</step>										
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - welcome tip #3 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>						
+	</function>
+	
+	<function name="fn_Check_And_Dismiss_WelcomeTip4_SmartCard">
+		
+		<description>fn_Check_And_Dismiss_WelcomeTip1_SmartCard - function to check and dismiss the first welcome tip smart card </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard4" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+
+			<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="5"/>
+			</step>			
+		</step>
+
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard4" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard4" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - welcome tip #4 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+						
+						<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+					    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+								<parameter type="STATIC" value="As expected, smart card - welcome tip #4 has been dismissed" />
+							</step>
+						</step>										
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - welcome tip #4 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>						
+	</function>
+	
+	<function name="fn_Check_And_Dismiss_WelcomeTip5_SmartCard">
+		
+		<description>fn_Check_And_Dismiss_WelcomeTip1_SmartCard - function to check and dismiss the first welcome tip smart card </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TWelcomeSmartCard5" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="IOS">
+			<parameter type="STATIC" value="10,75" />
+			<parameter type="STATIC" value="10,10" />
+			
+			<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="5"/>
+			</step>			
+		</step>
+			
+		<step type="GESTURE" name="SWIPE" page="pge_Move" os="ANDROID">
+			<parameter type="CONTEXT" value="start_XY" />
+			<parameter type="CONTEXT" value="end_XY" />
+			
+			<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+				<parameter type="STATIC" value="3"/>
+			</step>
+			
+			<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard5" />
+				
+				<step type="GESTURE" name="SWIPE" page="pge_Move">
+					<parameter type="CONTEXT" value="start_XY" />
+					<parameter type="CONTEXT" value="end_XY" />
+					
+					<step type="WAIT" name="Wait_For_3_Seconds" page="pge_Move" >
+						<parameter type="STATIC" value="3"/>
+					</step>
+					
+					<step type="EXISTS" name="lbl_TileTitle" page="pge_Move" failureMode="IGNORE">
+						<token type="CONTENT" name="token_lbl_TileTitle" value="TWelcomeSmartCard5" />
+		    			
+		    			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+							<parameter type="STATIC" value="The smart card - welcome tip #5 has not been dismissed after swiping couple of times" />
+						</step>
+						
+						<step name="END_FAILURE" page="pge_Move" type="FLOW"/>
+						
+						<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+					    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+								<parameter type="STATIC" value="As expected, smart card - welcome tip #5 has been dismissed" />
+							</step>
+						</step>										
+					</step>
+				
+				</step>
+			
+			<step type="ELSE" name="If_SmartCard_Tile_Title_Not_Available" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="As expected, smart card - welcome tip #5 has been dismissed" />
+				</step>
+			</step>
+			
+			</step>
+		</step>		
+
+	</function>
+
+	
+	<function name="fn_VerifyPageOpened_FordpassSmartlink">
+		<description> fn_VerifyPageOpened_FordpassSmartlink - Function to verify Smartlink is Opened </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_VerifyPageOpened_Smartlink" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_Smartlink" page="pge_Move">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lnk_Smartlink" value="TMove13"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="User successfully landed on Move Landing page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Move Landing page" page="pge_Move" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Move">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+					<parameter type="STATIC" value="Move Landing page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+					
+
+
+	
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Smartlink screen															   -->	
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verfiy_Smartlink">
+              <description> fn_Verfiy_Smartlink - Function to verify Smartlink screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+                     <parameter type="STATIC" value="Function's XML file name: pge_Move" />
+              </step>
+     
+     
+	<step type="WAIT_FOR" name="lbl_Smartlink" page="pge_Move">
+	    	<parameter type="STATIC" value="30" />
+	</step>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'SmartLink' Title is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'SmartLink' Title is not displayed" />
+			</step>
+		</step>		
+	
+	
+		<step type="EXISTS" name="lbl_Smartlink_Content" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_Smartlink_Content" value="TSmartlink12" />
+		</step>
+		
+		<step type="EXISTS" name="btn_Access_SmartLink" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_Access_SmartLink" value="TSmartlink13" />
+			
+		</step>
+	
+	
+</function>
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Access Smartlink 													   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Access_Smartlink">
+              <description> fn_Click_Access_Smartlink - Function to click Access Smartlink screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+                     <parameter type="STATIC" value="Function's XML file name: pge_Move" />
+              </step>
+     
+     
+	<step type="CLICK" name="btn_Access_SmartLink" page="pge_Move">
+	    <token type="CONTENT" name="token_btn_Access_SmartLink" value="TSmartlink13" />
+		
+	<step type="WAIT_FOR" name="lbl_SmartLink_Title" page="pge_Move">
+	    	<parameter type="STATIC" value="30" />
+	    	<token type="CONTENT" name="token_lbl_SmartLink_Title" value="TSmartlink14" />
+	</step>	
+		
+	    
+	</step>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'Access SmartLink' is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="'Access SmartLink' is not clicked" />
+			</step>
+		</step>		
+	
+	
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Smartlink login screen 												   -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_Smartlink_Login_Screen">
+              <description> fn_Verify_Smartlink_Login_Screen - Function to verify Smartlink login screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+                     <parameter type="STATIC" value="Function's XML file name: pge_Move" />
+       		  </step>
+     
+    <step type="EXISTS" name="btn_Back_SmartLink" page="pge_Move"/>     
+     
+	<step type="EXISTS" name="btn_RSA" page="pge_Move"/>
+	   
+	<step type="EXISTS" name="lbl_SmartLink_Content1" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_SmartLink_Content1" value="TSmartlink15" />
+	</step>
+			    
+	
+	<step type="EXISTS" name="lbl_SmartLink_Content2" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_SmartLink_Content2" value="TSmartlink16" />
+	</step>
+	
+	<step type="EXISTS" name="lbl_Username" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_Username" value="TSmartlink17" />
+	</step>
+	
+	<step type="EXISTS" name="lbl_Password" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_Password" value="TSmartlink18" />
+	</step>
+	
+	<step type="EXISTS" name="btn_Login" page="pge_Move" >
+			<token type="CONTENT" name="token_btn_Login" value="TSmartlink19" />
+	</step>
+	
+	<step type="EXISTS" name="lbl_ForgotUsernamePassword" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_ForgotUsernamePassword" value="TSmartlink20" />
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_ContactFordPass" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_ContactFordPass" value="TSmartlink21" />
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_NewUser" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_NewUser" value="TSmartlink22" />
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_NewUser_Content" page="pge_Move" >
+			<token type="CONTENT" name="token_lbl_NewUser_Content" value="TSmartlink23" />
+	</step>
+		
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to Navigate back to Move landing from Smartlink -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Navigate_Back_To_MoveLanding_From_SmartLink">
+      <description> fn_Navigate_Back_To_MoveLanding_From_SmartLink - Function to Navigate back to Move landing from Smartlink</description>
+       <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+       <parameter type="STATIC" value="Function's XML file name: pge_Move" />
+       </step>
+     
+     
+	<step type="CLICK" name="btn_Back_SmartLink" page="pge_Move">
+	    	
+	 <step type="WAIT_FOR" name="btn_Access_SmartLink" page="pge_Move">
+	    	<parameter type="STATIC" value="30" />
+	    	<token type="CONTENT" name="token_btn_Access_SmartLink" value="TSmartlink13" />
+	</step>	    
+	    
+	</step>
+	
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Navigated to Move Landing page" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Not navigated to Move Landing page" />
+			</step>
+		</step>		
+	
+		
+	
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Smartlink should not be displayed -->
+<!-- ############################################################################################################# -->	    
+     
+ <function name="fn_SmartLink_Screen_Not_Displayed">
+      <description> fn_SmartLink_Screen_Not_Displayed - Function to verify Smartlink screen is disabled</description>
+       <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+       <parameter type="STATIC" value="Function's XML file name: pge_Move" />
+       </step>
+     
+     
+	<step type="WAIT_FOR" name="lbl_SmartLink_Screen" page="pge_Move" inverse="true">
+	    	<parameter type="STATIC" value="30" />
+	    <token type="CONTENT" name="token_lbl_SmartLink_Screen" value="TSmartlink28" />
+	</step>	    
+	    
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function swipes horizontally and check for the vehicle nick name link -->
+<!-- EMUZZAMM - If it is available, it will break the loop -->
+<!-- EMUZZAMM - If it is not available, then the loop will be continued till max number is reached -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeToSelectExpectedVehicle_LeftToRight_Parametrized">
+		<description>fn_SwipeToSelectExpectedVehicle_Parametrized - function to swipe horizontally from right to left for selecting the expected vehicle </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+		
+		<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="90,50" />
+			<parameter type="STATIC" value="20,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+		</step>
+
+		<step type="EXISTS" name="lnk_VehicleNickName" page="pge_Move" failureMode="IGNORE">
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_IOS" value="str_VehicleNickName_IOS" />
+			<token type="CONTEXT" name="token_lnk_VehicleNickName_AND" value="str_VehicleNickName_AND" />
+		    <step name="BREAK" type="BREAK" page="pge_Move" />
+		<step type="ELSE" name="If_Expected_Vehicle_Link_Not_Available" page="pge_Move">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+				<parameter type="STATIC" value="Continue swiping..." />
+			</step>		
+		</step>
+		</step>
+
+	</function>	
+
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to swipe from left to right-->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_SwipeLeftToRight">
+		<description>fn_SwipeLeftToRight - function to swipe from left to right </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+	<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="10,50" />
+			<parameter type="STATIC" value="90,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+  			
+	</step>
+	
+	<step type="WAIT" name="hard wait for 5 sec" page="pge_Move">
+	<parameter type="STATIC" value="5" />
+	</step>
+	
+	<step type="GESTURE" name="SWIPE.img_VehicleSelectionArea" page="pge_Move">
+			<parameter type="STATIC" value="10,50" />
+			<parameter type="STATIC" value="90,50" />
+  			<token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+			
+	</step>
+	
+		
+	</function>
+
+
+	<function name="fn_GetSmartCard_Co-Ordinates">
+		<description>fn_GetSmartCard_Co - function to get the X/Y co-ordinates of smart card tile </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+		</step>
+
+		<step type="AT" name="lbl_SmartCardMessage" page="pge_Move" context="smarCardMessageLocation"/>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="CONTEXT" name="Value of X Co-ordinate" value="smarCardMessageLocation.centerx%" />
+			<parameter type="CONTEXT" name="Value of Y Co-ordinate" value="smarCardMessageLocation.centery%" />		
+		</step>	
+		
+		<step name="SET" page="pge_Move" type="CONTEXT" >
+			<parameter type="STATIC" name="Name" value="start_X" />
+			<parameter type="CONTEXT" name="Value" value="smarCardMessageLocation.centerx%" />
+		</step>		
+
+		<step name="add" page="pge_Move" type="MATH" context="start_Y_BefFormat" >
+			<parameter type="CONTEXT" name="Value One" value="smarCardMessageLocation.centery%"/>
+			<!-- <parameter type="STATIC" name="Value Two" value="15"/> -->
+			<parameter type="STATIC" name="Value Two" value="18"/>
+		</step>
+
+		<step type="STRING2" name="SUBSTR" page="pge_Move" context="start_Y">
+			<parameter type="CONTEXT" name="Original Value" value="start_Y_BefFormat"/>
+			<parameter type="STATIC" name="Begin" value="0"/>
+			<parameter type="STATIC" name="End" value="2"/>
+		</step>
+	
+        <step type="STRING2" name="concat" page="pge_Move" context="start_XY">
+        	<parameter type="CONTEXT" value="start_X" />
+            <parameter type="STATIC" value="," />
+			<parameter type="CONTEXT" value="start_Y" />
+        </step>
+
+		<step name="subtract" page="pge_Move" type="MATH" context="end_X_BefFormat" >
+			<parameter type="CONTEXT" name="Value One" value="smarCardMessageLocation.centerx%"/>
+			<parameter type="STATIC" name="Value Two" value="10"/>
+		</step>
+
+		<step type="STRING2" name="SUBSTR" page="pge_Move" context="end_X">
+			<parameter type="CONTEXT" name="Original Value" value="end_X_BefFormat"/>
+			<parameter type="STATIC" name="Begin" value="0"/>
+			<parameter type="STATIC" name="End" value="2"/>
+		</step>
+		
+		<step name="subtract" page="pge_Move" type="MATH" context="end_Y_BefFormat" >
+			<parameter type="CONTEXT" name="Value One" value="smarCardMessageLocation.centery%"/>
+			<parameter type="STATIC" name="Value Two" value="50"/>
+		</step>
+
+		<step type="STRING2" name="SUBSTR" page="pge_Move" context="end_Y">
+			<parameter type="CONTEXT" name="Original Value" value="end_Y_BefFormat"/>
+			<parameter type="STATIC" name="Begin" value="0"/>
+			<parameter type="STATIC" name="End" value="2"/>
+		</step>
+		
+        <step type="STRING2" name="concat" page="pge_Move" context="end_XY">
+        	<parameter type="CONTEXT" value="end_X" />
+            <parameter type="STATIC" value="," />
+			<parameter type="CONTEXT" value="end_Y" />
+        </step>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="CONTEXT" name="Value of start co-ordinates" value="start_XY" />
+			<parameter type="CONTEXT" name="Value of end co-ordinates" value="end_XY" />		
+		</step>		
+															
+	</function>					
+
+	<function name="fn_Click_ViewVehicleDetails_GloveBox">
+	    <description>fn_Click_ViewVehicleDetails - function to click 'View Vehicle Details' link under GloveBox</description>
+	    
+	    <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+	    	<parameter type="STATIC" value="Function's XML file name: fn_Move.xml" />
+	    </step>
+
+		<step type="VISIBLE" name="lnk_ViewVehicleDetails_GloveBox" page="pge_Move" >
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+	    	<token type="CONTENT" name="token_lnk_ViewVehicleDetails_GloveBox" value="TVehicleInfo1" />
+		</step>
+		
+		<step type="CLICK" name="lnk_ViewVehicleDetails_GloveBox" page="pge_Move" >
+		    	<token type="CONTENT" name="token_lnk_ViewVehicleDetails_GloveBox" value="TVehicleInfo1" />
+		    
+	        <step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+	        	<parameter type="STATIC" value="'VIEW VEHICLE DETAILS' link has been clicked successfully" />
+	        </step>              
+		    
+		    <step type="ELSE" name="elseCondition" page="pge_Move">
+		    	<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+		        	<parameter type="STATIC" value="'VIEW VEHICLE DETAILS' link is not available" />
+		        </step>
+		    </step>
+	    </step>	    
+	</function>
+	
+</suite>

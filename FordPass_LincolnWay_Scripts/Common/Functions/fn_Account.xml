@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Account">
+		<description> fn_VerifyPageOpened_Account - Function to verify user landed on the Account page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_ViewEditProfile" page="pge_Account">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lnk_ViewEditProfile" value="TAccount1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="User successfully landed to Account landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Account">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="STATIC" value="Account landing page is not opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ViewEditProfile">
+		<description> fn_Click_ViewEditProfile - Function to click 'View and Edit Profile' link on Account Landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ViewEditProfile" page="pge_Account">
+			<token type="CONTENT" name="token_lnk_ViewEditProfile" value="TAccount1" />
+			
+			<step type="CLICK" name="lnk_ViewEditProfile" page="pge_Account" wait="3">
+				<token type="CONTENT" name="token_lnk_ViewEditProfile" value="TAccount1" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'View and Edit Profile' link is avialable and clicked on Account Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Account">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="STATIC" value="'View and Edit Profile' link is not avialable on Account Landing page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_Account">
+		<description> fn_ValidatePage_Account - Function to validate the Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_MessageCenter" page="pge_Account" >	
+				<parameter type="STATIC" value="30" />	
+		<token type="CONTENT" name="token_lnk_MessageCenter" value="TAccount7" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Message Center' tab is available on Account landing page" />
+			</step>
+				
+			<step type="WAIT_FOR" name="lbl_TabInfo" page="pge_Account" failureMode="IGNORE">
+				<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_TabInfo" value="TAccount8" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="CONTENT" value="TAccount8" />
+					<parameter type="STATIC" value="Above info is displayed for 'Message Center' tab on Account landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Settings" page="pge_Account" >
+			<token type="CONTENT" name="token_lnk_Settings" value="TAccount4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Settings' tab is available on Account landing page" />
+			</step>
+			
+			<step type="WAIT_FOR" name="lbl_TabInfo" page="pge_Account" >
+			<parameter type="STATIC" value="30" />
+				<token type="CONTENT" name="token_lbl_TabInfo" value="TAccount5" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="CONTENT" value="TAccount5" />
+					<parameter type="STATIC" value="Above info is displayed for 'Settings' tab on Account landing page" />
+				</step>
+			</step>
+		</step>
+		<step type="EXISTS" name="lnk_Perks" page="pge_Account" tagNames="FP-SA,FP-NA-US,FP-CN-EN" >
+			<token type="CONTENT" name="token_lnk_Perks" value="TAccount9" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Perks' tab is available on Account landing page" />
+			</step>
+				
+			<step type="EXISTS" name="lbl_TabInfo" page="pge_Account">
+				<token type="CONTENT" name="token_lbl_TabInfo" value="TAccount10" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="CONTENT" value="TAccount10" />
+					<parameter type="STATIC" value="Above info is displayed for 'Perks' tab on Account landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordCredit" page="pge_Account" tagNames="FP-EU-FR,FP-EU-UK,FP-EU-DE,FP-NA-US" >
+			<token type="CONTENT" name="token_lnk_FordCredit" value="TAccount2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account"  >
+				<parameter type="STATIC" value="'Ford Credit' tab is available on Account landing page" />
+			</step>
+				
+			<step type="EXISTS" name="lbl_TabInfo" page="pge_Account">
+				<token type="CONTENT" name="token_lbl_TabInfo" value="TAccount3" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="CONTENT" value="TAccount3" />
+					<parameter type="STATIC" value="Above info is displayed for 'Ford Credit' tab on Account landing page" />
+				</step>
+			</step>
+		</step>
+
+		
+		
+		<step type="EXISTS" name="lnk_Wallet" page="pge_Account" tagNames="FP-NA-US">
+			<token type="CONTENT" name="token_lnk_Wallet" value="TAccount13" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Wallet' tab is available on Account landing page" />
+			</step>
+			
+			<step type="EXISTS" name="lnk_Wallet" page="pge_Account">
+				<token type="CONTENT" name="token_lnk_Wallet" value="TAccount14" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="CONTENT" value="TAccount14" />
+					<parameter type="STATIC" value="Above info is displayed for 'Wallet' tab on Account landing page" />
+				</step>
+			</step>
+		</step>
+		
+		
+
+		
+		<step type="EXISTS" name="lnk_Reservations" page="pge_Account" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-DE,FP-EU-UK,FP-NA-US">
+			<token type="CONTENT" name="token_lnk_Reservations" value="TAccount11" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Reservations' tab is available on Account landing page" />
+			</step>
+			
+			<step type="EXISTS" name="lnk_Reservations" page="pge_Account">
+				<token type="CONTENT" name="token_lnk_Reservations" value="TAccount12" />
+				
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="CONTENT" value="TAccount12" />
+					<parameter type="STATIC" value="Above info is displayed for 'reservations' tab on Account landing page" />
+				</step>
+			</step>
+		</step>
+			
+		<step type="VISIBLE" name="lnk_Logout" page="pge_Account">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Logout_AND" value="TAccount6_AND" />
+			<token type="CONTENT" name="token_lnk_Logout_IOS" value="TAccount6_IOS" />
+			
+			<step type="EXISTS" name="lnk_Logout" page="pge_Account" >
+				<token type="CONTENT" name="token_lnk_Logout_AND" value="TAccount6_AND" />
+				<token type="CONTENT" name="token_lnk_Logout_IOS" value="TAccount6_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="Logout link has been clicked successfully" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Account">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="STATIC" value="Logout link is not available" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Logout">
+		<description> fn_Click_Logout - Function to click 'Logout' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<!-- 28-February: Updated by Saravana, since object property for lnk_Logout is different for ANDROID & IOS -->		
+
+		<step type="VISIBLE" name="lnk_Logout" page="pge_Account" failureMode="IGNORE">
+			<parameter type="STATIC" name="maxScroll" value="2" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Logout_AND" value="TAccount6_AND" />
+			<!-- <token type="CONTENT" name="token_ResourceId" value="TResourceId" /> --> 
+			<token type="CONTENT" name="token_lnk_Logout_IOS" value="TAccount6_IOS" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Logout" page="pge_Account">
+			<token type="CONTENT" name="token_lnk_Logout_AND" value="TAccount6_AND" />
+			<token type="CONTENT" name="token_lnk_Logout_IOS" value="TAccount6_IOS" />
+		
+			<step type="CLICK" name="lnk_Logout" page="pge_Account" >
+				<token type="CONTENT" name="token_lnk_Logout_AND" value="TAccount6_AND" />
+				<!-- <token type="CONTENT" name="token_ResourceId" value="TResourceId" /> --> 
+				<token type="CONTENT" name="token_lnk_Logout_IOS" value="TAccount6_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="Logout link has been clicked successfully" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Account">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+					<parameter type="STATIC" value="Logout link is not available" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Settings">
+		<description> fn_Click_Settings - Function to click 'Settings' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_Settings" page="pge_Account">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Settings" value="TAccount4" />
+			
+			<step type="CLICK" name="lnk_Settings" page="pge_Account" wait="2">
+				<token type="CONTENT" name="token_lnk_Settings" value="TAccount4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Settings' link is available and clicked on Account landing page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_FordCredit">
+		<description> fn_Click_FordCredit - Function to click 'Ford Credit' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordCredit" page="pge_Account" tagNames="FP-EU-FR,FP-EU-UK,FP-EU-DE,FP-CN" >
+			<token type="CONTENT" name="token_lnk_FordCredit" value="TAccount2" />
+			
+			<step type="CLICK" name="lnk_FordCredit" page="pge_Account" wait="2">
+				<token type="CONTENT" name="token_lnk_FordCredit" value="TAccount2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Ford Credit' link is available and clicked on Account landing page" />
+			</step>
+		</step>
+	</function>
+	
+
+	<function name="fn_Click_Perks">
+		<description> fn_Click_Perks - Function to click 'Perks' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Perks" page="pge_Account">
+			<token type="CONTENT" name="token_lnk_Perks" value="TAccount9" />
+			
+			<step type="CLICK" name="lnk_Perks" page="pge_Account" wait="2">
+				<token type="CONTENT" name="token_lnk_Perks" value="TAccount9" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Perks' link is available and clicked on Account landing page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_MessageCenter">
+		<description> fn_Click_MessageCenter - Function to click 'Message Center' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_MessageCenter" page="pge_Account">
+			<token type="CONTENT" name="token_lnk_MessageCenter" value="TAccount7" />
+			
+			<step type="CLICK" name="lnk_MessageCenter" page="pge_Account" wait="2">
+				<token type="CONTENT" name="token_lnk_MessageCenter" value="TAccount7" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Message Center' link is available and clicked on Account landing page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Reservations">
+		<description> fn_Click_Reservations - Function to click 'Message Center' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Reservations" page="pge_Account" tagNames="FP-EU-FR,FP-EU-IT,FP-EU-DE,FP-EU-UK" >
+			<token type="CONTENT" name="token_lnk_Reservations" value="TAccount11" />
+			
+			<step type="CLICK" name="lnk_Reservations" page="pge_Account" wait="2">
+				<token type="CONTENT" name="token_lnk_Reservations" value="TAccount11" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Reservations' link is available and clicked on Account landing page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Wallet">
+		<description> fn_Click_Wallet - Function to click 'Wallet' on Account landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+			<parameter type="STATIC" value="Function's XML file name: fn_Account.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Wallet" page="pge_Account" >
+			<token type="CONTENT" name="token_lnk_Wallet" value="TAccount13" />
+			
+			<step type="CLICK" name="lnk_Wallet" page="pge_Account" wait="2">
+				<token type="CONTENT" name="token_lnk_Wallet" value="TAccount13" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Account">
+				<parameter type="STATIC" value="'Wallet' link is available and clicked on Account landing page" />
+			</step>
+		</step>
+	</function>	
+</suite>

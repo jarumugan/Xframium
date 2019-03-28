@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Calculator" dataProvider="TestData.XFS_FP_Calculator" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Calculator </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Calculator">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+
+		<step type="CALL2" name="fn_OpenCalculator" page="pge_Calculator" />
+		
+		<step type="CALL2" name="fn_Addition" page="pge_Calculator" />
+		
+		<step type="CALL2" name="fn_ValidateResult" page="pge_Calculator" />
+
+		
+	</test>
+</suite>

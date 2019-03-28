@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Tire Pressure without DRW enabled -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Verify_TirePressure_Without_DRW">
+              <description> fn_Verify_TirePressure - Function to verify tire pressure screen without DRW enabled </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+ 	
+		
+		<step type="VISIBLE" name="lbl_TirePressure_Title" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_TirePressure_Title_psi" value="TTirePressure1" />
+		<token type="CONTENT" name="token_lbl_TirePressure_Title_kPa" value="TTirePressure2" />
+		<token type="CONTENT" name="token_lbl_TirePressure_Title_bar" value="TTirePressure34" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' title is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_Low_Tire" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_Low_Tire" value="TTirePressure28" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Low Tire' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Low Tire' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+				
+		
+	<step type="VISIBLE" name="lbl_TirePressure_Content" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_TirePressure_Content" value="TTirePressure3" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE (PSI)/(KPA))' content is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE (PSI)/(KPA)' content is not displayed" />
+			</step>
+		</step>			
+	</step>
+		
+		
+			
+		<step type="VISIBLE" name="lbl_RecommendedColdPressure" page="pge_TPMS" tagNames="FP-NA,FP-EU-ALL,FP-SA">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure" value="TTirePressure4" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'RECOMMENDED COLD PRESSURE' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'RECOMMENDED COLD PRESSURE' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_Front" page="pge_TPMS" tagNames="FP-NA,FP-EU-ALL,FP-SA">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Front" value="TTirePressure5" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front' label is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front' label not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_Rear" page="pge_TPMS" tagNames="FP-NA,FP-EU-ALL,FP-SA">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Rear" value="TTirePressure6" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear' label is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear' label not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_FrontLefTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_psi" value="TTirePressure10_psi_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_kPa" value="TTirePressure14_kpa_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_bar" value="TTirePressure22_bar_frontleft" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_FrontRightTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_psi" value="TTirePressure11_psi_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_kPa" value="TTirePressure15_kpa_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_bar" value="TTirePressure23_bar_frontright" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearLeftOuterTire_Value_Without_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_psi" value="TTirePressure12_psi_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_kPa" value="TTirePressure16_kpa_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_bar" value="TTirePressure24_bar_rearleftouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearRightOuterTire_Value_Without_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_psi" value="TTirePressure13_psi_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_kPa" value="TTirePressure17_kpa_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_bar" value="TTirePressure25_bar_rearrightouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>		
+				        
+     </function>
+     
+     
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to verify Tire Pressure with DRW enabled -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Verify_TirePressure_With_DRW">
+              <description> fn_Verify_TirePressure - Function to verify tire pressure screen with DRW enabled </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+ 	
+		
+		<step type="VISIBLE" name="lbl_TirePressure_Title" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_TirePressure_Title_psi" value="TTirePressure1" />
+		<token type="CONTENT" name="token_lbl_TirePressure_Title_kPa" value="TTirePressure2" />
+		<token type="CONTENT" name="token_lbl_TirePressure_Title_bar" value="TTirePressure34" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' title is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_Low_Tire" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_Low_Tire" value="TTirePressure28" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Low Tire' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Low Tire' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+				
+		
+	<step type="VISIBLE" name="lbl_TirePressure_Content" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_TirePressure_Content" value="TTirePressure3" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE (PSI)/(KPA))' content is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE (PSI)/(KPA)' content is not displayed" />
+			</step>
+		</step>			
+	</step>
+		
+		
+			
+		<step type="VISIBLE" name="lbl_RecommendedColdPressure" page="pge_TPMS" tagNames="FP-NA,FP-EU-ALL,FP-SA">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure" value="TTirePressure4" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'RECOMMENDED COLD PRESSURE' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'RECOMMENDED COLD PRESSURE' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_Front" page="pge_TPMS" tagNames="FP-NA,FP-EU-ALL,FP-SA">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Front" value="TTirePressure5" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front' label is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front' label not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_Rear" page="pge_TPMS" tagNames="FP-NA,FP-EU-ALL,FP-SA">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		
+		<token type="CONTENT" name="token_lbl_Rear" value="TTirePressure6" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear' label is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear' label not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_FrontLefTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_psi" value="TTirePressure10_psi_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_kPa" value="TTirePressure14_kpa_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_bar" value="TTirePressure22_bar_frontleft" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_FrontRightTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_psi" value="TTirePressure11_psi_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_kPa" value="TTirePressure15_kpa_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_bar" value="TTirePressure23_bar_frontright" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearLeftOuterTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_psi" value="TTirePressure12_psi_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_kPa" value="TTirePressure16_kpa_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_bar" value="TTirePressure24_bar_rearleftouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearRightOuterTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_psi" value="TTirePressure13_psi_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_kPa" value="TTirePressure17_kpa_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_bar" value="TTirePressure25_bar_rearrightouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+	<step type="EXISTS" name="lbl_RearLeftInnerTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearLeftInnerTire_Value_psi" value="TTirePressure18_psi_rearleftinner" />
+		<token type="CONTENT" name="token_lbl_RearLeftInnerTire_Value_kPa" value="TTirePressure20_kpa_rearleftinner" />
+		<token type="CONTENT" name="token_lbl_RearLeftInnerTire_Value_bar" value="TTirePressure26_bar_rearleftinner" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Inner Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Inner Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearRightInnerTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearRightInnerTire_Value_psi" value="TTirePressure19_psi_rearrightinner" />
+		<token type="CONTENT" name="token_lbl_RearRightInnerTire_Value_kPa" value="TTirePressure21_kpa_rearrightinner" />
+		<token type="CONTENT" name="token_lbl_RearRightInnerTire_Value_bar" value="TTirePressure27_bar_rearrightinner" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Inner Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Inner Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+	        
+</function>   
+   
+     
+     
+<!-- ############################################################################################################################### -->
+<!-- EMUZZAMM - This function to click Tire Pressure (KPA/PSI) and verify Tire Pressure monitoring system screen without DRW enabled -->
+<!-- ############################################################################################################################### -->	
+ 
+     <function name="fn_Click_Verify_TirePressure_Information_WithoutDRW">
+              <description> fn_Click_Verify_TirePressure_Information - Function to click and verify Tire Pressure monitoring system without DRW enabled </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+ 	
+		
+	   <step type="VISIBLE" name="lbl_TirePressure_Content" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		<token type="CONTENT" name="token_lbl_TirePressure_Content" value="TTirePressure3" />
+		</step>
+		
+		
+		<step type="CLICK" name="lbl_TirePressure_Content" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_TirePressure_Content" value="TTirePressure3" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' content  is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' content is not clicked" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_TirePressureMonitoringSystem_Title" page="pge_TPMS">
+		<parameter type="STATIC" value="30"/>
+		<token type="CONTENT" name="token_lbl_TirePressureMonitoringSystem_Title" value="TTirePressure7" />
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' title is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_TirePressureMonitoringSystem_Content" page="pge_TPMS">
+			<token type="CONTENT" name="token_lbl_TirePressureMonitoringSystem_Content" value="TTirePressure8" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="lbl_TirePressureMonitoringSystem_Content" page="pge_TPMS">
+			<token type="CONTENT" name="token_lbl_TirePressureMonitoringSystem_Content" value="TTirePressure9" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		
+		<step type="EXISTS" name="img_VehicleImg_Without_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system vehicle image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system vehicle image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_FrontLefTire_Without_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="img_FrontRightTire_Without_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_RearLeftOuterTire_Without_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_RearRightOuterTire_Without_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="lbl_FrontLefTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_psi" value="TTirePressure10_psi_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_kPa" value="TTirePressure14_kpa_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_bar" value="TTirePressure22_bar_frontleft" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_FrontRightTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_psi" value="TTirePressure11_psi_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_kPa" value="TTirePressure15_kpa_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_bar" value="TTirePressure23_bar_frontright" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearLeftOuterTire_Value_Without_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_psi" value="TTirePressure12_psi_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_kPa" value="TTirePressure16_kpa_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_bar" value="TTirePressure24_bar_rearleftouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearRightOuterTire_Value_Without_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_psi" value="TTirePressure13_psi_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_kPa" value="TTirePressure17_kpa_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_bar" value="TTirePressure25_bar_rearrightouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+	
+		
+		<step type="EXISTS" name="btn_Back_TPMS" page="pge_TPMS">
+     	<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Back' button is displayed on TPMS screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Back' button is not displayed on TPMS screen" />
+			</step>
+		</step>			
+		</step>
+			        
+     </function>
+     
+     
+     
+        
+<!-- ############################################################################################################################ -->
+<!-- EMUZZAMM - This function to click Tire Pressure (KPA/PSI) and verify Tire Pressure monitoring system screen with DRW enabled -->
+<!-- ############################################################################################################################ -->	
+ 
+     <function name="fn_Click_Verify_TirePressure_Information_WithDRW">
+              <description> fn_Click_Verify_TirePressure_Information - Function to click and verify Tire Pressure monitoring system with DRW enabled </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+ 	
+		
+	   <step type="VISIBLE" name="lbl_TirePressure_Content" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		<token type="CONTENT" name="token_lbl_TirePressure_Content" value="TTirePressure3" />
+		</step>
+		
+		
+		<step type="CLICK" name="lbl_TirePressure_Content" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_TirePressure_Content" value="TTirePressure3" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' content is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'TIRE PRESSURE' content is not clicked" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_TirePressureMonitoringSystem_Title" page="pge_TPMS">
+		<parameter type="STATIC" value="30"/>
+		<token type="CONTENT" name="token_lbl_TirePressureMonitoringSystem_Title" value="TTirePressure7" />
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' title is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_TirePressureMonitoringSystem_Content" page="pge_TPMS">
+			<token type="CONTENT" name="token_lbl_TirePressureMonitoringSystem_Content" value="TTirePressure8" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="lbl_TirePressureMonitoringSystem_Content" page="pge_TPMS">
+			<token type="CONTENT" name="token_lbl_TirePressureMonitoringSystem_Content" value="TTirePressure9" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		
+		<step type="EXISTS" name="img_VehicleImg_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system vehicle image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressure monitoring system vehicle image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_FrontLefTire_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="img_FrontRightTire_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_RearLeftOuterTire_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_RearRightOuterTire_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_RearLeftInnerTire_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Inner Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Inner Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="img_RearRightInnerTire_With_DRW" page="pge_TPMS">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Inner Tire image' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Inner Tire image' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		
+		<step type="EXISTS" name="lbl_FrontLefTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_psi" value="TTirePressure10_psi_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_kPa" value="TTirePressure14_kpa_frontleft" />
+		<token type="CONTENT" name="token_lbl_FrontLefTire_Value_bar" value="TTirePressure22_bar_frontleft" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Left Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_FrontRightTire_Value" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_psi" value="TTirePressure11_psi_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_kPa" value="TTirePressure15_kpa_frontright" />
+		<token type="CONTENT" name="token_lbl_FrontRightTire_Value_bar" value="TTirePressure23_bar_frontright" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Front Right Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearLeftOuterTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_psi" value="TTirePressure12_psi_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_kPa" value="TTirePressure16_kpa_rearleftouter" />
+		<token type="CONTENT" name="token_lbl_RearLeftOuterTire_Value_bar" value="TTirePressure24_bar_rearleftouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RearRightOuterTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_psi" value="TTirePressure13_psi_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_kPa" value="TTirePressure17_kpa_rearrightouter" />
+		<token type="CONTENT" name="token_lbl_RearRightOuterTire_Value_bar" value="TTirePressure25_bar_rearrightouter" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Outer Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+	
+	<step type="EXISTS" name="lbl_RearLeftInnerTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearLeftInnerTire_Value_psi" value="TTirePressure18_psi_rearleftinner" />
+		<token type="CONTENT" name="token_lbl_RearLeftInnerTire_Value_kPa" value="TTirePressure20_kpa_rearleftinner" />
+		<token type="CONTENT" name="token_lbl_RearLeftInnerTire_Value_bar" value="TTirePressure26_bar_rearleftinner" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Inner Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Left Inner Tire Value' is not displayed" />
+			</step>
+		</step>			
+	</step>		
+		
+		<step type="EXISTS" name="lbl_RearRightInnerTire_Value_With_DRW" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RearRightInnerTire_Value_psi" value="TTirePressure19_psi_rearrightinner" />
+		<token type="CONTENT" name="token_lbl_RearRightInnerTire_Value_kPa" value="TTirePressure21_kpa_rearrightinner" />
+		<token type="CONTENT" name="token_lbl_RearRightInnerTire_Value_bar" value="TTirePressure27_bar_rearrightinner" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Inner Tire Value' is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Rear Right Inner Tire Value' is not displayed" />
+			</step>
+		</step>			
+		</step>
+	
+		
+		<step type="EXISTS" name="btn_Back_TPMS" page="pge_TPMS">
+     	<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Back' button is displayed on TPMS screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Back' button is not displayed on TPMS screen" />
+			</step>
+		</step>			
+		</step>
+			        
+     </function>  
+        
+     
+     
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on back button of Tire Pressure Monitoring System screen -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Navigate_BackFromTirePressureMonitoringSystem_To_VehicleInfo">
+              <description> fn_Navigate_BackFromTirePressureMonitoringSystem_To_VehicleInfo - Function to click on back button of Tire Pressure Monitoring System screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+     
+     <step type="CLICK" name="btn_Back_TPMS" page="pge_TPMS">
+     		<step type="WAIT_FOR" name="lbl_TirePressure_Title" page="pge_TPMS">
+     		<parameter type="STATIC"  value="90"/>
+     		<token type="CONTENT" name="token_lbl_TirePressure_Title_psi" value="TTirePressure1"/>
+     		<token type="CONTENT" name="token_lbl_TirePressure_Title_kPa" value="TTirePressure2"/>
+     		<token type="CONTENT" name="token_lbl_TirePressure_Title_bar" value="TTirePressure34"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="Navigated to vehicle info screen - back button is clicked on tire pressure monitoring system screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="Not navigated to vehicle info screen - back button is not clicked on tire pressure monitoring system screen" />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+ 
+    
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click Recommended Cold Pressure and verify its Information -->
+<!-- ############################################################################################################# -->	
+ 
+     <function name="fn_Click_Verify_RecommendedColdPressure_Information">
+              <description> fn_Click_Verify_RecommendedColdPressure_Information - Function to click and verify recommended cold pressure information </description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+ 	
+		
+	   <step type="VISIBLE" name="lbl_RecommendedColdPressure" page="pge_TPMS">
+			<parameter type="STATIC" name="maxScroll"  value="5"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure" value="TTirePressure4" />
+		</step>
+		
+		
+		<step type="CLICK" name="lbl_RecommendedColdPressure" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure" value="TTirePressure4" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'RECOMMENDED COLD PRESSURE' title is clicked" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'RECOMMENDED COLD PRESSURE' title is not clicked" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_RecommendedColdPressure_Title" page="pge_TPMS">
+		<parameter type="STATIC" value="30"/>
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure_Title" value="TTirePressure33" />
+			
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Recommended Cold Pressure' title is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Recommended Cold Pressure' title is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RecommendedColdPressure_Content1" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure_Content1" value="TTirePressure30" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'The tire pressure when the vehicle has been stationary' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'The tire pressure when the vehicle has been stationary' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RecommendedColdPressure_Content2" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure_Content2" value="TTirePressure31" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'to the recommended cold tire inflation pressure.' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'to the recommended cold tire inflation pressure.' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_RecommendedColdPressure_Content3" page="pge_TPMS">
+		<token type="CONTENT" name="token_lbl_RecommendedColdPressure_Content3" value="TTirePressure32" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressures must be set to specification when tires are' content is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Tire pressures must be set to specification when tires are' content is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		<step type="EXISTS" name="lnk_RecommendedColdPressure_LearnMoreAbout" page="pge_TPMS">
+		<token type="CONTENT" name="token_lnk_RecommendedColdPressure_LearnMoreAbout" value="TTirePressure33" />
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Learn more about proper tire care on the Ford Owner site.' link is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Learn more about proper tire care on the Ford Owner site.' link is not displayed" />
+			</step>
+		</step>			
+		</step>
+		
+		
+		<step type="EXISTS" name="btn_Back_RecommendedColdPressure" page="pge_TPMS">
+		
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Back button' of recommended cold pressure is displayed" />
+			</step>
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="'Back button' of recommended cold pressure is not displayed" />
+			</step>
+		</step>			
+		</step>
+		 
+</function>
+
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function to click on back button of Recommended Cold Tire Inflation Pressure screen -->
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Navigate_BackFromRecommendedColdTireInflationPressure_To_VehicleInfo">
+              <description> fn_Navigate_BackFromRecommendedColdTireInflationPressure_To_VehicleInfo - Function to click on back button of recommended cold tire inflation pressure screen</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+                     <parameter type="STATIC" value="Function's XML file name: fn_TPMS.xml" />
+              </step>
+     
+     <step type="CLICK" name="btn_Back_RecommendedColdPressure" page="pge_TPMS">
+     		<step type="WAIT_FOR" name="lbl_RecommendedColdPressure_Title" page="pge_TPMS">
+     		<parameter type="STATIC"  value="90"/>
+     		<token type="CONTENT" name="token_lbl_RecommendedColdPressure_Title" value="TTirePressure4"/>
+     		</step>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="Navigated to vehicle info screen - back button is clicked on recommended cold pressure screen" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_TPMS">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_TPMS">
+				<parameter type="STATIC" value="Not navigated to vehicle info screen - back button is not clicked on recommended cold pressure screen"  />
+			</step>
+		</step>			
+		
+	</step>
+ 
+ 	</function>
+ 	
+</suite>

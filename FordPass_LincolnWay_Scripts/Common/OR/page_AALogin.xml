@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_AALogin" class="org.xframium.page.keyWord.KeyWordPage">
+		
+		
+		<element name="btn_LoginAA" value="//*[@text='LOG IN']|//*[@label='Log In']" descriptor="XPATH"/>
+		
+	
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<!-- 		<element name="btn_LoginAA" value="//*[@text='LOG IN']|//*[@label='Log In']" descriptor="XPATH"/> -->
+<!-- 		<element name="lbl_PageInfo" value="//*[@text='{token_lbl_PageInfo}']|//*[@value='{token_lbl_PageInfo}']" descriptor="XPATH" /> -->
+<!-- 		<element name="edt_UserName" value="(//android.widget.EditText)[1]|//XCUIElementTypeTextField" descriptor="XPATH" /> -->
+<!-- 		<element name="edt_Password" value="(//android.widget.EditText)[2]|//XCUIElementTypeSecureTextField" descriptor="XPATH" /> -->
+				
+		</page>
+	</site>
+</elementDefinition>

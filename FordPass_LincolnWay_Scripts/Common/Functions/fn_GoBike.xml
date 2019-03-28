@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	
+	<function name="fn_ValidateGoBike_MoveLoandingPage">
+		<description> fn_ValidateGoBike_MoveLoandingPage - > Validate Go Bike link displayed on Move Landing Page. </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_ValidateGoBike_MoveLoandingPage.xml" />
+		</step>
+
+		<step type="WAIT_FOR" name="lbl_GoBike" page="pge_GoBike">
+			<parameter type="STATIC" value="30"/>
+			<token type="CONTENT" name="token_lbl_GoBike" value="TGoBike"/>
+
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="Go Bike dispalyed on Move Landing Page." />
+			</step>
+			<step type="STATE" name="Screenshot - FordPass Go Bike " page="pge_GoBike" failureMode="IGNORE"> </step>
+			<step type="ELSE" name="elsecondition" page="pge_GoBike">
+				<step type="REPORT" name="ADD_REPORT" page="pge_GoBike">
+					<parameter type ="STATIC" value ="Gi Bike Link is not displayed on Move Landing Page."/>
+				</step>
+			</step>
+		</step>
+	</function>
+
+
+	<function name ="fn_Click_GoBike">		
+		<description> fn_Click_GoBike --> Click on Link GoBike in Move Landing Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_GoBike.xml" />
+		</step>
+
+		<step type="CLICK" name="lbl_GoBike" page="pge_GoBike">
+			<token type="CONTENT" name="token_lbl_GoBike" value="TGoBike"/>
+		</step>
+				
+		<step type="WAIT_FOR" name="btn_FindABike" page="pge_GoBike">
+			<parameter type ="STATIC" value="20"/>
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike"/>
+			<token type="CONTENT" name="token_btn_FindABike_Android" value="TFindABike_Android"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="Button - Find A Bike is available in Ford GoBike Page." />
+			</step>
+		</step>		
+		<step type="ELSE" name="btn_FindABike" page="pge_GoBike">
+			<step type="REPORT" name="ADD TO REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="Button - Find A Bike is NOT available in Ford GoBike Page."/>
+			</step>
+		</step>
+	</function>
+
+
+
+	<function name ="fn_Click_FindABike">
+		<description> fn_Click_FindABike --> Click on Find a Bike. </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_FindABike.xml" />
+		</step>			
+
+<!-- 		<step type="STRING2" page="btn_FindABike" name="UPPER" context="str_UpperCaseConverted">
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike"/>		
+		</step>
+		<step type="CLICK" name="btn_FindABike" page="pge_GoBike">
+			<parameter type="CONTEXT" name="Original Value" value="str_UpperCaseConverted" />
+		</step> -->
+
+		<step type="CLICK" name="btn_FindABike" page="pge_GoBike">
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike"/>
+			<token type="CONTENT" name="token_btn_FindABike_Android" value="TFindABike_Android"/>
+		</step>
+
+		<step type="EXISTS" name="msg_GoBikeLaunch" page="pge_GoBike">
+			<parameter type ="STATIC" value="20"/>	
+			<token type="CONTENT" name="token_msg_GoBikeLaunch" value="TGoBike_WarningMessage"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="GoBike - Launch - warning message displayed -You are now leaving FordPass. By leaving FordPass, you may be subject to new terms, which FordPass does not control." />
+			</step>
+			
+			<step type="ELSE" name="token_pge_GoBike" page="pge_GoBike">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+					<parameter type="STATIC" value="GoBike - Launch - warning message NOT displayed -You are now leaving FordPass. By leaving FordPass, you may be subject to new terms, which FordPass does not control." />
+				</step>
+			</step>
+		</step>	
+	</function>		
+  
+	<function name="fn_Check_OK_button">
+		<description> fn_Check_OK_button - Function to verify OK Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_OK_button" />
+		</step>
+
+		<step type="EXISTS" name="btn_OK" page="pge_GoBike">
+			<token type="CONTENT" name="token_btn_OK" value="TCommon_OK" />	
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="OK button found on GoBike Launching Message."  />
+			</step>
+			<step type="ELSE" name="OK Button" page="pge_GoBike">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+					<parameter type="STATIC" value="'OK button Not found on GoBike Launching Message."  />
+				</step>
+			</step>
+		</step>
+	</function>	
+
+	<function name="fn_Click_OK_button">
+		<description> fn_Check_OK_button - Function to verify OK Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_OK_button" />
+		</step>
+
+		<step type="CLICK" name="btn_OK" page="pge_GoBike">
+			<token type="CONTENT" name="token_btn_OK" value="TCommon_OK" />	
+			<step type="ELSE" name="OK Button" page="pge_GoBike">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+					<parameter type="STATIC" value="'OK button Not found on GoBike Launching Message."  />
+				</step>
+			</step>
+		</step>
+		
+		
+	</function>
+
+			
+	<function name="fn_Check_CANCEL_button">
+		<description> fn_Check_CANCEL_button - Function to verify CANCEL Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_CANCEL_button" />
+		</step>
+
+		<step type="EXISTS" name="btn_Cancel" page="pge_GoBike">
+			<token type="CONTENT" name="token_btn_Cancel" value="TCancel" />
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TRSA12_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="Cancel button NOT found on GoBike Launching Message."  />
+			</step>
+			<step type="ELSE" name="OK Button" page="pge_GoBike">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+					<parameter type="STATIC" value="'Cancel button Not found on GoBike Launching Message."  />
+				</step>
+			</step>
+		</step>
+	</function>	
+
+	<function name="fn_Click_CANCEL_button">
+		<description> fn_Click_CANCEL_button - Function to verify Click on  CANCEL Button </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_CANCEL_button" />
+		</step>
+
+		<step type="CLICK" name="btn_Cancel" page="pge_GoBike">
+			<token type="CONTENT" name="token_btn_Cancel" value="TCancel" />
+			<token type="CONTENT" name="token_btn_Cancel_AND" value="TRSA12_AND" />			
+			
+			<step type="WAIT_FOR" name="btn_FindABike" page="pge_GoBike">
+				<token type="CONTENT" name="token_btn_FindABike" value="TFindABike"/>
+				<token type="CONTENT" name="token_btn_FindABike_Android" value="TFindABike_Android"/>	
+				
+				<step type="ELSE" name="btn_FindABike" page="pge_GoBike">
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+						<parameter type="STATIC" value="'Find A Bike button Not found on GoBike Launching Message."  />
+					</step>
+				</step>
+			</step>
+		</step>
+	</function>	
+
+	<function name="fn_Check_FordBike_DownloadPage">
+		<description> fn_Check_FordBike_DownloadPage - Function to FordBike APP download window page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Check_FordBike_DownloadPage" />
+		</step>
+
+		<step type="EXISTS" name="lnk_GoBike_Download" page="pge_GoBike">
+			<token type="CONTENT" name="token_lnk_GoBike_Download" value="TGoBike_DownloadLink" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="GoBike download page displayed."  />
+			</step>
+
+			<step type="ELSE" name="btn_FindABike" page="pge_GoBike">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+					<parameter type="STATIC" value="GoBike download page NOT displayed."  />
+				</step>
+			</step>
+			</step>
+	</function>		
+
+	<function name="fn_Click_ReturnToFordPass_GoBike">
+		<description> fn_Click_ReturnToFordPass_GoBike - function to Return back to FordPass App. </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+			<parameter type="STATIC" value="Function's XML file name: fn_Click_ReturnToFordPass_GoBike.xml" />
+		</step>
+		<step type="CLICK" name="lnk_ReturnToFordPass" page="pge_GoBike" os="IOS">
+			<token type="CONTENT" name="token_lnk_ReturnToFordPass" value="TCommon_ReturnToFordPass" />
+		</step>
+		<step type="DEVICE" name="BACK" page="pge_ViewProfile" os="ANDROID" wait="10" failureMode="IGNORE"/>
+						
+		<step type="EXISTS" name="btn_FindABike" page="pge_GoBike">
+			<token type="CONTENT" name="token_btn_FindABike" value="TFindABike"/>
+			<token type="CONTENT" name="token_btn_FindABike_Android" value="TFindABike_Android"/>		
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GoBike">
+				<parameter type="STATIC" value="Button - Find A Bike is available in Ford GoBike Page." />
+			</step>
+	
+			<step type="ELSE" name="btn_FindABike" page="pge_GoBike">
+				<step type="REPORT" name="ADD TO REPORT" page="pge_GoBike">
+					<parameter type="STATIC" value="Button - Find A Bike is NOT available in Ford GoBike Page."/>
+				</step>
+			</step>	
+		</step>
+	</function>	
+	
+</suite>

@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_ClickAddVehicle">
+		<description> fn_ClickAddVehicle - Function to click Add Vehicle in Garage screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_AddVehicleTab" page="pge_Move" />
+		
+		<step type="CLICK" name="lnk_AddVehicle" page="pge_AddVIN">
+			<token type="CONTENT" name="token_lnk_AddVehicle" value="TAddVin" />			
+		</step>
+		
+	</function>
+	
+	<function name="fn_VerifyPageOpened_AddVIN">
+		<description> fn_VerifyPageOpened_AddVIN - Function to verify user landed on the ADD VIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>		
+		
+		<step type="WAIT_FOR" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Add Vehicle page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Add Vehicle page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	
+	<function name="fn_ValidatePage_AddVIN">
+		<description> fn_VerifyPageOpened_AddVIN - Function to verify ADD VIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_AddVehicleDesc" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleDesc" value="TAddVinDesc" />
+		</step>
+		
+		<step type="EXISTS" name="edt_VIN" page="pge_AddVIN" />
+					
+		<step type="EXISTS" name="img_Camera" page="pge_AddVIN" />
+		
+		<step type="EXISTS" name="lnk_WhereIsMyVin" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lnk_WhereIsMyVin" value="TAddVinFind" />
+		</step>
+		
+         <step type="EXISTS" name="btn_Next_Disabled" page="pge_AddVIN" >
+            <token type="CONTENT" name="token_btn_Next_Disabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />
+         </step>
+
+		<step type="EXISTS" name="btn_Back" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+		
+		<step type="CLICK" name="lnk_WhereIsMyVin" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lnk_WhereIsMyVin" value="TAddVinFind" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_FindVinTitle" page="pge_AddVIN" >
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_FindVinTitle" value="TAddVinFindTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Find VIN page" />
+			</step>
+			
+			<step type="EXISTS" name="img_FindVinDoorFrame" page="pge_AddVIN">
+				<token type="CONTENT" name="token_lbl_FindVinDoorFrame" value="TAddVinFindDoorFrame" />
+			</step>
+			
+			<step type="EXISTS" name="lbl_FindVinDoorFrame" page="pge_AddVIN" >
+				<token type="CONTENT" name="token_lbl_FindVinDoorFrame" value="TAddVinFindDoorFrame" />
+			</step>
+			
+			<step type="EXISTS" name="img_FindVinDashboard" page="pge_AddVIN" tagNames="FP-EU,FP-NA">
+				<token type="CONTENT" name="token_lbl_FindVinDashboard" value="TAddVinFindDashboard" />
+			</step>
+			
+			<step type="EXISTS" name="lbl_FindVinDashboard" page="pge_AddVIN" tagNames="FP-EU,FP-NA">
+				<token type="CONTENT" name="token_lbl_FindVinDashboard" value="TAddVinFindDashboard" />
+			</step>
+			
+			<step type="EXISTS" name="img_FindVinDocument" page="pge_AddVIN">
+				<token type="CONTENT" name="token_lbl_FindVinDocument" value="TAddVinFindDocument" />
+			</step>
+			
+			<step type="EXISTS" name="lbl_FindVinDocument" page="pge_AddVIN" >
+				<token type="CONTENT" name="token_lbl_FindVinDocument" value="TAddVinFindDocument" />
+			</step>
+			
+			<step type="CLICK" name="btn_FindVinBack" page="pge_AddVIN" >
+				<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+				<step type="CALL2" name="fn_VerifyPageOpened_AddVIN" page="pge_AddVIN"/>
+			</step>			
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Find VIN page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CLICK" name="lnk_PrivacyPolicy" page="pge_AddVIN" tagNames="FP-EU" os="ANDROID">
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TPrivacyPolicy" />
+		
+			<step type="WAIT_FOR" name="lbl_PrivacyPolicyContent" page="pge_AddVIN"  failureMode="IGNORE">
+				<parameter type="STATIC" value="15" />
+				<token type="CONTENT" name="token_lbl_PrivacyPolicyContent" value="TPrivacyPolicyContent" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on PrivacyPolicy page" />
+			</step>
+			
+			<step type="EXISTS" name="btn_BackInPrivacyPolicy" page="pge_AddVIN" />			
+			
+			<step type="CLICK" name="btn_BackInPrivacyPolicy" page="pge_AddVIN" >
+				<step type="CALL2" name="fn_VerifyPageOpened_AddVIN" page="pge_AddVIN"/>
+			</step>	
+			
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="PrivacyPolicy link is not displayed" />
+			</step>
+		</step>			
+		</step>
+	</function>
+	
+	<function name="fn_AddVehicle">
+		<description> fn_AddVehicle - Function to add a new vehicle in dashboard </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickAddVehicle" page="pge_AddVIN" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_AddVIN" page="pge_AddVIN" />
+		
+         <step type="EXISTS" name="btn_Next_Disabled" page="pge_AddVIN" >
+            <token type="CONTENT" name="token_btn_Next_Disabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_IOS" />
+            
+         </step>
+		
+		<step type="SET" name="edt_VIN" page="pge_AddVIN" >
+			<parameter type="DATA" name="VIN id" value="TestData.VIN" />
+		</step>
+		
+		<step type="CLICK" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+		</step>
+		
+       	<step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+        	<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />                     
+            <token type="CONTENT" name="token_btn_Next_Enabled_IOS" value="TSelectCountry2_IOS" />
+        </step>
+		
+       	<!-- <step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+        	<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />                     
+        </step> -->
+		
+		<step type="WAIT_FOR" name="lbl_VehicleFound" page="pge_AddVIN" >
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_VehicleFound" value="TAddVinFound" />
+			<token type="CONTENT" name="token_lbl_VehicleFound_AND" value="TAddVinFound_AND" />
+			
+																					  
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Add VIN success page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Add VIN success page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="EXISTS" name="lbl_VehicleMakeModel" page="pge_AddVIN" failureMode="IGNORE">
+			<token type="DATA" name="token_lbl_VehicleMakeModel" value="TestData.VinMakeModel" />
+		</step>
+		
+	</function>
+	
+	<function name="fn_AddVehicle_SetNickname">
+		<description> fn_AddVehicle_SetNickname - Function to set nickname in add vehicle screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>	
+		
+		<step type="SET" name="edt_Nickname" page="pge_AddVIN" >
+			<parameter type="CONTEXT" name="vehicle nickname" value="param_Nickname" />
+			<token type="CONTENT" name="token_edt_Nickname" value="TAddVinNickName" />
+		</step>
+	
+	</function>
+	
+  	<function name="fn_ClickBtnGetStarted">
+		<description> fn_ClickBtnGetStarted - Function to click button - GetStarted in add vehicle screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>	
+		<step type="CLICK" name="btn_Return_kboard" page="pge_AddVIN" os="IOS">
+			<token type="CONTENT" name="token_btn_Return_kboard" value="TReturnKey_IOS"/>
+		</step>
+		
+		<step type="CALL2" name="fn_HideKeyboard" page="pge_CommonReusable" failureMode="IGNORE"/>
+		
+		<step type="VISIBLE" name="btn_GetStarted" page="pge_AddVIN" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_btn_GetStarted" value="TAddVinGetStarted" />
+			
+		<step type="CLICK" name="btn_GetStarted" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_GetStarted" value="TAddVinGetStarted" />
+		</step>	
+		
+		<step type="WAIT" name="Wait for 5 sec" page="pge_AddVIN">
+		<parameter type="STATIC" value="5"/>
+		
+		</step>
+		</step>
+	
+	</function>
+	
+	
+	<function name="fn_AddVehicle_VINLessThan17Chars">
+		<description> fn_AddVehicle_VINLessThan17Chars - Function to check next button disable if VIN is less than 17 chars </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="SET" name="edt_VIN" page="pge_AddVIN" >
+			 <parameter type="DATA" name="VIN id" value="TestData.VINLessThan17Chars" /> 
+		</step>
+		
+		<step type="CLICK" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+		</step>
+		
+         <step type="EXISTS" name="btn_Next_Disabled" page="pge_AddVIN" >
+            <token type="CONTENT" name="token_btn_Next_Disabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />
+         </step>
+	</function>	
+	
+	
+	<function name="fn_AddVehicle_VINWithSpecialChars">
+		<description> fn_AddVehicle_VINWithSpecialChars - Function to check special characters not allowed in enter vin screen </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="SET" name="edt_VIN" page="pge_AddVIN" >
+			 <parameter type="DATA" name="VIN id" value="TestData.VINWithSpecialChars" /> 
+		</step>
+		
+		<step type="ATTRIBUTE" name="edt_VIN" page="pge_AddVIN" context="ATTR_TEXT" os="ANDROID">
+    		<parameter type="DATA" value="TestData.VINWithOutSpecialChars" />
+   			<parameter type="STATIC" value="text" />
+		</step>
+		
+		<step type="ATTRIBUTE" name="edt_VIN" page="pge_AddVIN" context="ATTR_VALUE" os="IOS">
+    		<parameter type="DATA" value="TestData.VINWithOutSpecialChars" />
+   			<parameter type="STATIC" value="value" />
+		</step>
+		
+		<step type="CLICK" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+		</step>
+		
+         <step type="EXISTS" name="btn_Next_Disabled" page="pge_AddVIN" >
+            <token type="CONTENT" name="token_btn_Next_Disabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />
+         </step>
+	</function>
+	
+	
+	<function name="fn_AddVehicle_ExistingVIN">
+		<description> fn_Addvehicle_ExistingVIN - Function to validate error message for adding already existing VIN in user dashboard </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="SET" name="edt_VIN" page="pge_AddVIN" >
+			 <parameter type="CONTEXT" name="VIN id" value="param_VIN" />			 
+		</step>
+		
+			
+		<step type="CLICK" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+		</step>
+		
+       	<step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+        	<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />                     
+            <token type="CONTENT" name="token_btn_Next_Enabled_IOS" value="TSelectCountry2_IOS" />
+        </step>
+		
+     <!--   	<step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+        	<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />                     
+        </step> -->
+		
+		<step type="WAIT_FOR" name="lbl_AddVehicleError_Oops" page="pge_AddVIN" >
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_AddVehicleError_Oops" value="TVehicleAlreadyExists1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Vehicle already added error message page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Vehicle already added error message page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="VISIBLE" name="img_AddVehicleError" page="pge_AddVIN" />
+		
+		<step type="VISIBLE" name="lbl_VehicleAlreadyExists" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_VehicleAlreadyExists" value="TVehicleAlreadyExists2" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VIN" page="pge_AddVIN" >
+			<token type="DATA" name="token_lbl_VIN" value="TestData.VIN" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_Back_VehicleAlreadyExists" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+			
+		<step type="VISIBLE" name="btn_OK" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_OK" value="TVehicleAlreadyExistsOK" />
+		</step>
+		
+		<step type="CLICK" name="btn_OK" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_OK" value="TVehicleAlreadyExistsOK" />
+		
+		</step>		
+		
+		<step type="WAIT_FOR" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+				<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Enter VIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Enter VIN page is not displayed or opened" />
+				</step>
+			</step>			
+		
+	</function>
+	
+	<function name="fn_NavigateFromAddVehicleToDashboard">
+		<description> fn_NavigateFromAddVehicleToDashboard - Function to navigate from add vehicle screen to dashboard </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>	
+		
+		<step type="CLICK" name="btn_Back" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on dashboard" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>	
+	</function>
+		
+	<function name="fn_ValidateRSAInAllModule">
+		<description> fn_ValidateRSAInAllModule - Function to check RSA icon in all modules </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_MoveMenu" page="pge_FPCommon" />		
+		<step type="CLICK" name="lnk_MoveRSA" page="pge_AddVIN"/>	
+		<step type="CALL2" name="fn_VerifyPageOpened_RSA" page="pge_RSA" />		
+		
+		
+			
+		<step type="WAIT_FOR" name="lbl_RSATitle" page="pge_AddVIN" site="FordPass" os="IOS">
+			<parameter type="STATIC" name="Wait Time" value="10" />
+			<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on RSA page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="RSA page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>		
+		
+		<step type="CLICK" name="btn_RSABack" page="pge_AddVIN">
+		<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on dashboard" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>	
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="pge_FPCommon" />
+		<step type="CLICK" name="lnk_FindRSA" page="pge_AddVIN"/>
+		<step type="WAIT_FOR" name="lbl_RSATitle" page="pge_AddVIN" site="FordPass" os="IOS">
+			<parameter type="STATIC" name="Wait Time" value="10" />
+			<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on RSA page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="RSA page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="CLICK" name="btn_RSABack" page="pge_AddVIN">
+		<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on dashboard" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>	
+		
+		
+		<step type="CALL2" name="fn_Click_GuidesMenu" page="pge_FPCommon" />
+		<step type="CLICK" name="lnk_GuideRSA" page="pge_AddVIN"/>
+		<step type="WAIT_FOR" name="lbl_RSATitle" page="pge_AddVIN" site="FordPass" os="IOS">
+			<parameter type="STATIC" name="Wait Time" value="10" />
+			<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on RSA page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="RSA page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="CLICK" name="btn_RSABack" page="pge_AddVIN">
+		<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on dashboard" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>	
+		
+				
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		<step type="CLICK" name="lnk_AccountRSA" page="pge_AddVIN"/>
+		<step type="WAIT_FOR" name="lbl_RSATitle" page="pge_AddVIN" site="FordPass" os="IOS">
+			<parameter type="STATIC" name="Wait Time" value="10" />
+			<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on RSA page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="RSA page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+		<step type="CLICK" name="btn_RSABack" page="pge_AddVIN">
+		<token type="CONTENT" name="token_lbl_RSATitle" value="TRsaTitle" />
+		</step>	
+		
+		<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on dashboard" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>	
+			
+	</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function is a copy of ADD VIN along with the data being parameterized for Smart Cards work flow -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_AddVehicle_Parametrized">
+		<description> fn_AddVehicle_Parametrized - Function to add a new vehicle in dashboard </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickAddVehicle" page="pge_AddVIN" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_AddVIN" page="pge_AddVIN" />
+		
+         <step type="EXISTS" name="btn_Next_Disabled" page="pge_AddVIN" >
+            <token type="CONTENT" name="token_btn_Next_Disabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_IOS" />
+
+         </step>
+		
+		<step type="SET" name="edt_VIN" page="pge_AddVIN" >
+			<parameter type="CONTEXT" name="VIN id" value="str_VIN_No" />
+		</step>
+		
+		<step type="CLICK" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+		</step>
+		
+       	<step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+        	<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />
+            <token type="CONTENT" name="token_btn_Next_Enabled_IOS" value="TSelectCountry2_IOS" />                      
+
+        </step>
+		
+       	<!-- <step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+        	<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+             <token type="CONTENT" name="token_btn_Next_Disabled_LowerCase" value="TCommon_KeyboardNext" />
+            <token type="CONTENT" name="token_btn_Next_Disabled_IOS" value="TSelectCountry2_AND" />                     
+        </step> -->
+		
+		<step type="WAIT_FOR" name="lbl_VehicleFound" page="pge_AddVIN" failureMode="IGNORE">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_VehicleFound" value="TAddVinFound" />
+			<token type="CONTENT" name="token_lbl_VehicleFound_AND" value="TAddVinFound_AND" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Add VIN success page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Add VIN success page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This Function to validate error message for adding INVALID/Existing/LW VIN -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_AddVehicle_ErrorValidation">
+		<description> fn_AddVehicle_ErrorValidation - Function to validate error message for adding INVALID/Existing/LW VIN </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_AddVIN.xml" />
+		</step>
+		
+		<step type="SET" name="edt_VIN" page="pge_AddVIN" >
+			 <parameter type="CONTEXT" name="Invalid_Vin" value="param_VIN" />			 
+		</step>		
+			
+		<step type="CLICK" name="lbl_AddVehicleHeader" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+			
+		</step>
+		
+		<step type="EXISTS" name="btn_Next_Enabled" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+			<token type="CONTENT" name="token_btn_Next_Enabled_IOS" value="TSelectCountry2_IOS" />  
+		</step>
+		
+		<step type="CLICK" name="btn_Next_Enabled" page="pge_AddVIN" >
+			<token type="CONTENT" name="token_btn_Next_Enabled" value="TAddVinNext" />
+			<token type="CONTENT" name="token_btn_Next_Enabled_IOS" value="TSelectCountry2_IOS" />  
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_InvalidVinError_2" page="pge_AddVIN" os="ANDROID">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTEXT" name="token_lbl_InvalidVinError_2" value="AddVinError02_AND" />
+			
+			<step type="VISIBLE" name="img_AddVehicleError" page="pge_AddVIN" />
+			
+			<step type="VISIBLE" name="lbl_InvalidVinError_1" page="pge_AddVIN" >
+				<token type="CONTEXT" name="token_lbl_InvalidVinError_1" value="AddVinError01_AND" />
+			</step>
+			
+			<step type="VISIBLE" name="lbl_VIN" page="pge_AddVIN" >
+				<token type="CONTEXT" name="token_lbl_VIN" value="param_VIN" />
+			</step>
+			
+			<step type="VISIBLE" name="btn_Back_VehicleAlreadyExists" page="pge_AddVIN" >
+				<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+			</step>
+			
+			<step type="VISIBLE" name="btn_TryAgain" page="pge_AddVIN" >
+				<token type="CONTEXT" name="token_btn_TryAgain" value="param_Btn_AND" />		
+			</step>
+			
+			<step type="CLICK" name="btn_Back_VehicleAlreadyExists" page="pge_AddVIN" >
+					<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+			</step>
+									
+			<step type="WAIT_FOR" name="lbl_AddVehicleHeader" page="pge_AddVIN" os="ANDROID">
+				<parameter type="STATIC" value="10" />
+				<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Enter VIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Enter VIN page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+		</step>
+				
+		<step type="WAIT_FOR" name="lbl_InvalidVinError_2" page="pge_AddVIN" os="IOS">
+			<parameter type="STATIC" value="10" />
+			<token type="CONTEXT" name="token_lbl_InvalidVinError_2" value="AddVinError02_IOS" />
+			
+			<step type="VISIBLE" name="img_AddVehicleError" page="pge_AddVIN" />
+			
+			<step type="VISIBLE" name="lbl_InvalidVinError_1" page="pge_AddVIN" >
+				<token type="CONTEXT" name="token_lbl_InvalidVinError_1" value="AddVinError01_IOS" />
+			</step>
+			
+			<step type="VISIBLE" name="lbl_VIN" page="pge_AddVIN" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_VIN" value="param_VIN" />
+			</step>
+					
+			<step type="VISIBLE" name="btn_Back_VehicleAlreadyExists" page="pge_AddVIN" >
+				<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+			</step>
+			
+			<step type="VISIBLE" name="btn_TryAgain" page="pge_AddVIN" >
+				<token type="CONTEXT" name="token_btn_TryAgain" value="param_Btn_IOS" />		
+			</step>	
+			
+			<step type="CLICK" name="btn_Back_VehicleAlreadyExists" page="pge_AddVIN" >
+				<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+			</step>
+			
+			<step type="WAIT_FOR" name="lbl_AddVehicleHeader" page="pge_AddVIN" failureMode="IGNORE" os="IOS">
+				<parameter type="STATIC" value="10" />
+				<token type="CONTENT" name="token_lbl_AddVehicleHeader" value="TAddVinHeader" />
+						
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="User successfully landed on Enter VIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+					<parameter type="STATIC" value="Enter VIN page is not displayed or opened" />
+				</step>				
+			</step>			
+		</step>
+		</step>
+		
+	</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Access FordPass Smartlink 											   -->	
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_Access_FordPass_Smartlink">
+              <description> fn_Verify_Access_FordPass_Smartlink - Function to verify Access FordPass Smartlink</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+                     <parameter type="STATIC" value="Function's XML file name: pge_AddVIN" />
+              </step>
+     
+      <step type="EXISTS" name="lbl_AccessFordPass_Smartlink" page="pge_AddVIN">
+	  	<token type="CONTENT" name="token_lbl_AccessFordPass_Smartlink" value="TSmartlink1" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	  <step type="EXISTS" name="lbl_AccessFordPass_Smartlink_InfoIcon" page="pge_AddVIN">
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info icon is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info icon is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_AccessFordPass_Smartlink_Content" page="pge_AddVIN">
+	  	<token type="CONTENT" name="token_lbl_AccessFordPass_Smartlink_Content" value="TSmartlink2" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' content is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' content is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	  <step type="EXISTS" name="btn_AccessFordPass_Smartlink_CheckBox" page="pge_AddVIN">
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' checkbox is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' checkbox is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+</function>
+
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on Access FordPass Smartlink Info Icon								   -->	
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Access_FordPass_Smartlink_InfoIcon">
+              <description> fn_Click_Access_FordPass_Smartlink_InfoIcon - Function to verify Access FordPass Smartlink Info Icon</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+                     <parameter type="STATIC" value="Function's XML file name: pge_AddVIN" />
+              </step>
+     
+     
+	<step type="CLICK" name="lbl_AccessFordPass_Smartlink_InfoIcon" page="pge_AddVIN">
+	  <step type="WAIT_FOR" name="lbl_Smartlink_Info_Title" page="pge_AddVIN">
+	  <parameter type="STATIC" value="30"/>
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Title" value="TSmartlink3" />
+	  </step>
+	  
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info screen is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info screen is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+</function>
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to verify Access FordPass Smartlink Information content						   -->	
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Verify_Access_FordPass_Smartlink_Information">
+              <description> fn_Verify_Access_FordPass_Smartlink_Information - Function to verify Access FordPass Smartlink Information</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+                     <parameter type="STATIC" value="Function's XML file name: pge_AddVIN" />
+              </step>
+     
+      <!-- <step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Image" page="pge_AddVIN">
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' infomation dialog image is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' infomation dialog image is not displayed" />
+			</step>
+		</step>		
+	</step>
+	 -->
+	
+	  <step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content1" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content1" value="TSmartlink4" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 1 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 1 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	  <step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content2" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content2" value="TSmartlink5" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 2 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 2 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	 <step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content3" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content3" value="TSmartlink6" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 3 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 3 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content4" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content4" value="TSmartlink7" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 4 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 4 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content5" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content5" value="TSmartlink8" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 5 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 5 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content6" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content6" value="TSmartlink9" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 6 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 6 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+		<step type="EXISTS" name="btn_Close_Smartlink_Info_Dialog" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_btn_Close_Smartlink_Info_Dialog" value="TSmartlink10" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info close button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info close button is not displayed" />
+			</step>
+		</step>		
+	</step>
+
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to click on close button of Access FordPass Smartlink Information				   -->	
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Click_Close_Smartlink_Information_Dialog">
+              <description> fn_Click_Close_Smartlink_Information_Dialog - Function to click close button of Access FordPass Smartlink Info Dialog</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+                     <parameter type="STATIC" value="Function's XML file name: pge_AddVIN" />
+              </step>
+     
+     
+	<step type="CLICK" name="btn_Close_Smartlink_Info_Dialog" page="pge_AddVIN">
+	<token type="CONTENT" name="token_btn_Close_Smartlink_Info_Dialog" value="TSmartlink10" />
+	  <step type="WAIT_FOR" name="lbl_AccessFordPass_Smartlink" page="pge_AddVIN">
+	  <parameter type="STATIC" value="30"/>
+	  <token type="CONTENT" name="token_lbl_AccessFordPass_Smartlink" value="TSmartlink1" />
+	  </step>
+	  
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info screen is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info screen is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+</function>
+
+
+<!-- ############################################################################################################# -->
+<!-- EMUZZAMM - This function is to enable Access FordPass Smartlink checkbox									   -->	
+<!-- ############################################################################################################# -->	    
+     
+     <function name="fn_Enable_Smartlink_Checkbox">
+              <description> fn_Enable_Smartlink_Checkbox - Function to enable Access FordPass Smartlink checkbox</description>
+              <step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+                     <parameter type="STATIC" value="Function's XML file name: pge_AddVIN" />
+              </step>
+     
+     
+	<step type="CLICK" name="btn_AccessFordPass_Smartlink_CheckBox" page="pge_AddVIN">
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info screen is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info screen is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	<step type="WAIT" name="Allowing time to check" page="pge_AddVIN">
+	<parameter type="STATIC" value="5"/>
+	</step>
+	
+	<step type="EXISTS" name="btn_AccessFordPass_Smartlink_CheckBox_Checked" page="pge_AddVIN">
+	   			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+	<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' checkbox is checked" />
+	</step>
+	
+	</step>
+	
+</function>
+
+		
+	
+</suite>

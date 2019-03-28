@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 25-Jan-2018 -->
+<!-- Updated Date : 25-Jan-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_007_IOS" dataProvider="TestData.XFS_FP_Accounts_007_IOS,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Edit Profile page validation script and happy path </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_ViewEditProfile" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ViewProfile" page="pge_ViewProfile" />
+		
+		<step type="CALL2" name="fn_ClickYourInformation_Edit" page="pge_ViewProfile" />
+		
+<!-- 		not implemented in iOS -->
+		<step type="CALL2" name="fn_VerifyPageOpened_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_EnterPIN" page="pge_EnterPIN" />
+		
+		<step type="CALL2" name="fn_InputUserGiven_EnterPIN" page="pge_EnterPIN">
+			<parameter type="STATIC" name="param_PIN1" value="1" />
+			<parameter type="STATIC" name="param_PIN2" value="4" />
+			<parameter type="STATIC" name="param_PIN3" value="1" />
+			<parameter type="STATIC" name="param_PIN4" value="4" />
+		</step>
+		
+		<step type="CALL2" name="fn_CheckErrorExists_AnyPINpage" page="pge_FPCommon">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TEnterPIN4" />
+		</step>
+		
+		<!-- Valid PIN -->
+		<step type="CALL2" name="fn_InputAll_EnterPIN" page="pge_EnterPIN" wait="5" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_EditProfile" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_InputAllFields_YourInformation_EditProfile" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_InputAllFields_YourPhoneNumber_EditProfile" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_InputAllFields_YourAddress_EditProfile" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_ValidateInput_EP_State" page="pge_EditProfile" os="IOS" />
+		
+		<step type="CALL2" name="fn_ClickEditProfile_Save" page="pge_EditProfile" />
+		
+		<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+	</test>
+</suite>

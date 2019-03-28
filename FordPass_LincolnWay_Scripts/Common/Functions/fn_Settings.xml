@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_Settings">
+		<description> fn_VerifyPageOpened_Settings - Function to verify user landed on the Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_Settings">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TSettings1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="User successfully landed to Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="User is not landed on Settings page or it is not opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateAllLinks_Settings">
+		<description> fn_ValidateAllLinks_Settings - Function to validate whether all links are displayed on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ChangeUsername" page="pge_Settings" tagNames="FP-SA,FP-NA">
+			<token type="CONTENT" name="token_lnk_ChangeUsername" value="TSettings2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Change Username' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Change Username' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_ChangePassword" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_ChangePassword" value="TSettings3" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Change Password' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Change Password' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_UnitsofMeasure" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_UnitsofMeasure" value="TSettings4" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Units of Measure' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Units of Measure' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Security" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_Security" value="TSettings5" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Security' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Security' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsandConditions" page="pge_Settings" tagNames="FP-EU">
+			<token type="CONTENT" name="token_lnk_TermsandConditions" value="TSettings8" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'TermsandConditions' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'TermsandConditions' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+	<step type="EXISTS" name="lnk_PrivacyPolicy" page="pge_Settings" tagNames="FP-EU" >
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy" value="TSettings18" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'PrivacyPolicy' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'PrivacyPolicy' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_MarketingOptions" page="pge_Settings" tagNames="FP-EU" >
+			<token type="CONTENT" name="token_lnk_MarketingOptions" value="TSettings10" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Marketing Options' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Marketing Options' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="VISIBLE" name="lnk_ManagemyData" page="pge_Settings" tagNames="FP-EU" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_ManagemyData" value="TSettings11" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'ManageMyData' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'ManageMyData' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_DataControllersList" page="pge_Settings" tagNames="FP-EU" >
+			<token type="CONTENT" name="token_lnk_DataControllersList" value="TSettings12" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'DataControllersList' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'DataControllersList' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_Hertz24/7Settings" page="pge_Settings" tagNames="FP-EU-UK">
+			<token type="CONTENT" name="token_lnk_Hertz24/7Settings" value="TSettings19" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Hertz24/7Settings' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings" >
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Hertz24/7Settings' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordCarsharing" page="pge_Settings" tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_FordCarsharing" value="TSettings14" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'FordCarsharing' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'FordCarsharing' link is not available on Settings page" />
+				</step>
+		 </step>
+	</step>
+	
+	<step type="EXISTS" name="lnk_FordBank" page="pge_Settings" tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_FordBank" value="TSettings15" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'FordBank' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'FordBank' link is not available on Settings page" />
+				</step>
+		 </step>
+	</step>
+		
+	
+		
+		<step type="EXISTS" name="lnk_ImpressumFordWerke" page="pge_Settings" tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_ImpressumFordWerke" value="TSettings16" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'ImpressumFordWerke' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'ImpressumFordWerke' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		
+		<step type="EXISTS" name="lnk_ImpressumFordBank" page="pge_Settings" tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk__ImpressumFordBank" value="TSettings17" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'ImpressumFordBank' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'ImpressumFordBank' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		
+		<step type="EXISTS" name="lnk_TermsandPrivacy" page="pge_Settings" tagNames="FP-SA,FP-NA,FP-CN" >
+			<token type="CONTENT" name="token_lnk_TermsandPrivacy" value="TSettings6" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Terms and Privacy' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Terms and Privacy' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		
+		<step type="EXISTS" name="lnk_Smartlink" page="pge_Settings" tagNames="FP-NA-US" >
+			<token type="CONTENT" name="token_lnk_Smartlink" value="TSettings20" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Smartlink' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'Smartlink' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordCredit" page="pge_Settings" tagNames="FP-EU-FR,FP-EU-UK,FP-EU-DE,FP-NA-US" >
+		<parameter type="STATIC" name="maxScroll" value="3" />
+		<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_FordCredit" value="TSettings13" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'FordCredit' link is available on Settings page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_Settings">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+					<parameter type="STATIC" value="'FordCredit' link is not available on Settings page" />
+				</step>
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_ChangeUsername">
+		<description> fn_Click_ChangeUsername - Function to click 'Change Username' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ChangeUsername" page="pge_Settings" tagNames="FP-SA,FP-NA">
+			<token type="CONTENT" name="token_lnk_ChangeUsername" value="TSettings2" />
+			
+			<step type="CLICK" name="lnk_ChangeUsername" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_ChangeUsername" value="TSettings2" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Change Username' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_ChangePassword">
+		<description> fn_Click_ChangePassword - Function to click 'Change Password' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ChangePassword" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_ChangePassword" value="TSettings3" />
+			
+			<step type="CLICK" name="lnk_ChangePassword" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_ChangePassword" value="TSettings3" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Change Password' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+
+	<function name="fn_Click_UnitsofMeasure">
+		<description> fn_Click_UnitsofMeasure - Function to click 'Units of Measure' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_UnitsofMeasure" page="pge_Settings">
+		<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="DOWN" />
+			<token type="CONTENT" name="token_lnk_UnitsofMeasure" value="TSettings4" />
+			
+			<step type="CLICK" name="lnk_UnitsofMeasure" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_UnitsofMeasure" value="TSettings4" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Units of Measure' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Security">
+		<description> fn_Click_Security - Function to click 'Security' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_Security" page="pge_Settings">
+		<parameter type="STATIC" name="maxScroll" value="2" />
+		<parameter type="STATIC" name="direction" value="DOWN" />
+			<token type="CONTENT" name="token_lnk_Security" value="TSettings5" />
+			
+			<step type="CLICK" name="lnk_Security" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_Security" value="TSettings5" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Security' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+<!-- 	<function name="fn_Click_TermsandPrivacy"> -->
+<!-- 		<description> fn_Click_TermsandPrivacy - Function to click 'Terms and Privacy' on Settings page </description> -->
+<!-- 		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings"> -->
+<!-- 			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" /> -->
+<!-- 		</step> -->
+		
+<!-- 		<step type="EXISTS" name="lnk_TermsandPrivacy" page="pge_Settings"> -->
+<!-- 			<token type="CONTENT" name="token_lnk_TermsandPrivacy" value="TSettings6" /> -->
+			
+<!-- 			<step type="CLICK" name="lnk_TermsandPrivacy" page="pge_Settings" wait="2"> -->
+<!-- 				<token type="CONTENT" name="token_lnk_TermsandPrivacy" value="TSettings6" /> -->
+<!-- 			</step> -->
+			
+<!-- 			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings"> -->
+<!-- 				<parameter type="STATIC" value="'Terms and Privacy' link is available and clicked on Settings page" /> -->
+<!-- 			</step> -->
+<!-- 		</step> -->
+<!-- 	</function> -->
+	
+	<function name="fn_Click_TermsandPrivacy">
+		<description> fn_Click_TermsandPrivacy - Function to click 'Terms and Privacy' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsandPrivacy" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_TermsandPrivacy" value="TSettings8" />
+			
+			<step type="CLICK" name="lnk_TermsandPrivacy" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_TermsandPrivacy" value="TSettings9_AND" />
+				<token type="CONTENT" name="token_lnk_TermsandPrivacy" value="TSettings9_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Terms and Privacy' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ECM">
+		<description> fn_Click_ECM - Function to click 'ECM - Electronic Consent Agreement' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_ECM" page="pge_Settings">
+			<parameter type="STATIC" name="maxScroll" value="5" />
+			<parameter type="STATIC" name="direction" value="UP" />
+		
+		<token type="CONTENT" name="token_lnk_ECM" value="TSettings7" />
+			
+			<step type="CLICK" name="lnk_ECM" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_ECM" value="TSettings7" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Electronic Consent Agreement' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_TermsandConditions">
+		<description> fn_Click_TermsandConditions - Function to click 'Terms and Conditions' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_TermsandConditions" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_TermsandConditions" value="TSettings8" />
+			
+			<step type="CLICK" name="lnk_TermsandConditions" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_TermsandConditions" value="TSettings8" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Terms and Conditions' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_PrivacyPolicy">
+		<description> fn_Click_PrivacyPolicy - Function to click 'Privacy Policy' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_PrivacyPolicy" page="pge_Settings">
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy_AND" value="TSettings9_AND" />
+			<token type="CONTENT" name="token_lnk_PrivacyPolicy_IOS" value="TSettings9_IOS" />
+			
+			
+			<step type="CLICK" name="lnk_PrivacyPolicy" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_PrivacyPolicy_AND" value="TSettings9_AND" />
+			    <token type="CONTENT" name="token_lnk_PrivacyPolicy_IOS" value="TSettings9_IOS" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Privacy Policy' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+<function name="fn_Click_MarketingOptions">
+		<description> fn_Click_MarketingOptions - Function to click 'Marketing Options' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_MarketingOptions" page="pge_Settings" tagNames="FP-EU" >
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_MarketingOptions" value="TSettings10" />
+			
+			<step type="CLICK" name="lnk_MarketingOptions" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_MarketingOptions" value="TSettings10" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Marketing Options' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	<function name="fn_Click_ManagemyData">
+		<description> fn_Click_ManagemyData - Function to click 'Manage my Data' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ManagemyData" page="pge_Settings" tagNames="FP-EU" >
+			<token type="CONTENT" name="token_lnk_ManagemyData" value="TSettings11" />
+			
+			<step type="CLICK" name="lnk_ManagemyData" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_ManagemyData" value="TSettings11" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Manage my Data' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Data Controllers List">
+		<description> fn_Click_Data Controllers List - Function to click 'Data Controllers List' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_DataControllersList" page="pge_Settings" tagNames="FP-EU">
+			<token type="CONTENT" name="token_lnk_DataControllersList" value="TSettings12" />
+			
+			<step type="CLICK" name="lnk_DataControllersList" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_DataControllersList" value="TSettings12" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Data Controllers List' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_FordCredit">
+		<description> fn_Click_FordCredit - Function to click 'FordCredit' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordCredit" page="pge_Settings"  tagNames="FP-EU-FR,FP-EU-UK,FP-EU-DE">
+			<token type="CONTENT" name="token_lnk_FordCredit" value="TSettings13" />
+			
+			<step type="CLICK" name="lnk_FordCredit" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_FordCredit" value="TSettings13" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'FordCredit' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_Smartlink">
+		<description> fn_Click_Smartlink - Function to click 'Smartlink' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_Smartlink" page="pge_Settings"  tagNames="FP-NA">
+			<token type="CONTENT" name="token_lnk_Smartlink" value="TSettings20" />
+			
+			<step type="CLICK" name="lnk_Smartlink" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_Smartlink" value="TSettings20" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Smartlink' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_FordCarsharing">
+		<description> fn_Click_Ford Carsharing - Function to click 'Ford Carsharing' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordCarsharing" page="pge_Settings"  tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_FordCarsharing" value="TSettings14" />
+			
+			<step type="CLICK" name="lnk_FordCarsharing" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_FordCarsharing" value="TSettings14" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'FordCarsharing' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_FordBank">
+		<description> fn_Click_FordBank- Function to click 'FordBank' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_FordBank" page="pge_Settings"  tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_FordBank" value="TSettings15" />
+			
+			<step type="CLICK" name="lnk_FordBank" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_FordBank" value="TSettings15" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'FordBank' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ImpressumFordWerke">
+		<description> fn_Click_ImpressumFordWerke- Function to click 'FordBank' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ImpressumFordWerke" page="pge_Settings"  tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_ImpressumFordWerke" value="TSettings16" />
+			
+			<step type="CLICK" name="lnk_ImpressumFordWerke" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_ImpressumFordWerke" value="TSettings16" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'ImpressumFordWerke' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_Click_ImpressumFordBank">
+		<description> fn_Click_ImpressumFordBank- Function to click 'FordBank' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lnk_ImpressumFordBank" page="pge_Settings"  tagNames="FP-EU-DE" >
+			<token type="CONTENT" name="token_lnk_ImpressumFordBank" value="TSettings17" />
+			
+			<step type="CLICK" name="lnk_ImpressumFordBank" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_ImpressumFordBank" value="TSettings17" />
+			</step>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'ImpressumFordBank' link is available and clicked on Settings page" />
+			</step>
+		</step>
+	</function>
+	
+	
+	<function name="fn_Click_Smartlink_Settings">
+		<description> fn_Click_Smartlink_Settings - Function to click 'Smartlink' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_Smartlink" page="pge_Settings">
+		<parameter type="STATIC" name="maxScroll" value="5" />
+		<parameter type="STATIC" name="direction" value="UP" />
+			<token type="CONTENT" name="token_lnk_Smartlink" value="TSmartlink11" />
+			
+			<step type="CLICK" name="lnk_Smartlink" page="pge_Settings" wait="2">
+				<token type="CONTENT" name="token_lnk_Smartlink" value="TSmartlink11" />
+				
+				
+			<step type="WAIT_FOR" name="lbl_SmartLink_Title_Settings" page="pge_Settings">
+	    	<parameter type="STATIC" value="30" />
+	    	<token type="CONTENT" name="token_lbl_SmartLink_Title_Settings" value="TSmartlink11" />
+			</step>		
+			</step>
+		</step>	
+			
+	</function>
+	
+	
+	<function name="fn_Verify_Smartlink_Settings">
+		<description> fn_Verify_Smartlink_Settings - Function to verify 'Smartlink' on Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+		 <step type="EXISTS" name="btn_Back" page="pge_Settings"/>	
+		
+		
+		 <step type="EXISTS" name="lbl_AccessFordPass_Smartlink" page="pge_AddVIN">
+	  		<token type="CONTENT" name="token_lbl_AccessFordPass_Smartlink" value="TSmartlink1" />
+		</step>
+		
+		
+		
+		 <step type="EXISTS" name="lbl_AccessFordPass_Smartlink" page="pge_AddVIN">
+	  		<token type="CONTENT" name="token_lbl_AccessFordPass_Smartlink" value="TSmartlink1" />
+		</step>
+			
+		<step type="EXISTS" name="lbl_Smartlink_Info_Title" page="pge_AddVIN">
+	  	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Title" value="TSmartlink25" />
+	  	</step>
+	  	
+	  	
+	  	<step type="EXISTS" name="btn_AccessFordPass_SmartLink_Enabled" page="pge_Settings">
+	  	  <token type="CONTENT" name="token_btn_AccessFordPass_SmartLink_Enabled" value="TSmartlink1" />
+	  	</step>
+	  	
+	  	
+	  	  	
+	  	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content1" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content1" value="TSmartlink4" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 1 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 1 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	  <step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content2" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content2" value="TSmartlink5" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 2 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 2 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	 <step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content3" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content3" value="TSmartlink6" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 3 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 3 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content4" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content4" value="TSmartlink7" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 4 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 4 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content5" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content5" value="TSmartlink8" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 5 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 5 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content6" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content6" value="TSmartlink9" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 6 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 6 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+	<step type="EXISTS" name="lbl_Smartlink_Info_Dialog_Content7" page="pge_AddVIN">
+	  <token type="CONTENT" name="token_lbl_Smartlink_Info_Dialog_Content7" value="TSmartlink27" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 7 is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_AddVIN">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddVIN">
+				<parameter type="STATIC" value="'ACCESS FORDPASS SMARTLINK' Info content 7 is not displayed" />
+			</step>
+		</step>		
+	</step>
+	
+	
+		<step type="EXISTS" name="btn_Contact_Guide" page="pge_Settings">
+	  <token type="CONTENT" name="token_btn_Contact_Guide_s" value="TSmartlink26_s" />
+	  <token type="CONTENT" name="token_btn_Contact_Guide_c" value="TSmartlink26_c" />
+	  			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Contact a Guide' button is displayed" />
+		</step>
+		
+		<step type="ELSE" name="elseCondition" page="pge_Settings">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+				<parameter type="STATIC" value="'Contact a Guide' button is not displayed" />
+			</step>
+		</step>		
+	</step>
+	  
+	  	  
+	</function>
+	
+	
+		<function name="fn_To_Disable_Smartlink">
+		<description> fn_To_Disable_Smartlink - Function to click disable Smartlink option </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+				
+		<step type="CLICK" name="btn_AccessFordPass_SmartLink_Enabled" page="pge_Settings">
+			<token type="CONTENT" name="token_btn_AccessFordPass_SmartLink_Enabled" value="TSmartlink1" />
+									
+			<step type="WAIT_FOR" name="btn_AccessFordPass_SmartLink_Disabled" page="pge_Settings">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_btn_AccessFordPass_SmartLink_Disabled" value="TSmartlink1" />
+			</step>
+		</step>
+			
+	</function>
+	
+		
+	<function name="fn_Navigate_Back_From_Smartlink_To_Settings">
+		<description> fn_Navigate_Back_From_Smartlink_To_Settings - Function to click back from 'Smartlink' to Settings page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+				
+		<step type="CLICK" name="btn_Back" page="pge_Settings">
+						
+			<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_Settings">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TSettings1" />
+			</step>
+		</step>
+			
+	</function>
+	
+	
+	<function name="fn_Navigate_Back_From_Settings_To_AccountLanding">
+		<description> fn_Navigate_Back_From_Settings_To_AccountLanding - Function to click back from Settings to Account Landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Settings">
+			<parameter type="STATIC" value="Function's XML file name: fn_Settings.xml" />
+		</step>
+		
+				
+		<step type="CLICK" name="btn_Back" page="pge_Settings">
+						
+		<step type="WAIT_FOR" name="lbl_MyAccount" page="pge_Account">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_MyAccount" value="TAccount12" />
+			</step>
+		</step>
+			
+	</function>
+	
+	
+	
+</suite>

@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : KSARAV53 -->
+<!-- Created Date : 06-Feb-2018 -->
+<!-- Updated Date : 06-Feb-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Move_SmartCards_WorkFlow_AND" dataProvider="TestData.XFS_FP_Move_SmartCards_WorkFlow_AND,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN,SA_BR_EN" timed="false" threshold="0" os="ANDROID" active="true">
+	
+		<description> Smart Cards Workflow </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+<!-- 		<step name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>	 -->
+				
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+		
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+
+		<step type="WAIT" name="Wait_For_15_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="15"/>
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- Add a NO RECALL VIN and verify smart card -->
+<!-- KSARAV53 - Unable to verify the following scenario, since dismissing the smart tip tile through automation
+	 is not working for android -->
+<!-- ############################################################################################################# -->
+		
+<!-- 		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.NoRecallVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.NoRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.NoRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.NoRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.NoRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.NoRecallNickName" />
+		</step>
+
+		<step type="CALL2" name="fn_VerifySmartCard_EmptyTileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent_AND" value="TMove3_AND" />
+			<parameter type="CONTENT" name="str_SmartCardContent_IOS" value="TMove3_IOS" />
+		</step>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.NoRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.NoRecallNickName" />
+		</step>		 -->
+
+<!-- ############################################################################################################# -->
+<!-- Add a SINGLE FSA VIN and verify smart card -->
+<!-- ############################################################################################################# -->
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.SingleFSAVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.SingleFSANickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleFSANickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleFSANickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleFSANickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleFSANickName" />
+		</step>		
+
+<!-- Verifying the Single FSA smart card title -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove4" />
+		</step>
+
+<!-- Verifying the Single FSA smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove6" />
+		</step>
+
+<!-- Clicking the Single FSA smart card title -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove6" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Single_FSA_Recall_tile" />
+
+<!-- Verifying the Recall page title ; should be 'Service Program Action Info' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall15" />
+		</step>	
+
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleFSANickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleFSANickName" />
+		</step>
+		
+<!-- ############################################################################################################# -->
+<!-- Add a SINGLE RECALL VIN and verify smart card -->
+<!-- ############################################################################################################# -->
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.SingleRecallVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.SingleRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRecallNickName" />
+		</step>		
+
+<!-- Verifying the Single recall smart card title; which should be "Recall" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove5" />
+		</step>
+
+<!-- Verifying the Single recall smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove7" />
+		</step>
+
+<!-- Clicking the Single recall smart card title -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove7" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Single_Recall_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Recall Information' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall2" />
+		</step>	
+
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRecallNickName" />
+		</step>				
+
+<!-- ############################################################################################################# -->
+<!-- Add a MULTIPLE FSA VIN and verify smart card -->
+<!-- ############################################################################################################# -->
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.MultiFSAVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.MultiFSANickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiFSANickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiFSANickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiFSANickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiFSANickName" />
+		</step>	
+
+<!-- Verifying the multiple FSA smart card title; which should be "Recall" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove4" />
+		</step>
+
+<!-- Verifying the multiple FSA smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove8" />
+		</step>
+
+<!-- Clicking the multiple FSA smart card tile -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove8" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Multiple_FSA_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Notices' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall4" />
+		</step>
+
+<!-- Verifying the Recall Type which should be 'FIELD SERVICE ACTIONS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall13" />
+		</step>		
+
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiFSANickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiFSANickName" />
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- Add a MULTIPLE RECALL VIN and verify smart card -->
+<!-- ############################################################################################################# -->
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.MultiRecallVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.MultiRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiRecallNickName" />
+		</step>	
+
+<!-- Verifying the multiple recalls smart card title; which should be "Recall" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove5" />
+		</step>
+
+<!-- Verifying the multiple recalls smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove9" />
+		</step>
+
+<!-- Clicking the multiple recalls smart card tile -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove9" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Multiple_Recalls_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Notices' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall4" />
+		</step>
+
+<!-- Verifying the Recall Type which should be 'RECALLS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall14" />
+		</step>		
+		
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiRecallNickName" />
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- Add a SINGLE RECALL/SINGLE FSA VIN and verify smart cards -->
+<!-- ############################################################################################################# -->
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.SingleRFVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.SingleRFNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRFNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRFNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRFNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRFNickName" />
+		</step>	
+
+<!-- Verifying the Single recall smart card title; which should be "Recall" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove5" />
+		</step>
+
+<!-- Verifying the Single recall smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove7" />
+		</step>
+
+<!-- Clicking the Single recall smart card tile -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove7" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Single_Recall_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Notices' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall4" />
+		</step>
+
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+<!-- Verifying the Single FSA smart card title; which should be "Field Service Alert" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove4" />
+		</step>
+
+<!-- Verifying the Single FSA smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove6" />
+		</step>
+
+<!-- Clicking the Single FSA smart card tile -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove6" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Single_FSA_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Notices' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall4" />
+		</step>
+
+<!-- Verifying the Recall Type which should be 'RECALLS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall14" />
+		</step>		
+
+<!-- Verifying the Recall Type which should be 'FIELD SERVICE ACTIONS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall13" />
+		</step>	
+				
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRFNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRFNickName" />
+		</step>
+
+<!-- ############################################################################################################# -->
+<!-- Add a MULTIPLE RECALL/MULTIPLE FSA VIN and verify smart cards -->
+<!-- ############################################################################################################# -->
+		
+		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.MultiRFVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.MultiRFNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiRFNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiRFNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiRFNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiRFNickName" />
+		</step>	
+
+<!-- Verifying the Multiple recalls smart card title; which should be "Recall" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove5" />
+		</step>
+
+<!-- Verifying the Multiple recalls smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove9" />
+		</step>
+
+<!-- Clicking the Multiple recalls smart card tile -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove9" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Multiple_Recalls_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Notices' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall4" />
+		</step>
+
+<!-- Verifying the Recall Type which should be 'RECALLS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall14" />
+		</step>		
+
+<!-- Verifying the Recall Type which should be 'FIELD SERVICE ACTIONS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall13" />
+		</step>	
+									
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+<!-- Verifying the Multiple FSA smart card title; which should be "Field Service Alert" -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove4" />
+		</step>
+
+<!-- Verifying the Multiple FSA smart card content -->
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove8" />
+		</step>
+
+<!-- Clicking the Multiple FSA smart card tile -->
+		<step type="CALL2" name="fn_ClickSmartCard_TileContent" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove8" />
+		</step>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+		
+		<step type="STATE" page="pge_Move" name="Screenshot_After_Clicking_Multiple_FSA_tile" />
+		
+<!-- Verifying the Recall page title ; should be 'Notices' -->
+		<step type="CALL2" name="fn_Verify_RecallPageTitle" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallTitle" value="TRecall4" />
+		</step>
+
+<!-- Verifying the Recall Type which should be 'RECALLS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall14" />
+		</step>		
+
+<!-- Verifying the Recall Type which should be 'FIELD SERVICE ACTIONS' in this case -->
+		<step type="CALL2" name="fn_VerifyTypeOfRecall" page="pge_Recall">
+			<parameter type="CONTENT" name="str_RecallType" value="TRecall13" />
+		</step>	
+	
+<!-- Clicking the back button and verify whether 'Move' icon is displayed as expected -->
+
+		<step type="CALL2" name="fn_Navigate_Back_From_Recall" page="pge_Recall"/>
+
+		<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>	
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.MultiRFNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.MultiRFNickName" />
+		</step>
+		
+<!-- ############################################################################################################# -->
+<!-- Add a SINGLE RECALL VIN and verify smart card -->
+<!-- KSARAV53 - Unable to verify the following scenario, since dismissing the smart card tile through automation
+	 is not working for android -->
+<!-- ############################################################################################################# -->
+		
+<!-- 		<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >
+			<parameter type="DATA" name="str_VIN_No" value="TestData.SingleRecallVIN" />
+		</step>			
+		
+		<step type="CALL2" name="fn_AddVehicle_SetNickname" page="pge_AddVIN" >
+		<parameter type="DATA" name="param_Nickname" value="TestData.SingleRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" />
+		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle_Parametrized" page="pge_Move" >		
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRecallNickName" />
+		</step>
+		
+		<step type="CALL2" name="fn_Click_ExpectedVehicle_Parametrized" page="pge_Move" > 
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRecallNickName" />
+		</step>		
+
+Verifying the Single recall smart card title; which should be "Recall"
+		<step type="CALL2" name="fn_VerifySmartCard_TileTitle" page="pge_Move">
+			<parameter type="CONTENT" name="str_SmartCardTitle" value="TMove5" />
+		</step>
+				
+		<step type="CALL2" name="fn_GetXYcoordinates_SingleRecallTile" page="pge_Move"/>
+		
+		<step type="CALL2" name="fn_Dismiss_SingleRecallTile" page="pge_Move"/>
+
+		<step type="WAIT" page="pge_Move" name="Wait for 10 Seconds" >
+			<parameter type="STATIC" name="Wait for 10 seconds" value="10"/>
+		</step>
+
+		<step type="STATE" name="Screenshot - after smart card has been dismissed" page="pge_Move"/>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Move">
+			<parameter type="STATIC" value="Remove the newly added vehicle" />
+		</step>
+		
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle_Parameterized" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_IOS" value="TestData.SingleRecallNickName" />
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.SingleRecallNickName" />
+		</step>
+		
+Verifying that the Single recall smart card tile is dismissed
+		<step type="CALL2" name="fn_VerifySmartCard_TileContent" page="pge_Move" inverse="true" failureMode="IGNORE">
+			<parameter type="CONTENT" name="str_SmartCardContent" value="TMove7"/>
+		</step> -->
+
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />	
+	</test>
+</suite>

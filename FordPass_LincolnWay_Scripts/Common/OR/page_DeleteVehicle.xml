@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_DeleteVehicle" class="org.xframium.page.keyWord.KeyWordPage">
+				
+			<element name="btn_RemoveVehicle" value="//*[@text='{token_btn_RemoveVehicle}']|//*[@label='{token_btn_RemoveVehicle}']|//*[@text='REMOVE VEHICLE']|//*[@label='REMOVE VEHICLE']" descriptor="XPATH" />
+            <element name="lbl_DeleteVehicle_Title" value="//*[@text='{token_lbl_DeleteVehicle_Title_And}']|//*[@label='{token_lbl_DeleteVehicle_Title}']" descriptor="XPATH" />
+            <element name="img_DeleteVehicle_Title" value="//*[contains(@resource-id,'common_dialog_image')]|//UIAApplication/UIAWindow[1]/UIAImage[3]" descriptor="XPATH" />
+            <element name="lbl_DeleteVehicle_Confirmation" value="//*[contains(@text,'{token_lbl_DeleteVehicle_Confirmation}')]|//*[contains(@label,'{token_lbl_DeleteVehicle_Confirmation}')]" descriptor="XPATH" />
+            <element name="btn_Remove" value="//*[@text='{token_btn_Remove}']|//*[@label='{token_btn_Remove}']|//*[@text='REMOVE']|//*[@label='REMOVE']" descriptor="XPATH" />
+            <element name="btn_Cancel" value="//*[@text='{token_btn_Cancel}']|//*[@label='{token_btn_Cancel}']" descriptor="XPATH" />
+						
+		</page>
+	</site>
+</elementDefinition>

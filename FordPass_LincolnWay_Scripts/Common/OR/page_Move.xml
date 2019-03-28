@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_Move" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="img_VehicleSelectionArea" value="//android.support.v4.view.ViewPager|(//UIAImage)[1]" descriptor="XPATH" />
+			<element name="lnk_AddVehicle" value="//*[@text='{token_lnk_AddVehicle}'][@selected='true']|//*[@label='{token_lnk_AddVehicle}'][@visible='true']" descriptor="XPATH" />
+			<!-- <element name="lnk_VehicleNickName" value="//*[@text='{token_lnk_VehicleNickName_AND}'][@visible='true']|//android.support.v7.app.ActionBar.Tab[2]/android.widget.TextView[1]|//*[@label='{token_lnk_VehicleNickName_IOS}'][@visible='true']" descriptor="XPATH" /> -->
+			<!-- KSARAV53 - Modified XPATH -->
+
+			<element name="lnk_VehicleNickName" value="//*[@text='{token_lnk_VehicleNickName_AND}'][@selected='true']|//*[@text='{token_lnk_VehicleNickName_IOS}'][@selected='true']|//*[@label='{token_lnk_VehicleNickName_IOS}'][@visible='true']|//*[@label='{token_lnk_VehicleNickName_AND}'][@visible='true']|//*[@text='{token_lnk_VehicleNickName_AND}'][@enabled='true']|//*[@text='SmartLink'][@enabled='true']" descriptor="XPATH" />
+			<element name="lnk_VehicleModel" value="//*[@text='{token_lnk_VehicleModel}']|//*[@label='{token_lnk_VehicleModel}']" descriptor="XPATH" />
+
+
+			<element name="lnk_ViewVehicleDetails" value="//*[@text='{token_lnk_ViewVehicleDetails}']|//*[@label= '{token_lnk_ViewVehicleDetails}']|//*[@text='VIEW VEHICLE DETAILS']" descriptor="XPATH" /> 
+			<!-- <element name="btn_ViewVehicleDetails" value="//*[matches(@text,'{token_btn_ViewVehicleDetails}','i')]|//*[@label= '{token_btn_ViewVehicleDetails}']" descriptor="XPATH" /> --> 
+			
+			<!-- <element name="lnk_ViewVehicleDetails" value="//*[matches(@text,'view vehicle details','i')]|//*[matches(@label,'view vehicle details','i')]" descriptor="XPATH" /> -->
+			<element name="lbl_TileTitle" value="//*[@text='{token_lbl_TileTitle}']|//*[@label='{token_lbl_TileTitle}']" descriptor="XPATH" />
+			<element name="lbl_TileContent" value="//*[contains(@text,&quot;{token_lbl_TileContent}&quot;)]|//*[contains(@label,&quot;{token_lbl_TileContent}&quot;)]" descriptor="XPATH" />
+
+			<!-- <element name="lnk_ViewVehicleDetails" value="//*[contains(translate(@text,'{token_lnk_ViewVehicleDetails_L}','{token_lnk_ViewVehicleDetails_U}'),'{token_lnk_ViewVehicleDetails_Final}')]|//*[contains(translate(@label,'{token_lnk_ViewVehicleDetails_L}','{token_lnk_ViewVehicleDetails_U}'),'{token_lnk_ViewVehicleDetails_Final}')][@visible='true']" descriptor="XPATH"/> -->
+			<element name="lbl_TileTitle" value="(//*[@text='{token_lbl_TileTitle}'])[1]|(//*[@label='{token_lbl_TileTitle}'][@visible='true'])[1]" descriptor="XPATH" />
+			<!-- <element name="lbl_TileContent" value="//*[contains(@text,&quot;{token_lbl_TileContent}&quot;)]|//*[contains(@label,&quot;{token_lbl_TileContent}&quot;)][@visible='true']" descriptor="XPATH" /> -->
+
+			<element name="lbl_EmptyTileContent" value="//*[contains(@text,&quot;{token_lbl_EmptyTileContent_AND}&quot;)]|//*[contains(@label,&quot;{token_lbl_EmptyTileContent_IOS}&quot;)]" descriptor="XPATH" />
+			<element name="lbl_SingleRecallTileContent" value="//*[contains(@text,'{token_lbl_SingleRecallTileContent}')]|//*[contains(@label,'{token_lbl_SingleRecallTileContent}')]" descriptor="XPATH" />
+			<element name="lbl_EmptyGarageTitle" value="//*[contains(@text,'{token_lbl_EmptyGarageTitle_AND}')]|//*[contains(@label,'{token_lbl_EmptyGarageTitle}')]" descriptor="XPATH" />
+			<element name="lbl_EmptyGarageTitleDesc" value="//*[contains(@text,'{token_lbl_EmptyGarageTitleDesc}')]|//*[contains(@label,'{token_lbl_EmptyGarageTitleDesc}')]" descriptor="XPATH" />
+			<element name="lbl_Greeting" value="//*[contains(@text,'{token_lbl_Greeting}')]|//*[contains(@label,'{token_lbl_Greeting}')]" descriptor="XPATH" />
+			<element name="lbl_FirstName" value="//*[contains(@text,'{token_lbl_FirstName}')]|//*[contains(@label,'{token_lbl_FirstName}')]" descriptor="XPATH" />
+			<element name="lnk_AddVehicleInEmptyGarage" value="//*[@text='{token_lnk_AddVehicleInEmptyGarage}']|//*[@label='{token_lnk_AddVehicleInEmptyGarage}']" descriptor="XPATH" />
+			<!-- KSARAV53 - Updated as suggested by SAUDI -->
+			<element name="lbl_Temp_AND" value="((//*[contains(@text,'{token_lbl_Greeting}')]/following-sibling::android.view.View)[2]/android.widget.TextView)[1]||//*[contains(@text,'{token_lbl_Greeting}')" descriptor="XPATH" />
+			<!--  -->
+			<element name="lbl_Weather_AND" value="((//*[contains(@text,'{token_lbl_Greeting}')]/following-sibling::android.view.View)[1]/android.widget.TextView)[3]" descriptor="XPATH" />
+			<element name="lbl_TempWeather_IOS" value="//*[contains(@label,'{token_lbl_Greeting}')]/following-sibling::UIAStaticText" descriptor="XPATH" />
+			<element name="lbl_TempWeatherInVisible_IOS" value="//*[contains(@label,'{token_lbl_Greeting}')]/following-sibling::UIAStaticText[not(text())]" descriptor="XPATH" />
+			<!-- <element name="img_SmartCardSelectionArea" value="(//UIACollectionView)[3]|//android.support.v7.widget.RecyclerView" descriptor="XPATH" /> -->
+			<!-- KSARAV53 - Updated XPATH, since China Android app retrieves multiple result for the above XPATH -->
+			<element name="img_SmartCardSelectionArea" value="(//UIACollectionView)[3]|(//*[contains(@resource-id,'smart_card_shimmer')])[1]/parent::*" descriptor="XPATH" />
+			<element name="img_DrivingAlert" value="//UIAImage" descriptor="XPATH" />
+			<element name="lbl_DrivingAlertTitle" value="//*[@label='{token_lbl_DrivingAlertTitle}']" descriptor="XPATH" />
+			<element name="lbl_DrivingAlertTitleContent" value="//*[@label=&quot;{token_lbl_DrivingAlertTitleContent}&quot;]" descriptor="XPATH" />
+			<element name="btn_NotDriving" value="//*[@label=&quot;{token_btn_NotDriving}&quot;]" descriptor="XPATH" />		
+			<element name="lbl_HertzDesc" value="//*[@text=&quot;{token_lbl_HertzDesc}&quot;]|//*[@label=&quot;{token_lbl_HertzDesc}&quot;][@visible='true']" descriptor="XPATH" />
+			<element name="lnk_HertzReservation" value="//*[@text='{token_lnk_HertzReservation}']|//*[@label='{token_lnk_HertzReservation}'][@visible='true']" descriptor="XPATH" />
+			<element name="btn_HertzLocateVan" value="//*[@text='{token_btn_HertzLocateVan}']|//*[@label='{token_btn_HertzLocateVan}'][@visible='true']" descriptor="XPATH" />
+			<element name="lbl_FlinksterDesc" value="//*[@text='{token_lbl_FlinksterDesc}']|//*[@label='{token_lbl_FlinksterDesc}'][@visible='true']" descriptor="XPATH" />
+			<element name="lnk_FlinksterReservation" value="//*[@text='{token_lnk_FlinksterReservation}']|//*[@label='{token_lnk_FlinksterReservation}'][@visible='true']" descriptor="XPATH" />
+			<element name="btn_FlinksterLocateCar" value="//*[@text='{token_btn_FlinksterLocateCar}']|//*[@label='{token_btn_FlinksterLocateCar}'][@visible='true']" descriptor="XPATH" />
+			<element name="img_BikeShare_AND" value="//*[@text='{token_btn_FindABike}']/preceding-sibling::android.widget.ImageView" descriptor="XPATH" />
+			<element name="lbl_BikeShareTitle" value="//*[@text='{token_lbl_BikeShareTitle}']|//*[@label='{token_lbl_BikeShareTitle}']" descriptor="XPATH" />
+			<element name="lbl_BikeShareContent" value="//*[@text=&quot;{token_lbl_BikeShareContent_AND}&quot;]|//*[@label=&quot;{token_lbl_BikeShareContent_IOS}&quot;]" descriptor="XPATH" />
+			<element name="btn_FindABike" value="//*[@text='{token_btn_FindABike}']|//*[@label='{token_btn_FindABike}'][@visible='true']" descriptor="XPATH" />
+			<element name="lbl_HertzReservation" value="//*[@text='{token_lbl_HertzReservation}']|//*[@label='{token_lbl_HertzReservation}'][@visible='true']" descriptor="XPATH" />
+			<element name="lbl_HourlyVanHire" value="//*[@text='{token_lbl_HourlyVanHire}']|//*[@label='{token_lbl_HourlyVanHire}'][@visible='true']" descriptor="XPATH" />
+			<element name="lbl_HertzHomePage" value="//*[@content-desc='{token_lbl_HertzHomePage}']|//*[@label='{token_lbl_HertzHomePage}'][@visible='true']" descriptor="XPATH" />
+			<element name="btn_HertzReservationBack" value="//*[@content-desc='{token_btn_Back}']|//UIANavigationBar[1]/UIAButton[1]|//*[@name='MobilityCommon.AccountReservationsView']//UIAButton" descriptor="XPATH" />
+			<element name="lbl_NoteDesc" value="//*[contains(@text,'{token_lbl_NoteDesc}')]|//*[contains(@label,'{token_lbl_NoteDesc}')]" descriptor="XPATH" />
+			<element name="lbl_Note" value="//*[@text='{token_lbl_Note}']|//*[@label='{token_lbl_Note}']" descriptor="XPATH" />
+			<element name="lnk_NoteCancel" value="//*[@text='{token_lnk_NoteCancel}']|//*[@label='{token_lnk_NoteCancel}']" descriptor="XPATH" />
+			<element name="lnk_NoteConfirm" value="//*[@text='{token_lnk_NoteConfirm}']|//*[@label='{token_lnk_NoteConfirm}']" descriptor="XPATH" />
+			<element name="lbl_BikeShareScreenTitle" value="//*[@text='{token_lbl_BikeShareScreenTitle}']|//*[@label='{token_lbl_BikeShareScreenTitle}']" descriptor="XPATH" />
+			<element name="btn_BikeShareBack" value="//*[@class='android.widget.ImageButton']|//UIANavigationBar/UIAButton[1]" descriptor="XPATH" />
+			<element name="lbl_SmartCardTileTitle" value="//UIACollectionView[3]/UIACollectionCell[1]/(UIAStaticText)[1]|(//android.support.v7.widget.RecyclerView)[1]/android.widget.FrameLayout[1]//android.widget.TextView[1]" descriptor="XPATH" />
+			<element name="lbl_SmartCardTileDateTime" value="//UIACollectionView[3]/UIACollectionCell[1]/(UIAStaticText)[2]|(//android.support.v7.widget.RecyclerView)[1]/android.widget.FrameLayout[1]//android.widget.TextView[2]" descriptor="XPATH" />
+			<element name="lbl_Corresponding_SmartTip_Title" value="//*[contains(@text,&quot;{token_lbl_TileContent}&quot;)]/preceding-sibling::*[@text=&quot;{token_lbl_Corresponding_SmartTip_Title}&quot;]|//*[contains(@label,&quot;{token_lbl_TileContent}&quot;)]/preceding-sibling::*[@label=&quot;{token_lbl_Corresponding_SmartTip_Title}&quot;]" descriptor="XPATH" />
+			<!-- KSARAV53 - Updated as suggested by SAUDI -->
+			<element name="lbl_VehicleFound" value="//*[@text='{token_lbl_VehicleFound}']|//*[@text='{token_lbl_VehicleFound_AND}']|//*[@label='{token_lbl_VehicleFound}']" descriptor="XPATH" />
+			<element name="lnk_Smartlink" value="//*[@text='{token_lnk_Smartlink}']|//*[@label='{token_lnk_Smartlink}']|//*[@text='SmartLink']|//*[@label='SmartLink']" descriptor="XPATH" />
+			
+			<!--  -->
+			<element name="lbl_SmartCardMessage" value="(//*[contains(@resource-id,'smart_card_shimmer')])[1]//*[contains(@resource-id,'smart_card_message')]" descriptor="XPATH" />
+			<element name="lnk_ViewVehicleDetails_GloveBox" value="//*[@text='{token_lnk_ViewVehicleDetails_GloveBox}']|//*[@label='{token_lnk_ViewVehicleDetails_GloveBox}']" descriptor="XPATH" />
+		
+			
+			<!--SmartLink -->
+			<element name="lbl_Smartlink" value="(//android.widget.TextView/preceding-sibling::android.widget.ImageView)[1]|(//XCUIElementTypeStaticText/preceding-sibling::XCUIElementTypeOther)[1]" descriptor="XPATH" />
+			<element name="lbl_Smartlink_Content" value="//android.widget.TextView[@text=&quot;{token_lbl_Smartlink_Content}&quot;]|//*[@label=&quot;{token_lbl_Smartlink_Content}&quot;]" descriptor="XPATH" />
+			<element name="btn_Access_SmartLink" value="//*[@text='{token_btn_Access_SmartLink}']|//*[@label='{token_btn_Access_SmartLink}']|//*[@text='ACCESS SMARTLINK']|//*[@text='ACCESS SMARTLINK']" descriptor="XPATH" />
+			<element name="lbl_SmartLink_Title" value="//*[@text='{token_lbl_SmartLink_Title}']|//*[@label='{token_lbl_SmartLink_Title}']" descriptor="XPATH" />
+			<element name="btn_RSA" value="//*[@resource-id='com.ford.oa:id/menu_image_view']|//*[@label='icon']" descriptor="XPATH" />
+			<element name="lbl_SmartLink_Content1" value="//*[@content-desc='{token_lbl_SmartLink_Content1}']|//*[@label='{token_lbl_SmartLink_Content1}']|//*[@text='{token_lbl_SmartLink_Content1}']" descriptor="XPATH" />
+			<element name="lbl_SmartLink_Content2" value="//*[@content-desc='{token_lbl_SmartLink_Content2}']|//*[@label='{token_lbl_SmartLink_Content2}']|//*[@text='{token_lbl_SmartLink_Content2}']" descriptor="XPATH" />
+			<element name="lbl_Username" value="//*[@text='{token_lbl_Username}']|//*[@value='{token_lbl_Username}']|//*[@label='{token_lbl_Username}']|//*[@password='false' and @class='android.widget.EditText']" descriptor="XPATH" />
+			<element name="lbl_Password" value="//*[@text='{token_lbl_Password}']|//*[@value='{token_lbl_Password}']|//*[@label='{token_lbl_Password}']|//*[@password='true']" descriptor="XPATH" />
+			<element name="btn_Login" value="//*[@content-desc='{token_btn_Login}']|//*[@label='{token_btn_Login}']|//*[@text='{token_btn_Login}']" descriptor="XPATH" />
+			<element name="lbl_ForgotUsernamePassword" value="//*[@content-desc='{token_lbl_ForgotUsernamePassword}']|//*[@label='{token_lbl_ForgotUsernamePassword}']|//*[@text='{token_lbl_ForgotUsernamePassword}']" descriptor="XPATH" />
+			<element name="lbl_ContactFordPass" value="//*[@content-desc='{token_lbl_ContactFordPass}']|//*[@label='{token_lbl_ContactFordPass}']|//*[@text='{token_lbl_ContactFordPass}']" descriptor="XPATH" />
+			<element name="lbl_NewUser" value="//*[@content-desc='{token_lbl_NewUser}']|//*[@label='{token_lbl_NewUser}']|//*[@text='{token_lbl_NewUser}']" descriptor="XPATH" />
+			<element name="lbl_NewUser_Content" value="//*[@content-desc='{token_lbl_NewUser_Content}']|//*[@label='{token_lbl_NewUser_Content}']|//*[@text='{token_lbl_NewUser_Content}']" descriptor="XPATH" />
+			<element name="btn_Back_SmartLink" value="//android.widget.ImageButton|//*[@label='backWhite']" descriptor="XPATH" />
+			<element name="lbl_SmartLink_Screen" value="(//*[@text='{token_lbl_SmartLink_Screen}'])[1]|(//*[@label='{token_lbl_SmartLink_Screen}'])[1]" descriptor="XPATH" />
+					
+
+		</page>
+	</site>
+</elementDefinition>

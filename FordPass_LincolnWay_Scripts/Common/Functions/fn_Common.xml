@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_Clean">
+		<description>
+	  	  Function to clean the FordPass app from the device
+	  	</description>
+	  	
+	  	<step type="DEVICE" name="CLEAN" os="ANDROID" page="pge_SelectCountry">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+	  	</step>
+	</function>
+	
+	<function name="fn_Start_FordPass">
+		<description>Starts the application and installs it if it does not exist.  Requires that the fordPass data provider is present</description>
+		
+		<step name="CLOSE" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" os="IOS" failureMode="IGNORE">
+        	<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+        </step>
+
+		<step name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+			
+	        <step type="WAIT_FOR" site="FordPass" page="pge_EnterPIN" name="lbl_PageTitle.VISIBLE" failureMode="IGNORE">
+    	        <parameter type="STATIC" value="30" />
+                <token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+                <token type="CONTENT" name="token_lbl_PageTitle" value="TEnterPIN1"/>
+               
+                <step type="CALL2" name="fn_EnterPIN_ONOpenApp" page="pge_EnterPIN"/>
+              
+                <step type="WAIT_FOR" name="lnk_Home.VISIBLE" page="pge_Dashboard" failureMode="IGNORE">
+                	<parameter type="STATIC" value="60" />
+                    <token type="CONTENT" name="token_lnk_Home" value="TDashboard1" />
+               
+				<step type="CALL2" name="fn_Navigate_From_Dashboard_To_Settings" page="pge_Dashboard" />
+                      <step type="CALL2" name="fn_ClickSecurity" page="pge_Settings" />
+                      <step type="CALL2" name="fn_ClickLogout" page="pge_Security" />
+        
+				</step>
+           	
+           	 <step type="ELSE" name="Check_For_Dashboard" page="pge_EnterPIN">
+              
+                <step type="WAIT_FOR" name="lnk_Home.VISIBLE" page="pge_Dashboard" failureMode="IGNORE">
+
+                	<parameter type="STATIC" value="30" />
+
+                    <token type="CONTENT" name="token_lnk_Home" value="TDashboard1" />
+               
+				<step type="CALL2" name="fn_Navigate_From_Dashboard_To_Settings" page="pge_Dashboard" />
+                      <step type="CALL2" name="fn_ClickSecurity" page="pge_Settings" />
+                      <step type="CALL2" name="fn_ClickLogout" page="pge_Security" />
+        
+				</step>
+			 </step>
+			</step>		
+			
+			<step type="VISIBLE" name="btn_CreateAcct" page="pge_Login" failureMode="IGNORE">
+				<token type="CONTENT" name="token_btn_CreateAcct" value="TLogin4"/>
+			 		<step type="VISIBLE" name="lbl_ForgotPassword" page="pge_Login" failureMode="IGNORE">
+						<token type="CONTENT" name="token_btn_ForgotPwd" value="TForgotLogin1" />
+								<step type="VISIBLE" name="edt_UserName" page="pge_Login" failureMode="IGNORE">
+									<token type="CONTENT" name="token_edt_UserName" value="TLogin1"/>
+								
+								<step type="ELSE" name="If UserName field is not displayed" page="pge_Login">
+									<step name="UNINSTALL" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" os="IOS">
+										<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+									</step>
+									<step type="CALL2" name="fn_Install_Application" site="FordPass" page="home" os="IOS"/>
+									<step type="DEVICE" name="CLEAN" site="FordPass" page="home" os="ANDROID">
+										<parameter type="CONTENT" name="Application Name" value="TAppName"/>									
+									</step>
+									<step type="APPLICATION" name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" failureMode="ERROR" os="ANDROID">
+										<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+									</step>
+									<step type="CALL2" name="fn_Configure_Application" site="FordPass" page="home"/>
+								</step>							
+						 		</step>
+					<step type="ELSE" name="If Forgot Password Link is not displayed" page="pge_Login">
+						<step name="UNINSTALL" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" os="IOS">
+							<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+						</step>
+						<step type="CALL2" name="fn_Install_Application" site="FordPass" page="home" os="IOS"/>
+						<step type="DEVICE" name="CLEAN" site="FordPass" page="home" os="ANDROID">
+							<parameter type="CONTENT" name="Application Name" value="TAppName"/>									
+						</step>
+						<step type="APPLICATION" name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" failureMode="ERROR" os="ANDROID">
+							<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+						</step>
+						<step type="CALL2" name="fn_Configure_Application" site="FordPass" page="home"/>
+					</step>							
+					</step>	
+
+			<step type="ELSE" name="If Create Account button is not displayed" page="pge_Login">
+				<step name="UNINSTALL" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" os="IOS">
+					<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>
+				<step type="CALL2" name="fn_Install_Application" site="FordPass" page="home" os="IOS"/>
+				<step type="DEVICE" name="CLEAN" site="FordPass" page="home" os="ANDROID">
+					<parameter type="CONTENT" name="Application Name" value="TAppName"/>									
+				</step>
+				<step type="APPLICATION" name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" failureMode="ERROR" os="ANDROID">
+					<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>
+				<step type="CALL2" name="fn_Configure_Application" site="FordPass" page="home"/>
+			</step>	
+			</step>
+			
+		
+		<step type="ELSE" name="If Application is not available" page="pge_Login">
+			<step type="CALL2" name="fn_Install_Application" site="FordPass" page="home"/>
+			<step type="CALL2" name="fn_Configure_Application" site="FordPass" page="home"/>
+		</step>			
+		
+		
+		</step>	
+		
+	</function>
+
+	
+	<function name="fn_Install_Application">
+
+		<description>Installs the FordPass application IOS|Android</description>
+				
+		<step name="INSTALL" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" >
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+			<parameter type="STATIC" name="Instrument" value="false"/>
+		</step>
+
+		<!-- <step type="CALL2" name="fn_Install_App_From_HockeyApp" site="FordPass" page="home" os="IOS"/> -->
+		
+		<step type="APPLICATION" name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+		<step type="ELSE" name="If Opening FordPass App is failed" page="pge_Setup_SelectCountry">
+			<step type="CALL2" name="fn_TrustFordPassApp" site="Common" page="pge_Settings"/>
+			<step type="APPLICATION" name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" failureMode="ERROR">
+				<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+			</step>
+		</step>
+		</step>
+
+	</function>
+	
+	<function name="fn_Configure_Application">
+		<description>Configure application if not already configured and takes the user to the login screen</description>
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="10" />
+		</step>
+				
+		<step name="rdb_Country" site="FordPass" page="pge_Setup_SelectCountry" type="WAIT_FOR" >
+			<parameter type="STATIC" name="Wait Time" value="20"/>
+			<token type="DATA" name="country" value="TestData.Country"/>
+		</step>
+			
+		<step name="rdb_Country" site="FordPass" page="pge_Setup_SelectCountry" type="CLICK" >
+			<token type="DATA" name="country" value="TestData.Country"/>
+		</step>
+		
+		<step name="btn_Next" site="FordPass" page="pge_Setup_SelectCountry" type="CLICK" >
+			<token type="CONTENT" name="token_btn_Next" value="TSelectCountry2" />
+		</step>
+		
+		<step name="lnk_JumpToLogin.CLICKABLE" site="FordPass" page="pge_OnBoardScreen1" type="WAIT_FOR" >
+			<parameter type="STATIC" name="Wait Time" value="12"/>
+			<token type="CONTENT" name="token_lnk_JumpToLogin" value="TOnBoardScreen2" />
+		</step>
+		
+		<step name="lnk_JumpToLogin" site="FordPass" page="pge_OnBoardScreen1" type="CLICK" >
+			<token type="CONTENT" name="token_lnk_JumpToLogin" value="TOnBoardScreen2" />
+		</step>
+
+	</function>
+	
+	<function name="fn_CloseApp">
+		<step type="DEVICE" name="CLOSE_APP" site="FordPass" page="pge_Dashboard">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+		</step>
+		
+	</function>
+	
+	<function name="fn_OpenApp">
+		<step type="DEVICE" name="OPEN_APP" site="FordPass" page="pge_Dashboard">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+		</step>
+		
+	</function>
+		
+	<function name="fn_CleanApp">
+		<step type="DEVICE" name="CLEAN" site="FordPass" page="pge_Dashboard">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+		</step>
+	
+	</function>
+
+	<function name="fn_DummySTATE_ToMakeDeviceActive">
+		<description>fn_DummySTATE_ToMakeDeviceActive - function to get the dummy state on the specified STATE </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Dashboard">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+	
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AddCard">
+			<parameter type="CONTEXT" value="param_DeviceName" />
+			<parameter type="STATIC" value="Dummy STATE for the above device" />
+
+			<step type="STATE" name="Dummy STATE for the above devices" page="pge_Dashboard" />
+		</step>
+	</function>
+	
+
+	<function name="fn_InstallApp" active="true">
+		<description>
+	  	  UnInstall and install the FordPass application
+	  	</description>
+				
+		<step name="UNINSTALL" site="FordPass" page="pge_SelectCountry" type="DEVICE" failureMode="IGNORE" timed="true" wait="60000">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+		</step>
+
+		<step name="INSTALL" site="FordPass" page="pge_SelectCountry" type="DEVICE">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+			<parameter type="STATIC" name="Instrument Application" value="false"/>
+		</step>
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="10" />
+		</step>
+
+	</function>
+
+	<function name="fn_Install_FordPass_Without_Configuration">
+		<description> Installs the application, but will not configure </description>
+		
+		<step name="UNINSTALL" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="CONTENT" name="Application Name" value="App_Name"/>
+		</step>
+		<step type="CALL2" name="fn_Install_Application" site="FordPass" page="home"/>
+		
+	</function>
+
+	<function name="fn_Navigate_To_HockeyApp">
+		<description> Function to navigate to hockey app website in mobile browser </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="EXISTS" name="lbl_AddressBar" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_lbl_AddressBar" value="THockeyAppWebSite1"/>
+		</step>
+
+		<step type="CLICK" name="lbl_AddressBar" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_lbl_AddressBar" value="THockeyAppWebSite1"/>
+		</step>
+
+		<step type="SET" name="edt_AddressBar" page="pge_HockeyAppWebSite">
+			<parameter type="DATA" name="Set the value" value="TestData.Hockey_App_URL"/>
+			<token type="CONTENT" name="token_edt_AddressBar" value="THockeyAppWebSite1"/>
+		</step>
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="2" />
+		</step>
+		
+		<step type="CLICK" name="btn_Go" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_btn_Go" value="THockeyAppWebSite3"/>
+		</step>
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="5" />
+		</step>
+		
+		<step type="EXISTS" name="edt_Email" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_edt_Email" value="THockeyAppWebSite4"/>
+		</step>
+									  	
+	</function>
+	
+<!-- 	<function name="fn_LogIn_HockeyApp">
+		<description> Function to Login to hockeyapp website </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="SET" name="edt_Email" page="pge_HockeyAppWebSite">
+			<parameter type="DATA" name="Set the value" value="TestData.Hockey_App_UserName"/>
+			<token type="CONTENT" name="token_edt_Email" value="THockeyAppWebSite4"/>
+		</step>
+
+		<step type="SET" name="edt_Password1" page="pge_HockeyAppWebSite">
+			<parameter type="DATA" name="Set the value" value="TestData.Hockey_App_Password"/>
+			<token type="CONTENT" name="token_edt_Password1" value="THockeyAppWebSite5"/>
+		</step>	
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="3" />
+		</step>		
+		
+		<step type="CLICK" name="btn_SignIn" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_btn_SignIn" value="THockeyAppWebSite6"/>
+		</step>
+												  	
+	</function>	
+
+ -->	<function name="fn_ClickMenu_HockeyApp">
+		<description> Function to click the menu option </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="CLICK" name="img_Menulist" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_img_Menulist" value="THockeyAppWebSite7"/>
+		</step>
+	</function>	
+	
+	<function name="fn_ClickSignOut_HockeyApp">
+		<description> Function to click the Sign Out link from menu option </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="CLICK" name="lnk_SignOut" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_lnk_SignOut" value="THockeyAppWebSite8"/>
+		</step>
+
+		<step type="WAIT_FOR" name="edt_Email" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" name="Wait Time" value="12"/>
+			<token type="CONTENT" name="token_edt_Email" value="THockeyAppWebSite4"/>
+		</step>
+				
+	</function>			
+
+	<function name="fn_ClickDashboard_HockeyApp">
+		<description> Function to click the Sign Out link from menu option </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="CLICK" name="lnk_Dashboard" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_lnk_Dashboard" value="THockeyAppWebSite14"/>
+		</step>
+		
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="3" />
+		</step>
+				
+	</function>		
+		
+	<function name="fn_ClickApp_HockeyApp">
+		<description> Function to click the desired app from the list </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="VISIBLE" name="lnk_App" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" name="maxScroll" value="10"/>
+			<parameter type="STATIC" name="direction" value="UP"/>
+			<token type="CONTENT" name="token_lnk_App" value="THockeyAppWebSite9"/>
+		</step>
+
+		<step type="CLICK" name="lnk_App" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_lnk_App" value="THockeyAppWebSite9"/>
+		</step>
+				
+	</function>	
+	
+	<function name="fn_InstallFordPass_HockeyApp">
+		<description> Function to install fordpass app </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="WAIT_FOR" name="btn_Install" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" name="Wait Time" value="12"/>
+		</step>
+
+		<step type="CLICK" name="btn_Install" page="pge_HockeyAppWebSite"/>
+		
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="10" />
+		</step>		
+
+		<step type="CLICK" name="btn_Popup_Install" page="pge_HockeyAppWebSite" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_Popup_Install" value="THockeyAppWebSite11"/>
+		</step>		
+				
+		<step type="CLICK" name="btn_Popup_Cancel" page="pge_HockeyAppWebSite" failureMode="IGNORE">
+			<token type="CONTENT" name="token_btn_Popup_Cancel" value="THockeyAppWebSite12"/>
+		</step>			
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="3" />
+		</step>		
+		
+		<step type="EXISTS" name="txt_installation" page="pge_HockeyAppWebSite">
+			<token type="CONTENT" name="token_txt_installation" value="THockeyAppWebSite13"/>
+		</step>		
+		
+	</function>				
+
+	<function name="fn_Install_App_From_HockeyApp">
+		<description> Function that calls internal functions for installing fordpass from hockeyapp </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step name="OPEN" page="pge_HockeyAppWebSite" type="APPLICATION">
+			<parameter type="STATIC" name="Application Name" value="NativeBrowser"/>
+		</step>
+
+		<step type="CALL2" name="fn_Navigate_To_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_LogIn_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_ClickApp_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_InstallFordPass_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_ClickMenu_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_ClickDashboard_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_ClickMenu_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step type="CALL2" name="fn_ClickSignOut_HockeyApp" page="pge_HockeyAppWebSite" />
+
+		<step name="CLOSE" page="pge_HockeyAppWebSite" type="APPLICATION">
+			<parameter type="STATIC" name="Application Name" value="NativeBrowser"/>
+		</step>
+		
+<!-- 		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_SelectCountry">
+			<parameter type="STATIC" value="180" />
+		</step> -->
+
+		<step type="LOOP" name="Loop over snapshot" page="pge_HockeyAppWebSite" >
+		  <parameter type="STATIC" value="5" />
+		  <parameter type="STATIC" value="fn_CaptureDeviceScreenshot" />
+		</step>	
+					
+	</function>	
+	
+	<function name="fn_CaptureDeviceScreenshot">
+		<description> Function to capture screenshot of the mobile device </description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step type="STATE" name="Screen capture" page="pge_HockeyAppWebSite" />
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="10" />
+		</step>	
+						
+	</function>		
+
+	<function name="fn_Open_Close_Mobile_Browser">
+		<description> Function to Open the browser, wait for sometime and close the browser</description>
+		
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="Function's XML file name: fn_Common.xml" />
+		</step>
+				
+		<step name="OPEN" site="FordPass" page="pge_HockeyAppWebSite" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="STATIC" name="Application Name" value="NativeBrowser"/>
+		</step>
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="30" />
+		</step>
+		
+		<step name="CLOSE" site="FordPass" page="pge_HockeyAppWebSite" type="APPLICATION" failureMode="IGNORE">
+			<parameter type="STATIC" name="Application Name" value="NativeBrowser"/>
+		</step>
+
+		<step type="WAIT" name="Hard Wait" site="FordPass" page="pge_HockeyAppWebSite">
+			<parameter type="STATIC" value="30" />
+		</step>							
+	</function>	
+
+	<function name="fn_Verify_Enter_PIN">
+
+		<description>fn_Verify_Enter_PIN - Verify whether Enter PIN is displayed </description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Dashboard">
+			<parameter type="STATIC" value="Function's XML file name: fn_Dashboard.xml" />
+		</step>
+
+		<step name="WAIT" page="pge_Schedule" type="WAIT">
+			<parameter type="STATIC" value="10" />
+		</step>
+
+        <step type="WAIT_FOR" site="FordPass" page="pge_EnterPIN" name="lbl_PageTitle.VISIBLE">
+   	    	<parameter type="STATIC" value="30" />
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+               <token type="CONTENT" name="token_lbl_PageTitle" value="TEnterPIN1"/>
+        </step>
+
+	</function>	
+
+	<function name="fn_Verify_No_Enter_PIN">
+
+		<description>fn_Verify_No_Enter_PIN - Verify that Enter PIN is not displayed </description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Dashboard">
+			<parameter type="STATIC" value="Function's XML file name: fn_Dashboard.xml" />
+		</step>
+
+		<step name="WAIT" page="pge_Schedule" type="WAIT">
+			<parameter type="STATIC" value="10" />
+		</step>
+
+        <step type="WAIT_FOR" site="FordPass" page="pge_EnterPIN" name="lbl_PageTitle.VISIBLE" inverse="true">
+   	    	<parameter type="STATIC" value="30" />
+               <token type="CONTENT" name="token_ResourceId" value="TResourceId"/>
+               <token type="CONTENT" name="token_lbl_PageTitle" value="TEnterPIN1"/>
+        </step>
+
+	</function>	
+
+	<function name="fn_Close_Enter_PIN">
+
+		<description>fn_Verify_No_Enter_PIN - Verify that Enter PIN is not displayed </description>
+
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Dashboard">
+			<parameter type="STATIC" value="Function's XML file name: fn_Dashboard.xml" />
+		</step>
+
+        <step type="CLICK" site="FordPass" page="pge_EnterPIN" name="img_Close"/>
+
+	</function>	
+	
+	<function name="fn_Device_Location_ON">
+		<step name="xF-Set Location Mode" site="xTest" page="home" type="CALL2" active="true" threshold="0" timed="false" inverse="false" wait="0" failureMode="ERROR">
+            <parameter name="xF-state" value="true" />
+        </step>         
+        <step type="STATE" name="Location Mode - False" page="home" failureMode="IGNORE"/>		
+	</function>	
+	
+	<function name="fn_Device_Location_OFF">
+		<step name="xF-Set Location Mode" site="xTest" page="home" type="CALL2" active="true" threshold="0" timed="false" inverse="false" wait="0" failureMode="ERROR">
+            <parameter name="xF-state" value="false" />
+        </step>
+         
+        <step type="STATE" name="Location Mode - False" page="home" failureMode="IGNORE"/>		
+	</function>	
+</suite>

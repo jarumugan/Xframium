@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+		
+
+	<!-- ../../ -> denotes two levels up in the folder hierarchy -->
+	<import fileName="../../../Common/Functions/XFS_Functions.xml" />
+
+<!--  	   <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_BaseWarranty.xml" /> -->
+<!--  		  <import fileName="../../../Common/Scripts/XFS_FP_Move_RSA_In_All_Module.xml" />  --> 	  
+<!--   	  		  <import fileName="../../../Common/Scripts/XFS_FP_Move_MaintenanceSchedule_001.xml" />  -->
+   
+
+
+    <import fileName="../../../Common/Scripts/XFS_FP_Accounts_006.xml" />
+    
+<!--     <import fileName="../../../Common/Scripts/XFS_FP_Calculator.xml" /> -->
+    
+   
+
+
+<!-- <import fileName="../../../Common/Scripts/XFS_FP_Accounts_001_AND.xml" />   
+<import fileName="../../../Common/Scripts/XFS_FP_Accounts_001_AND.xml" /> 
+<import fileName="../../../Common/Scripts/XFS_FP_Accounts_001_IOS.xml" /> 
+<import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_001.xml" /> 
+<import fileName="../../../Common/Scripts/XFS_FP_Move_001.xml" /> 
+<import fileName="../../../Common/Scripts/XFS_FP_Move_PersonalDriver_001.xml" /> 
+<import fileName="../../../Common/Scripts/XFS_FP_Accounts_005.xml" />
+<import fileName="../../../Common/Scripts/XFS_FP_Accounts_006.xml" />
+<import fileName="../../../Common/Scripts/XFS_FP_Accounts_007_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_007_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_008.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_009.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_010_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_010_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_011.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_012_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_012_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_013_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_013_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_014.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_015_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_015_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_016.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_017.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_018.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_019.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_020.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_021.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_022.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_LoginCheck_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_LoginCheck_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_WorkFlow_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Accounts_WorkFlow_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_App_Crash_Add_VIN_And_VehicleDetails.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_AuthorizedTCUVIN.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_EnableSyncAppLink.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_01_Find.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_02_Fuel.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_03_Parking.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_04_Dealers-PreferredDealer.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_04_Dealers.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_05_Food.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_06_Coffee.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_07_Vehicle.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_08_Entertainment.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_09_Travel.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_10_Money.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_11_Shopping.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_12_Health.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_13_Community.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_14_Recreation.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_SendToVehicle.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Find_UnitTest.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_001_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_001_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_002_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_002_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_003_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_003_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_004_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_GDPR_004_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_001.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_002.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_003.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_004.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_005.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_006.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Guides_007.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_MaintenanceSchedule_001.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_001.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_002.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_AddRemoveVehicle_ExistingUser_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_AddRemoveVehicle_ExistingUser_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_AddVehicle_InvalidVIN.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_BikeSharing_EU-DE.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_Flinkster_EU-DE.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_Hertz_EU-UK.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_OSB_MOTOnlytype.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_OSB_Vehicle Service and MOT type.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_OSB_VehicleServiceandRepairtype.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_OSB_VehicleServicetype.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_RSA_In_All_Module.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_001.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_002.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_003.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_004.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_005.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_006.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_007.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_008_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_009.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_WorkFlow_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_SmartCards_WorkFlow_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_MultiFSA.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_MultiRecalls.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_SingleFSA.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_SingleRecall.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_001.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_002.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_BaseWarranty.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleSupport_001.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_WorkFlow_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Move_WorkFlow_IOS.xml" /> --> 
+  <!-- <import fileName="../../../Common/Scripts/XFS_FP_ScheduleStarts_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_ScheduleStarts_IOS.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_ScheduleStarts_ReachedLimit.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_TPMS_With_DRW.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_TPMS_Without_DRW.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Vehicle_Location.xml" />
+ <import fileName="../../../Common/Scripts/XFS_StartFordPass.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Remote_StartStop_UnlockLock_AND.xml" />
+ <import fileName="../../../Common/Scripts/XFS_FP_Remote_StartStop_UnlockLock_IOS.xml" />
+ 
+ -->
+    
+   
+   <!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_008.xml" /> -->
+	
+   <!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_AddRemoveVehicle_ExistingUser_AND.xml" />  -->
+	<!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_AddRemoveVehicle_ExistingUser_IOS.xml" /> -->
+	 <!-- 	  <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_SingleRecall.xml" /> -->
+	<!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_MultiRecalls.xml" /> -->	
+	<!--  <import fileName="../../../Common/Scripts/XFS_FP_Move_Vehicle_MultiFSA.xml" /> -->
+<!-- 	 <import fileName="../../../Common/Scripts/XFS_FP_Move_AddVehicle_InvalidVIN.xml" /> -->
+	 
+
+<!--  		  <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_OnlineServiceBooking.xml" />  
+  		  <import fileName="../../../Common/Scripts/XFS_FP_Move_VehicleDetails_OnlineServiceBooking_AND.xml" />   -->
+   
+<!--   		  <import fileName="../../../Common/Scripts/XFS_FP_Move_ServiceHistory_001.xml" /> -->
+   	 
+	  		
+</suite>

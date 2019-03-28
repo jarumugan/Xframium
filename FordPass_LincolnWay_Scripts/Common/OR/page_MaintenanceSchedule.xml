@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_MaintenanceSchedule" class="org.xframium.page.keyWord.KeyWordPage">
+		
+<!-- 			<element name="lnk_MaintenanceSchedule" value="//*[@text='{token_lnk_MaintenanceSchedule_AND}']|//*[@label='{token_lnk_MaintenanceSchedule_IOS}']" descriptor="XPATH" /> -->
+			<element name="lnk_MaintenanceSchedule" value="//*[@text='{token_lnk_MaintenanceSchedule_AND}']|//*[@label='{token_lnk_MaintenanceSchedule_IOS}']|//*[@text='{token_lnk_MaintenanceSchedule_AND01}']" descriptor="XPATH" />
+<!-- 			<element name="lbl_MaintenanceSchedule" value="//*[@text='{token_lbl_MaintenanceSchedule}']|//*[@label='{token_lbl_MaintenanceSchedule}']" descriptor="XPATH" /> -->
+			<element name="lbl_MaintenanceSchedule" value="//*[@text='{token_lnk_MaintenanceSchedule_AND}']|//*[@label='{token_lnk_MaintenanceSchedule_IOS}']|//*[@text='{token_lnk_MaintenanceSchedule_AND01}']" descriptor="XPATH" />
+			
+			<element name="lbl_UpcomingService" value="//*[@text='{token_lbl_UpcomingService_AND}']|(//*[@label='{token_lbl_UpcomingService}'])[1]" descriptor="XPATH" />
+			<element name="lbl_PageTitle" value="//*[@resource-id='{token_ResourceId}/ford_toolbar_layout_title'][@text='{token_lbl_PageTitle}']|//*[@label='{token_lbl_PageTitle}']" descriptor="XPATH" />
+			<element name="lnk_ServicePackage1" value="//*[contains(@text,'{token_lnk_ServicePackage1}')]|(//*[contains(@label,'{token_lnk_ServicePackage1}')][@visible='true'])[1]" descriptor="XPATH" />
+			<element name="lbl_ServicePackage1" value="(//*[contains(@text,'{token_lbl_ServicePackage1}')])[1]|(//*[contains(@label,'{token_lbl_ServicePackage1}')][@visible='true'])[1]" descriptor="XPATH" />
+			<element name="lbl_FindADealer" value="//*[@text='{token_lbl_ServicePackage1}']|//*[@label='{token_lbl_FindADealer}']" descriptor="XPATH" />
+			<element name="lbl_VehicleDetails" value="//*[@text='{token_lbl_VehicleDetails}']|//*[@label='{token_lbl_VehicleDetails}']" descriptor="XPATH" />
+			<element name="btn_Back" value="//*[@content-desc='Navigate up']|//*[@label='back icon']" descriptor="XPATH" />
+			<element name="btn_Back_ServiceList" value="//*[@content-desc='{token_btn_Back_ServiceList}']|(//UIAButton)[1]" descriptor="XPATH" />
+			<element name="btn_BackFromVehiclesToDasboard" value="//*[@class='android.widget.ImageButton']|//UIANavigationBar[1]/UIAButton[1]" descriptor="XPATH" />
+
+
+	
+
+		</page>
+	</site>
+</elementDefinition>

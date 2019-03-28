@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindSendToVehicle" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_Common_TxtStatement"
+				value="//*[contains(@label,&quot;{token_lbl_Common_TxtStatement_IOS}&quot;)]/self::UIAStaticText|//*[contains(@label,&quot;{token_lbl_Common_TxtStatement_IOS}&quot;)]/self::UIAButton|//*[contains(@text,&quot;{token_lbl_Common_TxtStatement_AND}&quot;)]"
+				descriptor="XPATH" />
+			<element name="Cbxbtn_CommonTxtPreceding"
+				value="//*[@label='{token_Cbxbtn_CommonTxtPreceding_IOS}']/preceding-sibling::UIAButton[1]|//*[@text='{token_Cbxbtn_CommonTxtPreceding_AND}']/self::android.widget.CheckBox[1]"
+				descriptor="XPATH" />
+			<element name="btn_CommonSelfTxt"
+				value="//*[@label='{token_btn_CommonSelfTxt_IOS}']/self::UIAButton|//*[@label='{token_btn_CommonSelfTxt_IOS}']/self::UIAStaticText|//*[@text='{token_btn_CommonSelfTxt_AND}']/self::android.widget.Button|//*[@text='{token_btn_CommonSelfTxt_AND}']/self::android.widget.TextView"
+				descriptor="XPATH" />
+			<element name="btn_back_PrecedingTxtLabel"
+				value="//*[@label='{token_btn_back_PrecedingTxtLabel_IOS}']/preceding::UIAButton|//*[@text='{token_btn_back_PrecedingTxtLabel_AND}']/preceding::android.widget.ImageView|//*[@text='{token_btn_back_PrecedingTxtLabel_AND}']/preceding::android.widget.ImageButton"
+				descriptor="XPATH" />
+			<element name="btn_Map_SendToVehicle"
+				value="//*[@resource-id='android:id/text1'and @text='{token_Map_SendToVehicle}']|//*[@label='{token_Map_SendToVehicle}']"
+				descriptor="XPATH" />
+			<element name="btn_Search_SendToVehicle"
+				value="//*[@text='{token_Search_SendToVehicle}']|//*[@label='{token_Search_SendToVehicle}']"
+				descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

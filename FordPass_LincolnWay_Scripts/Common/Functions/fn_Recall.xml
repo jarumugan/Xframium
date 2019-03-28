@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function validates the title of 'Recall' page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Verify_RecallPageTitle">
+		<description>fn_Verify_RecallPageTitle - function to verify the title of 'Recall' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+
+		<step type="EXISTS" name="lbl_RecallTitle" page="pge_Recall" >
+			<token type="CONTEXT" name="token_lbl_RecallTitle" value="str_RecallTitle" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+				<parameter type="STATIC" value="Recall Page title is found" />
+			</step>	
+		<step type="ELSE" name="If_Recall_Page_Title_Not_Available" page="pge_Recall">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+				<parameter type="STATIC" value="Recall Page title is not found" />
+			</step>	
+		</step>
+		</step>
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function verifies the type of recall (RECALLS or FIELD SERVICE ACTIONS or both)in the 'Recall' page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_VerifyTypeOfRecall">
+		<description>fn_VerifyTypeOfRecall - function to verify the type of recall </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+
+		<step type="VISIBLE" name="lbl_RecallType" page="pge_Recall">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="UP" />		
+			<token type="CONTEXT" name="token_lbl_RecallType" value="str_RecallType" />
+			<token type="CONTEXT" name="token_lbl_RecallType_AND" value="str_RecallType_AND" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+				<parameter type="STATIC" value="Expected recall type is found on the 'Recall Information' page" />
+			</step>	
+		<step type="ELSE" name="If_Expected_Recall_Type_Not_Available" page="pge_Recall">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+				<parameter type="STATIC" value="Expected recall type is not found on the 'Recall Information' page" />
+			</step>	
+		</step>
+		</step>
+				
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- KSARAV53 - This function navigates back from 'Recall' page -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Navigate_Back_From_Recall">
+		<description>fn_Navigate_Back_From_Recall - function to verify the back navigation from 'Recall' page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+
+		<step type="EXISTS" name="btn_Recall_Back" page="pge_Recall" >
+			<token type="CONTENT" name="token_btn_Recall_Back" value="TRecall1" />
+			<!-- KSARAV53 - Added parameterized token for 'Navigate Up' content description (Android) -->
+			<token type="CONTENT" name="token_btn_Navigate_Up" value="TRecall16" />
+			
+			<step type="CLICK" name="btn_Recall_Back" page="pge_Recall" >
+				<token type="CONTENT" name="token_btn_Recall_Back" value="TRecall1" />
+				<!-- KSARAV53 - Added parameterized token for 'Navigate Up' content description (Android) -->
+				<token type="CONTENT" name="token_btn_Navigate_Up" value="TRecall16" />
+			</step>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+				<parameter type="STATIC" value="Back button is found and clicked" />
+			</step>	
+		<step type="ELSE" name="If_Back_Button_Not_Available" page="pge_Recall">
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+				<parameter type="STATIC" value="Back button is not found in the Recall page" />
+			</step>	
+		</step>
+		</step>		
+	</function>	
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function check recall pill near greeting section -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ValidateRecallPill_GreetingSection">
+		<description> fn_ValidateRecallPill_GreetingSection - This function check recall pill near greeting section </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="lbl_RecallNotifiInGreeting" page="pge_Recall">
+				<token type="CONTENT" name="token_lbl_RecallNotifiInGreeting" value="TRecallGreeting" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall pill displays near greeting section" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall pill is not displayed near greeting section" />
+				</step>				
+		</step>
+		</step>
+	</function>
+	
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function check no recall pill near greeting section -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_Validate_No_RecallPill_GreetingSection">
+		<description> fn_Validate_No_RecallPill_GreetingSection - This function check no recall pill near greeting section </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="lbl_RecallNotifiInGreeting" page="pge_Recall" inverse="true">
+				<token type="CONTENT" name="token_lbl_RecallNotifiInGreeting" value="TRecallGreeting" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall pill displays near greeting section" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall pill is not displayed near greeting section" />
+				</step>				
+		</step>
+		</step>
+	</function>
+		
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function check recall notification in vehicle details (Single or Multiple recall notices) -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ValidateRecallNotifi_Alert">
+		<description> fn_ValidateRecallNotifi_Alert - This function check recall notification in vehicle details (Single or Multiple recall notices) </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+	
+		<step type="VISIBLE" name="lnk_RecallNotifi_Alert" page="pge_Recall">
+				<parameter type="STATIC" name="maxScroll" value="2"/>
+  				<parameter type="STATIC" name="direction" value="DOWN"/>
+				<token type="CONTEXT" name="token_lnk_RecallNotifi" value="str_RecallAlert" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall notices alert displays in vehicle detail" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall notices alert is not displayed in vehicle detail" />
+				</step>				
+		</step>
+		</step>
+		
+		<step type="VISIBLE" name="img_RecallNotifiInVehicleDetail" page="pge_Recall">
+				<token type="CONTEXT" name="token_lnk_RecallNotifi" value="str_RecallAlert" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall notices pill displays in vehicle detail" />
+				</step>
+		<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall notices pill is not displayed in vehicle detail" />
+				</step>				
+		</step>
+		</step>
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function clicks recall notification in vehicle details (Single or Multiple recall notices) -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ClickRecallNotifi_Alert">
+		<description> fn_ClickRecallNotifi_Alert - This function clicks recall notification in vehicle details </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+		<step type="CLICK" name="lnk_RecallNotifi_Alert" page="pge_Recall" >
+				<token type="CONTEXT" name="token_lnk_RecallNotifi" value="str_RecallAlert" />
+				<step type="WAIT_FOR" name="lbl_Notices" page="pge_Recall">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTEXT" name="token_lbl_Notices" value="str_TNotice" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="User successfully landed on Recall Notices page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall Notices page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+	</function>
+
+	
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validates recall notices page (Multiple recall notices) 9BFZD55P4GB532001 -->
+<!-- ############################################################################################################# -->
+
+	<function name="fn_ValidateRecallNotices_Page">
+		<description> fn_ValidateRecallNotices_Page - This function validates recall notices page (Multiple recall notices)</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+		
+		<step type="EXISTS" name="btn_RecallBack" page="pge_Recall">
+		<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>
+	
+		<step type="VISIBLE" name="lbl_VehicleNickname" page="pge_AddVIN">
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_IOS" value="str_VehicleNickName_IOS" />
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_AND" value="str_VehicleNickName_AND" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VehicleMakeModel" page="pge_AddVIN" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_VehicleMakeModel" value="param_VinModel" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_Recalls" page="pge_Recall">
+				<token type="CONTENT" name="token_lbl_Recalls" value="TRecalls" />
+				<token type="CONTENT" name="token_lbl_Recalls_AND" value="TRecall14_AND" />
+		</step>
+		
+		<step type="VISIBLE" name="lnk_RecallName" page="pge_Recall" failureMode="IGNORE" >
+				<token type="CONTEXT" name="token_lnk_RecallName" value="str_RecallType" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallCode" page="pge_Recall">
+				<token type="CONTEXT" name="token_lbl_RecallCode" value="str_RecallCode" />
+		</step>	
+		
+		<step type="VISIBLE" name="lnk_RecallName" page="pge_Recall" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lnk_RecallName" value="str_RecallType2" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallCode" page="pge_Recall">
+				<token type="CONTEXT" name="token_lbl_RecallCode" value="str_RecallCode2" />
+		</step>	
+		
+	</function>
+
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function clicks specific recall  vin: 9BFZD55P4GB532001 -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ClickRecallType">
+		<description> fn_ClickRecallType - Function to click Recall type in vehicle - 9BFZD55P4GB532001 </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+				
+		<step type="CLICK" name="lbl_RecallCode" page="pge_Recall">
+				<parameter type="STATIC" name="LENGTH" value="3" />
+				<token type="CONTEXT" name="token_lbl_RecallCode" value="str_RecallCode" />
+				<step type="WAIT_FOR" name="lbl_RecallInfoTitle" page="pge_Recall">
+					<parameter type="STATIC" value="30"/>
+					<token type="CONTENT" name="token_lbl_RecallInfoTitle" value="TRecallInfoTitle" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="User successfully landed on Recall Detail Information page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall Detail Information page is not displayed or opened" />
+				</step>
+			</step>	
+		</step>
+	</function>
+		
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function validates recall details for the specific vin: 9BFZD55P4GB532001 -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_ValidateRecallDetails">
+		<description> fn_ValidateRecallDetails - Function to check Recall details in vehicle - 9BFZD55P4GB532001 </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+				
+			
+		<step type="VISIBLE" name="btn_RecallBack" page="pge_Recall">
+		<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+		</step>		
+				
+		<step type="VISIBLE" name="lbl_VehicleNickname" page="pge_AddVIN">
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_IOS" value="str_VehicleNickName_IOS" />
+				<token type="CONTEXT" name="token_lbl_VehicleNickname_AND" value="str_VehicleNickName_AND" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VehicleMakeModel" page="pge_AddVIN" failureMode="IGNORE">
+				<token type="CONTEXT" name="token_lbl_VehicleMakeModel" value="param_VinModel" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VIN" page="pge_Recall">
+				<token type="CONTENT" name="token_lbl_VIN" value="TVIN" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_VinID" page="pge_Recall">
+				<token type="CONTEXT" name="token_lbl_VinID" value="param_VinNumber" />
+			</step>
+		
+		<step type="VISIBLE" name="lbl_RecallDate" page="pge_Recall" tagNames="FP-NA" >
+				<token type="CONTENT" name="token_lbl_RecallDate" value="TRecallDate" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallDateValue" page="pge_Recall" tagNames="FP-NA">
+				<token type="CONTENT" name="token_lbl_RecallDate" value="TRecallDate" />
+		</step>
+	
+		
+		<step type="VISIBLE" name="lbl_RecallInfo" page="pge_Recall">
+				<token type="CONTENT" name="token_lbl_RecallInfo" value="TRecallInfo" />
+				<token type="CONTENT" name="token_lbl_RecallInfo_and" value="TRecallInfo_AND" />
+		</step>
+		
+		<!-- Issue is seen in portugese langugae - lbl_RecallNameInfo is blank, added failureMode -->
+		
+		<step type="VISIBLE" name="lbl_RecallNameInfo" page="pge_Recall" failureMode="IGNORE">
+				<token type="CONTENT" name="token_lbl_RecallInfo" value="TRecallInfo" />
+				<token type="CONTENT" name="token_lbl_RecallInfo_and" value="TRecallInfo_AND" />
+				<token type="CONTEXT" name="token_lnk_RecallName" value="str_RecallType" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallNo" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallNo_L" value="TRecallNo_L" />
+				<token type="CONTENT" name="token_lbl_RecallNo_U" value="TRecallNo_U" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallNoValue" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_lbl_RecallNoValue" value="str_RecallNumber" />
+		</step>
+		
+		
+		<step type="VISIBLE" name="lbl_FordRecallNo" page="pge_Recall">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_FordRecallNo" value="TFordRecallNo" />
+				<token type="CONTENT" name="token_lbl_FordRecallNo_IOS" value="TFordRecallNo_IOS" />				
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallCode" page="pge_Recall">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_lbl_RecallCode" value="str_RecallCode" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallDesc" page="pge_Recall">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallDesc" value="TRecallDesc" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallNameDesc" page="pge_Recall">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallDesc" value="TRecallDesc" />
+				<token type="CONTEXT" name="token_lnk_RecallName" value="str_RecallType" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallRiskSafe" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallRiskSafe_L" value="TRecallRiskSafe_L" />
+				<token type="CONTENT" name="token_lbl_RecallRiskSafe_U" value="TRecallRiskSafe_U" />
+		</step>
+				
+		<step type="VISIBLE" name="lbl_RecallRiskSafeValue" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_lbl_RecallRiskSafeValue" value="str_RecallRiskSafeValue" />
+		</step>
+	
+		<step type="VISIBLE" name="lbl_RecallRemedyPro" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallRemedyPro_L" value="TRecallRemedyPro_L" />
+				<token type="CONTENT" name="token_lbl_RecallRemedyPro_U" value="TRecallRemedyPro_U" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallRemedyProValue" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_lbl_RecallRemedyProValue" value="str_RecallRemedyProValue" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallStatus" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallStatus_L" value="TRecallStatus_L" />
+				<token type="CONTENT" name="token_lbl_RecallStatus_U" value="TRecallStatus_U" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallStatusValue" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_lbl_RecallStatusValue" value="str_RecallStatusValue" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallManuNote" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallManuNote_L" value="TRecallManuNote_L" />
+				<token type="CONTENT" name="token_lbl_RecallManuNote_U" value="TRecallManuNote_U" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallManuNoteValue" page="pge_Recall" tagNames="FP-NA">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTEXT" name="token_lbl_RecallManuNoteValue" value="str_RecallManuNoteValue" />
+		</step>
+		
+		<step type="VISIBLE" name="lbl_RecallDetailDesc" page="pge_Recall" wait="3">
+				<parameter type="STATIC" name="maxScroll" value="3" />
+				<parameter type="STATIC" name="direction" value="UP" />
+				<token type="CONTENT" name="token_lbl_RecallDetailDesc" value="TRecallDetailDesc" />
+				<token type="CONTENT" name="token_lbl_RecallDetailDesc_AND" value="TRecallDetailDesc_AND" />
+		</step>		
+		
+		<step type="VISIBLE" name="btn_ScheduleService" page="pge_Recall" failureMode="IGNORE">
+				<token type="CONTENT" name="token_btn_ScheduleService" value="TScheduleService" />
+		</step>
+		
+		<step type="VISIBLE" name="btn_FindADealer" page="pge_Recall" >
+				<parameter type="STATIC" name="maxScroll" value="2"/>
+  				<parameter type="STATIC" name="direction" value="UP"/>
+				<token type="CONTENT" name="token_btn_FindADealer" value="TFindADealer" />
+		</step>	 
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function navigate from Recall detail page to Recall notices page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_NavigateFromRecallDetailToRecallNotices">
+		<description> fn_NavigateFromRecallDetailToRecallNotices - Function to navigate from Recall detail page to Recall notices page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+	
+		<step type="CLICK" name="btn_RecallBack" page="pge_Recall">
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+			<step type="WAIT_FOR" name="lbl_Notices" page="pge_Recall">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTENT" name="token_lbl_Notices" value="TNotices" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="User successfully landed on Recall Notices page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Recall Notices page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function navigate from Recall Notices page to vehicle details page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_NavigateFromRecallNoticesToVehicleDetail">
+		<description> fn_NavigateFromRecallNoticesToVehicleDetail - Function to navigate from Recall Notices page to vehicle details page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+	
+		<step type="CLICK" name="btn_RecallBack" page="pge_Recall">
+			<token type="CONTENT" name="token_btn_Back" value="TAddVinBack_AND" />
+				
+			<step type="WAIT_FOR" name="lnk_RecallNotifi_Alert" page="pge_Recall">
+					<parameter type="STATIC" value="10"/>
+					<token type="CONTEXT" name="token_lnk_RecallNotifi" value="str_RecallAlert" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="User successfully landed on Vehicle Details page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Vehicle Details page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+	</function>
+	
+<!-- ############################################################################################################# -->
+<!-- APARTHI3 - This function navigate from vehicle details to dashboard page -->
+<!-- ############################################################################################################# -->
+	
+	<function name="fn_NavigateFromVehicleDetailToDashboard">
+		<description> fn_NavigateFromVehicleDetailToDashboard - Function to navigate from vehicle details to dashboard page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+			<parameter type="STATIC" value="Function's XML file name: fn_Recall.xml" />
+		</step>
+		
+		<step type="WAIT" name="Hard wait for 15" page="pge_Recall">
+				<parameter type="STATIC" value="15"/>				
+		</step>
+	
+		<step type="CLICK" name="btn_BackFromVehiclesToDasboard" page="pge_Recall">
+							
+			<step type="WAIT_FOR" name="lnk_Move" page="pge_FPCommon">
+				<parameter type="STATIC" value="20" />
+				<token type="CONTENT" name="token_lnk_Move" value="TCommon_Move" />
+				</step>
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="User successfully landed on dashboard page" />
+				</step>
+				<step type="ELSE" name="elseCondition" page="pge_Recall">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_Recall">
+					<parameter type="STATIC" value="Dashboard page is not displayed or opened" />
+				</step>
+			</step>			
+		</step>
+		
+	</function>
+	
+</suite>

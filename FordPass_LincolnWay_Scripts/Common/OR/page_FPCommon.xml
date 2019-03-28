@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FPCommon" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lnk_Move" value="//*[@text='{token_lnk_Move}']|//*[@label='{token_lnk_Move}']" descriptor="XPATH" />
+<!-- 			<element name="lnk_Find" value="//*[@text='{token_lnk_Find}']|//*[@label='{token_lnk_Find}']" descriptor="XPATH" /> -->
+			<element name="lnk_Find" value="//*[contains(@resource-id,'tab_bar')]/android.widget.Button[@text='{token_lnk_Find}']|//UIATabBar/UIAButton[@label='{token_lnk_Find}']" descriptor="XPATH" />
+			<element name="lnk_Guides" value="//*[@text='{token_lnk_Guides}']|//*[@label='{token_lnk_Guides}']" descriptor="XPATH" />
+			<element name="lnk_Account" value="//*[@text='{token_lnk_Account}']|//*[@label='{token_lnk_Account}']" descriptor="XPATH" />
+			<element name="lbl_PageFooter" value="//*[contains(@text,'{token_lbl_PageFooter}')]|//*[contains(@label,'{token_lbl_PageFooter}')]" descriptor="XPATH" />
+			<!-- LW Back button class file is added KSIVANAN -->
+			<element name="lnk_Back" value="//*[@class='android.widget.ImageButton']|//*[@content-desc='Navigate up']|//*[contains(@resource-id,'toolbar')]/android.widget.ImageButton|(//*[contains(@name,'MobilityCommon')]/UIAButton)[1]|(//UIANavigationBar//UIAButton)[1]" descriptor="XPATH" />
+					
+			<element name="lnk_Close" value="//*[contains(@resource-id,'toolbar')]/android.widget.ImageButton|//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]" descriptor="XPATH" />
+			<element name="ele_FullPage" value="(//android.widget.LinearLayout)[1]" descriptor="XPATH" />			
+			
+			<element name="lbl_SelectEnvironment" value="//*[@text='{token_lbl_SelectEnvironment_AND}']|//*[@label='{token_lbl_SelectEnvironment_IOS}']" descriptor="XPATH" />
+			<element name="lnk_Environment" value="//*[@text='{token_lnk_Environment_AND}']|//*[@label='{token_lnk_Environment_IOS}']" descriptor="XPATH" />
+			<element name="lbl_ExitNow" value="//*[@text='{token_lbl_ExitNow}']" descriptor="XPATH" />
+			
+			<element name="lbl_Error_PINpage" value="//*[contains(@text,'{token_lbl_Error_PINpage}')]|//*[contains(@label,'{token_lbl_Error_PINpage}')]" descriptor="XPATH" />
+			<element name="lnk_ExpectedPillar" value="//*[@text='{token_lnk_ExpectedPillar}']|//*[@label='{token_lnk_ExpectedPillar}']" descriptor="XPATH" />
+			
+			<!-- Elements to get the CPF from website -->
+			<element name="chkbox_UnMaskIt" value="(//i[@class='fa fa-square-o fa-check-square'])[1]" descriptor="XPATH" deviceContext="WEBVIEW_1"/>
+			<element name="txtBox_CPF" value="(//input[@class='form-control gen-input ng-pristine ng-valid'])[1]" descriptor="XPATH" deviceContext="WEBVIEW_1"/>
+			<element name="btn_CPFGenerate" value="(//button[text()='Generate'])[1]" descriptor="XPATH" deviceContext="WEBVIEW_1"/>
+
+			<element name="btn_ImNotDriving" value="//*[@text=&quot;{token_btn_ImNotDriving_AND}&quot;]|//*[@label=&quot;{token_btn_ImNotDriving_IOS}&quot;]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

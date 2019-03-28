@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_AddCard" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageTitle" value="//*[@text='{token_lbl_PageTitle}']|//*[@label='{token_lbl_PageTitle}']" descriptor="XPATH" />
+			<element name="lbl_CardInfo" value="//*[@text='{token_lbl_CardInfo_AND}']|//*[@label='{token_lbl_CardInfo_IOS}']" descriptor="XPATH" />
+			<element name="edt_AddCardField" value="(//*[@text=&quot;{token_edt_AddCardField_AND}&quot;]//following::android.widget.EditText)[1]|(//*[@label=&quot;{token_edt_AddCardField_IOS}&quot;]/following::UIATextField)[1]" descriptor="XPATH" />
+			<element name="lbl_BillingInfo" value="//*[@text='{token_lbl_BillingInfo}']|//*[@label='{token_lbl_BillingInfo}']" descriptor="XPATH" />
+			<element name="lbl_PrimaryAddress" value="//*[@text='{token_lbl_PrimaryAddress}']|//*[@label='{token_lbl_PrimaryAddress}']" descriptor="XPATH" />
+			<element name="lnk_Use" value="//*[@text='{token_lnk_Use}']|//*[@label='{token_lnk_Use}']" descriptor="XPATH" />
+			<element name="edt_EnterAddressField" value="(//*[@text=&quot;{token_edt_EnterAddress_AND}&quot;]//following::android.widget.EditText)[1]|(//*[@label=&quot;{token_edt_EnterAddress_IOS}&quot;]/following::UIATextField)[1]" descriptor="XPATH" />
+			
+			<element name="lnk_DefaultPayment" value="//*[@value='{token_lnk_DefaultPayment}']/preceding::UIAButton[1]|//*[@text='{token_lnk_DefaultPayment}']/preceding::android.widget.CheckBox[1]" descriptor="XPATH" />
+			<element name="lbl_DefaultPayment" value="//*[@text='{token_lbl_DefaultPayment}']|//*[@value='{token_lbl_DefaultPayment}']" descriptor="XPATH" />
+			<element name="lbl_Note" value="//*[@text='{token_lbl_Note}']|//*[@label='{token_lbl_Note}']" descriptor="XPATH" />
+			<element name="lbl_NoteDesc" value="//*[contains(@text,&quot;{token_lbl_NoteDesc}&quot;)]|//*[contains(@label,&quot;{token_lbl_NoteDesc}&quot;)]" descriptor="XPATH" />
+			<element name="lbl_InlineErrorMsg" value="//*[@text=&quot;{token_lbl_InlineErrorMsg}&quot;]|//*[@label=&quot;{token_lbl_InlineErrorMsg}&quot;]" descriptor="XPATH" />
+			<element name="lbl_PhoneNumber" value="//*[@text='{token_lbl_PhoneNumber}']|//*[@label='{token_lbl_PhoneNumber}']" descriptor="XPATH" />
+			
+			<element name="edt_PreviousTextField" value="//*[@label=&quot;{token_edt_AddCardField_IOS}&quot;]/preceding::UIATextField[1]" descriptor="XPATH" />
+			<element name="btn_Next" value="//*[@text='{token_btn_Next_AND}']|//*[@label='{token_btn_Next_IOS}']" descriptor="XPATH" />
+			<element name="btn_Save" value="//*[@text='{token_btn_Save_AND}']|//*[@label='{token_btn_Save_IOS}']" descriptor="XPATH" />
+			
+			
+			<element name="img_Calendar" value="//*[@class='android.widget.ViewAnimator']" descriptor="XPATH" />					
+			<element name="btn_Calendar" value="//*[@class='android.widget.ImageButton']" descriptor="XPATH" />
+			<element name="lst_date" value="//*[@class='android.view.View'][5]" descriptor="XPATH" />
+			<element name="edt_date" value="(//*[@text='{token_edt_date}']//following::android.widget.EditText)[1]" descriptor="XPATH" />
+			
+			<element name="lnk_OK" value="//*[@text='OK']" descriptor="XPATH" />
+			
+			<element name="btn_Activate" value="//*[@text='{token_btn_Activate}']|//*[@label='{token_btn_Activate}']" descriptor="XPATH" />
+			<element name="lbl_DirectPayment" value="//*[@text='{token_lbl_DirectPayment}']|//*[@label='{token_lbl_DirectPayment}']" descriptor="XPATH" />
+			<element name="lnk_AvailableBanks" value="//*[@text='{token_lnk_AvailableBanks}']|//UIAStaticText[@label='{token_lnk_AvailableBanks}']" descriptor="XPATH" />
+			
+			<element name="lbl_CardNumber" value="//*[@text='{token_lbl_CardNumber}']|//*[@label='{token_lbl_CardNumber}']" descriptor="XPATH" />
+			<element name="btn_Next" value="//*[@text='{token_btn_Next}']|//*[@label='{token_btn_Next}']" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : MCHUNDUR -->
+<!-- Created Date : 06-MAR-2018 -->
+<!-- Updated Date : 06-MAR-2018 -->
+<!-- Pre-Requisite : -->
+<!-- NOTE : 
+
+*** BEFORE EXECUTING THE SCRIPT, WE NEED TO MANUALLY REMOVE THE VEHICLE ADDED
+BECAUSE THE SCRIPT MAY HAVE FAILED IN THE PREVIOUS ITERATION *** 
+
+*** PLEASE EXECUTE THIS DEVICE AGAINST Galaxy S6 Edge+ DEVICE 
+[Vehicle name display issue (Upper/Lower Case)] ***
+-->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_App_Crash_Add_VIN_And_VehicleDetails" dataProvider="TestData.XFS_FP_App_Crash_Add_VIN_And_VehicleDetails,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN,SA_BR_EN" timed="false" threshold="0" active="true">
+		<description> Script will navigate to provided vehicle and validates the vehicle details </description>
+		   
+				   
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+
+<!-- 		<step type="CALL2" name="fn_Install_FordPassApp" page="pge_FPCommon" /> -->
+
+<!-- SCENARIO # 1 - APP CRASH - ADD VIN -->
+					
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" /> 
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="5"/>
+		</step>
+
+	
+<!-- 		<step name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="5"/>
+		</step>  -->
+
+				
+		
+	<!-- Adding a Vehicle -->
+	
+	<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+			<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+		</step>
+									
+	 	<step type="CALL2" name="fn_Find_AddVehicle" page="pge_Move" />
+		
+		<step type="CALL2" name="fn_AddVehicle_Parametrized" page="pge_AddVIN" >		
+			<parameter type="DATA" name="str_VIN_No" value="TestData.VIN" />
+		</step>			
+
+		<step type="STATE" name="CAPTURE_SCREENSHOT" page="pge_VehicleInfo" />
+
+		<step type="CALL2" name="fn_ClickBtnGetStarted" page="pge_AddVIN" >
+			<step type="STATE" name="CAPTURE_SCREENSHOT" page="pge_VehicleInfo" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Refer the screenshot for whether app crashed or not and dashboard page is displayed" />
+			</step>
+		</step>
+ 		
+		<step type="CALL2" name="fn_Find_ExpectedVehicle" page="pge_Move" />
+
+<!-- SCENARIO # 2 - APP CRASH - VEHICLE DETAILS -->
+<!-- 	
+		<step name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" type="APPLICATION">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_Move" >
+			<parameter type="STATIC" value="5"/>
+		</step> 
+-->
+		<!-- 	<step type="CALL2" name="fn_Click_ExpectedVehicle" page="pge_Move" />--> 
+	
+	<!-- 	<step type="CALL2" name="fn_Click_ViewVehicleDetails" page="pge_Move" /> --> 
+	
+		<step type="CALL2" name="fn_Click_VehicleDetails" page="pge_VehicleInfo" /> 
+		
+		<step type="CALL2" name="fn_Click_BaseWarranty_VehicleDetails" page="pge_VehicleInfo" />
+		
+		<step type="CALL2" name="fn_Validate_BaseWarranty_ExpiryDate" page="pge_VehicleInfo" />
+
+		<step type="STATE" name="CAPTURE_SCREENSHOT" page="pge_VehicleInfo" />
+		
+		<step type="CALL2" name="fn_Click_Back_Icon_VehicleDetails" page="pge_VehicleInfo" />
+		
+		<step type="STATE" name="CAPTURE_SCREENSHOT" page="pge_VehicleInfo" />
+
+		<step type="VISIBLE" name="lbl_LicensePlate" page="pge_VehicleInfo" >
+			<token type="CONTENT" name="token_lbl_LicensePlate" value="lbl_LicensePlate" />
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+				<parameter type="STATIC" value="Licence plate label is found and hence app navigated to vehicle details page as expected" />
+			</step>
+		<step type="ELSE" name="If_Vehicle_Details_Page_Not_Available_Verify_Dashboard" page="pge_VehicleInfo">
+			<step type="CALL2" name="fn_Find_Expected_Pillar" page="pge_FPCommon">
+				<parameter type="CONTENT" name="str_ExpectedPillar" value="TCommon_Move" />
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+					<parameter type="STATIC" value="App crashed and dashboard page is displayed" />
+				</step>
+				<step type="FLOW" name="END_FAILURE" page="pge_VehicleInfo" failureMode="ERROR"/>
+			<step type="ELSE" name="If_Vehicle_Details_Page_Not_Available_Verify_App_Crashed" page="pge_VehicleInfo">
+				<step type="VISIBLE" name="lbl_FordPass_Stopped" page="pge_VehicleInfo" >
+					<token type="CONTENT" name="token_lbl_FordPass_Stopped" value="lbl_LicensePlate" />
+					<!-- <step type="VISIBLE" name="lnk_RestartApp" page="pge_VehicleInfo" >
+						<token type="CONTENT" name="token_lnk_RestartApp" value="lbl_LicensePlate" />
+						<step type="CLICK" name="lnk_RestartApp" page="pge_VehicleInfo" >
+							<token type="CONTENT" name="token_lnk_RestartApp" value="lbl_LicensePlate" />
+						</step>
+					</step> -->
+					<step type="REPORT" name="ADD_TO_REPORT" page="pge_VehicleInfo">
+						<parameter type="STATIC" value="App crashed and asking to restart the app" />
+					</step>	
+					<step type="FLOW" name="END_FAILURE" page="pge_VehicleInfo" failureMode="ERROR"/>	
+				</step>
+
+			</step>			
+			</step>
+		</step>
+		</step>
+					
+		<step type="CALL2" name="fn_Click_Back_Icon_VehicleDetails" page="pge_VehicleInfo" />
+
+		<step type="CALL2" name="fn_Check_And_RemoveVehicle" page="pge_DeleteVehicle" >
+			<parameter type="DATA" name="str_VehicleNickName_AND" value="TestData.VehicleName_AND" />
+		</step>
+
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" /> 
+
+		<step type="CALL2" name="fn_Click_Logout" page="pge_Account" /> 
+
+		<step type="CALL2" name="fn_ClickLogout_LogoutDialogue" page="pge_Logout" /> 
+
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />		
+	</test>
+</suite>

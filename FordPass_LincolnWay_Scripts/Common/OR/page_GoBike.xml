@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_GoBike" class="org.xframium.page.keyWord.KeyWordPage">
+		
+		<element name="lbl_GoBike" value="//*[@text='{token_lbl_GoBike}']|//*[@label='{token_lbl_GoBike}']" descriptor="XPATH" />
+				
+		<element name="btn_FindABike" value="//*[@text='{token_btn_FindABike}']|//*[@text='{token_btn_FindABike_Android}']|//*[@label='{token_btn_FindABike}']" descriptor="XPATH"/>
+		
+		<element name="msg_GoBikeLaunch" value="//*[contains(@text,'{token_msg_GoBikeLaunch}')]|//*[contains(@label,'{token_msg_GoBikeLaunch}')]" descriptor="XPATH"/>		
+				
+		<element name="btn_OK" value="//*[@resource-id='android:id/button1' and @text='{token_btn_OK}']|//*[text='{token_btn_OK}']|//*[@label='{token_btn_OK}']" descriptor="XPATH"/>		
+
+		<element name="btn_Cancel" value="//*[@resource-id='android:id/button2' and @text='{token_btn_Cancel_AND}']|//*[@text='{token_btn_Cancel}']|//*[@label='{token_btn_Cancel}']" descriptor="XPATH"/>		
+				
+		<element name="lnk_GoBike_Download" value="(//*[contains(text,'{token_lnk_GoBike_Download}')])[1]|//*[@resource-id='com.android.chrome:id/url_bar']|(//*[contains(@value,'{token_lnk_GoBike_Download}')])[1]" descriptor="XPATH"/>		
+
+		<element name="lnk_ReturnToFordPass" value="//*[text='{token_lnk_ReturnToFordPass}']|//*[@label='{token_lnk_ReturnToFordPass}']" descriptor="XPATH"/>		
+		
+		</page>
+	</site>
+	
+</elementDefinition>

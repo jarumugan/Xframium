@@ -1,0 +1,520 @@
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+
+	<function name="fn_VerifyPageOpened_GuidesLanding">
+		<description> fn_VerifyPageOpened_GuidesLanding - Function to verify Guides Landing Page is Opened </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesLanding.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TCommon_Guides"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="User successfully landed on Guides Landing page" />
+			</step>
+			
+			<step type="STATE" name="Screenshot - FordPass Guides Landing page" page="pge_GuidesLanding" failureMode="IGNORE"/>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="Guides Landing page is not opened or Page Header is not as expected" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_Guides">
+		<description> fn_ValidatePage_Guides - Function to validate the Guides Landing page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesLanding.xml" />
+		</step>		
+		
+		<step type="STATE" name="Screenshot - Guides Landing page taken for validation" page="pge_GuidesLanding" failureMode="IGNORE"/>
+		
+		<step type="EXISTS" name="lbl_CallAGuide" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lbl_CallAGuide" value="TGuides2"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Call a Guide' field is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Call a Guide' field is not available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_ChatWithAGuide" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lbl_ChatWithAGuide" value="TGuides1"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Chat with a Guide' field is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Chat with a Guide' field is not available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lbl_EmailAGuide" page="pge_GuidesLanding" tagNames="FP-SA,FP-EU,FP-NA" >
+			<token type="CONTENT" name="token_lbl_EmailAGuide" value="TGuides3"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Call a Guide' field is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Call a Guide' field is not available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_ChangeTopics" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lnk_ChangeTopics" value="TGuides6"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Change Topic' link is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Change Topic' link is not available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="edt_GuidesSearch" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_edt_GuidesSearch" value="TGuides4"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'How can I Help You ' search Link is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'How can I Help You' search link is not available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="EXISTS" name="lnk_RSA" page="pge_GuidesLanding">
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Road Side Assistance'  Link is available on the Guides Landing page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Road Side Assistance' link is not available on the Guides Landing page" />
+				</step>
+			</step>
+		</step>
+		
+		<step type="CALL2" name="fn_ValidatePopularTopicHeader" page="page_GuidesLanding" >
+			<parameter type="CONTENT" name="param_PopularTopicHeader" value="TGuides5" />
+		</step>
+		
+		
+				
+	</function>
+
+	<function name="fn_ClickChangeTopics">
+		<description>  Click Change Link on Guides Landing Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_ChangeTopics" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lnk_ChangeTopics" value="TGuides6"/>
+			
+		<step type="CLICK" name="lnk_ChangeTopics" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_ChangeTopics" value="TGuides6"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Change Topics' Link is available and clicked on the Guides Landing page" />
+			</step>
+		</step>
+
+		</step>		
+	</function>
+	
+	<function name="fn_ClickRSA_FromGuidesLandingPage">
+		<description>  Click RoadSide Assistance Link on Guides Landing Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_RSA" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			
+		<step type="CLICK" name="lnk_RSA" page="pge_GuidesLanding" >
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'RSA' Link is available and clicked on the Guides Landing page" />
+			</step>
+		</step>
+
+		</step>		
+	</function>
+	
+	<function name="fn_ClickGuidesSearch">
+		<description>  fn_ClickGuidesSearch - > Click on How can I help you search bar on Guides Landing Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="edt_GuidesSearch" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_edt_GuidesSearch" value="TGuides4"/>			
+			
+		<step type="CLICK" name="edt_GuidesSearch" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_edt_GuidesSearch" value="TGuides4"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'How can I Help You' search link is available and clicked on the Guides Landing page" />
+			</step>
+		</step>
+
+		</step>		
+	</function>
+	
+	<function name="fn_ValidateCallAGuide_NonOperatingHours">
+		<description>  fn_ValidateCallAGuide_NonOperatingHours - > Click on Call a Guide -> Validate Non-Operating Hours Popup -> Click Close </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_CallAGuide" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lnk_CallAGuide" value="TGuides2"/>
+			
+			<step type="CLICK" name="lnk_CallAGuide" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_CallAGuide" value="TGuides2"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Call a Guide'  link is available and clicked on the Guides Landing page" />
+			</step>
+			</step>		
+	
+		<step type="WAIT_FOR" name="lbl_CallUnavailableMessage" page="pge_GuidesLanding" tagNames="FP-SA-BR">
+			<parameter type="STATIC" value="60" />			
+			<token type="CONTENT" name="token_lbl_CallUnavailableMessage" value="TGuides19"/>			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'FordPass Guides are available Monday  through Saturday  8:00 am to 9:00 pm Brasilia time.   Please try again during that time or send us an email to fpassbr@ford.com and we'll be happy to help.' link is available and clicked on the Guides Landing page" />
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_CallUnavailableMessage" page="pge_GuidesLanding" tagNames="FP-EU-UK">
+			<parameter type="STATIC" value="60" />			
+			<token type="CONTENT" name="token_lbl_CallUnavailableMessage" value="TGuides19"/>			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'FordPass Guides are available Monday to Saturday 10:00 am to 9:00 pm. Please try again during our opening hours or email your query to the address fpgbr@ford.com' link is available and clicked on the Guides Landing page" />
+			</step>
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_CallUnavailableHeader" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lbl_CallUnavailableHeader" value="TGuides22"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Sorry, we missed you!' label header is available on the Guides UnAvailable Pop-up" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Sorry, we missed you!' label header is NOT available on the Guides UnAvailable Pop-up" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CLICK" name="btn_Close_CallUnavailable" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_btn_Close_CallUnavailable_AND" value="TGuides21_AND"/>
+			<token type="CONTENT" name="token_btn_Close_CallUnavailable_IOS" value="TGuides21_IOS"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'CLOSE'  button is available and clicked on the Call a Guide Not Available Popup" />
+			</step>
+		</step>		
+
+		</step>		
+	</function>
+	
+	<function name="fn_ValidateCallAGuide_OperatingHours">
+		<description>  fn_ValidateCallAGuide_OperatingHours - > Click on Call a Guide -> Validate Dialer App </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_CallAGuide" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lnk_CallAGuide" value="TGuides2"/>
+			
+			<step type="CLICK" name="lnk_CallAGuide" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_CallAGuide" value="TGuides2"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Call a Guide'  link is available and clicked on the Guides Landing page" />
+			</step>
+			</step>			
+			
+		<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonResusable" failureMode="IGNORE"/>
+
+		</step>		
+	</function>
+	
+	<function name="fn_ValidateEmailAGuide">
+		<description>  fn_ValidateEmailAGuide - > Click on Email a Guide -> Validate Gmail App is Open -> Close Gmail App </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_EmailAGuide" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lnk_EmailAGuide" value="TGuides3"/>
+			
+			<step type="CLICK" name="lnk_EmailAGuide" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_EmailAGuide" value="TGuides3"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Email a Guide'  link is available and clicked on the Guides Landing page" />
+			</step>
+			</step>	
+		</step>
+		
+           <step type="APPLICATION" name="CLOSE" page="pge_CommonReusable" os="ANDROID" wait="10" failureMode="IGNORE">
+                <parameter type="STATIC" name="Application Name" value="Gmail" />                
+                <step type="REPORT" name="ADD_TO_REPORT" page="pge_CommonReusable">
+                     <parameter type="STATIC" value="TestFlow Control is switched back to FordPass app from GMAIL APP" />
+                </step>              
+           </step>	
+           
+        <step type="WAIT_FOR" name="lbl_WelcometoMail" page="pge_GuidesLanding" os="IOS">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_WelcometoMail" value="TGuides20"/>			
+		</step>	
+		
+		<step name="OPEN" site="FordPass" page="pge_Login" type="APPLICATION" wait="5">
+				<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+			
+		<!-- <step type="CALL2" name="fn_Click_ReturnToFordPass_IOS" page="pge_FPCommon" /> -->
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="pge_GuidesLanding"/>
+			
+	</function>
+	
+	<function name="fn_ValidateChatWithAGuide_NonOperatingHours">
+		<description>  fn_ValidateChatWithAGuide_NonOperatingHours - > Click on Chat With A Guide -> Validate Non-Operating Hours Popup -> Click Close </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_ChatWithAGuide" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lnk_ChatWithAGuide" value="TGuides1"/>
+			
+			<step type="CLICK" name="lnk_ChatWithAGuide" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_ChatWithAGuide" value="TGuides1"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Chat With A Guide'  link is available and clicked on the Guides Landing page" />
+			</step>
+			</step>		
+	
+		<step type="WAIT_FOR" name="lbl_ChatUnavailableMessage" page="pge_GuidesLanding" tagNames="FP-SA-BR,FP-EU-UK,FP-NA-US">
+			<parameter type="STATIC" value="60" />			
+			<token type="CONTENT" name="token_lbl_ChatUnavailableMessage" value="TGuides19"/>			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'FordPass Guides are available Monday  through Saturday  8:00 am to 9:00 pm Brasilia time.   Please try again during that time or send us an email to fpassbr@ford.com and we'll be happy to help.' link is available and clicked on the Guides Landing page" />
+			</step>
+		</step>
+				
+		<step type="EXISTS" name="lbl_ChatUnavailableHeader" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lbl_ChatUnavailableHeader" value="TGuides22"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Sorry, we missed you!' label header is available on the Guides UnAvailable Pop-up" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Sorry, we missed you!' label header is NOT available on the Guides UnAvailable Pop-up" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CLICK" name="btn_Close_ChatUnavailable" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_btn_Close_ChatUnavailable_AND" value="TGuides21_AND"/>
+			<token type="CONTENT" name="token_btn_Close_ChatUnavailable_IOS" value="TGuides21_IOS"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'CLOSE'  button is available and clicked on the Chat with a Guide Not Available Popup" />
+			</step>
+		</step>		
+
+		</step>
+				
+	</function>
+	
+	<function name="fn_ValidateChatWithAGuide_WaitTime">
+		<description>  fn_ValidateChatWithAGuide_NonOperatingHours - > Click on Chat With A Guide -> Validate Non-Operating Hours Popup -> Click Close </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+			
+			<step type="CLICK" name="lnk_ChatWithAGuide" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_ChatWithAGuide" value="TGuides1"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Chat With A Guide'  link is available and clicked on the Guides Landing page" />
+			</step>
+			</step>		
+	
+		<step type="WAIT_FOR" name="lbl_ChatUnavailableMessage" page="pge_GuidesLanding" tagNames="FP-SA-BR,FP-CN-EN">
+			<parameter type="STATIC" value="60" />			
+			<token type="CONTENT" name="token_lbl_ChatUnavailableMessage" value="TGuides26"/>			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="Our Guides are currently chatting with other Fordpass members" />
+			</step>
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_ChatUnavailableMessage" page="pge_GuidesLanding" tagNames="FP-EU-UK">
+			<parameter type="STATIC" value="60" />			
+			<token type="CONTENT" name="token_lbl_ChatUnavailableMessage" value="TGuides26"/>			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="Our Guides are currently chatting with other Fordpass members" />
+			</step>
+		</step>
+		
+		
+		<step type="EXISTS" name="lbl_ChatUnavailableHeader" page="pge_GuidesLanding">
+			<token type="CONTENT" name="token_lbl_ChatUnavailableHeader" value="TGuides22"/>
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="STATIC" value="'Sorry, we missed you!' label header is available on the Guides UnAvailable Pop-up" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Sorry, we missed you!' label header is NOT available on the Guides UnAvailable Pop-up" />
+				</step>
+			</step>
+		</step>		
+		
+		<step type="CLICK" name="btn_Close_ChatUnavailable" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_btn_Close_ChatUnavailable_AND" value="TGuides21_AND"/>
+			<token type="CONTENT" name="token_btn_Close_ChatUnavailable_IOS" value="TGuides21_IOS"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'CLOSE'  button is available and clicked on the Chat with a Guide Not Available Popup" />
+			</step>
+		</step>		
+
+				
+	</function>
+	
+	
+	
+	<function name="fn_ValidatePopularTopicHeader">
+		<description> fn_ValidatePopularTopicHeader - Function to validate a Popular topic Header in the Guides Landing Page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>		
+			
+			<step type="VISIBLE" name="lbl_PopularTopicHeader" page="pge_GuidesLanding">
+			<parameter type="STATIC" name="maxScroll" value="3" />
+			<parameter type="STATIC" name="direction" value="DOWN" />			
+			<token type="CONTEXT" name="token_lbl_PopularTopicHeader" value="param_PopularTopicHeader" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+				<parameter type="CONTEXT" value="param_PopularTopicHeader"/>
+				<parameter type="STATIC" value="Popular Topic Header is displayed  on Guides Landing Page " />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_GuidesLanding">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+					<parameter type="CONTEXT" value="param_PopularTopicHeader"/>
+					<parameter type="STATIC" value="Popular Topic Header is NOT as expected on Guides Landing Page " />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidateGuidesFromFindPage">
+		<description> fn_ValidateGuidesFromFindPage - Function to validate a Popular topic Header in the Guides Landing Page after navigating from FIND page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>	
+		
+		<step type="CALL2" name="fn_Click_FindMenu" page="page_FPCommon"/>		
+		<step type="CALL2" name="fn_ClickAllow" page="page_CommonReusable" failureMode="IGNORE"/>
+		<step type="CALL2" name="fn_ClickAllow" page="page_CommonReusable" failureMode="IGNORE"/>
+		<step type="CALL2" name="fn_Click_GuidesMenu" page="page_FPCommon"/>
+		<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="page_GuidesLanding"/>
+		<step type="CALL2" name="fn_ValidatePopularTopicHeader" page="page_GuidesLanding" >
+			<parameter type="CONTENT" name="param_PopularTopicHeader" value="TGuides23" />
+		</step>
+			
+	</function>
+	
+	<function name="fn_ValidateGuidesFromAccountPage">
+		<description> fn_ValidateGuidesFromAccountPage - Function to validate a Popular topic Header in the Guides Landing Page after navigating from ACCOUNT page</description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesChangeTopic">
+			<parameter type="STATIC" value="Function's XML file name: fn_GuidesChangeTopic.xml" />
+		</step>	
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="page_FPCommon"/>		
+		<step type="CALL2" name="fn_Click_GuidesMenu" page="page_FPCommon"/>
+		<step type="CALL2" name="fn_VerifyPageOpened_GuidesLanding" page="page_GuidesLanding"/>
+		<step type="CALL2" name="fn_ValidatePopularTopicHeader" page="page_GuidesLanding" >
+			<parameter type="CONTENT" name="param_PopularTopicHeader" value="TGuides24" />
+		</step>
+			
+	</function>
+	
+		<function name="fn_ValidateCallFordCredit_OperatingHours" >
+		<description>  fn_ValidateCallFordCredit_OperatingHours - > Click on Call Ford Credit -> Validate Dialer App </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="*** XML FILE NAME OF THE CALLED FUNCTION: fn_GuidesLanding.xml ***" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lnk_CallFordCredit" page="pge_GuidesLanding" tagNames="FP-EU-UK,FP-EU-DE,FP-EU-FR">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lnk_CallFordCredit" value="TGuides25"/>
+			
+			<step type="CLICK" name="lnk_CallFordCredit" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_lnk_CallFordCredit" value="TGuides25"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Call Ford Credit'  link is available and clicked on the Guides Landing page" />
+			</step>
+			</step>	
+			
+		<step type="WAIT_FOR" name="lbl_CallConfirmationHeader" page="pge_GuidesLanding" >
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_CallConfirmationHeader" value="TGuides25"/>			
+		</step>
+		
+					
+		<step type="WAIT_FOR" name="lbl_CallConfirmationHeader" page="pge_GuidesLanding">
+			<parameter type="STATIC" value="60" />
+			<token type="CONTENT" name="token_lbl_CallConfirmationHeader" value="TGuides25"/>			
+		</step>
+		
+		<step type="CLICK" name="btn_ConfirmCallFordCredit" page="pge_GuidesLanding" >
+			<token type="CONTENT" name="token_btn_ConfirmCallFordCredit" value="TGuides25"/>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_GuidesLanding">
+					<parameter type="STATIC" value="'Call Ford Credit'  button is available and clicked on the Guides Landing page" />
+			</step>
+			</step>	
+			
+		
+		
+		
+					
+					
+			
+		<step type="CALL2" name="fn_Validate_Dialer" page="pge_CommonResusable" />
+
+		</step>		
+	</function>
+	
+	
+	
+</suite>

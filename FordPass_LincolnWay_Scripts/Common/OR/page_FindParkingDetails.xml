@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_FindParkingDetails" class="org.xframium.page.keyWord.KeyWordPage">
+			
+			<element name="lbl_ParkHoursAND" value="//*[@text='{token_ParkHours}']/following::android.widget.TextView[{token_ParkHoursIndex}]" descriptor="XPATH" />
+			<element name="lbl_ParkDaysIOS" value="//*[@label='{token_ParkHours}']/following::UIATableCell[{token_ParkHoursIndex}]/UIAStaticText[1]" descriptor="XPATH" />
+			<element name="lbl_ParkHoursIOS" value="//*[@label='{token_ParkHours}']/following::UIATableCell[{token_ParkHoursIndex}]/UIAStaticText[2]" descriptor="XPATH" />
+			
+			<element name="lnk_review" value="//*[@text='{token_lnk_review}']/following::android.widget.TextView[1]|//*[@label='{token_lnk_review}']/following-sibling::UIAStaticText" descriptor="XPATH" />
+			<element name="lbl_Amenities" value="//*[@text='{token_lbl_Amenities}']/following::android.widget.TextView[{token_lbl_Amenities_Index}]|//*[@label='{token_lbl_Amenities}']/following::UIAStaticText[{token_lbl_Amenities_Index}]" descriptor="XPATH" />
+			
+		
+		
+			</page>
+	</site>
+</elementDefinition>

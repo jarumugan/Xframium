@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID :  -->
+<!-- Author Name : PSARAV24 -->
+<!-- Created Date : 05-Mar-2018 -->
+<!-- Updated Date : 05-Mar-2018 -->
+<!-- Pre-Requisite : -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_Accounts_011" dataProvider="TestData.XFS_FP_Accounts_011,Setup.XFS_StartFordPass" contentKeys="NA_USA_EN" timed="false" threshold="0" active="true">
+		<description> Update PIN, Forgot PIN - Logout </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="APPLICATION" name="OPEN" page="pge_Login" wait="3">
+			<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+		</step>
+		
+<!-- 		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" /> -->
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+				
+		<step type="CALL2" name="fn_Login_Parameterized" page="pge_Login">
+			<parameter type="DATA" name="param_Username" value="TestData.UserName" />
+			<parameter type="DATA" name="param_Password" value="TestData.Password" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_InputAll_CreatePIN" page="pge_CreatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_Click_AccountMenu" page="pge_FPCommon" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Account" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_Click_Settings" page="pge_Account" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Settings" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_Click_Security" page="pge_Settings" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Security" page="pge_Security" />
+		
+		<step type="CALL2" name="fn_Click_UpdatePIN" page="pge_Security" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<!-- Invalid Current PIN -->
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="STATIC" name="param_Pin1" value="1" />
+			<parameter type="STATIC" name="param_Pin2" value="8" />
+			<parameter type="STATIC" name="param_Pin3" value="1" />
+			<parameter type="STATIC" name="param_Pin4" value="8" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_CheckErrorExists_AnyPINpage" page="pge_FPCommon">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TEnterPIN4" />
+		</step>
+		
+		<!-- Input Valid Current PIN -->
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="DATA" name="param_Pin1" value="TestData.PIN1" />
+			<parameter type="DATA" name="param_Pin2" value="TestData.PIN2" />
+			<parameter type="DATA" name="param_Pin3" value="TestData.PIN3" />
+			<parameter type="DATA" name="param_Pin4" value="TestData.PIN4" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidatePage_NewPIN_In_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<!-- Input current PIN as New PIN -->
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="DATA" name="param_Pin1" value="TestData.PIN1" />
+			<parameter type="DATA" name="param_Pin2" value="TestData.PIN2" />
+			<parameter type="DATA" name="param_Pin3" value="TestData.PIN3" />
+			<parameter type="DATA" name="param_Pin4" value="TestData.PIN4" />
+		</step>
+		
+		<step type="CALL2" name="fn_CheckErrorExists_AnyPINpage" page="pge_FPCommon">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TEnterPIN5" />
+		</step>
+		
+		<!-- Enter a valid New PIN -->
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="DATA" name="param_Pin1" value="TestData.NewPIN1" />
+			<parameter type="DATA" name="param_Pin2" value="TestData.NewPIN2" />
+			<parameter type="DATA" name="param_Pin3" value="TestData.NewPIN3" />
+			<parameter type="DATA" name="param_Pin4" value="TestData.NewPIN4" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_ValidatePage_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<!-- Input Old/invalid PIN -->
+		<step type="CALL2" name="fn_InputAll_ConfirmPIN_WithoutAllow" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_CheckErrorExists_AnyPINpage" page="pge_FPCommon">
+			<parameter type="CONTENT" name="param_ExpectedError" value="TEnterPIN4" />
+		</step>
+		
+		<!-- User should redirect to New PIN page -->
+		<step type="CALL2" name="fn_ValidatePage_NewPIN_In_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="DATA" name="param_Pin1" value="TestData.NewPIN1" />
+			<parameter type="DATA" name="param_Pin2" value="TestData.NewPIN2" />
+			<parameter type="DATA" name="param_Pin3" value="TestData.NewPIN3" />
+			<parameter type="DATA" name="param_Pin4" value="TestData.NewPIN4" />
+		</step>
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_ConfirmPIN" page="pge_ConfirmPIN" />
+		
+		<step type="CALL2" name="fn_InputAll_NewConfirmPIN" page="pge_ConfirmPIN" />
+
+		<!-- Check whether updated PIN is updated or not -->
+		<step type="CALL2" name="fn_VerifyPageOpened_Security" page="pge_Security" />
+		
+		<step type="CALL2" name="fn_Click_UpdatePIN" page="pge_Security" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_Input_UpdatePIN" page="pge_UpdatePIN">
+			<parameter type="DATA" name="param_Pin1" value="TestData.NewPIN1" />
+			<parameter type="DATA" name="param_Pin2" value="TestData.NewPIN2" />
+			<parameter type="DATA" name="param_Pin3" value="TestData.NewPIN3" />
+			<parameter type="DATA" name="param_Pin4" value="TestData.NewPIN4" />
+		</step>
+		
+		<step type="CALL2" name="fn_ValidatePage_NewPIN_In_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_ClickButton_FP_Back" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_Click_UpdatePIN" page="pge_Security" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_ClickForgotPIN_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_VerifyDialogOpened_ForgotPIN" page="pge_ForgotPIN" />
+		
+		<step type="CALL2" name="fn_ValidateDialog_ForgotPIN" page="pge_ForgotPIN" />
+		
+		<step type="CALL2" name="fn_ClickForgotPIN_Cancel" page="pge_ForgotPIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_UpdatePIN" page="pge_UpdatePIN" />
+		
+		<step type="CALL2" name="fn_ClickForgotPIN_UpdatePIN" page="pge_UpdatePIN" />
+
+		<step type="CALL2" name="fn_VerifyDialogOpened_ForgotPIN" page="pge_ForgotPIN" />
+		
+		<step type="CALL2" name="fn_ClickForgotPIN_Logout" page="pge_ForgotPIN" />
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_Login" page="pge_Login" />
+	</test>
+</suite>

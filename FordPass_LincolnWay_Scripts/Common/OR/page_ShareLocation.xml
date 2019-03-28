@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementDefinition xmlns="http://www.xframium.org/pageRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/pageRegistry http://www.xframium.org/xsd/pageManagement/pageRegistry.xsd">
+	<site name="FordPass">
+		<page name="pge_ShareLocation" class="org.xframium.page.keyWord.KeyWordPage">
+			<element name="lbl_PageHeader" value="//*[@text=&quot;{token_lbl_PageHeader}&quot;]|//*[contains(@label,&quot;{token_lbl_PageHeader}&quot;)]" descriptor="XPATH" />
+			<element name="lbl_PageInfo" value="//*[contains(@text,&quot;{token_lbl_PageInfo}&quot;)]|//*[contains(@label,&quot;{token_lbl_PageInfo}&quot;)]" descriptor="XPATH" />
+			<element name="btn_Allow" value="//*[@text='{token_btn_Allow_AND}']|//*[@label='{token_btn_Allow_IOS}']" descriptor="XPATH" />
+			<element name="btn_DontAllow" value="//*[@text=&quot;{token_btn_DontAllow_AND}&quot;]|//*[@label=&quot;{token_btn_DontAllow_IOS}&quot;]" descriptor="XPATH" />
+		</page>
+	</site>
+</elementDefinition>

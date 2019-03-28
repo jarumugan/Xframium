@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_AALogin" dataProvider="TestData.XFS_FP_AALogin,Setup.XFS_StartFordPass" contentKeys="AP_AU_EN" timed="false" threshold="0" active="true">
+		<description> Login page Sample script </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_AALogin">
+			<parameter type="DATA" name="Add to Report" value="TestData.ALM_TC_Name" />
+		</step>
+		
+		<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" /> 
+		
+		<step type="CALL2" name="fn_VerifyPageOpened_LoginAA" page="pge_AALogin" />
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+<!-- 			<step type="CALL2" name="fn_Start_FordPassApp" page="pge_FPCommon" />  -->
+			
+<!-- 		<step type="CALL2" name="fn_VerifyPageOpened_LoginAA" page="pge_AALogin" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_ValidatePage_LoginAA" page="pge_AALogin" /> -->
+		
+<!-- 		<step type="CALL2" name="fn_Login_ParameterizedAA" page="pge_AALogin" >  -->
+<!-- 			<parameter type="DATA" name="param_Username" value="TestData.UserName" /> -->
+<!-- 			<parameter type="DATA" name="param_Password" value="TestData.Password" /> -->
+<!-- 		</step> -->
+	
+		
+	</test>
+</suite>

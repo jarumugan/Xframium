@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	
+	<function name="fn_VerifyPageOpened_ConfirmPIN_D2">
+		<description> fn_VerifyPageOpened_ConfirmPIN - Function to verify user landed on the Confirm PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ConfirmPIN_D2.xml" />
+		</step>
+		
+		<step type="WAIT_FOR" name="lbl_PageHeader" page="pge_ConfirmPIN">
+			<parameter type="STATIC" value="30" />
+			<token type="CONTENT" name="token_lbl_PageHeader" value="TConfirmPIN1" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+				<parameter type="STATIC" value="User successfully landed on Confirm PIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ConfirmPIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+					<parameter type="STATIC" value="Confirm PIN page is not displayed or opened" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_ValidatePage_ConfirmPIN_D2">
+		<description> fn_ValidatePage_ConfirmPIN - Function to validate the Confirm PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ConfirmPIN.xml" />
+		</step>
+		
+		<step type="EXISTS" name="lbl_PageInfo" page="pge_ConfirmPIN">
+			<token type="CONTENT" name="token_lbl_PageInfo" value="TConfirmPIN2" />
+			
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+				<parameter type="CONTENT" value="TConfirmPIN2" />
+				<parameter type="STATIC" value="Above text is displayed as page info on Confirm PIN page" />
+			</step>
+			
+			<step type="ELSE" name="elseCondition" page="pge_ConfirmPIN">
+				<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+					<parameter type="CONTENT" value="TConfirmPIN2" />
+					<parameter type="STATIC" value="Above text is not displayed as page info on Confirm PIN page" />
+				</step>
+			</step>
+		</step>
+	</function>
+	
+	<function name="fn_InputAll_ConfirmPIN_D2">
+		<description> fn_InputAll_ConfirmPIN - Function to Input all the four PIN on Confirm PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ConfirmPIN_D2.xml" />
+		</step>
+		
+		<!-- Click PIN1 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN1" />
+		</step>
+		
+		<!-- Click PIN2 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN2" />
+		</step>
+
+		<!-- Click PIN3 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN3" />
+		</step>
+		
+		<!-- Click PIN4 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN4" />
+		</step>
+				
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" tagNames="FP-EU" failureMode="IGNORE"/>
+
+		<!-- KSARAV53 - Included one more fn_ClickAllow since android shows two pop-up before displaying safety check screen -->
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" tagNames="FP-EU" failureMode="IGNORE"/>
+
+		<!-- HANDLING SAFETY CHECK SCREEN DISPLAYED -->
+		<step type="CALL2" name="fn_Click_Im_Not_Driving_Button" page="pge_SmartTip" tagNames="FP-EU" failureMode="IGNORE"/>
+		
+ 		<step type="CALL2" name="fn_ValidateNotDrivingAlertScreen" page="pge_Move" tagNames="FP-EU" failureMode="IGNORE"/>  
+
+		<step type="CALL2" name="fn_ClickNotDrivingBtn" page="pge_Move" tagNames="FP-EU" failureMode="IGNORE"/>  
+				
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" os="IOS" failureMode="IGNORE"/>
+		
+<!-- KSARAV53 - Added one more fn_ClickAllow, since some iOS devices show two of these pop up message - one for 'Location' and the other for 'Notifications' -->
+
+		<step type="WAIT" name="Wait_For_5_Seconds" page="pge_CommonReusable" >
+			<parameter type="STATIC" value="5"/>
+		</step>
+				
+		<step type="CALL2" name="fn_ClickAllow" page="pge_CommonReusable" os="IOS" failureMode="IGNORE"/>
+		
+		<step type="CALL2" name="fn_ClickNotDrivingBtn" page="pge_Move" tagNames="FP-EU,FP-NA" failureMode="IGNORE"/>
+		
+	</function>
+
+	<function name="fn_InputAll_NewConfirmPIN_D2">
+		<description> fn_InputAll_NewConfirmPIN - Function to Input all the four PIN on UpdatePIN - Confirm PIN page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ConfirmPIN.xml" />
+		</step>
+		
+		<!-- Click PIN1 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.NewPIN1" />
+		</step>
+		
+		<!-- Click PIN2 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.NewPIN2" />
+		</step>
+
+		<!-- Click PIN3 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.NewPIN3" />
+		</step>
+		
+		<!-- Click PIN4 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.NewPIN4" />
+		</step>
+	</function>
+	
+	<function name="fn_InputAll_ConfirmPIN_WithoutAllow_D2">
+		<description> fn_InputAll_ConfirmPIN_WithoutAllow - Function to Input all the four PIN on Confirm PIN (Update PIN) page </description>
+		<step type="REPORT" name="ADD_TO_REPORT" page="pge_ConfirmPIN">
+			<parameter type="STATIC" value="Function's XML file name: fn_ConfirmPIN.xml" />
+		</step>
+		
+		<!-- Click PIN1 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN1" />
+		</step>
+		
+		<!-- Click PIN2 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN2" />
+		</step>
+
+		<!-- Click PIN3 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN3" />
+		</step>
+		
+		<!-- Click PIN4 -->
+		<step type="CALL2" name="fn_ClickSpecific_PIN" page="pge_ConfirmPIN">
+			<parameter type="DATA" name="param_PINNumber" value="TestData.PIN4" />
+		</step>		
+	</function>
+</suite>

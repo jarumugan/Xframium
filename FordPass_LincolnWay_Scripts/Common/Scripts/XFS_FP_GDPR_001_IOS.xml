@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TestCase Name/ID : -->
+<!-- Author Name : MARUN15 -->
+<!-- Created Date : 14-May-2018 -->
+<!-- Updated Date : 14-May-2018 -->
+<!-- Pre-Requisite : Install & Login into FP 1.0 app, Configure TAppName Content for Upgradation of FP 2.0 in Appl Registry  -->
+
+<suite xmlns="http://www.xframium.org/testRegistry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xframium.org/testRegistry http://www.xframium.org/xsd/pageManagement/testRegistry.xsd">
+	<test name="XFS_FP_GDPR_001_IOS" dataProvider="TestData.XFS_FP_GDPR_001_IOS,Setup.XFS_StartFordPass"
+		contentKeys="NA_USA_EN" timed="false" threshold="0" active="true" os="IOS">
+		<description>		
+		Validate when user is already logged in FP 1.0 and Post address is set to Yes in GDPR flow				  	
+		</description>
+			<step type="REPORT" name="ADD_TO_REPORT" page="pge_Login">
+				<parameter type="STATIC" name="Add to Report" value="Test" />
+			</step>
+	
+				<step type="APPLICATION" name="UPGRADE" site="FordPass" page="pge_Setup_SelectCountry" >
+				  <parameter type="CONTENT" name="Application Name" value="TAppName" />
+				</step>
+	
+				<step type="APPLICATION" name="OPEN" site="FordPass" page="pge_Setup_SelectCountry" failureMode="ERROR" >
+					<parameter type="CONTENT" name="Application Name" value="TAppName"/>
+				</step>		
+	
+				<step type="STATE" name="Screenshot" page="pge_GuidesLanding" failureMode="IGNORE"/>
+				
+				<step type="CALL2" name="fn_VerifyPageOpened_AcceptCookies" page="pge_AcceptCookies"/>
+				
+				<step type="CALL2" name="fn_Click_Allow_AcceptCookies" page="pge_AcceptCookies"/>
+				
+				<step type="CALL2" name="fn_Click_Accept_TermsAndConditions"  page="pge_TermsAndConditions"/>
+			
+				<step type="CALL2" name="fn_Click_Accept_PrivacyPolicy" page="pge_PrivacyPolicy"/>
+			
+				<step type="CALL2" name="fn_VerifyPageOpened_MarketingOptions" page="pge_MarketingOptions" />
+				
+				<step type="CALL2" name="fn_SetAll_MarketingOptions_CA" page="pge_MarketingOptions" />
+				
+				<step type="CALL2" name="fn_ClickMarkingOptions_Save" page="pge_MarketingOptions" />
+				
+				<step type="CALL2" name="fn_VerifyPageOpened_EnterAddress" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_ClickEnterAddress_Next" page="pge_EnterAddress" />
+				
+				<step type="CALL2" name="fn_VerifyPageOpened_ShareLocation" page="pge_ShareLocation" tagNames="FP-EU" />
+				
+				<step type="CALL2" name="fn_Click_Allow_ShareLocation" page="pge_ShareLocation" tagNames="FP-EU" />
+				
+				<step type="CALL2" name="fn_Click_All_Allow" page="pge_CommonReusable" />
+				
+				<step type="CALL2" name="fn_Logout_FordPassApp" page="pge_FPCommon" />
+				
+	</test>
+</suite>
